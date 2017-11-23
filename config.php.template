@@ -1,0 +1,26 @@
+<?php
+//This is config file, please be careful
+
+//You can change these:
+define("NAME", '##name##'); //Website name
+define("WEB_URL", "##url##"); //Used for links 
+define("MAILER_NAME", "##mailer##"); //Mailer name
+define("MAILER_ADDRESS", "##mailer_email##"); //Mailer address
+define("INSTALL_OVERRIDE", false);
+//Database connection
+$mysqli = new mysqli("##server##","##user##","##password##","##database##");
+
+if ($mysqli->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
+    exit();
+}
+
+$mysqli->set_charset("utf8");
+
+//This should later be translatable, maybe find a better solution?
+$statuses = array("Major outage", "Minor outage", "Planned maintenance", "Operational" );
+$classes = array("danger", "warning", "primary", "success" );
+$icons = array("fa fa-times", "fa fa-exclamation", "fa fa-info", "fa fa-check" );
+$some = array("Some systems are experiencing major outages", "Some systems are experiencing minor outages", "Some systems are under maintenance");
+$all = array("Our systems are experiencing major outages.", "Our systems are experiencing minor outages", "Our systems are under maintenance", "All systems operational");
+$permissions = array("Super admin", "Admin", "Writer");
