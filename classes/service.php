@@ -46,7 +46,7 @@ class Service
     {
       global $mysqli;
       $name = $_POST['service'];
-      $stmt = $mysqli->prepare("INSERT INTO services VALUES('',?)");
+      $stmt = $mysqli->prepare("INSERT INTO services VALUES(NULL,?)");
       $stmt->bind_param("s", $name);
       $stmt->execute();
       $query = $stmt->get_result();

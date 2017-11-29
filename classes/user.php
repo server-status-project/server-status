@@ -114,7 +114,7 @@ class User
         $permission = $_POST['permission'];
         
 
-        $stmt = $mysqli->prepare("INSERT INTO users values ('', ?, ?, ?, ?, ?, ?, ?, 1)");
+        $stmt = $mysqli->prepare("INSERT INTO users values (NULL, ?, ?, ?, ?, ?, ?, ?, 1)");
         $stmt->bind_param("ssssssi", $email, $username, $name, $surname, $hash, $salt, $permission);
         $stmt->execute();
         $query = $stmt->get_result();

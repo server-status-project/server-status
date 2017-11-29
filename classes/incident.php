@@ -104,14 +104,14 @@ class Incident
         $end_time = '';
       }
       
-      $stmt = $mysqli->prepare("INSERT INTO status VALUES ('',?, ?, ?, ?, ?, ?)");
+      $stmt = $mysqli->prepare("INSERT INTO status VALUES (NULL,?, ?, ?, ?, ?, ?)");
       $stmt->bind_param("issiii", $type, $title, $text, $time ,$end_time ,$user_id);
       $stmt->execute();
       $query = $stmt->get_result();
       $status_id = $mysqli->insert_id;
 
       foreach ($services as $service) {
-        $stmt = $mysqli->prepare("INSERT INTO services_status VALUES ('',?, ?)"); 
+        $stmt = $mysqli->prepare("INSERT INTO services_status VALUES (NULL,?, ?)"); 
         $stmt->bind_param("ii", $service, $status_id);
         $stmt->execute();
         $query = $stmt->get_result();
