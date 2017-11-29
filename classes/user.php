@@ -356,7 +356,6 @@ class User
           $stmt->bind_param("i", $id);
           $stmt->execute();
           $query = $stmt->get_result();
-
           $result = $query->fetch_assoc();
           $salt = $result['salt'];
           $pass = $_POST['password'];
@@ -389,10 +388,8 @@ class User
 
     $id = $query->fetch_assoc()['id'];    
     $time = strtotime('+1 day', time());
-    $salt = uniqid(mt_rand(), true);
-    $token = hash('sha256', $id.$salt);
 
-    Token::new($id, 'passwd', $time);
+    $token = Token::new($id, 'passwd', $time);
 
     $link = WEB_URL."/admin/?do=lost-password&id=$id&token=$token";
     $to      = $email;
@@ -409,27 +406,11 @@ class User
 
   public function email_link(){
     global $mysqli;
-    $email = trim($_POST['email']);
+    $email = $_POST['email'];
     $time = strtotime('+1 day', time());
-    $salt = uniqid(mt_rand(), true);
     $id = $this->id;
-    $token = hash('sha256', $id.$salt);
-    
-    $stmt = $mysqli->prepare("SELECT count(*) as count FROM users WHERE email=?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $query = $stmt->get_result();
 
-    $count = $query->fetch_assoc()['count'];    
-
-    if ($count)
-    {
-      $message = "This email is already used.";
-      return;
-    }
-
-
-    Token::new($id, 'email;$email', $time);
+    $token = Token::new($id, 'email;$email', $time);
 
 
     $link = WEB_URL."/admin/?do=change-email&id=$id&token=$token";

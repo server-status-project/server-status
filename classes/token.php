@@ -16,15 +16,14 @@ class Token
     return $token;
   }
 
-  public static function validate_token($token, $user, $data)
+  public static function validate_token($token, $id, $data)
   {
     global $mysqli;
     $time = time();
-    $stmt = $mysqli->prepare("SELECT count(*) as count, data FROM tokens WHERE token = ? AND user = ? AND expire>=? AND data LIKE ?");
+    $stmt = $mysqli->prepare("SELECT count(*) as count FROM tokens WHERE token = ? AND user = ? AND expire>=? AND data LIKE ?");
     $stmt->bind_param("siis", $token, $id, $time, $data);
     $stmt->execute();
     $query = $stmt->get_result();
-
     return $query->fetch_assoc()['count'];
   }
 
