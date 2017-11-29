@@ -117,9 +117,8 @@ class User
         $stmt = $mysqli->prepare("INSERT INTO users values (NULL, ?, ?, ?, ?, ?, ?, ?, 1)");
         $stmt->bind_param("ssssssi", $email, $username, $name, $surname, $hash, $salt, $permission);
         $stmt->execute();
-        $query = $stmt->get_result();
 
-        if ($query->affected_rows>0)
+        if ($stmt->affected_rows>0)
         {
           $to      = $email;
           $subject = 'User account created - '.NAME;
@@ -410,11 +409,25 @@ class User
 
   public function email_link(){
     global $mysqli;
-    $email = $_POST['email'];
+    $email = trim($_POST['email']);
     $time = strtotime('+1 day', time());
     $salt = uniqid(mt_rand(), true);
     $id = $this->id;
     $token = hash('sha256', $id.$salt);
+    
+    $stmt = $mysqli->prepare("SELECT count(*) as count FROM users WHERE email=?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $query = $stmt->get_result();
+
+    $count = $query->fetch_assoc()['count'];    
+
+    if ($count)
+    {
+      $message = "This email is already used.";
+      return;
+    }
+
 
     Token::new($id, 'email;$email', $time);
 
