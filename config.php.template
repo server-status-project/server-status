@@ -11,7 +11,7 @@ define("INSTALL_OVERRIDE", false);
 $mysqli = new mysqli("##server##","##user##","##password##","##database##");
 
 if ($mysqli->connect_errno) {
-    printf("Connect failed: %s\n", $mysqli->connect_error);
+    printf("Connection failed: %s\n", $mysqli->connect_error);
     exit();
 }
 
