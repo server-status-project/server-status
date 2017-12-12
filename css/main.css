@@ -412,19 +412,26 @@ body .panel-heading input::placeholder{
 	width: 50%;
 }
 
-.panel.panel-primary input#time{
-	width: 30%;
+#time input {
+	max-width: 100%
+}
+.panel.panel-primary #time{
+	display: inline-block;
+	float: right;
+	width: 40%;
+	max-width: 40%
 }
 
 .panel.panel-primary input#title{
 	width: 50%;
+	max-width: 50%
 }
 
 .panel:not(.panel-primary) input#title{
 	width: 100%;
 }
 
-.panel:not(.panel-primary) input#time,
+.panel:not(.panel-primary) #time,
 .panel:not(.panel-primary) #end_time_wrapper{
 	display: none;
 }
