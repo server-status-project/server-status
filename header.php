@@ -15,7 +15,6 @@ function render_header($page_name, $admin = false){
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <link href="/css/font-awesome.min.css" rel="stylesheet">
-  <script src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body>
   <div class="navbar navbar-default" role="navigation">
@@ -47,7 +46,6 @@ else{
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <link href="/css/font-awesome.min.css" rel="stylesheet">
-  <script src="/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body class="admin">

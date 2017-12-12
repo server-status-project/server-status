@@ -68,7 +68,7 @@ render_header("Dashboard", true);
               <i class="glyphicon glyphicon-info-sign"></i>
             </div>
             <div class="panel-heading clearfix">
-              <input type="text" name="title" id="title" placeholder="Title" value="<?php echo htmlspecialchars($_POST['title']); ?>" required> <input type="text" pattern="(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))" id="time" name="time" value="<?php echo htmlspecialchars($_POST['time']); ?>" class="pull-right" title="Use ISO 8601 format (e.g. 2017-11-23T19:50:51+00:00)" placeholder="Time">
+              <input type="text" name="title" id="title" placeholder="Title" value="<?php echo htmlspecialchars($_POST['title']); ?>" required> <span id="time"><input id="time_input" type="text" pattern="(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))" name="time" value="<?php echo htmlspecialchars($_POST['time']); ?>" class="pull-right" title="Use ISO 8601 format (e.g. 2017-11-23T19:50:51+00:00)" placeholder="Time"></span>
             </div>
             <div class="panel-body">
               <textarea name="text" placeholder="Here goes your text..." required><?php echo htmlspecialchars($_POST['text']); ?></textarea>

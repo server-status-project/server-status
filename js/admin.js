@@ -1,5 +1,5 @@
 (function(){
-	$("#time").flatpickr({enableTime:true, minDate: "today",time_24hr:true, formatDate: function(date, format) {
+	$("#time_input").flatpickr({enableTime:true, minDate: "today",time_24hr:true, formatDate: function(date, format) {
     	return date.toISOString();
 	}});
 	$("#end_time").flatpickr({enableTime:true, minDate: "today",time_24hr:true, formatDate: function(date, format) {
