@@ -73,7 +73,7 @@ render_header("Dashboard", true);
             <div class="panel-body">
               <textarea name="text" placeholder="Here goes your text..." required><?php echo htmlspecialchars($_POST['text']); ?></textarea>
             </div>
-            <div class="panel-footer">
+            <div class="panel-footer clearfix">
               <small>Posted by: <?php echo $user->get_username();?> <span class="pull-right" id="end_time_wrapper">Ending:&nbsp;<input id="end_time" title="Use ISO 8601 format (e.g. 2017-11-23T19:50:51+00:00)" type="text" pattern="(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))" name="end_time" class="pull-right" placeholder="End time" value="<?php echo htmlspecialchars($_POST['end_time']); ?>"></span></small>
             </div>
           </article>

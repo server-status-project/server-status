@@ -54,7 +54,10 @@ a:focus {
 	color: #ffffff;
 	background-color: transparent;
 }
-
+.navbar-collapse
+{
+	background: #2f60a3;
+}
 .navbar-default {
 	z-index: 200;
 	background-color: #2f60a3;
@@ -113,8 +116,9 @@ div.center {
 
 .service{
 	float: left;
-	width:70%;
-	min-width: 250px;
+	box-sizing: border-box;
+	width:60%;
+	min-width: 200px;
 	padding: 15px 35px;
 	font-weight: bold;
 	font-size: 16px;
@@ -129,8 +133,9 @@ a h1{
 
 .status{
 	float: left;
-	width:30%;
-	min-width: 100px;
+	box-sizing: border-box;
+	width:40%;
+	min-width: 150px;
 	padding: 15px 35px;
 	text-align: right;
 	font-size: 14px;

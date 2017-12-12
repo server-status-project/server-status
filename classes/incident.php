@@ -139,7 +139,7 @@ class Incident
         <div class="panel-body">
           <?php echo $this->text; ?>
         </div>
-        <div class="panel-footer">
+        <div class="panel-footer clearfix">
           <small>Posted by: <?php echo $this->username; 
           if (isset($this->end_date)){?> 
             <span class="pull-right"><?php echo strtotime($this->end_date)>time()?"Ending:":"Ended:";?>&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>

@@ -9,6 +9,10 @@ function timeago()
 
 (function(){
 	timeago();
+  
+  $("body").on("click", ".navbar-toggle", function(){
+    $($(this).data("target")).toggleClass("collapse");
+  });
 
 	var incidents = $('.timeline');
     $("body").on("click", "#loadmore", function(e){
