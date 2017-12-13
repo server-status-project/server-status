@@ -46,6 +46,7 @@ else{
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <link href="/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/css/jquery.growl.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body class="admin">

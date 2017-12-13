@@ -20,12 +20,28 @@
 	$("#new-incident select").trigger("change");
 
 	$("body").on("submit","#new-incident",function(){
-		var time = Date.parse($('#time').val());
+		var time = Date.parse($('#time_input').val());
 		var end_time = Date.parse($('#end_time').val());
+		var type = $("#type").val();
 
-		if (time>end_time|| isNaN(time) || isNaN(end_time))
+		if (type == 2 &&(isNaN(time) || isNaN(end_time)))
 		{
-			//TODO: Error class
+			if (isNaN(end_time))
+			{
+				$('#time_input').addClass("error");	
+				$.growl.error({ message: "Start time is invalid!" });
+			}
+			
+			if (isNaN(end_time))
+			{
+				$('#end_time').addClass("error");
+				$.growl.error({ message: "End time is invalid!" });	
+			}
+			return false;	
+		}
+		else if (type == 2 && time >= end_time)
+		{
+			$.growl.error({ message: "End time is either the same or earlier than start time!" });
 			$('#time').addClass("error");
 			$('#end_time').addClass("error");
 			return false;	
@@ -33,6 +49,7 @@
 
 		if($('#status-container :checkbox:checked').length == 0)
 		{
+			$.growl.error({ message: "Please check at least one service!" });
 			$('#status-container').addClass("error");
 			return false;
 		}

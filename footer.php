@@ -15,6 +15,7 @@ function render_footer($admin = false)
 	<?php if ($admin){?>
 		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 		<script src="/js/admin.js"></script>
+    <script src="/js/vendor/jquery.growl.js"></script>
 	<? }?>
 	<script src="/js/main.js"></script>
 </body>
