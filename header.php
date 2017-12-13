@@ -13,7 +13,8 @@ function render_header($page_name, $admin = false){
   <meta name="description" content="Current service status for <?php echo NAME;?> can be found here as well as incident history.">
   <link rel="shortcut icon" href="/favicon.ico" type="image/png">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/main.css" media="screen">
+  <link rel="stylesheet" href="/css/print.css" media="print">
   <link href="/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
