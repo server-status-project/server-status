@@ -9,7 +9,7 @@ if (isset($_GET['delete']))
 	Service::delete();
 }
 
-render_header("Settings", true);
+render_header(_("Settings"), true);
 ?>
 <div class="text-center">
     <h2>Settings</h2>
@@ -20,13 +20,13 @@ if (isset($message)){
 <p class="alert alert-danger"><?php echo $message; ?></p>
 <?php }?>
 <section>
-<h3 class="pull-left">Services</h3>
+<h3 class="pull-left"><?php echo _("Services");?></h3>
 <?php if ($user->get_rank() <= 1){?>
 <form action="?do=settings&new=service" method="post">
 	<div class="input-group pull-right new-service">
 		<input class="form-control" name="service" placeholder="Name" type="text" value="<?php echo htmlspecialchars($_POST['service']); ?>" maxlength="50" required>
 		<span class="input-group-btn">
-			<button type="submit" class="btn btn-success pull-right">Add service</button>
+			<button type="submit" class="btn btn-success pull-right"><?php echo _("Add service");?></button>
 		</span>
 	</div>
 </form>
@@ -34,11 +34,11 @@ if (isset($message)){
 <table class="table">
 	
 <thead><tr>
-	<th scope="col">ID</th>
-	<th scope="col">Name</th>
+	<th scope="col"><?php echo _("ID");?></th>
+	<th scope="col"><?php echo _("Name");?></th>
 <?php if ($user->get_rank()<=1)
 	{?>
-		<th scope="col">Delete</th>
+		<th scope="col"><?php echo _("Delete");?></th>
 <?php } ?>
 	</tr>
 </thead>
@@ -62,11 +62,11 @@ while($result = $query->fetch_assoc())
 
 
 <section>
-<h3 class="pull-left">Users</h3>
-<?php if ($user->get_rank() == 0){?> <a href="?do=new-user" class="btn btn-success pull-right">Add new user</a><?php }?>
+<h3 class="pull-left"><?php echo _("Users");?></h3>
+<?php if ($user->get_rank() == 0){?> <a href="?do=new-user" class="btn btn-success pull-right"><?php echo _("Add new user");?></a><?php }?>
 <table class="table">
 	
-<thead><tr><th scope="col">ID</th><th scope="col">Username</th><th scope="col">Name</th><th scope="col">Surname</th><th scope="col">Email</th><th scope="col">Role</th><th scope="col">Active</th></tr></thead>
+<thead><tr><th scope="col"><?php echo _("ID");?></th><th scope="col"><?php echo _("Username");?></th><th scope="col"><?php echo _("Name");?></th><th scope="col"><?php echo _("Surname");?></th><th scope="col"><?php echo _("Email");?></th><th scope="col"><?php echo _("Role");?></th><th scope="col">Active</th></tr></thead>
 <tbody>
 <?php 
 $query = $mysqli->query("SELECT *  FROM users");

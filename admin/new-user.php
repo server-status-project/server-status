@@ -4,7 +4,7 @@ if (isset($_GET['new']))
 	User::add();
 }
 
-render_header("New user", true); ?>
+render_header(_("New user"), true); ?>
 <div class="text-center">
     <h2>Add new user</h2>
 </div>
@@ -16,17 +16,17 @@ render_header("New user", true); ?>
     <?php
     } ?>
 	<div class="form-group">
-		<div class="col-sm-6"><label for="name">Name: </label><input type="text" maxlength="50" name="name" value="<?php echo htmlspecialchars($_POST['name'],ENT_QUOTES);?>" id="name" placeholder="Name" class="form-control" required></div>
-		<div class="col-sm-6"><label for="surname">Surname: </label><input type="text" maxlength="50" name="surname" value="<?php echo htmlspecialchars($_POST['surname'],ENT_QUOTES);?>" id="surname" placeholder="Surname" class="form-control" required></div>
+		<div class="col-sm-6"><label for="name"><?php echo _("Name");?>: </label><input type="text" maxlength="50" name="name" value="<?php echo htmlspecialchars($_POST['name'],ENT_QUOTES);?>" id="name" placeholder="<?php echo _("Name");?>" class="form-control" required></div>
+		<div class="col-sm-6"><label for="surname"><?php echo _("Surname");?>: </label><input type="text" maxlength="50" name="surname" value="<?php echo htmlspecialchars($_POST['surname'],ENT_QUOTES);?>" id="surname" placeholder="<?php echo _("Surname");?>" class="form-control" required></div>
 	</div>
 	<div class="form-group">
-		<div class="col-sm-6"><label for="username">Username:</label><input type="text" maxlength="50" name="username" value="<?php echo htmlspecialchars($_POST['username'],ENT_QUOTES);?>" id="username" placeholder="Username" class="form-control" required></div>
-		<div class="col-sm-6"><label for="email">Email:</label><input type="email" maxlength="60" name="email" value="<?php echo htmlspecialchars($_POST['email'],ENT_QUOTES);?>" id="email" placeholder="Email" class="form-control" required></div>
+		<div class="col-sm-6"><label for="username"><?php echo _("Username");?>:</label><input type="text" maxlength="50" name="username" value="<?php echo htmlspecialchars($_POST['username'],ENT_QUOTES);?>" id="username" placeholder="<?php echo _("Username");?>" class="form-control" required></div>
+		<div class="col-sm-6"><label for="email"><?php echo _("Email");?>:</label><input type="email" maxlength="60" name="email" value="<?php echo htmlspecialchars($_POST['email'],ENT_QUOTES);?>" id="email" placeholder="<?php echo _("Email");?>" class="form-control" required></div>
 	</div>
 	<div class="form-group">
-		<div class="col-sm-6"><label for="password">Password:</label><input type="password" name="password" value="<?php echo htmlspecialchars($_POST['password'],ENT_QUOTES);?>" id="password" placeholder="Password" class="form-control" required></div>
+		<div class="col-sm-6"><label for="password"><?php echo _("Password");?>:</label><input type="password" name="password" value="<?php echo htmlspecialchars($_POST['password'],ENT_QUOTES);?>" id="password" placeholder="<?php echo _("Password");?>" class="form-control" required></div>
 		<div class="col-sm-6">
-			<label for="permission">Permission: </label>
+			<label for="permission"><?php echo _("Permission");?>: </label>
 			<select name="permission" id="permission" class="form-control">
 				<?php 
 				if (!empty($_POST['permission']))
@@ -50,5 +50,5 @@ render_header("New user", true); ?>
 			</select>
 		</div>
 	</div>
-	<button type="submit" class="btn btn-primary pull-right">Submit</button>
+	<button type="submit" class="btn btn-primary pull-right"><?php echo _("Submit");?></button>
 </form>

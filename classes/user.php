@@ -69,7 +69,7 @@ class User
       $stmt->close();
       header("Location: /admin/?do=user&id=".$id);
     }else{
-      $message = "You don't have the permission to do that!";
+      $message = _("You don't have the permission to do that!");
     }
   }
 
@@ -80,7 +80,7 @@ class User
     {
       if (strlen(trim($_POST['name']))==0 || strlen(trim($_POST['surname']))==0 || strlen(trim($_POST['email']))==0 || strlen(trim($_POST['password']))==0 || !isset($_POST['permission']))
       {
-        $message = "Please enter all data!";
+        $message = _("Please enter all data!");
       }else{
         $name = $_POST['name'];
         $surname = $_POST['surname'];
@@ -104,7 +104,7 @@ class User
 
         if (!empty($variables))
         {
-          $message = "Please mind the following character limits: ";
+          $message = _("Please mind the following character limits: ");
           $message .= implode(", ", $variables);
           return;
         }
@@ -121,8 +121,8 @@ class User
         if ($stmt->affected_rows>0)
         {
           $to      = $email;
-          $subject = 'User account created - '.NAME;
-          $message = 'Hi '.$name." ".$surname."!<br>"."Your account has been created. You can login with your email address at <a href=\"".WEB_URL."/admin\">".WEB_URL."/admin </a> with password ".$pass.". Please change it as soon as possible. ";
+          $subject = _('User account created').' - '.NAME;
+          $message = sprintf(_("Hi %s!<br>"."Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."), .$name." ".$surname,WEB_URL."/admin", WEB_URL."/admin", $pass);
           $headers = "Content-Type: text/html; charset=utf-8 ".PHP_EOL;
           $headers .= "MIME-Version: 1.0 ".PHP_EOL;
           $headers .= "From: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL;
@@ -132,12 +132,12 @@ class User
           header("Location: /admin/?do=settings");
         }
         else{
-          $message = "Username or email already used";
+          $message = _("Username or email already used");
         }
       }
     }
     else {
-      $message = "Insufficient permission";
+      $message = _("You don't have the permission to do that!");
     }
   }
 
@@ -162,7 +162,7 @@ class User
         $active =  $result["active"];
         if (!$active)
         {
-          $message = "Your account has been disabled. Please contact administrator.";
+          $message = _("Your account has been disabled. Please contact administrator.");
         }
         else
         {
@@ -174,7 +174,7 @@ class User
           $query = $stmt->get_result();
           if (!$query->fetch_assoc()['count'])
           {
-            $message = "Wrong email or password";
+            $message = _("Wrong email or password");
           }else
           {
             if (isset($_POST['remember'])&&$_POST['remember'])
@@ -192,7 +192,7 @@ class User
         }
       }
       else{
-        $message = "Wrong email or password";
+        $message = _("Wrong email or password");
       }
     }
   }
@@ -219,7 +219,7 @@ class User
       unset($_COOKIE['token']);
       setcookie('user', null, -1, '/');
       setcookie('token', null, -1, '/');
-      $message = "Invalid token detected, please login again!";
+      $message = _("Invalid token detected, please login again!");
     }
     
     Token::delete($token);
@@ -230,15 +230,15 @@ class User
     global $permissions, $user;
     ?>
     <div class="row">
-      <div class="col-md-2 col-md-offset-2"><img src="https://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $this->email ) ) );?>" alt="Profile picture"></div>
+      <div class="col-md-2 col-md-offset-2"><img src="https://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $this->email ) ) );?>" alt="<?php echo _("Profile picture");?>"></div>
       <div class="col-md-6"><h3><?php echo $this->name." ".$this->surname;?></h3></div>
     </div>
     <div class="row">
-      <div class="col-md-2 col-md-offset-2"><strong>ID</strong></div>
+      <div class="col-md-2 col-md-offset-2"><strong><?php echo _("ID");?></strong></div>
       <div class="col-md-6"><?php echo $this->id; ?></div>
     </div>
     <div class="row">
-      <div class="col-md-2 col-md-offset-2"><strong>Username</strong></div>
+      <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Username");?></strong></div>
       <div class="col-md-6"><?php echo $this->username."&nbsp;"; if ($this->id!=$_SESSION['user'] && $user->get_rank()<=1 && ($user->get_rank()<$this->rank))
       {
         echo "<a href='/admin/?do=user&id=".$this->id."&what=toggle'>";
@@ -250,12 +250,12 @@ class User
 
     <form action="/admin/?do=user&id=<?php echo $this->id; ?>" method="POST">
       <div class="row">
-        <div class="col-md-2 col-md-offset-2"><strong>Role</strong></div>
+        <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Role");?></strong></div>
         <div class="col-md-6"><?php if ($user->get_rank() == 0 && $this->id != $_SESSION['user']){?> <div class="input-group"><select class="form-control" name="permission"><?php foreach ($permissions as $key => $value) {
           echo "<option value='$key' ".($key==$this->rank?"selected":"").">$value</option>";
         } ?>
         </select><span class="input-group-btn">
-          <button type="submit" class="btn btn-primary pull-right">Change role</button>
+          <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change role");?></button>
         </span>
       </div><?}else{ echo $permissions[$this->rank];}?></div>
     </div>
@@ -270,7 +270,7 @@ class User
           <div class="input-group">
             <input type="email" class="form-control" name="email" value="<?php echo $this->email; ?>">
             <span class="input-group-btn">
-              <button type="submit" class="btn btn-primary pull-right">Change email</button>
+              <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change email");?></button>
             </span>
           </div>
         </div>
@@ -278,15 +278,15 @@ class User
     </form>
     <form action="/admin/?do=user" method="POST">
       <div class="row">
-        <div class="col-md-2 col-md-offset-2"><strong>Password</strong></div>
+        <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Password");?></strong></div>
         <div class="col-md-6">
-          <label for="password">Old password</label>
-          <input id="password" placeholder="Old password" type="password" class="form-control" name="old_password">
-          <label for="new_password">New password</label>
-          <input id="new_password" placeholder="New password" type="password" class="form-control" name="password">
-          <label for="new_password_check">Repeat password</label>
-          <input id="new_password_check" placeholder="Repeat password" type="password" class="form-control" name="password_repeat">
-          <button type="submit" class="btn btn-primary pull-right margin-top">Change password</button>
+          <label for="password"><?php echo _("Old password");?></label>
+          <input id="password" placeholder="<?php echo _("Old password");?>" type="password" class="form-control" name="old_password">
+          <label for="new_password"><?php echo _("New password");?></label>
+          <input id="new_password" placeholder="<?php echo _("New password");?>" type="password" class="form-control" name="password">
+          <label for="new_password_check"><?php echo _("Repeat password");?></label>
+          <input id="new_password_check" placeholder="<?php echo _("Repeat password");?>" type="password" class="form-control" name="password_repeat">
+          <button type="submit" class="btn btn-primary pull-right margin-top"><?php echo _("Change password");?></button>
         </div>
       </div>
     </form>
@@ -296,7 +296,7 @@ class User
   {
     ?>
     <div class="row">
-      <div class="col-md-2 col-md-offset-2"><strong>Email</strong></div>
+      <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Email");?></strong></div>
       <div class="col-md-6">
         <a href="mailto:<?php echo $this->email; ?>"><?php echo $this->email; ?></a>
       </div>
@@ -314,13 +314,13 @@ class User
     $id = $this->id;
     if ($_POST['password']!=$_POST['password_repeat'])
     {
-      $message = "Passwords do not match!";
+      $message = _("Passwords do not match!");
     }else{
       if (!$token)
       {
         if ($_SESSION['user']!=$id)
         {
-          $message = "Cannot change password of other users!";
+          $message = _("Cannot change password of other users!");
         }else{
           $stmt = $mysqli->prepare("SELECT password_salt as salt FROM users WHERE id=?");
           $stmt->bind_param("i", $id);
@@ -346,7 +346,7 @@ class User
             User::logout();
           }
           else{
-            $message = "Wrong password!";
+            $message = _("Wrong password!");
           }
         }
       }else{
@@ -368,7 +368,7 @@ class User
         }
         else
         {
-          $message = "Invalid token detected, please retry your request from start!";
+          $message = _("Invalid token detected, please retry your request from start!");
         }
 
         Token::delete($token);
@@ -394,8 +394,8 @@ class User
     $link = WEB_URL."/admin/?do=lost-password&id=$id&token=$token";
     $to      = $email;
     $user = new User($id);
-    $subject = 'Reset password - '.NAME;
-    $msg = 'Hi '.$user->get_name()."!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"$link\">RESET PASSWORD</a><br><br>If the link doesn't work, copy & paste it into your browser: <br>$link";
+    $subject = _('Reset password')' - '.NAME;
+    $msg = sprintf(_( "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy & paste it into your browser: <br>%s"), $user->get_name(), $link, $link);
     $headers = "Content-Type: text/html; charset=utf-8 ".PHP_EOL;
     $headers .= "MIME-Version: 1.0 ".PHP_EOL;
     $headers .= "From: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL;
@@ -415,8 +415,8 @@ class User
 
     $link = WEB_URL."/admin/?do=change-email&id=$id&token=$token";
     $to      = $email;
-    $subject = 'Email change - '.NAME;
-    $msg = 'Hi '.$this->get_name()."!<br>Below you will find link to finish changing your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"$link\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy & paste it into your browser: <br>$link";
+    $subject = _('Email change').' - '.NAME;
+    $msg = sprintf(_( "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy & paste it into your browser: <br>%s"), $user->get_name(), $link, $link);
     $headers = "Content-Type: text/html; charset=utf-8 ".PHP_EOL;
     $headers .= "MIME-Version: 1.0 ".PHP_EOL;
     $headers .= "From: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL;
@@ -448,7 +448,7 @@ class User
     }
     else
     {
-      $message = "Invalid token detected, please retry your request from start!";
+      $message = _("Invalid token detected, please retry your request from start!");
     }
 
     Token::delete($token);
@@ -480,7 +480,7 @@ class User
       header("Location: /admin/?do=user&id=".$id);
     }
     else{
-      $message = "You don't have permission to do that!";
+      $message = _("You don't have permission to do that!");
     }
   }
 }          

@@ -52,27 +52,27 @@ class Incident
 
     if (strlen($title)==0)
     {
-      $message = "Please enter title";
+      $message = _("Please enter title");
       return;
     }else if(strlen($title)>50){
-      $message = "Title too long! Character limit is 50";
+      $message = _("Title too long! Character limit is 50");
       return;
     }
 
     if (strlen($title)==0)
     {
-      $message = "Please enter text";
+      $message = _("Please enter text");
       return;
     }
 
     if ($type == 2 && (!strlen(trim($_POST['time'])) || !strlen(trim($_POST['end_time']))))
     {
-      $message = "Please set start and end time! Use ISO 8601 format.";
+      $message = _("Please set start and end time! Use ISO 8601 format.");
       return;
     }
 
     if (empty($_POST['services'])){
-      $message = "Please select at least one service";
+      $message = _("Please select at least one service");
     }
     else
     {
@@ -90,13 +90,13 @@ class Incident
         $end_time = strtotime($_POST['end_time']);
         if (!$time)
         {
-          $message = "Start date format is not recognized. Please use ISO 8601 format.";
+          $message = _("Start date format is not recognized. Please use ISO 8601 format.");
           return;
         }
 
         if (!$end_time)
         {
-          $message = "End date format is not recognized. Please use ISO 8601 format.";
+          $message = _("End date format is not recognized. Please use ISO 8601 format.");
           return;
         }
       }else{
@@ -140,9 +140,9 @@ class Incident
           <?php echo $this->text; ?>
         </div>
         <div class="panel-footer clearfix">
-          <small>Posted by: <?php echo $this->username; 
+          <small><?php echo _("Posted by");?>: <?php echo $this->username; 
           if (isset($this->end_date)){?> 
-            <span class="pull-right"><?php echo strtotime($this->end_date)>time()?"Ending:":"Ended:";?>&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
+            <span class="pull-right"><?php echo strtotime($this->end_date)>time()?_("Ending"):_("Ended");?>:&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
             <?}?>
           </small>
         </div>

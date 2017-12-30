@@ -32,11 +32,11 @@ if ($_GET['what']=='toggle')
 	$displayed_user->toggle();
 }
 
-render_header("User", true);
+render_header(_("User"), true);
 
 ?>
 <div class="text-center">
-  	<h1>User settings</h1>
+  	<h1><?php echo _("User settings");?></h1>
 </div>
 <?php if (isset($message)){?>
     <p class="alert alert-danger"><?php echo $message?></p>

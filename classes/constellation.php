@@ -29,19 +29,19 @@ class Constellation
     $query = $sql->get_result();
     if ($future && $query->num_rows && !$ajax)
     {
-      echo "<h3>Planned maintenance</h3>";
+      echo "<h3>"._("Planned maintenance")."</h3>";
     }
     else if ($query->num_rows &&!$ajax)
     {
       if ($offset) 
       {
-        echo '<noscript><div class="centered"><a href="?offset='.($offset-$limit+1).'&timestamp='.$timestamp.'" class="btn btn-default">Back</a></div></noscript>';
+        echo '<noscript><div class="centered"><a href="?offset='.($offset-$limit+1).'&timestamp='.$timestamp.'" class="btn btn-default">'._("Back").'</a></div></noscript>';
       }
-      echo "<h3>Past incidents</h3>";
+      echo "<h3>"._("Past incidents")."</h3>";
     }
     else if (!$future &&!$ajax)
     {
-      echo "<h3>No incidents</h3>";
+      echo "<h3>"._("No incidents")."</h3>";
     }
     $show = !$future && $query->num_rows==$limit;
     $limit--;
@@ -55,7 +55,7 @@ class Constellation
       }
       if ($show)
       {
-        echo '<div class="centered"><a href="?offset='.($offset).'&timestamp='.$timestamp.'" id="loadmore" class="btn btn-default">Load more</a></div>';
+        echo '<div class="centered"><a href="?offset='.($offset).'&timestamp='.$timestamp.'" id="loadmore" class="btn btn-default">'._("Load more").'</a></div>';
       }
     }
   }
@@ -88,7 +88,7 @@ class Constellation
       echo Service::current_status($array);
     }
     else{
-      $array[] = new Service(0, "No services", -1);
+      $array[] = new Service(0, _("No services"), -1);
     }
     if (!$admin)
     {

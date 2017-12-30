@@ -25,7 +25,7 @@ function render_header($page_name, $admin = false){
       </div>
       <div class="navbar-left hidden-xs">
         <ul class="nav navbar-nav">
-          <li><a href="<?php echo WEB_URL;?>/"><h1>Service Status</h1></a></li>
+          <li><a href="<?php echo WEB_URL;?>/"><h1><?php echo _("Service Status");?></h1></a></li>
         </ul>
       </div><!--/.nav-collapse -->
 
@@ -56,7 +56,7 @@ else{
       <div class="navbar-header">
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
+          <span class="sr-only"><?php echo _("Toggle navigation");?></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -65,10 +65,10 @@ else{
       </div>
       <div class="navbar-collapse collapse navbar-right navbar-admin">
         <ul class="nav navbar-nav">
-          <li><a href="<?php echo WEB_URL;?>/admin/">Dashboard</a></li>
-          <li><a href="<?php echo WEB_URL;?>/admin/?do=user">User <?php echo "(".$user->get_username().')'; ?></a></li>
-          <li><a href="<?php echo WEB_URL;?>/admin/?do=settings">Settings</a></li>
-          <li><a href="<?php echo WEB_URL;?>/admin/?do=logout">Logout</a></li>
+          <li><a href="<?php echo WEB_URL;?>/admin/"><?php echo _("Dashboard");?></a></li>
+          <li><a href="<?php echo WEB_URL;?>/admin/?do=user"><?php echo printf(_("User (%s)"), $user->get_username());?></a></li>
+          <li><a href="<?php echo WEB_URL;?>/admin/?do=settings"><?php echo _("Settings");?>");?></a></li>
+          <li><a href="<?php echo WEB_URL;?>/admin/?do=logout"><?php echo _("Logout");?></a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>

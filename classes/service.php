@@ -35,10 +35,10 @@ class Service
     global $user, $message;
     if (strlen($_POST['service'])>50)
     {
-      $message = "Service name is too long! Character limit is 50";
+      $message = _("Service name is too long! Character limit is 50");
       return;
     }else if (strlen(trim($_POST['service']))==0){
-      $message = "Please enter name!";
+      $message = _("Please enter name!");
       return;
     }
 
@@ -53,7 +53,7 @@ class Service
       header("Location: /admin/?do=settings");
     }else
     {
-      $message = "Insufficient permissions";
+      $message = _("You don't have the permission to do that!");
     }
   }
 
@@ -91,7 +91,7 @@ class Service
     }
     else
     {
-      $message = "Insufficient permissions";
+      $message = _("You don't have the permission to do that!");
     }
   }
 

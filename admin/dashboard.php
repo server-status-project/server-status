@@ -21,12 +21,12 @@ if (isset($_GET['delete']))
 
 //TODO: Pamatovat si data
 
-render_header("Dashboard", true); 
+render_header(_("Dashboard"), true); 
 ?>
 
   <div class="text-center">
-    <h1>Dashboard</h1>
-    <h3>Welcome <?php echo $user->get_name();?></h3>
+    <h1><?php echo _("Dashboard");?></h1>
+    <h3><?php echo _("Welcome");?> <?php echo $user->get_name();?></h3>
   </div>
 
   <div id="current">
@@ -38,7 +38,7 @@ render_header("Dashboard", true);
     <div class="item">
       <div class="timeline">
         <div class="line text-muted"></div>
-        <h3>New incident</h3>
+        <h3><?php echo _("New incident");?></h3>
         <form id="new-incident" action="/admin/?new=incident" method="POST" class="clearfix">
         <article class="panel">
           <?php if (isset($message))
@@ -68,13 +68,13 @@ render_header("Dashboard", true);
               <i class="glyphicon glyphicon-info-sign"></i>
             </div>
             <div class="panel-heading clearfix">
-              <input type="text" name="title" id="title" placeholder="Title" value="<?php echo htmlspecialchars($_POST['title']); ?>" required> <span id="time"><input id="time_input" type="text" pattern="(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))" name="time" value="<?php echo htmlspecialchars($_POST['time']); ?>" class="pull-right" title="Use ISO 8601 format (e.g. 2017-11-23T19:50:51+00:00)" placeholder="Time"></span>
+              <input type="text" name="title" id="title" placeholder="<?php echo _("Title");?>" value="<?php echo htmlspecialchars($_POST['title']); ?>" required> <span id="time"><input id="time_input" type="text" pattern="(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))" name="time" value="<?php echo htmlspecialchars($_POST['time']); ?>" class="pull-right" title="Use ISO 8601 format (e.g. 2017-11-23T19:50:51+00:00)" placeholder="<?php echo _("Time");?>"></span>
             </div>
             <div class="panel-body">
-              <textarea name="text" placeholder="Here goes your text..." required><?php echo htmlspecialchars($_POST['text']); ?></textarea>
+              <textarea name="text" placeholder="<?php echo _("Here goes your text...");?>" required><?php echo htmlspecialchars($_POST['text']); ?></textarea>
             </div>
             <div class="panel-footer clearfix">
-              <small>Posted by: <?php echo $user->get_username();?> <span class="pull-right" id="end_time_wrapper">Ending:&nbsp;<input id="end_time" title="Use ISO 8601 format (e.g. 2017-11-23T19:50:51+00:00)" type="text" pattern="(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))" name="end_time" class="pull-right" placeholder="End time" value="<?php echo htmlspecialchars($_POST['end_time']); ?>"></span></small>
+              <small><?php echo _("Posted by");?>: <?php echo $user->get_username();?> <span class="pull-right" id="end_time_wrapper"><?php echo _("Ending");?>:&nbsp;<input id="end_time" title="Use ISO 8601 format (e.g. 2017-11-23T19:50:51+00:00)" type="text" pattern="(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))" name="end_time" class="pull-right" placeholder="<?php echo _("End time");?>" value="<?php echo htmlspecialchars($_POST['end_time']); ?>"></span></small>
             </div>
           </article>
           <select class="form-control pull-left" id="type" name="type">
@@ -92,7 +92,7 @@ render_header("Dashboard", true);
             }
             ?>
           </select>
-          <button type="submit" class="btn btn-primary pull-right">Submit</button>
+          <button type="submit" class="btn btn-primary pull-right"><?php echo _("Submit");?></button>
         </form>
          <?php
             $constellation->render_incidents(true,$offset,5,true);
