@@ -122,7 +122,7 @@ class User
         {
           $to      = $email;
           $subject = _('User account created').' - '.NAME;
-          $message = sprintf(_("Hi %s!<br>"."Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."), .$name." ".$surname,WEB_URL."/admin", WEB_URL."/admin", $pass);
+          $message = sprintf(_("Hi %s!<br>"."Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."), $name." ".$surname,WEB_URL."/admin", WEB_URL."/admin", $pass);
           $headers = "Content-Type: text/html; charset=utf-8 ".PHP_EOL;
           $headers .= "MIME-Version: 1.0 ".PHP_EOL;
           $headers .= "From: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL;
@@ -394,7 +394,7 @@ class User
     $link = WEB_URL."/admin/?do=lost-password&id=$id&token=$token";
     $to      = $email;
     $user = new User($id);
-    $subject = _('Reset password')' - '.NAME;
+    $subject = _('Reset password') . ' - '.NAME;
     $msg = sprintf(_( "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy & paste it into your browser: <br>%s"), $user->get_name(), $link, $link);
     $headers = "Content-Type: text/html; charset=utf-8 ".PHP_EOL;
     $headers .= "MIME-Version: 1.0 ".PHP_EOL;
@@ -416,7 +416,7 @@ class User
     $link = WEB_URL."/admin/?do=change-email&id=$id&token=$token";
     $to      = $email;
     $subject = _('Email change').' - '.NAME;
-    $msg = sprintf(_( "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy & paste it into your browser: <br>%s"), $user->get_name(), $link, $link);
+    $msg = sprintf(_( "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy & paste it into your browser: <br>%s"), $user->get_name(), $link, $link);
     $headers = "Content-Type: text/html; charset=utf-8 ".PHP_EOL;
     $headers .= "MIME-Version: 1.0 ".PHP_EOL;
     $headers .= "From: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL;

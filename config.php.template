@@ -7,6 +7,10 @@ define("WEB_URL", "##url##"); //Used for links
 define("MAILER_NAME", "##mailer##"); //Mailer name
 define("MAILER_ADDRESS", "##mailer_email##"); //Mailer address
 define("INSTALL_OVERRIDE", false);
+define("DEFAULT_LANGUAGE", "en_GB");
+
+require("locale.php");
+
 //Database connection
 $mysqli = new mysqli("##server##","##user##","##password##","##database##");
 

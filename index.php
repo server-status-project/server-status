@@ -25,7 +25,7 @@ if (isset($_GET['ajax']))
 render_header("Status");
 ?>
     <div class="text-center">
-      <h2>Current status</h2>
+      <h2><?php echo _("Current status");?></h2>
     </div>
     <div id="current">
     <?php $constellation->render_status();?>  
