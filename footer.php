@@ -1,7 +1,7 @@
 <?php 
 function render_footer($admin = false)
 {
-  global $best_match, $lang_names;
+  global $lang_names;
   ?>
   </div>
   <div id="footerwrap">
@@ -10,7 +10,7 @@ function render_footer($admin = false)
         <div class="col-md-4 text-left">Copyright © <?php echo date("Y");?> Vojtěch Sajdl</div>
         <div class="col-md-4 text-center">
           <div class="btn-group dropup">
-            <button type="button" class="btn btn-primary"><?php echo '<img src="'.WEB_URL.'/locale/'.$best_match.'/flag.png" alt="'.$lang_names[$best_match].'">'.$lang_names[$best_match];?></button>
+            <button type="button" class="btn btn-primary"><?php echo '<img src="'.WEB_URL.'/locale/'.$_SESSION['locale'].'/flag.png" alt="'.$lang_names[$_SESSION['locale']].'">'.$lang_names[$_SESSION['locale']];?></button>
             <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="caret"></span>
               <span class="sr-only"><?php echo _("Toggle Dropdown");?></span>
