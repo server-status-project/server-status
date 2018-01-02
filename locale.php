@@ -1,5 +1,11 @@
 <?php 
 
+function mb_ucfirst($string)
+{
+    return mb_strtoupper(mb_substr($string, 0, 1)).mb_strtolower(mb_substr($string, 1));
+}
+
+
 if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
     preg_match_all('/([a-z]{1,8}(-[a-z]{1,8})?)\s*(;\s*q\s*=\s*(1|0\.[0-9]+))?/i', $_SERVER['HTTP_ACCEPT_LANGUAGE'], $lang_parse);
 
@@ -10,14 +16,18 @@ if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
             if ($val === '') $langs[$lang] = 1;
         }
 
+        if (isset($_GET['lang']))
+        {
+        	$langs[$_GET['lang']] = 2;
+        }
+
         arsort($langs, SORT_NUMERIC);
     }
 }
 
 $langs = array_flip($langs);
-
 $accepted_langs = glob(__DIR__ . '/locale/*' , GLOB_ONLYDIR);
-
+$lang_names = array();
 foreach ($accepted_langs as $key => $value) {
 	$accepted_langs[$key] = basename($value);
 }
@@ -41,6 +51,10 @@ foreach ($langs as $lang) {
 			break;
 		}
 	}
+}
+
+foreach ($accepted_langs as $lang) {
+	$lang_names[$lang] = mb_ucfirst(locale_get_display_language($lang, $lang));
 }
 
 if ($best_match === false){

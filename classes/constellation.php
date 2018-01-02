@@ -16,10 +16,7 @@ class Constellation
     {
       $offset = 0; 
     }
-    if (isset($_GET['ajax']))
-    {
-       $ajax = true;
-    }
+    $ajax = isset($_GET['ajax']);
     $limit++;
     $c = ($future)?">=":"<=";
     $timestamp = (isset($_GET['timestamp'])&& !$future)?$_GET['timestamp']:time();
