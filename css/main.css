@@ -335,13 +335,7 @@ a h1{
     margin-top: 4px;
 }
 
-#footerwrap .col-md-8 {
-	text-align: left;
-}
-
-
 #footerwrap .col-md-4{
-	text-align: right;
 	margin-top: 2px;
 }
 
@@ -554,4 +548,40 @@ i.danger{
 .install .btn
 {
 	margin-top: 30px
+}
+
+.text-left{
+	text-align: left;
+}
+
+.text-right{
+	text-align: right;
+}
+
+.text-center{
+	text-align: center;
+}
+
+#footerwrap .dropdown-menu{
+	background: #337ab7
+}
+
+#footerwrap .dropdown-menu a{
+	color:white;
+	width: 100%;
+	padding: 2px 5px;
+	display: block;
+	transition: 125ms ease-in-out background-color;
+	background-color: #337ab7
+}
+
+#footerwrap .dropdown-menu a:hover{
+	background-color: #2f8ad8;
+}
+
+#footerwrap .btn-group.dropup img{
+	max-height: 20px;
+	max-width: 25px;
+	margin-right: 5px;
+	vertical-align: middle;
 }
