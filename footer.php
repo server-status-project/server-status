@@ -18,9 +18,11 @@ function render_footer($admin = false)
             <ul class="dropdown-menu">
                 <?php 
                 foreach ($lang_names as $key => $value) {
-                  echo '<a href="?lang='.$key.'""><img src="'.WEB_URL.'/locale/'.$key.'/flag.png" alt="'.$value.'">'.$value.'</a>';
+                  echo '<a href="?lang='.$key.'"><img src="'.WEB_URL.'/locale/'.$key.'/flag.png" alt="'.$value.'">'.$value.'</a>';
                 }
                 ?>
+                <hr role="separator" class="divider">
+                <a href="https://poeditor.com/join/project/37SpmJtyOm"><?php echo _("Help with translation!");?></a>
             </ul>
           </div>
         </div>

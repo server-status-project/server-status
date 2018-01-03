@@ -31,7 +31,7 @@ body {
 	width: 100%;
 	text-align: center;
 	font-family: 'Fira Sans', sans-serif;
-	font-size: 28px
+	font-size: 1.5em
 }
 
 #wrapper{
@@ -46,7 +46,7 @@ body {
 	min-width: 200px;
 	padding: 15px 35px;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 1em;
 	font-family: 'Fira Sans', sans-serif;
 }
 
@@ -57,24 +57,24 @@ body {
 	min-width: 150px;
 	padding: 15px 35px;
 	text-align: right;
-	font-size: 14px;
+	font-size: 0.8em;
 	font-family: 'Fira Sans', sans-serif;
 }
 
 
-.status.success{
+#status-container .status.success{
 	color:#2fcc66;
 }
 
-.status.warning{
+#status-container .status.warning{
 	color:#edaa16;
 }
 
-.status.danger{
+#status-container .status.danger{
 	color:#e74c3c;
 }
 
-.status.primary{
+#status-container .status.primary{
 	color:#3A72BD;
 }
 
@@ -105,4 +105,32 @@ h2.panel-title{
 
 .panel,.panel-heading,.panel-footer{
 	border-width: 3px
+}
+
+body .panel-danger,
+.panel-danger > .panel-body,
+.panel-danger > .panel-heading,
+.panel-danger > .panel-footer{
+	border-color: #a94442
+}
+
+body .panel-success,
+.panel-success > .panel-body,
+.panel-success > .panel-heading,
+.panel-success > .panel-footer{
+	border-color: #2fcc66
+}
+
+body .panel-warning,
+.panel-warning > .panel-body,
+.panel-warning > .panel-heading,
+.panel-warning > .panel-footer{
+	border-color: #edaa16
+}
+
+body .panel-primary,
+.panel-primary > .panel-body,
+.panel-primary > .panel-heading,
+.panel-primary > .panel-footer{
+	border-color: #337ab7
 }

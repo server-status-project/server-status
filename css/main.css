@@ -43,7 +43,7 @@ a:focus {
 
 .navbar-default .navbar-nav > li > a {
 	color: #f5f4f4;
-	font-size: 16px;
+	font-size: 1em;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
@@ -83,7 +83,7 @@ body {
 }
 
 .navbar-left{
-	margin-top: 10px;
+	margin-top: 8px;
 }
 
 div.center {
@@ -121,14 +121,14 @@ div.center {
 	min-width: 200px;
 	padding: 15px 35px;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 1.1em;
 	font-family: 'Fira Sans', sans-serif;
 }
 
 a h1{
-	font-size:16px;
+	font-size: 1.3em;
 	margin: 0;
-	line-height: 20px
+	line-height: 1.3em
 }
 
 .status{
@@ -138,7 +138,7 @@ a h1{
 	min-width: 150px;
 	padding: 15px 35px;
 	text-align: right;
-	font-size: 14px;
+	font-size: 1.05em;
 	font-family: 'Fira Sans', sans-serif;
 }
 
@@ -206,7 +206,7 @@ a h1{
 	text-align: left;
 	padding: 15px;
 	border-radius: 5px;
-	font-size: 21px;
+	font-size: 1.3em;
 	font-family: 'Fira Sans', sans-serif;
 }
 
@@ -247,7 +247,12 @@ a h1{
     border-left-color: transparent;
 }
 
-.timeline .panel .panel-heading.icon * { font-size: 20px; vertical-align: middle; line-height: 40px; }
+.timeline .panel .panel-heading.icon * { 
+	/*This shouldn't be relative in size...*/
+	font-size: 20px; 
+	vertical-align: middle; 
+	line-height: 40px; 
+}
 .timeline .panel .panel-heading.icon {
     position: absolute;
     left: -59px;
@@ -321,7 +326,7 @@ a h1{
 }
 
 #footerwrap i {
-	font-size: 30px;
+	font-size: 1.7em;
 	color: #ebebeb;
 	padding-right: 15px;
 }
@@ -515,7 +520,7 @@ i.danger{
 .delete
 {
 	margin-left: 5px;
-	font-size: 20px;
+	font-size: 1.2em;
 	color: white;
 	line-height: 25px
 }
@@ -533,7 +538,7 @@ i.danger{
 .delete-service
 {
 	color: red;
-	font-size: 16px
+	font-size: 1em
 }
 
 .service label
@@ -584,4 +589,14 @@ i.danger{
 	max-width: 25px;
 	margin-right: 5px;
 	vertical-align: middle;
+}
+
+.col-md-4.text-left, .col-md-4.text-right{
+	line-height: 2.5;
+}
+
+.dropup hr.divider
+{
+	margin: 2px;
+	border: 1px;
 }
