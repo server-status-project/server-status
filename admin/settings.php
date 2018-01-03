@@ -24,7 +24,7 @@ if (isset($message)){
 <?php if ($user->get_rank() <= 1){?>
 <form action="?do=settings&new=service" method="post">
 	<div class="input-group pull-right new-service">
-		<input class="form-control" name="service" placeholder="Name" type="text" value="<?php echo htmlspecialchars($_POST['service']); ?>" maxlength="50" required>
+		<input class="form-control" name="service" placeholder="Name" type="text" value="<?php echo ((isset($_POST['service']))?htmlspecialchars($_POST['service']):''); ?>" maxlength="50" required>
 		<span class="input-group-btn">
 			<button type="submit" class="btn btn-success pull-right"><?php echo _("Add service");?></button>
 		</span>

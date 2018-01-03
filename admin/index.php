@@ -30,7 +30,18 @@ if (!isset($_SESSION['user']))
 else 
 {
   $user = new User($_SESSION['user']);
-  switch ($_GET["do"]) {
+  if (!$user->is_active())
+  {
+    User::logout();
+  }
+
+  if (!isset($_GET['do'])){
+    $do = "";
+  }else{
+    $do = $_GET['do'];
+  }
+
+  switch ($do) {
     case 'change-email':
       $user = new User($_GET['id']);
       $user->change_email();

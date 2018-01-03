@@ -41,6 +41,11 @@ class User
     return $this->username;
   }
 
+  public function is_active()
+  {
+    return $this->active;
+  }
+
   public function get_rank()
   {
     return $this->rank;
@@ -180,11 +185,9 @@ class User
             if (isset($_POST['remember'])&&$_POST['remember'])
             {
               $year = strtotime('+356 days', time());
-              $salt = uniqid(mt_rand(), true);
-              $token = hash('sha256', $id.$salt);
+              $token = Token::new($id, 'remember', $year);
               setcookie('token', $token, $year, "/");
               setcookie('user', $id, $year, "/");
-              Token::new($id, 'remember', $year);
             }
             $_SESSION['user'] = $id;
             header("Location: /admin");
@@ -205,13 +208,11 @@ class User
     $time = time();
     if (Token::validate_token($token, $id, "remember"))
     {
-      $year = strtotime('+356 days', $timestamp);
+      $year = strtotime('+356 days', time());
       unset($_COOKIE['token']);
       $_SESSION['user'] = $id;
-      $salt = uniqid(mt_rand(), true);
-      $token = hash('sha256', $id.$salt);
+      $token = Token::new($id, 'remember', $year);
       setcookie('token', $token, $year);
-      Token::new($id, 'remember', $year);
     }
     else
     {

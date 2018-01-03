@@ -8,7 +8,7 @@ class Token
   {
     global $mysqli;
     $salt = uniqid(mt_rand(), true);
-    $token = hash('sha256', $seed.$salt);
+    $token = hash('sha256', $id.$salt);
     $stmt = $mysqli->prepare("INSERT INTO tokens VALUES(?, ?, ?, ?)");
     $stmt->bind_param("siis", $token, $id, $expire, $data);
     $stmt->execute();

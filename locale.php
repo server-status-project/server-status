@@ -5,6 +5,17 @@ function mb_ucfirst($string)
     return mb_strtoupper(mb_substr($string, 0, 1)).mb_strtolower(mb_substr($string, 1));
 }
 
+
+$accepted_langs = glob(__DIR__ . '/locale/*' , GLOB_ONLYDIR);
+$lang_names = array();
+foreach ($accepted_langs as $key => $value) {
+	$accepted_langs[$key] = basename($value);
+}
+	
+foreach ($accepted_langs as $lang) {
+	$lang_names[$lang] = mb_ucfirst(locale_get_display_language($lang, $lang));
+}
+
 if (!isset($_SESSION['locale'])||isset($_GET['lang']))
 {
 	if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
@@ -29,11 +40,6 @@ if (!isset($_SESSION['locale'])||isset($_GET['lang']))
 
 
 	$langs = array_flip($langs);
-	$accepted_langs = glob(__DIR__ . '/locale/*' , GLOB_ONLYDIR);
-	$lang_names = array();
-	foreach ($accepted_langs as $key => $value) {
-		$accepted_langs[$key] = basename($value);
-	}
 
 	$best_match = false;
 
@@ -54,10 +60,6 @@ if (!isset($_SESSION['locale'])||isset($_GET['lang']))
 				break;
 			}
 		}
-	}
-
-	foreach ($accepted_langs as $lang) {
-		$lang_names[$lang] = mb_ucfirst(locale_get_display_language($lang, $lang));
 	}
 
 	if ($best_match === false){

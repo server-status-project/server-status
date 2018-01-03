@@ -27,7 +27,7 @@ if (isset($_POST['permission']))
 }
 
 
-if ($_GET['what']=='toggle')
+if (isset($_GET['what']) && $_GET['what']=='toggle')
 {
 	$displayed_user->toggle();
 }
