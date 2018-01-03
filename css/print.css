@@ -63,19 +63,23 @@ body {
 
 
 #status-container .status.success{
-	color:#2fcc66;
+	color:#2fcc66!important;
+	font-weight: bolder;
 }
 
 #status-container .status.warning{
-	color:#edaa16;
+	color:#edaa16!important;
+	font-weight: bolder;
 }
 
 #status-container .status.danger{
-	color:#e74c3c;
+	color:#e74c3c!important;
+	font-weight: bolder;
 }
 
 #status-container .status.primary{
-	color:#3A72BD;
+	color:#3A72BD!important;
+	font-weight: bolder;
 }
 
 .panel-success{
