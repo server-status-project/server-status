@@ -1,5 +1,5 @@
 <?php
-render_header(_("Lost password"));
+Template::render_header(_("Lost password"));
 ?>
   <div class="text-center">
     <h1><?php echo _("Lost password");?></h1>
@@ -69,4 +69,4 @@ render_header(_("Lost password"));
         <?php }?>
     </div>
 <?php 
-render_footer();
+Template::render_footer();

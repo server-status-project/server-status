@@ -9,7 +9,7 @@ if (isset($_GET['delete']))
 	Service::delete();
 }
 
-render_header(_("Settings"), true);
+Template::render_header(_("Settings"), true);
 ?>
 <div class="text-center">
     <h2>Settings</h2>

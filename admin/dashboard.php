@@ -19,7 +19,7 @@ if (isset($_GET['delete']))
   Incident::delete($_GET['delete']);
 }
 
-render_header(_("Dashboard"), true); 
+Template::render_header(_("Dashboard"), true); 
 ?>
 
   <div class="text-center">

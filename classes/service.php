@@ -1,6 +1,6 @@
 <?php
 /**
-* Class for creating and rendering an incident
+* Class for managing services
 */
 class Service
 {
@@ -8,28 +8,53 @@ class Service
   private $name;
   private $status;
 
+  /**
+   * Constructs service from its data.
+   * @param int $id service ID
+   * @param String $name service name
+   * @param int $status current service status
+   */
   function __construct($id, $name, $status=3)
   {
+    //TODO: Maybe get data from ID?
     $this->id = $id;
     $this->name = $name;
     $this->status = $status;
   }
 
+  /**
+   * Returns status of this service
+   * @return int status
+   */
   public function get_status()
   {
     return $this->status;
   }
 
+  /**
+   * Returns id of this service
+   * @return int id
+   */
   public function get_id()
   {
     return $this->id;
   }
 
+  /**
+   * Returns name of this service
+   * @return String name
+   */
   public function get_name()
   {
     return $this->name;
   }
 
+  /**
+   * Processes submitted form and adds service unless problem is encountered, 
+   * calling this is possible only for admin or higher rank. Also checks requirements
+   * for char limits.
+   * @return void
+   */
   public static function add()
   {
     global $user, $message;
@@ -57,6 +82,10 @@ class Service
     }
   }
 
+  /**
+   * Deletes this service - first checks if user has permission to do that.
+   * @return void
+   */
   public static function delete()
   {
     global $user;
@@ -95,6 +124,11 @@ class Service
     }
   }
 
+  /**
+   * Renders current status for services from passed array of services.
+   * @param Service[] $array array of services
+   * @return void
+   */
   public static function current_status($array){
     global $all, $some, $classes;
     $statuses = array(0,0,0,0);
@@ -118,6 +152,10 @@ class Service
     echo '</div>';
   }
 
+  /**
+   * Renders this service.
+   * @return void
+   */
   public function render(){
     global $statuses;
     global $classes;

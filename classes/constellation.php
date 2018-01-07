@@ -10,6 +10,13 @@ require(__DIR__ . "/token.php");
 class Constellation
 {
 
+  /**
+   * Renders incidents matching specified constraints.
+   * @param Boolean $future - specifies whether to render old or upcoming incidents
+   * @param int $offset - specifies offset - used for pagination
+   * @param int $limit - limits the number of incidents rendered
+   * @param Boolean $admin - specifies whether to render admin controls
+   */
   public function render_incidents($future=false, $offset=0, $limit = 5, $admin = 0){
     global $mysqli;
     if ($offset<0)
@@ -57,6 +64,11 @@ class Constellation
     }
   }
 
+  /**
+   * Renders service status - in admin page it returns array so it can be processed further.
+   * @param boolean $admin
+   * @return array of services 
+   */
   public function render_status($admin = 0){
     global $mysqli;
     

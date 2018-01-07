@@ -2,8 +2,7 @@
 session_start();
 require("../config.php");
 require("../classes/constellation.php");
-require("../header.php");
-require("../footer.php");
+require("../template.php");
 
 if(isset($_COOKIE['user'])&&!isset($_SESSION['user']))
 {
@@ -66,5 +65,5 @@ else
   		break;
   }
 
-  render_footer(true);
+  Template::render_footer(true);
 }

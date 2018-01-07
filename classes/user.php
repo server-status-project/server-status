@@ -1,6 +1,6 @@
 <?php
 /**
-* Class for creating and rendering an incident
+* Class that encapsulates everything that can be done with a user
 */
 class User
 {
@@ -12,6 +12,10 @@ class User
   private $rank;
   private $active;
 
+  /**
+   * Gets user data from database and creates the class
+   * @param int $id user ID
+   */
   function __construct($id)
   {
     global $mysqli;
@@ -36,26 +40,47 @@ class User
     $this->rank = $result['permission'];
   }
 
+  /**
+   * Returns username of this user
+   * @return String username
+   */
   public function get_username()
   {
     return $this->username;
   }
-
+  
+  /**
+   * Returns whether this user is active
+   * @return Boolean user active status
+   */
   public function is_active()
   {
     return $this->active;
   }
-
+  
+  /**
+   * Returns rank of this user
+   * @return int rank
+   */
   public function get_rank()
   {
     return $this->rank;
   }
-
+  
+  /**
+   * Returns full name of this user
+   * @return String name in "Name Surname" format
+   */
   public function get_name()
   {
     return $this->name . " " . $this->surname;
   }
 
+  /**
+   * Toggles active status of this user. First checks if the user
+   * making the change has permission to do that.
+   * @return void
+   */
   public function toggle()
   {
     global $mysqli, $message, $user;
@@ -78,6 +103,13 @@ class User
     }
   }
 
+  /**
+   * Processes submitted form and adds user unless problem is encountered, 
+   * calling this is possible only for Superadmin (other ranks cannot add users)
+   * or when the installation script is being run. Also checks requirements
+   * for username and email being unique and char limits.
+   * @return void
+   */
   public static function add()
   {
     global $user, $message, $mysqli;
@@ -146,6 +178,13 @@ class User
     }
   }
 
+  /**
+   * Processes submitted form and logs user in, unless the user is deactivated or wrong
+   * password or email has been submitted. The script doesn't let anyone know which
+   * field was wrong as it is not possible to verify email address from outside admin panel,
+   * so this actually helps with security :)
+   * @return void
+   */
   public static function login()
   {
     global $message, $mysqli;
@@ -200,6 +239,12 @@ class User
     }
   }
 
+  /**
+   * Checks whether token is valid (this means is in database and associated
+   * with the user) and sets session data if it is, so user remains logged in.
+   * The script deletes the token either way.
+   * @return void
+   */
   public static function restore_session()
   {
     global $mysqli, $message;
@@ -225,7 +270,10 @@ class User
     
     Token::delete($token);
   }
-
+  /**
+   * Renders settings for this user so it can be displayed in admin panel.
+   * @return void
+   */
   public function render_user_settings()
   {
     global $permissions, $user;
@@ -307,7 +355,12 @@ class User
 
   }
 
-
+  /**
+   * Changes user password and deletes all remember tokens so all other sessions 
+   * won't stay logged in without knowing new pass. Uses token when reseting password.
+   * @param String $token
+   * @return void
+   */
   public function change_password($token = false)
   {
     global $mysqli, $user, $message;
@@ -344,6 +397,10 @@ class User
             $stmt->bind_param("si", $hash, $id);
             $stmt->execute();
             $stmt->close();
+            $stmt = $mysqli->prepare("DELETE FROM tokens WHERE user = ? AND data = 'remember'");
+		    $stmt->bind_param("d", $id);
+		    $stmt->execute();
+		    $query = $stmt->get_result();
             User::logout();
           }
           else{
@@ -366,6 +423,10 @@ class User
           $stmt->bind_param("si", $hash,$id);
           $stmt->execute();
           $stmt->close();
+          $stmt = $mysqli->prepare("DELETE FROM tokens WHERE user = ? AND data = 'remember'");
+		  $stmt->bind_param("d", $id);
+		  $stmt->execute();
+		  $query = $stmt->get_result();
         }
         else
         {
@@ -377,6 +438,10 @@ class User
     }
   }
 
+  /**
+   * Sends email with link for password reset, link is token protected and valid only once.
+   * @return void
+   */
   public static function password_link()
   {
     global $mysqli;
@@ -405,6 +470,10 @@ class User
     mail($to, $subject, $msg, $headers);
   } 
 
+  /**
+   * Sends email with link for email change confirmation (security reasons), link is token protected and valid only once.
+   * @return void
+   */
   public function email_link(){
     global $mysqli;
     $email = $_POST['email'];
@@ -426,9 +495,12 @@ class User
     mail($to, $subject, $msg, $headers);
   }
 
+  /**
+   * Changes email.
+   * @return void
+   */
   public function change_email()
   {
-      //TODO: Get message from this somehow
     global $mysqli, $message;
     $time = time();
     $token = $_GET['token'];
@@ -456,6 +528,10 @@ class User
 
   }
 
+  /**
+   * Logs current user out.
+   * @return void
+   */
   public static function logout(){
     global $mysqli;
     session_unset();
@@ -469,6 +545,10 @@ class User
     header("Location: /admin");
   }
 
+  /**
+   * Changes permissions of current user - only super admin can do this, so it checks permission first.
+   * @return void
+   */
   public function change_permission(){
     global $mysqli, $message, $user;
     if ($user->get_rank()==0)

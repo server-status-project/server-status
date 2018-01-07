@@ -1,5 +1,5 @@
 <?php
-render_header(_("Login"));
+Template::render_header(_("Login"));
 ?>
   <div class="text-center">
     <h1><?php echo _("Login");?></h1>
@@ -29,4 +29,4 @@ render_header(_("Login"));
       </form>
     </div>
 <?php
-render_footer();
+Template::render_footer();

@@ -32,7 +32,7 @@ if (isset($_GET['what']) && $_GET['what']=='toggle')
 	$displayed_user->toggle();
 }
 
-render_header(_("User"), true);
+Template::render_header(_("User"), true);
 
 ?>
 <div class="text-center">

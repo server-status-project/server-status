@@ -1,6 +1,5 @@
 <?php
-require("header.php");
-require("footer.php");
+require("template.php");
 
 if (!file_exists("config.php"))
 {
@@ -22,7 +21,7 @@ if (isset($_GET['ajax']))
   $offset = $_GET['offset'];
 }
 
-render_header("Status");
+Template::render_header("Status");
 ?>
     <div class="text-center">
       <h2><?php echo _("Current status");?></h2>
@@ -47,5 +46,5 @@ render_header("Status");
       </div>
 <?php } 
 
-render_footer();
+Template::render_footer();
 }

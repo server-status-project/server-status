@@ -4,6 +4,13 @@
 */
 class Token
 {
+  /**
+   * Generates a new token from user id and randomly generated salt.
+   * @param int $user ID
+   * @param String $data associated with token that are important
+   * @param timestamp $expire expiration time
+   * @return String token
+   */
   public static function new($id, $data, $expire)
   {
     global $mysqli;
@@ -16,6 +23,13 @@ class Token
     return $token;
   }
 
+  /**
+   * Checks whether token exists in the database and has not expired.
+   * @param String $token
+   * @param int $id user ID
+   * @param String $data
+   * @return int count of results in database
+   */
   public static function validate_token($token, $id, $data)
   {
     global $mysqli;
@@ -27,6 +41,11 @@ class Token
     return $query->fetch_assoc()['count'];
   }
 
+  /**
+   * Deletes token.
+   * @param String $token
+   * @return void
+   */
   public static function delete($token)
   {
     global $mysqli;

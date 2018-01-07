@@ -12,8 +12,13 @@ class Incident
   private $title;
   private $username;
 
+  /**
+   * Constructs service from its data.
+   * @param array $data incident data
+   */
   function __construct($data)
   {
+  	//TODO: Maybe get data from id?
     $this->id = $data['status_id'];
     $this->date = new DateTime("@".$data['time']);
     $this->date = $this->date->format('Y-m-d H:i:sP');
@@ -27,7 +32,12 @@ class Incident
     $this->username = $data['username'];
   }
 
+  /**
+   * Deletes incident by ID.
+   * @param int ID
+   */
   public static function delete($id){
+  	//TODO: This should check whether it's admin or their own post...
     global $mysqli, $message;
 
     $stmt = $mysqli->prepare("DELETE FROM services_status WHERE status_id = ?");
@@ -42,6 +52,12 @@ class Incident
     header("Location: /admin");
   }
 
+  /**
+   * Processes submitted form and adds incident unless problem is encountered, 
+   * calling this is possible only for admin or higher rank. Also checks requirements
+   * for char limits.
+   * @return void
+   */
   public static function add()
   {
     global $mysqli, $message;
@@ -120,6 +136,12 @@ class Incident
     }
   }
 
+
+  /**
+   * Renders incident
+   * @param Boolean $admin - decides whether admin controls should be rendered
+   * @return void
+   */
   public function render($admin=0){
     global $icons;
     global $classes, $user;
