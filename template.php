@@ -123,6 +123,7 @@ class Template{
     </div>
     <script src="/js/vendor/jquery-1.11.2.min.js"></script>
     <script src="/js/vendor/jquery.timeago.js"></script>
+    <script src="/locale/<?php echo $_SESSION['locale'];?>/jquery.timeago.js"></script>
     <?php if ($admin){?>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="/js/admin.js"></script>
