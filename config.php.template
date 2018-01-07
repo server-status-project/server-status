@@ -11,10 +11,11 @@ define("DEFAULT_LANGUAGE", "en_GB");
 
 require("classes/locale-negotiator.php");
 
+$negotiator = new LocaleNegotiator(DEFAULT_LANGUAGE);
+
 if (!isset($_SESSION['locale'])||isset($_GET['lang']))
 {
 	$override = ((isset($_GET['lang']))?$_GET['lang']:null);
-	$negotiator = new LocaleNegotiator(DEFAULT_LANGUAGE);
 	$best_match = $negotiator->negotiate($override);
 	$_SESSION['locale'] = $best_match;
 	setlocale(LC_ALL, $_SESSION['locale'].".UTF-8");

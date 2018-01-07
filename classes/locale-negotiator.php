@@ -14,12 +14,13 @@ class LocaleNegotiator
 	*/
 	function __construct($default_language)
 	{
-		$tmp = glob(__DIR__ . '/locale/*' , GLOB_ONLYDIR);
+		$tmp = glob(__DIR__ . '/../locale/*' , GLOB_ONLYDIR);
 		$this->default_language = $default_language;
 		//Works only if the server supports the locale
 		//This basically means $accepted_langs[<lang_code>] = "<lang name>";
-		foreach ($accepted_langs as $key => $value) {
-			$this->accepted_langs[basename($value)] = self::mb_ucfirst(locale_get_display_language($lang, $lang));
+		foreach ($tmp as $key => $value) {
+			$lang = basename($value);
+			$this->accepted_langs[$lang] = self::mb_ucfirst(locale_get_display_language($lang, $lang));
 		}
 	}
 
