@@ -6,7 +6,7 @@ Very simple server status page written in PHP - target version 7, with some code
 ## Contributing
 Anyone is welcome to make pull request with new features or security patches / bug fixes. You can find some ideas [here](https://github.com/Pryx/server-status/labels/help%20wanted). Only rule for now is, that you should describe what kind of changes you've made to the code in the PR along with some description of the feature or bug fixed so I can test it.
 
-[[List of contributors|Contributors]]
+[List of contributors](https://github.com/Pryx/server-status/wiki/contributors)
 
 ## Translations
 Any help with translations are much welcome! You can join us at https://poeditor.com/join/project/37SpmJtyOm. You can even add your own language. Just let me know when you're done and I'm going to include the language in the next release.
