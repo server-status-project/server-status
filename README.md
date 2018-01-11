@@ -3,6 +3,11 @@
 
 Very simple server status page written in PHP - target version 7, with some code changes it should be able to run almost anywhere. Can run even on shared webhosting without any problems and it was written exactly for that purpose. Because why waste your money on another server (or host on a server that you might want to do maintenance on), when you can use cheap webhosting?
 
+## Contributing
+Anyone is welcome to make pull request with new features or security patches / bug fixes. You can find some ideas [here](https://github.com/Pryx/server-status/labels/help%20wanted). Only rule for now is, that you should describe what kind of changes you've made to the code in the PR along with some description of the feature or bug fixed so I can test it.
+
+[[List of contributors|Contributors]]
+
 ## Translations
 Any help with translations are much welcome! You can join us at https://poeditor.com/join/project/37SpmJtyOm. You can even add your own language. Just let me know when you're done and I'm going to include the language in the next release.
 
