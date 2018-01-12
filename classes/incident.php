@@ -154,7 +154,7 @@ class Incident
         <div class="panel-heading clearfix">
           <h2 class="panel-title"><?php echo $this->title; ?></h2>
           <?php if ($admin){
-            echo '<a href="'.WEB_URL.'/?delete='.$this->id.'" class="pull-right delete"><i class="fa fa-trash"></i></a>';
+            echo '<a href="'.WEB_URL.'/admin/?delete='.$this->id.'" class="pull-right delete"><i class="fa fa-trash"></i></a>';
           }?>
           <time class="pull-right timeago" datetime="<?php echo $this->date; ?>"><?php echo $this->date; ?></time>
         </div>
