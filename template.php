@@ -137,7 +137,7 @@ class Template{
                 <span class="caret"></span>
                 <span class="sr-only"><?php echo _("Toggle Dropdown");?></span>
               </button>
-              <ul class="dropdown-menu">
+              <div class="dropdown-menu">
                 <?php 
                 foreach ($lang_names as $key => $value) {
                   echo '<a href="?lang='.$key.'"><img src="'.WEB_URL.'/locale/'.$key.'/flag.png" alt="'.$value.'">'.$value.'</a>';
@@ -145,7 +145,7 @@ class Template{
                 ?>
                 <hr role="separator" class="divider">
                 <a href="https://poeditor.com/join/project/37SpmJtyOm"><?php echo _("Help with translation!");?></a>
-              </ul>
+              </div>
             </div>
           </div>
           <div class="col-md-4 text-right"><a href="https://github.com/Pryx/server-status/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></div>

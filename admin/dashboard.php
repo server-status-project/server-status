@@ -38,7 +38,7 @@ Template::render_header(_("Dashboard"), true);
         <div class="line text-muted"></div>
         <h3><?php echo _("New incident");?></h3>
         <form id="new-incident" action="<?php echo WEB_URL;?>/admin/?new=incident" method="POST" class="clearfix">
-        <article class="panel">
+        <div class="panel">
           <?php if (isset($message))
           {?>
           <p class="alert alert-danger"><?php echo $message?></p>
@@ -63,8 +63,8 @@ Template::render_header(_("Dashboard"), true);
           }
           ?>
           </div>
-        </article>
-          <article class="panel new panel-primary">
+        </div>
+          <div class="panel new panel-primary">
             <div class="panel-heading icon">
               <i class="glyphicon glyphicon-info-sign"></i>
             </div>
@@ -77,7 +77,7 @@ Template::render_header(_("Dashboard"), true);
             <div class="panel-footer clearfix">
               <small><?php echo _("Posted by");?>: <?php echo $user->get_username();?> <span class="pull-right" id="end_time_wrapper"><?php echo _("Ending");?>:&nbsp;<input id="end_time" title="Use ISO 8601 format (e.g. 2017-11-23T19:50:51+00:00)" type="text" pattern="(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))" name="end_time" class="pull-right" placeholder="<?php echo _("End time");?>" value="<?php echo (isset($_POST['end_time'])?htmlspecialchars($_POST['end_time']):''); ?>"></span></small>
             </div>
-          </article>
+          </div>
           <select class="form-control pull-left" id="type" name="type">
             <?php 
             if (isset($_POST['type']))

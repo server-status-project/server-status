@@ -176,7 +176,7 @@ class Incident
         <div class="panel-footer clearfix">
           <small><?php echo _("Posted by");?>: <?php echo $this->username; 
           if (isset($this->end_date)){?> 
-            <span class="pull-right"><?php echo strtotime($this->end_date)>time()?_("Ending"):_("Ended");?>: <time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
+            <span class="pull-right"><?php echo strtotime($this->end_date)>time()?_("Ending"):_("Ended");?>:&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
             <?php } ?>
           </small>
         </div>
