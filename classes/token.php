@@ -6,7 +6,7 @@ class Token
 {
   /**
    * Generates a new token from user id and randomly generated salt.
-   * @param int $user ID
+   * @param int $id user ID
    * @param String $data associated with token that are important
    * @param timestamp $expire expiration time
    * @return String token

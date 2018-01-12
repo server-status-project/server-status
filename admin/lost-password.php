@@ -13,12 +13,12 @@ Template::render_header(_("Lost password"));
       $user->change_password($_POST['token']);
       if (isset($message)){?>
       <p class="alert alert-danger"><?php echo $message?></p>
-      <a href="/admin/?do=lost-password<?php echo "&id=".$_POST['id']."&token=".$_POST['token'];?>"><?php echo _("Go back");?> </a>
+      <a href="<?php echo WEB_URL;?>/admin/?do=lost-password<?php echo "&id=".$_POST['id']."&token=".$_POST['token'];?>"><?php echo _("Go back");?> </a>
       <?php 
       }
         else{?>
         <p class="alert alert-success"><?php echo _("Password changed successfully!");?></p>
-        <a href="/admin/"><?php echo _("Go back to login page");?></a>
+        <a href="<?php echo WEB_URL;?>/admin/"><?php echo _("Go back to login page");?></a>
         <?php 
       }
     }
@@ -27,12 +27,12 @@ Template::render_header(_("Lost password"));
       User::password_link();
       if (isset($message)){?>
       <p class="alert alert-danger"><?php echo $message?></p>
-      <a href="/admin/?do=lost-password"><?php echo _("Go back to start");?></a>
+      <a href="<?php echo WEB_URL;?>/admin/?do=lost-password"><?php echo _("Go back to start");?></a>
       <?php 
       }
         else{?>
         <p class="alert alert-success"><?php echo _("Email with password reset link has been sent!");?></p>
-        <a href="/admin/"><?php echo _("Go back to login page");?></a>
+        <a href="<?php echo WEB_URL;?>/admin/"><?php echo _("Go back to login page");?></a>
         <?php 
       }
     }
@@ -41,7 +41,7 @@ Template::render_header(_("Lost password"));
       if (isset($message)){?>
       <p class="alert alert-danger"><?php echo $message?></p>
       <?php }?>
-      <form action="/admin/?do=lost-password" method="post">
+      <form action="<?php echo WEB_URL;?>/admin/?do=lost-password" method="post">
       <?php if (!isset($_GET['id'])||!isset($_GET['token'])){?>
         <label for="email"><?php echo _("Email");?>:</label>
           <div class="input-group pull-right">

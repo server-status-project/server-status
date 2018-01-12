@@ -7,7 +7,7 @@ if (isset($_GET['id']))
 try {
 	$displayed_user = new User($id);
 } catch (Exception $e) {
-	header("Location: /admin/?do=user");
+	header("Location: ".WEB_URL."/admin/?do=user");
 }
 
 

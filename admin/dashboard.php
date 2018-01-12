@@ -37,7 +37,7 @@ Template::render_header(_("Dashboard"), true);
       <div class="timeline">
         <div class="line text-muted"></div>
         <h3><?php echo _("New incident");?></h3>
-        <form id="new-incident" action="/admin/?new=incident" method="POST" class="clearfix">
+        <form id="new-incident" action="<?php echo WEB_URL;?>/admin/?new=incident" method="POST" class="clearfix">
         <article class="panel">
           <?php if (isset($message))
           {?>
@@ -52,11 +52,12 @@ Template::render_header(_("Dashboard"), true);
           }else{
             $post_services = array();
           }
+
           foreach($services as $service){
           ?>
             <div class="item clearfix">
               <div class="service"><?php if ($service->get_status()!=-1){?><input type="checkbox" name="services[]" value="<?php echo $service->get_id(); ?>" <?php echo (in_array($service->get_id(), $post_services))?"checked":'';?> id="service-<?php echo $service->get_id(); ?>"><?php } ?><label for="service-<?php echo $service->get_id(); ?>"><?php echo $service->get_name(); ?></label></div>
-              <div class="status <?php echo $classes[$service->get_status()];?>"><?php echo $statuses[$service->get_status()];?></div>
+              <div class="status <?php if ($service->get_status()!=-1){echo $classes[$service->get_status()];}?>"><?php if ($service->get_status()!=-1){echo $statuses[$service->get_status()];}?></div>
             </div>
           <?php
           }

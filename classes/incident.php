@@ -49,7 +49,7 @@ class Incident
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $query = $stmt->get_result();
-    header("Location: /admin");
+    header("Location: ".WEB_URL."/admin");
   }
 
   /**
@@ -132,7 +132,7 @@ class Incident
         $stmt->execute();
         $query = $stmt->get_result();
       }
-      header("Location: /admin");
+      header("Location: ".WEB_URL."/admin");
     }
   }
 
@@ -154,7 +154,7 @@ class Incident
         <div class="panel-heading clearfix">
           <h2 class="panel-title"><?php echo $this->title; ?></h2>
           <?php if ($admin){
-            echo '<a href="?delete='.$this->id.'" class="pull-right delete"><i class="fa fa-trash"></i></a>';
+            echo '<a href="'.WEB_URL.'/?delete='.$this->id.'" class="pull-right delete"><i class="fa fa-trash"></i></a>';
           }?>
           <time class="pull-right timeago" datetime="<?php echo $this->date; ?>"><?php echo $this->date; ?></time>
         </div>
@@ -165,7 +165,7 @@ class Incident
           <small><?php echo _("Posted by");?>: <?php echo $this->username; 
           if (isset($this->end_date)){?> 
             <span class="pull-right"><?php echo strtotime($this->end_date)>time()?_("Ending"):_("Ended");?>:&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
-            <?}?>
+            <?php } ?>
           </small>
         </div>
       </article>

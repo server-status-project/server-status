@@ -97,7 +97,7 @@ class User
       $stmt->bind_param("i", $this->id);
       $stmt->execute();
       $stmt->close();
-      header("Location: /admin/?do=user&id=".$id);
+      header("Location: ".WEB_URL."/admin/?do=user&id=".$id);
     }else{
       $message = _("You don't have the permission to do that!");
     }
@@ -115,10 +115,24 @@ class User
     global $user, $message, $mysqli;
     if (INSTALL_OVERRIDE || $user->get_rank()==0)
     {
-      if (strlen(trim($_POST['name']))==0 || strlen(trim($_POST['surname']))==0 || strlen(trim($_POST['email']))==0 || strlen(trim($_POST['password']))==0 || !isset($_POST['permission']))
+      if (strlen(trim($_POST['name']))==0) {
+        $messages[] = _("name");
+      }
+      if(strlen(trim($_POST['surname']))==0) {
+        $messages[] = _("surname");
+      }
+      if(strlen(trim($_POST['email']))==0) {
+        $messages[] = _("email");
+      }
+      if(strlen(trim($_POST['password']))==0) {
+        $messages[] = _("password");
+      }
+      if(!isset($_POST['permission']))
       {
-        $message = _("Please enter all data!");
-      }else{
+        $messages[] = _("rank");
+      }
+
+      if (!isset($messages)){
         $name = $_POST['name'];
         $surname = $_POST['surname'];
         $username = $_POST['username'];
@@ -159,18 +173,24 @@ class User
         {
           $to      = $email;
           $subject = _('User account created').' - '.NAME;
-          $message = sprintf(_("Hi %s!<br>"."Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."), $name." ".$surname,WEB_URL."/admin", WEB_URL."/admin", $pass);
+          $msg = sprintf(_("Hi %s!<br>"."Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."), $name." ".$surname,WEB_URL."/admin", WEB_URL."/admin", $pass);
           $headers = "Content-Type: text/html; charset=utf-8 ".PHP_EOL;
           $headers .= "MIME-Version: 1.0 ".PHP_EOL;
           $headers .= "From: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL;
           $headers .= "Reply-To: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL; 
 
-          mail($to, $subject, $message, $headers);
-          header("Location: /admin/?do=settings");
+          mail($to, $subject, $msg, $headers);
+          if (!INSTALL_OVERRIDE) 
+          {
+            header("Location: ".WEB_URL."/admin/?do=settings");
+          }
         }
         else{
           $message = _("Username or email already used");
         }
+      }
+      else{
+        $message = "Please enter ".implode(", ", $messages);
       }
     }
     else {
@@ -229,7 +249,7 @@ class User
               setcookie('user', $id, $year, "/");
             }
             $_SESSION['user'] = $id;
-            header("Location: /admin");
+            header("Location: ".WEB_URL."/admin");
           }
         }
       }
@@ -290,14 +310,14 @@ class User
       <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Username");?></strong></div>
       <div class="col-md-6"><?php echo $this->username."&nbsp;"; if ($this->id!=$_SESSION['user'] && $user->get_rank()<=1 && ($user->get_rank()<$this->rank))
       {
-        echo "<a href='/admin/?do=user&id=".$this->id."&what=toggle'>";
+        echo "<a href='".WEB_URL."/admin/?do=user&id=".$this->id."&what=toggle'>";
         echo "<i class='fa fa-".($this->active?"check success":"times danger")."'></i></a>";
       }else{
         echo "<i class='fa fa-".($this->active?"check success":"times danger")."'></i>";
       }?></div>
     </div>
 
-    <form action="/admin/?do=user&id=<?php echo $this->id; ?>" method="POST">
+    <form action="<?php echo WEB_URL;?>/admin/?do=user&id=<?php echo $this->id; ?>" method="POST">
       <div class="row">
         <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Role");?></strong></div>
         <div class="col-md-6"><?php if ($user->get_rank() == 0 && $this->id != $_SESSION['user']){?> <div class="input-group"><select class="form-control" name="permission"><?php foreach ($permissions as $key => $value) {
@@ -306,13 +326,13 @@ class User
         </select><span class="input-group-btn">
           <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change role");?></button>
         </span>
-      </div><?}else{ echo $permissions[$this->rank];}?></div>
+      </div><?php }else{ echo $permissions[$this->rank];}?></div>
     </div>
   </form>
 
   <?php if($this->id==$_SESSION['user'])
   {?>
-    <form action="/admin/?do=user" method="POST">
+    <form action="<?php echo WEB_URL;?>/admin/?do=user" method="POST">
       <div class="row">
         <div class="col-md-2 col-md-offset-2"><strong>Email</strong></div>
         <div class="col-md-6">
@@ -325,7 +345,7 @@ class User
         </div>
       </div>
     </form>
-    <form action="/admin/?do=user" method="POST">
+    <form action="<?php echo WEB_URL;?>/admin/?do=user" method="POST">
       <div class="row">
         <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Password");?></strong></div>
         <div class="col-md-6">
@@ -517,7 +537,7 @@ class User
       $stmt->execute();
       $query = $stmt->get_result();
       Token::delete($token);
-      header("Location: /admin/");
+      header("Location: ".WEB_URL."/admin/");
     }
     else
     {
@@ -535,14 +555,17 @@ class User
   public static function logout(){
     global $mysqli;
     session_unset();
-    $token = $_COOKIE['token'];
-    $time = time();
-    Token::delete($token);
-    unset($_COOKIE['user']);
-    unset($_COOKIE['token']);
-    setcookie('user', null, -1, '/');
-    setcookie('token', null, -1, '/');
-    header("Location: /admin");
+    if (isset($_COOKIE['token']))
+    {
+      $token = $_COOKIE['token'];
+      $time = time();
+      Token::delete($token);
+      unset($_COOKIE['user']);
+      unset($_COOKIE['token']);
+      setcookie('user', null, -1, '/');
+      setcookie('token', null, -1, '/');
+    }
+    header("Location: ".WEB_URL."/admin");
   }
 
   /**
@@ -558,7 +581,7 @@ class User
       $stmt = $mysqli->prepare("UPDATE users SET permission=? WHERE id=?");
       $stmt->bind_param("si", $permission, $id);
       $stmt->execute();  
-      header("Location: /admin/?do=user&id=".$id);
+      header("Location: ".WEB_URL."/admin/?do=user&id=".$id);
     }
     else{
       $message = _("You don't have permission to do that!");

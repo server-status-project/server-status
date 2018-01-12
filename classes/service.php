@@ -75,7 +75,7 @@ class Service
       $stmt->bind_param("s", $name);
       $stmt->execute();
       $query = $stmt->get_result();
-      header("Location: /admin/?do=settings");
+      header("Location: ".WEB_URL."/admin/?do=settings");
     }else
     {
       $message = _("You don't have the permission to do that!");
@@ -116,7 +116,7 @@ class Service
       $stmt->execute();
       $query = $stmt->get_result();
 
-      header("Location: /admin/?do=settings");
+      header("Location: ".WEB_URL."/admin/?do=settings");
     }
     else
     {
@@ -133,6 +133,7 @@ class Service
     global $all, $some, $classes;
     $statuses = array(0,0,0,0);
     $worst = 5;
+
     foreach ($array as $service) {
       if ($service->status<$worst)
       {
