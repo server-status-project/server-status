@@ -9,8 +9,6 @@ if(isset($_COOKIE['user'])&&!isset($_SESSION['user']))
   User::restore_session();
 }
 
-//TODO: CHeck if user deactivated
-
 if (!isset($_SESSION['user']))
 {
   if (isset($_GET['do']) && $_GET['do']=="lost-password")

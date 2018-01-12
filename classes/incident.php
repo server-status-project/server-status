@@ -37,8 +37,20 @@ class Incident
    * @param int ID
    */
   public static function delete($id){
-  	//TODO: This should check whether it's admin or their own post...
-    global $mysqli, $message;
+    global $mysqli, $message, $user;
+
+    if ($user->get_rank() > 1)
+    {
+      $stmt = $mysqli->prepare("SELECT count(*) as count FROM status WHERE id= ? AND user_id = ?");
+      $stmt->bind_param("ii", $id, $_SESSION['user']);
+      $stmt->execute();
+      $query = $stmt->get_result();
+      if (!$query->fetch_assoc()['count'])
+      {
+        $message = _("You don't have permission to do that!");
+        return;
+      }
+    }
 
     $stmt = $mysqli->prepare("DELETE FROM services_status WHERE status_id = ?");
     $stmt->bind_param("i", $id);
@@ -164,7 +176,7 @@ class Incident
         <div class="panel-footer clearfix">
           <small><?php echo _("Posted by");?>: <?php echo $this->username; 
           if (isset($this->end_date)){?> 
-            <span class="pull-right"><?php echo strtotime($this->end_date)>time()?_("Ending"):_("Ended");?>:&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
+            <span class="pull-right"><?php echo strtotime($this->end_date)>time()?_("Ending"):_("Ended");?>: <time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
             <?php } ?>
           </small>
         </div>

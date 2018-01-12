@@ -13,7 +13,7 @@ Template::render_header(_("Lost password"));
       $user->change_password($_POST['token']);
       if (isset($message)){?>
       <p class="alert alert-danger"><?php echo $message?></p>
-      <a href="<?php echo WEB_URL;?>/admin/?do=lost-password<?php echo "&id=".$_POST['id']."&token=".$_POST['token'];?>"><?php echo _("Go back");?> </a>
+      <a href="<?php echo WEB_URL;?>/admin/?do=lost-password<?php echo "&amp;id=".$_POST['id']."&amp;token=".$_POST['token'];?>"><?php echo _("Go back");?> </a>
       <?php 
       }
         else{?>

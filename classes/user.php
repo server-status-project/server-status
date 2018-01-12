@@ -97,7 +97,7 @@ class User
       $stmt->bind_param("i", $this->id);
       $stmt->execute();
       $stmt->close();
-      header("Location: ".WEB_URL."/admin/?do=user&id=".$id);
+      header("Location: ".WEB_URL."/admin/?do=user&amp;id=".$id);
     }else{
       $message = _("You don't have the permission to do that!");
     }
@@ -138,6 +138,12 @@ class User
         $username = $_POST['username'];
         $email = $_POST['email'];
         $pass = $_POST['password'];
+        
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+        {
+          $message = "Invalid email!";
+          return;
+        }
 
         $variables = array();
         if (strlen($name)>50){
@@ -152,6 +158,7 @@ class User
         if (strlen($email)>60){
           $variables[] = 'email: 60';
         }
+
 
         if (!empty($variables))
         {
@@ -308,16 +315,16 @@ class User
     </div>
     <div class="row">
       <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Username");?></strong></div>
-      <div class="col-md-6"><?php echo $this->username."&nbsp;"; if ($this->id!=$_SESSION['user'] && $user->get_rank()<=1 && ($user->get_rank()<$this->rank))
+      <div class="col-md-6"><?php echo $this->username." "; if ($this->id!=$_SESSION['user'] && $user->get_rank()<=1 && ($user->get_rank()<$this->rank))
       {
-        echo "<a href='".WEB_URL."/admin/?do=user&id=".$this->id."&what=toggle'>";
+        echo "<a href='".WEB_URL."/admin/?do=user&amp;id=".$this->id."&amp;what=toggle'>";
         echo "<i class='fa fa-".($this->active?"check success":"times danger")."'></i></a>";
       }else{
         echo "<i class='fa fa-".($this->active?"check success":"times danger")."'></i>";
       }?></div>
     </div>
 
-    <form action="<?php echo WEB_URL;?>/admin/?do=user&id=<?php echo $this->id; ?>" method="POST">
+    <form action="<?php echo WEB_URL;?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
       <div class="row">
         <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Role");?></strong></div>
         <div class="col-md-6"><?php if ($user->get_rank() == 0 && $this->id != $_SESSION['user']){?> <div class="input-group"><select class="form-control" name="permission"><?php foreach ($permissions as $key => $value) {
@@ -477,11 +484,11 @@ class User
 
     $token = Token::new($id, 'passwd', $time);
 
-    $link = WEB_URL."/admin/?do=lost-password&id=$id&token=$token";
+    $link = WEB_URL."/admin/?do=lost-password&amp;id=$id&amp;token=$token";
     $to      = $email;
     $user = new User($id);
     $subject = _('Reset password') . ' - '.NAME;
-    $msg = sprintf(_( "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy & paste it into your browser: <br>%s"), $user->get_name(), $link, $link);
+    $msg = sprintf(_( "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"), $user->get_name(), $link, $link);
     $headers = "Content-Type: text/html; charset=utf-8 ".PHP_EOL;
     $headers .= "MIME-Version: 1.0 ".PHP_EOL;
     $headers .= "From: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL;
@@ -503,10 +510,10 @@ class User
     $token = Token::new($id, 'email;$email', $time);
 
 
-    $link = WEB_URL."/admin/?do=change-email&id=$id&token=$token";
+    $link = WEB_URL."/admin/?do=change-email&amp;id=$id&amp;token=$token";
     $to      = $email;
     $subject = _('Email change').' - '.NAME;
-    $msg = sprintf(_( "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy & paste it into your browser: <br>%s"), $user->get_name(), $link, $link);
+    $msg = sprintf(_( "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"), $user->get_name(), $link, $link);
     $headers = "Content-Type: text/html; charset=utf-8 ".PHP_EOL;
     $headers .= "MIME-Version: 1.0 ".PHP_EOL;
     $headers .= "From: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL;
@@ -581,7 +588,7 @@ class User
       $stmt = $mysqli->prepare("UPDATE users SET permission=? WHERE id=?");
       $stmt->bind_param("si", $permission, $id);
       $stmt->execute();  
-      header("Location: ".WEB_URL."/admin/?do=user&id=".$id);
+      header("Location: ".WEB_URL."/admin/?do=user&amp;id=".$id);
     }
     else{
       $message = _("You don't have permission to do that!");
