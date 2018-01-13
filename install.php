@@ -83,7 +83,8 @@ if(isset($_POST['server']) && empty($message))
 	$array = explode(";", $sql);
 	
 	foreach ($array as $value) {
-		if (empty(trim($value)))
+		$val = trim($value);
+		if (empty($val))
 		{
 			continue;
 		}

@@ -11,7 +11,7 @@ class Token
    * @param timestamp $expire expiration time
    * @return String token
    */
-  public static function new($id, $data, $expire)
+  public static function add($id, $data, $expire)
   {
     global $mysqli;
     $salt = uniqid(mt_rand(), true);

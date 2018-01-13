@@ -251,7 +251,7 @@ class User
             if (isset($_POST['remember'])&&$_POST['remember'])
             {
               $year = strtotime('+356 days', time());
-              $token = Token::new($id, 'remember', $year);
+              $token = Token::add($id, 'remember', $year);
               setcookie('token', $token, $year, "/");
               setcookie('user', $id, $year, "/");
             }
@@ -283,7 +283,7 @@ class User
       $year = strtotime('+356 days', time());
       unset($_COOKIE['token']);
       $_SESSION['user'] = $id;
-      $token = Token::new($id, 'remember', $year);
+      $token = Token::add($id, 'remember', $year);
       setcookie('token', $token, $year);
     }
     else
@@ -482,7 +482,7 @@ class User
     $id = $query->fetch_assoc()['id'];    
     $time = strtotime('+1 day', time());
 
-    $token = Token::new($id, 'passwd', $time);
+    $token = Token::add($id, 'passwd', $time);
 
     $link = WEB_URL."/admin/?do=lost-password&amp;id=$id&amp;token=$token";
     $to      = $email;
@@ -507,7 +507,7 @@ class User
     $time = strtotime('+1 day', time());
     $id = $this->id;
 
-    $token = Token::new($id, 'email;$email', $time);
+    $token = Token::add($id, 'email;$email', $time);
 
 
     $link = WEB_URL."/admin/?do=change-email&amp;id=$id&amp;token=$token";
