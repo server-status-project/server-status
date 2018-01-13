@@ -23,6 +23,11 @@ Yes it does! This is basically debranded version of https://status.trucksbook.eu
 
 ### Is it possible to see how it works somewhere?
 Yes it is! Head over to http://demo.status.sajdl.com/admin and try the admin interface for yourself.
+Login details:
+```
+email: sysadmin@example.com
+password: Ss123456
+```
 
 ### Why does this project exist?
 It was written as a school project where we had to create a website. I went with this because I found the lack of good looking, easy to install and use status page rather weird. Therefore my goal (as stated above) was to create a simplistic status page that could run almost anywhere. The code is not the nicest or cleanest and it definitely doesn't have that many features, but hey, it works!
