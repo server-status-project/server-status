@@ -1,66 +1,57 @@
-# Vojtěch Sajdl <vojtech@sajdl.com>, 2017. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Server Status\n"
-"POT-Creation-Date: 2017-12-31 02:21+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-30 08:22-0500\n"
-"Language-Team: \n"
-"X-Generator: Zanata 3.9.6\n"
-"X-Poedit-Basepath: server-status\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"Last-Translator: Vojtěch Sajdl <vojtech@sajdl.com>\n"
-"Language: en-GB\n"
-"X-Poedit-SearchPath-0: .\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Server status\n"
+"Language: en-gb\n"
 
-#: 404.php:8
+#: 404.php:7
 msgid "Page Not Found"
 msgstr "Page Not Found"
 
-#: 404.php:9
+#: 404.php:8
 msgid "Sorry, but the page you were trying to view does not exist."
 msgstr "Sorry, but the page you were trying to view does not exist."
 
-#: admin/dashboard.php:24 admin/dashboard.php:28 header.php:68
+#: admin/dashboard.php:22 admin/dashboard.php:26 template.php:106
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: admin/dashboard.php:29
+#: admin/dashboard.php:27
 msgid "Welcome"
 msgstr "Welcome"
 
-#: admin/dashboard.php:41
+#: admin/dashboard.php:39
 msgid "New incident"
 msgstr "New incident"
 
-#: admin/dashboard.php:71
+#: admin/dashboard.php:72
 msgid "Title"
 msgstr "Title"
 
-#: admin/dashboard.php:71
+#: admin/dashboard.php:72
 msgid "Time"
 msgstr "Time"
 
-#: admin/dashboard.php:74
+#: admin/dashboard.php:75
 msgid "Here goes your text..."
 msgstr "Here goes your text..."
 
-#: admin/dashboard.php:77 classes/incident.php:143
+#: admin/dashboard.php:78 classes/incident.php:177
 msgid "Posted by"
 msgstr "Posted by"
 
-#: admin/dashboard.php:77 classes/incident.php:145
+#: admin/dashboard.php:78 classes/incident.php:179
 msgid "Ending"
 msgstr "Ending"
 
-#: admin/dashboard.php:77
+#: admin/dashboard.php:78
 msgid "End time"
 msgstr "End time"
 
-#: admin/dashboard.php:95 admin/new-user.php:53
+#: admin/dashboard.php:96 admin/new-user.php:53
 msgid "Submit"
 msgstr "Submit"
 
@@ -70,16 +61,16 @@ msgstr "Login"
 
 #: admin/login-form.php:11
 msgid "Please login to continue."
-msgstr "Please login to continue."
+msgstr "Please log in to continue."
 
 #: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
 #: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:69
-#: classes/user.php:299 install.php:98 install.php:123
+#: classes/user.php:125 classes/user.php:375 install.php:150 install.php:175
 msgid "Email"
 msgstr "Email"
 
 #: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
-#: classes/user.php:281 install.php:111 install.php:126
+#: classes/user.php:128 classes/user.php:357 install.php:163 install.php:178
 msgid "Password"
 msgstr "Password"
 
@@ -120,21 +111,20 @@ msgid "Submit request"
 msgstr "Submit request"
 
 #: admin/lost-password.php:57
-#, php-format
 msgid "Reset password for %s (%s)"
 msgstr "Reset password for %s (%s)"
 
-#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:285
-#: classes/user.php:286
+#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:361
+#: classes/user.php:362
 msgid "New password"
 msgstr "New password"
 
-#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:287
-#: classes/user.php:288
+#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:363
+#: classes/user.php:364
 msgid "Repeat password"
 msgstr "Repeat password"
 
-#: admin/lost-password.php:64 classes/user.php:289
+#: admin/lost-password.php:64 classes/user.php:365
 msgid "Change password"
 msgstr "Change password"
 
@@ -143,16 +133,17 @@ msgid "New user"
 msgstr "New user"
 
 #: admin/new-user.php:19 admin/settings.php:38 admin/settings.php:69
-#: install.php:92 install.php:97 install.php:118
+#: classes/user.php:119 install.php:144 install.php:149 install.php:170
 msgid "Name"
 msgstr "Name"
 
-#: admin/new-user.php:20 admin/settings.php:69 install.php:119
+#: admin/new-user.php:20 admin/settings.php:69 classes/user.php:122
+#: install.php:171
 msgid "Surname"
 msgstr "Surname"
 
-#: admin/new-user.php:23 admin/settings.php:69 classes/user.php:241
-#: install.php:122
+#: admin/new-user.php:23 admin/settings.php:69 classes/user.php:317
+#: install.php:174
 msgid "Username"
 msgstr "Username"
 
@@ -160,7 +151,7 @@ msgstr "Username"
 msgid "Permission"
 msgstr "Permission"
 
-#: admin/settings.php:12 header.php:70
+#: admin/settings.php:12 template.php:108
 msgid "Settings"
 msgstr "Settings"
 
@@ -172,7 +163,7 @@ msgstr "Services"
 msgid "Add service"
 msgstr "Add service"
 
-#: admin/settings.php:37 admin/settings.php:69 classes/user.php:237
+#: admin/settings.php:37 admin/settings.php:69 classes/user.php:313
 msgid "ID"
 msgstr "ID"
 
@@ -188,11 +179,11 @@ msgstr "Users"
 msgid "Add new user"
 msgstr "Add new user"
 
-#: admin/settings.php:69 classes/user.php:253
+#: admin/settings.php:69 classes/user.php:329
 msgid "Role"
 msgstr "Role"
 
-#: admin/user.php:35 install.php:110 install.php:115
+#: admin/user.php:35 install.php:162 install.php:167
 msgid "User"
 msgstr "User"
 
@@ -200,254 +191,212 @@ msgstr "User"
 msgid "User settings"
 msgstr "User settings"
 
-#: classes/constellation.php:32 config.php:25
+#: classes/constellation.php:36 config.php:40
 msgid "Planned maintenance"
 msgstr "Planned maintenance"
 
-#: classes/constellation.php:38
+#: classes/constellation.php:42
 msgid "Back"
 msgstr "Back"
 
-#: classes/constellation.php:40
+#: classes/constellation.php:44
 msgid "Past incidents"
 msgstr "Past incidents"
 
-#: classes/constellation.php:44
+#: classes/constellation.php:48
 msgid "No incidents"
 msgstr "No incidents"
 
-#: classes/constellation.php:58
+#: classes/constellation.php:62
 msgid "Load more"
 msgstr "Load more"
 
-#: classes/constellation.php:91
+#: classes/constellation.php:100
 msgid "No services"
 msgstr "No services"
 
-#: classes/incident.php:55
+#: classes/incident.php:83
 msgid "Please enter title"
 msgstr "Please enter title"
 
-#: classes/incident.php:58
+#: classes/incident.php:86
 msgid "Title too long! Character limit is 50"
 msgstr "Title too long! Character limit is 50"
 
-#: classes/incident.php:64
+#: classes/incident.php:92
 msgid "Please enter text"
 msgstr "Please enter text"
 
-#: classes/incident.php:70
+#: classes/incident.php:98
 msgid "Please set start and end time! Use ISO 8601 format."
 msgstr "Please set start and end time! Use ISO 8601 format."
 
-#: classes/incident.php:75
+#: classes/incident.php:103
 msgid "Please select at least one service"
 msgstr "Please select at least one service"
 
-#: classes/incident.php:93
+#: classes/incident.php:121
 msgid "Start date format is not recognized. Please use ISO 8601 format."
 msgstr "Start date format is not recognized. Please use ISO 8601 format."
 
-#: classes/incident.php:99
+#: classes/incident.php:127
 msgid "End date format is not recognized. Please use ISO 8601 format."
 msgstr "End date format is not recognized. Please use ISO 8601 format."
 
-#: classes/incident.php:145
+#: classes/incident.php:179
 msgid "Ended"
 msgstr "Ended"
 
-#: classes/service.php:38
+#: classes/service.php:63
 msgid "Service name is too long! Character limit is 50"
 msgstr "Service name is too long! Character limit is 50"
 
-#: classes/service.php:41
+#: classes/service.php:66
 msgid "Please enter name!"
 msgstr "Please enter name!"
 
-#: classes/service.php:56 classes/service.php:94 classes/user.php:72
-#: classes/user.php:140
+#: classes/service.php:81 classes/service.php:123 classes/user.php:102
+#: classes/user.php:204
 msgid "You don't have the permission to do that!"
 msgstr "You don't have the permission to do that!"
 
-#: classes/user.php:83 install.php:28
-msgid "Please enter all data!"
-msgstr "Please enter all data!"
-
-#: classes/user.php:107
+#: classes/user.php:165
 msgid "Please mind the following character limits: "
 msgstr "Please mind the following character limits: "
 
-#: classes/user.php:124
+#: classes/user.php:182
 msgid "User account created"
 msgstr "User account created"
 
-#: classes/user.php:125
-#, php-format
-msgid ""
-"Hi %s!<br>Your account has been created. You can login with your email "
-"address at <a href=\"%s\">%s</a> with password %s - please change it as soon "
-"as possible."
-msgstr ""
-"Hi %s!<br>Your account has been created. You can login with your email "
-"address at <a href=\"%s\">%s</a> with password %s - please change it as soon "
-"as possible."
+#: classes/user.php:183
+msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
+msgstr "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
 
-#: classes/user.php:135
+#: classes/user.php:196
 msgid "Username or email already used"
 msgstr "Username or email already used"
 
-#: classes/user.php:165
+#: classes/user.php:236
 msgid "Your account has been disabled. Please contact administrator."
 msgstr "Your account has been disabled. Please contact administrator."
 
-#: classes/user.php:177 classes/user.php:195
+#: classes/user.php:248 classes/user.php:264
 msgid "Wrong email or password"
 msgstr "Wrong email or password"
 
-#: classes/user.php:222
+#: classes/user.php:295
 msgid "Invalid token detected, please login again!"
 msgstr "Invalid token detected, please login again!"
 
-#: classes/user.php:233
+#: classes/user.php:309
 msgid "Profile picture"
 msgstr "Profile picture"
 
-#: classes/user.php:258
+#: classes/user.php:334
 msgid "Change role"
 msgstr "Change role"
 
-#: classes/user.php:273
+#: classes/user.php:349
 msgid "Change email"
 msgstr "Change email"
 
-#: classes/user.php:283 classes/user.php:284
+#: classes/user.php:359 classes/user.php:360
 msgid "Old password"
 msgstr "Old password"
 
-#: classes/user.php:317
+#: classes/user.php:398
 msgid "Passwords do not match!"
 msgstr "Passwords do not match!"
 
-#: classes/user.php:323
+#: classes/user.php:404
 msgid "Cannot change password of other users!"
 msgstr "Cannot change password of other users!"
 
-#: classes/user.php:349
+#: classes/user.php:434
 msgid "Wrong password!"
 msgstr "Wrong password!"
 
-#: classes/user.php:371 classes/user.php:451
+#: classes/user.php:460 classes/user.php:551
 msgid "Invalid token detected, please retry your request from start!"
 msgstr "Invalid token detected, please retry your request from start!"
 
-#: classes/user.php:397
+#: classes/user.php:490
 msgid "Reset password"
 msgstr "Reset password"
 
-#: classes/user.php:398
-#, php-format
-msgid ""
-"Hi %s!<br>Below you will find link to change your password. The link is "
-"valid for 24hrs. If you didn't request this, feel free to ignore it. "
-"<br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, "
-"copy & paste it into your browser: <br>%s"
-msgstr ""
-"Hi %s!<br>Below you will find link to change your password. The link is "
-"valid for 24hrs. If you didn't request this, feel free to ignore it. "
-"<br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, "
-"copy & paste it into your browser: <br>%s"
-
-#: classes/user.php:418
+#: classes/user.php:515
 msgid "Email change"
 msgstr "Email change"
 
-#: classes/user.php:419
-#, php-format
-msgid ""
-"Hi %s!<br>Below you will find link to change your email. The link is valid "
-"for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a "
-"href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy & paste "
-"it into your browser: <br>%s"
-msgstr ""
-"Hi %s!<br>Below you will find link to change your email. The link is valid "
-"for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a "
-"href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy & paste "
-"it into your browser: <br>%s"
-
-#: classes/user.php:483
+#: classes/incident.php:50 classes/user.php:594
 msgid "You don't have permission to do that!"
 msgstr "You don't have permission to do that!"
 
-#: config.php:25
+#: config.php:40
 msgid "Major outage"
 msgstr "Major outage"
 
-#: config.php:25
+#: config.php:40
 msgid "Minor outage"
 msgstr "Minor outage"
 
-#: config.php:25
+#: config.php:40
 msgid "Operational"
 msgstr "Operational"
 
-#: config.php:28
+#: config.php:43
 msgid "Some systems are experiencing major outages"
 msgstr "Some systems are experiencing major outages"
 
-#: config.php:28
+#: config.php:43
 msgid "Some systems are experiencing minor outages"
 msgstr "Some systems are experiencing minor outages"
 
-#: config.php:28
+#: config.php:43
 msgid "Some systems are under maintenance"
 msgstr "Some systems are under maintenance"
 
-#: config.php:29
+#: config.php:44
 msgid "Our systems are experiencing major outages."
 msgstr "Our systems are experiencing major outages."
 
-#: config.php:29
+#: config.php:44
 msgid "Our systems are experiencing minor outages"
 msgstr "Our systems are experiencing minor outages"
 
-#: config.php:29
+#: config.php:44
 msgid "Our systems are under maintenance"
 msgstr "Our systems are under maintenance"
 
-#: config.php:29
+#: config.php:44
 msgid "All systems operational"
 msgstr "All systems operational"
 
-#: config.php:30
+#: config.php:45
 msgid "Super admin"
 msgstr "Super admin"
 
-#: config.php:30
+#: config.php:45
 msgid "Admin"
 msgstr "Admin"
 
-#: config.php:30
-msgid "Writer"
-msgstr "Writer"
-
-#: header.php:28
+#: template.php:53
 msgid "Service Status"
 msgstr "Service Status"
 
-#: header.php:59
+#: template.php:97
 msgid "Toggle navigation"
 msgstr "Toggle navigation"
 
-#: header.php:69
-#, php-format
+#: template.php:107
 msgid "User (%s)"
 msgstr "User (%s)"
 
-#: header.php:71
+#: template.php:109
 msgid "Logout"
 msgstr "Logout"
 
-#: index.php:28
+#: index.php:27
 msgid "Current status"
 msgstr "Current status"
 
@@ -455,81 +404,121 @@ msgstr "Current status"
 msgid "Status page"
 msgstr "Status page"
 
-#: install.php:5
+#: install.php:127
 msgid "Install"
 msgstr "Install"
 
-#: install.php:6
+#: install.php:129
 msgid "Installation"
 msgstr "Installation"
 
-#: install.php:14
-#, php-format
+#: config.php:33 install.php:26
 msgid "Connection failed: %s\n"
+""
 msgstr "Connection failed: %s\n"
+""
 
-#: install.php:20
+#: install.php:31
 msgid "Please set valid url!"
 msgstr "Please set valid url!"
 
-#: install.php:44
-#, php-format
-msgid ""
-"Error while creating database. Please check permission for your account or "
-"MYSQL version.<br>Error: %s"
-msgstr ""
-"Error while creating database. Please check permission for your account or "
-"MYSQL version.<br>Error: %s"
+#: install.php:93
+msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
+msgstr "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
 
-#: install.php:88
+#: install.php:140
 msgid "Website details"
 msgstr "Website details"
 
-#: install.php:89
-msgid ""
-"We need a name for your status page and a url, so we can mail users link for "
-"forgotten password etc."
-msgstr ""
-"We need a name for your status page and a url, so we can mail users link for "
-"forgotten password etc."
+#: install.php:141
+msgid "We need a name for your status page and a url, so we can mail users link for forgotten password etc."
+msgstr "We need a name for your status page and a url, so we can mail users link for forgotten password etc."
 
-#: install.php:93
+#: install.php:40 install.php:145
 msgid "Url"
 msgstr "Url"
 
-#: install.php:95
+#: install.php:147
 msgid "Also an email address for mailer would be nice :)"
 msgstr "Also an email address for mailer would be nice :)"
 
-#: install.php:102
+#: install.php:154
 msgid "Database connection"
 msgstr "Database connection"
 
-#: install.php:103
-msgid ""
-"We need database connection to be able to create tables. Please check that "
-"your account has the permission needed to do that."
-msgstr ""
-"We need database connection to be able to create tables. Please check that "
-"your account has the permission needed to do that."
+#: install.php:155
+msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
+msgstr "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
 
-#: install.php:106
+#: install.php:158
 msgid "Server"
 msgstr "Server"
 
-#: install.php:107
+#: install.php:159
 msgid "Database"
 msgstr "Database"
 
-#: install.php:116
-msgid ""
-"And finally, we need info to create a new user. You don't have to provide "
-"it, but then... No status page admin..."
-msgstr ""
-"And finally, we need info to create a new user. You don't have to provide "
-"it, but then... No status page admin..."
+#: install.php:168
+msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
+msgstr "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
 
-#: install.php:129
+#: install.php:181
 msgid "Run install!"
 msgstr "Run install!"
+
+#: classes/user.php:132
+msgid "Rank"
+msgstr "Rank"
+
+#: classes/user.php:491
+msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+msgstr "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+
+#: classes/user.php:516
+msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+msgstr "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+
+#: config.php:45
+msgid "Editor"
+msgstr "Editor"
+
+#: install.php:36
+msgid "Server name"
+msgstr "Server name"
+
+#: install.php:44
+msgid "Mailer name"
+msgstr "Mailer name"
+
+#: install.php:48
+msgid "Mailer email"
+msgstr "Mailer email"
+
+#: install.php:52
+msgid "Database server"
+msgstr "Database server"
+
+#: install.php:56
+msgid "Database name"
+msgstr "Database name"
+
+#: install.php:60
+msgid "Database user"
+msgstr "Database user"
+
+#: install.php:65
+msgid "Database password"
+msgstr "Database password"
+
+#: install.php:69
+msgid "Please set"
+msgstr "Please set"
+
+#: template.php:138
+msgid "Toggle Dropdown"
+msgstr "Toggle Dropdown"
+
+#: template.php:147
+msgid "Help with translation!"
+msgstr "Help with translation!"
 

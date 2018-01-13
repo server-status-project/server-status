@@ -1,6 +1,6 @@
 <?php
 //This is config file, please be careful
-
+session_start();
 //You can change these:
 define("NAME", '##name##'); //Website name
 define("WEB_URL", "##url##"); //Used for links 

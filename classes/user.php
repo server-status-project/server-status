@@ -116,20 +116,20 @@ class User
     if (INSTALL_OVERRIDE || $user->get_rank()==0)
     {
       if (strlen(trim($_POST['name']))==0) {
-        $messages[] = _("name");
+        $messages[] = _("Name");
       }
       if(strlen(trim($_POST['surname']))==0) {
-        $messages[] = _("surname");
+        $messages[] = _("Surname");
       }
       if(strlen(trim($_POST['email']))==0) {
-        $messages[] = _("email");
+        $messages[] = _("Email");
       }
       if(strlen(trim($_POST['password']))==0) {
-        $messages[] = _("password");
+        $messages[] = _("Password");
       }
       if(!isset($_POST['permission']))
       {
-        $messages[] = _("rank");
+        $messages[] = _("Rank");
       }
 
       if (!isset($messages)){

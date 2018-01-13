@@ -1,5 +1,4 @@
 <?php
-session_start();
 require("../config.php");
 require("../classes/constellation.php");
 require("../template.php");

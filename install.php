@@ -33,36 +33,36 @@ if (isset($_POST['server']))
 
 	//Ostatní má checky existence ve funkci pro pridani 
 	if (0 == strlen(trim($_POST['servername']))){
-		$messages[] = _("server name");
+		$messages[] = _("Server name");
 	} 
 
 	if (0 == strlen(trim($_POST['url']))){
-		$messages[] = _("url");
+		$messages[] = _("Url");
 	} 
 
 	if (0 == strlen(trim($_POST['mailer']))){
-		$messages[] = _("mailer name");
+		$messages[] = _("Mailer name");
 	} 
 
 	if (0 == strlen(trim($_POST['mailer_email']))){
-		$messages[] = _("mailer email");
+		$messages[] = _("Mailer email");
 	} 
 
 	if (0 == strlen(trim($_POST['server']))){
-		$messages[] = _("DB server");
+		$messages[] = _("Database server");
 	} 
 
 	if (0 == strlen(trim($_POST['database']))){
-		$messages[] = _("DB name");
+		$messages[] = _("Database name");
 	} 
 
 	if (0 == strlen(trim($_POST['dbuser']))){
-		$messages[] = _("DB user");
+		$messages[] = _("Database user");
 	} 
 
 	if (0 == strlen(trim($_POST['dbpassword'])))
 	{
-		$messages[] = _("DB password");
+		$messages[] = _("Database password");
 	}
 	if (isset($messages))
 	{
