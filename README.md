@@ -22,7 +22,7 @@ Any help with translations is much welcome! You can join us at https://poeditor.
 Yes it does! This is basically debranded version of https://status.trucksbook.eu/. 
 
 ### Is it possible to see how it works somewhere?
-Yes it is! Head over to http://demo.status.sajdl.com/admin and try the admin interface for yourself.
+Yes it is! Head over to https://demo.status.sajdl.com/admin and try the admin interface for yourself.
 Login details:
 ```
 email: sysadmin@example.com
