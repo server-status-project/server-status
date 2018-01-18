@@ -51,7 +51,7 @@ class Service
 
   /**
    * Processes submitted form and adds service unless problem is encountered, 
-   * calling this is possible only for admin or higher rank. Also checks requirements
+   * calling this is possible only for admin or higher rank. Also checks require_oncements
    * for char limits.
    * @return void
    */

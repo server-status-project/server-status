@@ -1,66 +1,73 @@
 <?php
-require("../config.php");
-require("../classes/constellation.php");
-require("../template.php");
 
-if(isset($_COOKIE['user'])&&!isset($_SESSION['user']))
+if (!file_exists("config.php"))
 {
-  User::restore_session();
+  require_once("../install.php");
 }
+else{
+  require_once("../config.php");
+  require_once("../classes/constellation.php");
+  require_once("../template.php");
 
-if (!isset($_SESSION['user']))
-{
-  if (isset($_GET['do']) && $_GET['do']=="lost-password")
+  if(isset($_COOKIE['user'])&&!isset($_SESSION['user']))
   {
-    require("lost-password.php");
-  }else if (isset($_GET['do']) && $_GET['do']=="change-email"){
-    $user_pwd = new User($_GET['id']);
-    $user_pwd->change_email();
-    require("login-form.php");
+    User::restore_session();
   }
-  else{
-    User::login();
-    require("login-form.php");
-  }
-}
-else 
-{
-  $user = new User($_SESSION['user']);
-  if (!$user->is_active())
+
+  if (!isset($_SESSION['user']))
   {
-    User::logout();
+    if (isset($_GET['do']) && $_GET['do']=="lost-password")
+    {
+      require_once("lost-password.php");
+    }else if (isset($_GET['do']) && $_GET['do']=="change-email"){
+      $user_pwd = new User($_GET['id']);
+      $user_pwd->change_email();
+      require_once("login-form.php");
+    }
+    else{
+      User::login();
+      require_once("login-form.php");
+    }
   }
-
-  if (!isset($_GET['do'])){
-    $do = "";
-  }else{
-    $do = $_GET['do'];
-  }
-
-  switch ($do) {
-    case 'change-email':
-      $user = new User($_GET['id']);
-      $user->change_email();
-  	case 'user':
-  		require("user.php");
-  		break;
-  	
-  	case 'settings':
-  		require("settings.php");
-  		break;
-
-  	case 'new-user':
-  		require("new-user.php");
-  		break;
-
-    case 'logout':
+  else 
+  {
+    $user = new User($_SESSION['user']);
+    if (!$user->is_active())
+    {
       User::logout();
-      break;
+    }
 
-  	default:
-  		require("dashboard.php");
-  		break;
+    if (!isset($_GET['do'])){
+      $do = "";
+    }else{
+      $do = $_GET['do'];
+    }
+
+    switch ($do) {
+      case 'change-email':
+        $user = new User($_GET['id']);
+        $user->change_email();
+    	case 'user':
+    		require_once("user.php");
+    		break;
+    	
+    	case 'settings':
+    		require_once("settings.php");
+    		break;
+
+    	case 'new-user':
+    		require_once("new-user.php");
+    		break;
+
+      case 'logout':
+        User::logout();
+        break;
+
+    	default:
+    		require_once("dashboard.php");
+    		break;
+    }
+
+    Template::render_footer(true);
   }
-
-  Template::render_footer(true);
 }

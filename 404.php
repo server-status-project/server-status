@@ -1,6 +1,11 @@
 <?php 
-require("config.php");
-require("template.php");
+require_once("template.php");
+if (!file_exists("config.php"))
+{
+  require_once("install.php");
+}else{
+require_once("config.php");
+
 Template::render_header("Page not found");
 ?>
   <div class="text-center">
@@ -9,3 +14,4 @@ Template::render_header("Page not found");
   </div>
 <?php 
 Template::render_footer();
+}

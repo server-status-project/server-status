@@ -1,9 +1,9 @@
 <?php
 //DIR Because of include problems
-require(__DIR__ . "/incident.php");
-require(__DIR__ . "/service.php");
-require(__DIR__ . "/user.php");
-require(__DIR__ . "/token.php");
+require_once(__DIR__ . "/incident.php");
+require_once(__DIR__ . "/service.php");
+require_once(__DIR__ . "/user.php");
+require_once(__DIR__ . "/token.php");
 /**
 * Facade class
 */

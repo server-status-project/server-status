@@ -45,7 +45,7 @@ Template::render_header(_("Lost password"));
       <?php if (!isset($_GET['id'])||!isset($_GET['token'])){?>
         <label for="email"><?php echo _("Email");?>:</label>
           <div class="input-group pull-right">
-            <input class="form-control" name="email" id="email" placeholder="<?php echo _("Email");?>" type="email" required>
+            <input class="form-control" name="email" id="email" placeholder="<?php echo _("Email");?>" type="email" require_onced>
             <span class="input-group-btn">
               <button type="submit" class="btn btn-success pull-right"><?php echo _("Submit request");?></button>
             </span>

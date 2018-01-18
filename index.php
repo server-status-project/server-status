@@ -1,14 +1,14 @@
 <?php
-require("template.php");
+require_once("template.php");
 
 if (!file_exists("config.php"))
 {
-  require("install.php");
+  require_once("install.php");
 }
 else{
 
-require("config.php");
-require("classes/constellation.php");
+require_once("config.php");
+require_once("classes/constellation.php");
 
 $offset = 0;
 
