@@ -40,7 +40,7 @@ class Template{
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
-        <link href="<?php echo WEB_URL;?>/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
       </head>
       <body>
         <div class="navbar navbar-default" role="navigation">
@@ -84,7 +84,7 @@ class Template{
         <link rel="icon" type="image/png" sizes="96x96" href="<?php echo WEB_URL;?>/favicon/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="<?php echo WEB_URL;?>/favicon/favicon-16x16.png">
         <link rel="manifest" href="<?php echo WEB_URL;?>/favicon/manifest.json">
-        <link href="<?php echo WEB_URL;?>/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
         <link href="<?php echo WEB_URL;?>/css/jquery.growl.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
       </head>
