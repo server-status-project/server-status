@@ -1,0 +1,10 @@
+#PLEASE NOTE!
+#This will work only if it is placed in root folder of your server!
+#If you have Server status installed in a subfolder - for example:
+#example.com/server-status - then you need to put the robots.txt
+#file into the root folder and update the locations accordingly.
+
+User-Agent: *
+Allow: /
+Disallow: /admin
+
