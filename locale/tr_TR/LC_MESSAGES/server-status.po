@@ -1,0 +1,523 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Server status\n"
+"Language: tr\n"
+
+#: 404.php:7
+msgid "Page Not Found"
+msgstr "Sayfa Bulunamadı"
+
+#: 404.php:8
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr "Üzgünüz, ama görmek istediğiniz sayfa mevcut değil."
+
+#: admin/dashboard.php:22 admin/dashboard.php:26 template.php:106
+msgid "Dashboard"
+msgstr "Panel"
+
+#: admin/dashboard.php:27
+msgid "Welcome"
+msgstr "Hoşgeldiniz"
+
+#: admin/dashboard.php:39
+msgid "New incident"
+msgstr "Yeni durum"
+
+#: admin/dashboard.php:72
+msgid "Title"
+msgstr "Başlık"
+
+#: admin/dashboard.php:72
+msgid "Time"
+msgstr "Zaman"
+
+#: admin/dashboard.php:75
+msgid "Here goes your text..."
+msgstr "Buraya yazınız gelecek..."
+
+#: admin/dashboard.php:78 classes/incident.php:177
+msgid "Posted by"
+msgstr "Tarafından"
+
+#: admin/dashboard.php:78 classes/incident.php:179
+msgid "Ending"
+msgstr "Sonlanma"
+
+#: admin/dashboard.php:78
+msgid "End time"
+msgstr "Sonlanma zamanı"
+
+#: admin/dashboard.php:96 admin/new-user.php:53
+msgid "Submit"
+msgstr "Gönder"
+
+#: admin/login-form.php:2 admin/login-form.php:5 admin/login-form.php:27
+msgid "Login"
+msgstr "Giriş"
+
+#: admin/login-form.php:11
+msgid "Please login to continue."
+msgstr "Lütfen devam etmek için giriş yapınız."
+
+#: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
+#: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:69
+#: classes/user.php:125 classes/user.php:375 install.php:150 install.php:175
+msgid "Email"
+msgstr "E-posta"
+
+#: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
+#: classes/user.php:128 classes/user.php:357 install.php:163 install.php:178
+msgid "Password"
+msgstr "Parola"
+
+#: admin/login-form.php:22
+msgid "Forgotten password?"
+msgstr "Parolanızı mı unuttunuz?"
+
+#: admin/login-form.php:23
+msgid "Remember me"
+msgstr "Beni hatırla"
+
+#: admin/lost-password.php:2 admin/lost-password.php:5
+msgid "Lost password"
+msgstr "Kayıp Parola"
+
+#: admin/lost-password.php:16
+msgid "Go back"
+msgstr "Geri dön"
+
+#: admin/lost-password.php:20
+msgid "Password changed successfully!"
+msgstr "Parola başarıyla değiştirildi!"
+
+#: admin/lost-password.php:21 admin/lost-password.php:35
+msgid "Go back to login page"
+msgstr "Giriş sayfasına dön"
+
+#: admin/lost-password.php:30
+msgid "Go back to start"
+msgstr "Başa dön"
+
+#: admin/lost-password.php:34
+msgid "Email with password reset link has been sent!"
+msgstr "Parola sıfırlama linkini içeren e-posta gönderildi!"
+
+#: admin/lost-password.php:50
+msgid "Submit request"
+msgstr "İsteği gönder"
+
+#: admin/lost-password.php:57
+msgid "Reset password for %s (%s)"
+msgstr "%s (%s) için parolayı sıfırla"
+
+#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:361
+#: classes/user.php:362
+msgid "New password"
+msgstr "Yeni parola"
+
+#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:363
+#: classes/user.php:364
+msgid "Repeat password"
+msgstr "Parola tekrarla"
+
+#: admin/lost-password.php:64 classes/user.php:365
+msgid "Change password"
+msgstr "Parolayı değiştir"
+
+#: admin/new-user.php:7
+msgid "New user"
+msgstr "Yeni kullanıcı"
+
+#: admin/new-user.php:19 admin/settings.php:38 admin/settings.php:69
+#: classes/user.php:119 install.php:144 install.php:149 install.php:170
+msgid "Name"
+msgstr "İsim"
+
+#: admin/new-user.php:20 admin/settings.php:69 classes/user.php:122
+#: install.php:171
+msgid "Surname"
+msgstr "Soyisim"
+
+#: admin/new-user.php:23 admin/settings.php:69 classes/user.php:317
+#: install.php:174
+msgid "Username"
+msgstr "Kullanıcı Adı"
+
+#: admin/new-user.php:29
+msgid "Permission"
+msgstr "Yetki"
+
+#: admin/settings.php:12 template.php:108
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: admin/settings.php:23
+msgid "Services"
+msgstr "Servisler"
+
+#: admin/settings.php:29
+msgid "Add service"
+msgstr "Servis ekle"
+
+#: admin/settings.php:37 admin/settings.php:69 classes/user.php:313
+msgid "ID"
+msgstr "ID"
+
+#: admin/settings.php:41
+msgid "Delete"
+msgstr "Sil"
+
+#: admin/settings.php:65
+msgid "Users"
+msgstr "Kullanıcılar"
+
+#: admin/settings.php:66
+msgid "Add new user"
+msgstr "Yeni kullanıcı ekle"
+
+#: admin/settings.php:69 classes/user.php:329
+msgid "Role"
+msgstr "Rol"
+
+#: admin/user.php:35 install.php:162 install.php:167
+msgid "User"
+msgstr "Kullanıcı"
+
+#: admin/user.php:39
+msgid "User settings"
+msgstr "Kullanıcı ayarları"
+
+#: classes/constellation.php:36 config.php:40
+msgid "Planned maintenance"
+msgstr "Planlı bakım"
+
+#: classes/constellation.php:42
+msgid "Back"
+msgstr "Geri"
+
+#: classes/constellation.php:44
+msgid "Past incidents"
+msgstr "Geçmiş durumlar"
+
+#: classes/constellation.php:48
+msgid "No incidents"
+msgstr "Durum yok"
+
+#: classes/constellation.php:62
+msgid "Load more"
+msgstr "Dahası"
+
+#: classes/constellation.php:100
+msgid "No services"
+msgstr "Servis yok"
+
+#: classes/incident.php:83
+msgid "Please enter title"
+msgstr "Lütfen başlık girin"
+
+#: classes/incident.php:86
+msgid "Title too long! Character limit is 50"
+msgstr "Başlık çok uzun! Limit 50 karakterdir"
+
+#: classes/incident.php:92
+msgid "Please enter text"
+msgstr "Lütfen metin girin"
+
+#: classes/incident.php:98
+msgid "Please set start and end time! Use ISO 8601 format."
+msgstr "Lütfen başlama ve sonlanma zamanı girin! ISO 8601 formatı kullanın."
+
+#: classes/incident.php:103
+msgid "Please select at least one service"
+msgstr "Lütfen en az 1 servis seçin"
+
+#: classes/incident.php:121
+msgid "Start date format is not recognized. Please use ISO 8601 format."
+msgstr "Başlama tarihi formatı uyumsuz. Lütfen ISO 8601 formatı kullanın."
+
+#: classes/incident.php:127
+msgid "End date format is not recognized. Please use ISO 8601 format."
+msgstr "Sonlanma tarihi formatı uyumsuz. Lütfen ISO 8601 formatı kullanın."
+
+#: classes/incident.php:179
+msgid "Ended"
+msgstr "Sonlandı"
+
+#: classes/service.php:63
+msgid "Service name is too long! Character limit is 50"
+msgstr "Servis adı çok uzun! Limit 50 karakterdir."
+
+#: classes/service.php:66
+msgid "Please enter name!"
+msgstr "Lütfen isim girin!"
+
+#: classes/service.php:81 classes/service.php:123 classes/user.php:102
+#: classes/user.php:204
+msgid "You don't have the permission to do that!"
+msgstr "Bunu yapmaya yetkiniz yok!"
+
+#: classes/user.php:165
+msgid "Please mind the following character limits: "
+msgstr "Lütfen dikkat, kalan karakter limiti: "
+
+#: classes/user.php:182
+msgid "User account created"
+msgstr "Kullanıcı hesabı oluşturuldu"
+
+#: classes/user.php:183
+msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
+msgstr "Merhaba %s!<br>Hesabınız oluşturuldu. <a href=\"%s\">%s</a> e-posta adresiniz ve %s parolanızla giriş yapabilirsiniz - lütfen en yakın zamanda parolanızı değiştirin."
+
+#: classes/user.php:196
+msgid "Username or email already used"
+msgstr "Kullanıcı adı veya e-posta zaten var"
+
+#: classes/user.php:236
+msgid "Your account has been disabled. Please contact administrator."
+msgstr "Hesabınız etkin değil. Lütfen yöneticiyle iletişime geçin."
+
+#: classes/user.php:248 classes/user.php:264
+msgid "Wrong email or password"
+msgstr "Hatalı e-posta veya parola"
+
+#: classes/user.php:295
+msgid "Invalid token detected, please login again!"
+msgstr "Geçersiz gösterge tespit edildi, lütfen tekrar giriş yapın!"
+
+#: classes/user.php:309
+msgid "Profile picture"
+msgstr "Profil resmi"
+
+#: classes/user.php:334
+msgid "Change role"
+msgstr "Rol değiştir"
+
+#: classes/user.php:349
+msgid "Change email"
+msgstr "Parola değiştir"
+
+#: classes/user.php:359 classes/user.php:360
+msgid "Old password"
+msgstr "Eski parola"
+
+#: classes/user.php:398
+msgid "Passwords do not match!"
+msgstr "Parolalar eşleşmiyor!"
+
+#: classes/user.php:404
+msgid "Cannot change password of other users!"
+msgstr "Diğer kullanıcıların parolası değiştirilemez!"
+
+#: classes/user.php:434
+msgid "Wrong password!"
+msgstr "Parola yanlış!"
+
+#: classes/user.php:460 classes/user.php:551
+msgid "Invalid token detected, please retry your request from start!"
+msgstr "Geçersiz gösterge tespit edildi, lütfen isteğinizi baştan deneyin!"
+
+#: classes/user.php:490
+msgid "Reset password"
+msgstr "Parola Sıfırla"
+
+#: classes/user.php:515
+msgid "Email change"
+msgstr "E-posta değiştir"
+
+#: classes/incident.php:50 classes/user.php:594
+msgid "You don't have permission to do that!"
+msgstr "Bunu yapmaya yetkiniz yok!"
+
+#: config.php:40
+msgid "Major outage"
+msgstr "Önemli aksaklık"
+
+#: config.php:40
+msgid "Minor outage"
+msgstr "Küçük aksaklık"
+
+#: config.php:40
+msgid "Operational"
+msgstr "Operasyonel"
+
+#: config.php:43
+msgid "Some systems are experiencing major outages"
+msgstr "Bazı sistemler ciddi aksaklıklar yaşıyor"
+
+#: config.php:43
+msgid "Some systems are experiencing minor outages"
+msgstr "Bazı sistemler küçük aksaklıklar yaşıyor"
+
+#: config.php:43
+msgid "Some systems are under maintenance"
+msgstr "Bazı sistemler bakımda"
+
+#: config.php:44
+msgid "Our systems are experiencing major outages."
+msgstr "Sistemlerimiz ciddi aksaklıklar yaşıyor"
+
+#: config.php:44
+msgid "Our systems are experiencing minor outages"
+msgstr "Sistemlerimiz küçük aksaklıklar yaşıyor"
+
+#: config.php:44
+msgid "Our systems are under maintenance"
+msgstr "Sistemlerimiz bakımda"
+
+#: config.php:44
+msgid "All systems operational"
+msgstr "Tüm sistemler çalışıyor"
+
+#: config.php:45
+msgid "Super admin"
+msgstr "Süper Yönetici"
+
+#: config.php:45
+msgid "Admin"
+msgstr "Yönetici"
+
+#: template.php:53
+msgid "Service Status"
+msgstr "Servis Durumu"
+
+#: template.php:97
+msgid "Toggle navigation"
+msgstr "Menü Aç / Kapat"
+
+#: template.php:107
+msgid "User (%s)"
+msgstr "Kullanıcı (%s)"
+
+#: template.php:109
+msgid "Logout"
+msgstr "Çıkış"
+
+#: index.php:27
+msgid "Current status"
+msgstr "Şu anki durum"
+
+#: install.php:4
+msgid "Status page"
+msgstr "Durum sayfası"
+
+#: install.php:127
+msgid "Install"
+msgstr "Kur"
+
+#: install.php:129
+msgid "Installation"
+msgstr "Kurulum"
+
+#: config.php:33 install.php:26
+msgid "Connection failed: %s\n"
+""
+msgstr "Bağlantı başarısız oldu: %s"
+
+#: install.php:31
+msgid "Please set valid url!"
+msgstr "Lütfen geçerli URL girin!"
+
+#: install.php:93
+msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
+msgstr "Veritabanı oluştururken hata oluştu. Lütfen yetkinizi veya MYSQL sürümünüzü kontrol edin.<br>Hata: %s"
+
+#: install.php:140
+msgid "Website details"
+msgstr "Web site detayları"
+
+#: install.php:141
+msgid "We need a name for your status page and a url, so we can mail users link for forgotten password etc."
+msgstr "Durum sayfanız için bir isim, URL ve kullanıcılara parola sıfırlama gibi e-postalar atabilmek için de bir mail adresi gerekiyor."
+
+#: install.php:40 install.php:145
+msgid "Url"
+msgstr "URL"
+
+#: install.php:147
+msgid "Also an email address for mailer would be nice :)"
+msgstr "Ayrıca e-postalar için bir e-posta adresi güzel olur :)"
+
+#: install.php:154
+msgid "Database connection"
+msgstr "Veritabanı bağlantıı"
+
+#: install.php:155
+msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
+msgstr "Tabloları oluşturabilmek için veritabanı bağlantısına ihtiyaç var. Lütfen hesabınızın bunu yapmaya yetkili olduğunu kontrol edin."
+
+#: install.php:158
+msgid "Server"
+msgstr "Sunucu"
+
+#: install.php:159
+msgid "Database"
+msgstr "Veritabanı"
+
+#: install.php:168
+msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
+msgstr "Ve nihayet, yeni bir kullanıcı oluşturmak için bilgiye ihtiyacımız var. Bunu sağlamak zorunda değilsiniz, ancak yapmazsanız... Durum sayfasının yöneticisi olmaz..."
+
+#: install.php:181
+msgid "Run install!"
+msgstr "Kurulumu başlat!"
+
+#: classes/user.php:132
+msgid "Rank"
+msgstr "Seviye"
+
+#: classes/user.php:491
+msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+msgstr "Merhaba %s!<br>Parolanızı sıfırlamanız için gereken link aşağıdadır. Link 24 saat boyunca geçerlidir. Eğer bunu siz istemediyseniz görmezden gelebilirsiniz. <br><br><a href=\"%s\">PAROLAYI SIFIRLA</a><br><br>Link çalışmazsa, linki kopyalayıp tarayıcınıza yapıştırabilirsiniz: <br>%s"
+
+#: classes/user.php:516
+msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+msgstr "Merhaba %s!<br>E-posta adresinizi değiştirmek için gereken link aşağıdadır. Link 24 saat boyunca geçerlidir. Eğer bunu siz istemediyseniz görmezden gelebilirsiniz. <br><br><a href=\"%s\">E-POSTA ADRESİNİ DEĞİŞTİR</a><br><br>Link çalışmazsa, linki kopyalayıp tarayıcınıza yapıştırabilirsiniz: <br>%s"
+
+#: config.php:45
+msgid "Editor"
+msgstr "Editör"
+
+#: install.php:36
+msgid "Server name"
+msgstr "Sunucu adı"
+
+#: install.php:44
+msgid "Mailer name"
+msgstr "E-posta gönderici adı"
+
+#: install.php:48
+msgid "Mailer email"
+msgstr "Gönderici e-posta  adresi"
+
+#: install.php:52
+msgid "Database server"
+msgstr "Veritabanı sunucusu"
+
+#: install.php:56
+msgid "Database name"
+msgstr "Veritabanı adı"
+
+#: install.php:60
+msgid "Database user"
+msgstr "Veritabanı kullanıcı adı"
+
+#: install.php:65
+msgid "Database password"
+msgstr "Veritabanı parolası"
+
+#: install.php:69
+msgid "Please set"
+msgstr "Lütfen ayarla"
+
+#: template.php:138
+msgid "Toggle Dropdown"
+msgstr "Açılır menü arasında geçiş yap"
+
+#: template.php:147
+msgid "Help with translation!"
+msgstr "Çeviriye yardım et!"
+
