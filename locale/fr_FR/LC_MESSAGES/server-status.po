@@ -1,0 +1,523 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Server status\n"
+"Language: fr\n"
+
+#: 404.php:7
+msgid "Page Not Found"
+msgstr "Page non trouvé"
+
+#: 404.php:8
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr "Désolé, la page demandée n'existe pas"
+
+#: admin/dashboard.php:22 admin/dashboard.php:26 template.php:106
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: admin/dashboard.php:27
+msgid "Welcome"
+msgstr "Bienvenue"
+
+#: admin/dashboard.php:39
+msgid "New incident"
+msgstr "Nouvel incident"
+
+#: admin/dashboard.php:72
+msgid "Title"
+msgstr "Titre"
+
+#: admin/dashboard.php:72
+msgid "Time"
+msgstr "Date"
+
+#: admin/dashboard.php:75
+msgid "Here goes your text..."
+msgstr "Entrez votre texte..."
+
+#: admin/dashboard.php:78 classes/incident.php:177
+msgid "Posted by"
+msgstr "Publié par"
+
+#: admin/dashboard.php:78 classes/incident.php:179
+msgid "Ending"
+msgstr "Terminé"
+
+#: admin/dashboard.php:78
+msgid "End time"
+msgstr "Date de fin"
+
+#: admin/dashboard.php:96 admin/new-user.php:53
+msgid "Submit"
+msgstr "Envoyer"
+
+#: admin/login-form.php:2 admin/login-form.php:5 admin/login-form.php:27
+msgid "Login"
+msgstr "Login"
+
+#: admin/login-form.php:11
+msgid "Please login to continue."
+msgstr "Connectez-vous pour continuer"
+
+#: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
+#: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:69
+#: classes/user.php:125 classes/user.php:375 install.php:150 install.php:175
+msgid "Email"
+msgstr "E-mail"
+
+#: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
+#: classes/user.php:128 classes/user.php:357 install.php:163 install.php:178
+msgid "Password"
+msgstr "Mot de passe"
+
+#: admin/login-form.php:22
+msgid "Forgotten password?"
+msgstr "Mot de passe oublié ?"
+
+#: admin/login-form.php:23
+msgid "Remember me"
+msgstr "Se rappeler de moi"
+
+#: admin/lost-password.php:2 admin/lost-password.php:5
+msgid "Lost password"
+msgstr "Mot de passe perdu"
+
+#: admin/lost-password.php:16
+msgid "Go back"
+msgstr "Retour"
+
+#: admin/lost-password.php:20
+msgid "Password changed successfully!"
+msgstr "Le mot de passe à bien été changer"
+
+#: admin/lost-password.php:21 admin/lost-password.php:35
+msgid "Go back to login page"
+msgstr "Revenir vers la page de connexion"
+
+#: admin/lost-password.php:30
+msgid "Go back to start"
+msgstr "Revenir au début"
+
+#: admin/lost-password.php:34
+msgid "Email with password reset link has been sent!"
+msgstr "Un lien de réinitialisation du mot de passe vous a été envoyé par e-mail !"
+
+#: admin/lost-password.php:50
+msgid "Submit request"
+msgstr "Envoyer une demande"
+
+#: admin/lost-password.php:57
+msgid "Reset password for %s (%s)"
+msgstr "Réinitialiser le mot de passe pour %s (%s)"
+
+#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:361
+#: classes/user.php:362
+msgid "New password"
+msgstr "Nouveau mot de passe"
+
+#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:363
+#: classes/user.php:364
+msgid "Repeat password"
+msgstr "Répéter le mot de passe"
+
+#: admin/lost-password.php:64 classes/user.php:365
+msgid "Change password"
+msgstr "Changer le mot de passe"
+
+#: admin/new-user.php:7
+msgid "New user"
+msgstr "Nouvel utilisateur"
+
+#: admin/new-user.php:19 admin/settings.php:38 admin/settings.php:69
+#: classes/user.php:119 install.php:144 install.php:149 install.php:170
+msgid "Name"
+msgstr "Prénom"
+
+#: admin/new-user.php:20 admin/settings.php:69 classes/user.php:122
+#: install.php:171
+msgid "Surname"
+msgstr "Nom de famille"
+
+#: admin/new-user.php:23 admin/settings.php:69 classes/user.php:317
+#: install.php:174
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: admin/new-user.php:29
+msgid "Permission"
+msgstr "Autorisation"
+
+#: admin/settings.php:12 template.php:108
+msgid "Settings"
+msgstr "Paramètres"
+
+#: admin/settings.php:23
+msgid "Services"
+msgstr "Services"
+
+#: admin/settings.php:29
+msgid "Add service"
+msgstr "Ajouter un service"
+
+#: admin/settings.php:37 admin/settings.php:69 classes/user.php:313
+msgid "ID"
+msgstr "ID"
+
+#: admin/settings.php:41
+msgid "Delete"
+msgstr "Supprimer"
+
+#: admin/settings.php:65
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: admin/settings.php:66
+msgid "Add new user"
+msgstr "Ajouter un nouveau utilisateur"
+
+#: admin/settings.php:69 classes/user.php:329
+msgid "Role"
+msgstr "Rôle"
+
+#: admin/user.php:35 install.php:162 install.php:167
+msgid "User"
+msgstr "Utilisateur"
+
+#: admin/user.php:39
+msgid "User settings"
+msgstr "Paramètres utilisateur"
+
+#: classes/constellation.php:36 config.php:40
+msgid "Planned maintenance"
+msgstr "Maintenance prévue"
+
+#: classes/constellation.php:42
+msgid "Back"
+msgstr "Retour"
+
+#: classes/constellation.php:44
+msgid "Past incidents"
+msgstr "Incidents passés"
+
+#: classes/constellation.php:48
+msgid "No incidents"
+msgstr "Aucun incident"
+
+#: classes/constellation.php:62
+msgid "Load more"
+msgstr "En voir plus"
+
+#: classes/constellation.php:100
+msgid "No services"
+msgstr "Aucun service"
+
+#: classes/incident.php:83
+msgid "Please enter title"
+msgstr "Entrez un titre"
+
+#: classes/incident.php:86
+msgid "Title too long! Character limit is 50"
+msgstr "Titre trop long ! Limité à 50 caractères"
+
+#: classes/incident.php:92
+msgid "Please enter text"
+msgstr "Entrez du texte"
+
+#: classes/incident.php:98
+msgid "Please set start and end time! Use ISO 8601 format."
+msgstr "Entrez une date de début et de fin ! Utilisez le format ISO 8601."
+
+#: classes/incident.php:103
+msgid "Please select at least one service"
+msgstr "Sélectionnez au moins un service"
+
+#: classes/incident.php:121
+msgid "Start date format is not recognized. Please use ISO 8601 format."
+msgstr "La date de début n'est pas reconnue. Utiliser le format ISO 8601."
+
+#: classes/incident.php:127
+msgid "End date format is not recognized. Please use ISO 8601 format."
+msgstr "La date de fin n'est pas reconnue. Utilisez le format ISO 8601."
+
+#: classes/incident.php:179
+msgid "Ended"
+msgstr "Terminé"
+
+#: classes/service.php:63
+msgid "Service name is too long! Character limit is 50"
+msgstr "Nom du service trop long ! Limité à 50 caractères"
+
+#: classes/service.php:66
+msgid "Please enter name!"
+msgstr "Entrez un nom !"
+
+#: classes/service.php:81 classes/service.php:123 classes/user.php:102
+#: classes/user.php:204
+msgid "You don't have the permission to do that!"
+msgstr "Vous n'avez pas la permission !"
+
+#: classes/user.php:165
+msgid "Please mind the following character limits: "
+msgstr "Veuillez respecter les limites de caractères suivantes: "
+
+#: classes/user.php:182
+msgid "User account created"
+msgstr "Compte utilisateur créé"
+
+#: classes/user.php:183
+msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
+msgstr "Bienvenue %s!<br>Votre compte à bien été crée. Vous pouvez dés maintenant vous connecter via votre email à <a href=\"%s\">%s</a> avec votre mot de passe %s - Veuillez le changer le plus rapidement possible."
+
+#: classes/user.php:196
+msgid "Username or email already used"
+msgstr "Le nom d'utilisateur/email est déjà utilisé"
+
+#: classes/user.php:236
+msgid "Your account has been disabled. Please contact administrator."
+msgstr "Votre compte à été désactivé. Veuillez contacter l'administrateur."
+
+#: classes/user.php:248 classes/user.php:264
+msgid "Wrong email or password"
+msgstr "Email/Mot de passe incorrect"
+
+#: classes/user.php:295
+msgid "Invalid token detected, please login again!"
+msgstr ""
+
+#: classes/user.php:309
+msgid "Profile picture"
+msgstr "Photo de profil"
+
+#: classes/user.php:334
+msgid "Change role"
+msgstr "Changer le rôle"
+
+#: classes/user.php:349
+msgid "Change email"
+msgstr "Changer l'email"
+
+#: classes/user.php:359 classes/user.php:360
+msgid "Old password"
+msgstr "Ancien mot de passe"
+
+#: classes/user.php:398
+msgid "Passwords do not match!"
+msgstr "Les mots de passe ne correspondent pas !"
+
+#: classes/user.php:404
+msgid "Cannot change password of other users!"
+msgstr "Vous ne pouvez pas changer le mot de passe des autres utilisateurs !"
+
+#: classes/user.php:434
+msgid "Wrong password!"
+msgstr "Mot de passe incorrect !"
+
+#: classes/user.php:460 classes/user.php:551
+msgid "Invalid token detected, please retry your request from start!"
+msgstr ""
+
+#: classes/user.php:490
+msgid "Reset password"
+msgstr "Réinitialiser le mot de passe"
+
+#: classes/user.php:515
+msgid "Email change"
+msgstr ""
+
+#: classes/incident.php:50 classes/user.php:594
+msgid "You don't have permission to do that!"
+msgstr "Vous n'avez pas la permission !"
+
+#: config.php:40
+msgid "Major outage"
+msgstr "Panne majeure"
+
+#: config.php:40
+msgid "Minor outage"
+msgstr "Panne mineure"
+
+#: config.php:40
+msgid "Operational"
+msgstr "Opérationnel"
+
+#: config.php:43
+msgid "Some systems are experiencing major outages"
+msgstr ""
+
+#: config.php:43
+msgid "Some systems are experiencing minor outages"
+msgstr ""
+
+#: config.php:43
+msgid "Some systems are under maintenance"
+msgstr ""
+
+#: config.php:44
+msgid "Our systems are experiencing major outages."
+msgstr ""
+
+#: config.php:44
+msgid "Our systems are experiencing minor outages"
+msgstr ""
+
+#: config.php:44
+msgid "Our systems are under maintenance"
+msgstr ""
+
+#: config.php:44
+msgid "All systems operational"
+msgstr "Tous les systèmes sont opérationnel"
+
+#: config.php:45
+msgid "Super admin"
+msgstr "Super admin"
+
+#: config.php:45
+msgid "Admin"
+msgstr "Admin"
+
+#: template.php:53
+msgid "Service Status"
+msgstr "Etats des systèmes"
+
+#: template.php:97
+msgid "Toggle navigation"
+msgstr "Barre de navigation"
+
+#: template.php:107
+msgid "User (%s)"
+msgstr "Utilisateur (%s)"
+
+#: template.php:109
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: index.php:27
+msgid "Current status"
+msgstr "Etat actuel"
+
+#: install.php:4
+msgid "Status page"
+msgstr "Page de configuration"
+
+#: install.php:127
+msgid "Install"
+msgstr "Installer"
+
+#: install.php:129
+msgid "Installation"
+msgstr "Installation"
+
+#: config.php:33 install.php:26
+msgid "Connection failed: %s\n"
+""
+msgstr "La connexion a échoué : %s"
+
+#: install.php:31
+msgid "Please set valid url!"
+msgstr "Entrez un URL valide !"
+
+#: install.php:93
+msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
+msgstr ""
+
+#: install.php:140
+msgid "Website details"
+msgstr ""
+
+#: install.php:141
+msgid "We need a name for your status page and a url, so we can mail users link for forgotten password etc."
+msgstr ""
+
+#: install.php:40 install.php:145
+msgid "Url"
+msgstr "URL"
+
+#: install.php:147
+msgid "Also an email address for mailer would be nice :)"
+msgstr ""
+
+#: install.php:154
+msgid "Database connection"
+msgstr ""
+
+#: install.php:155
+msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
+msgstr ""
+
+#: install.php:158
+msgid "Server"
+msgstr "Serveur"
+
+#: install.php:159
+msgid "Database"
+msgstr "Base de donnéee"
+
+#: install.php:168
+msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
+msgstr ""
+
+#: install.php:181
+msgid "Run install!"
+msgstr ""
+
+#: classes/user.php:132
+msgid "Rank"
+msgstr ""
+
+#: classes/user.php:491
+msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+msgstr ""
+
+#: classes/user.php:516
+msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+msgstr ""
+
+#: config.php:45
+msgid "Editor"
+msgstr "Editeur"
+
+#: install.php:36
+msgid "Server name"
+msgstr "Nom du serveur"
+
+#: install.php:44
+msgid "Mailer name"
+msgstr ""
+
+#: install.php:48
+msgid "Mailer email"
+msgstr ""
+
+#: install.php:52
+msgid "Database server"
+msgstr ""
+
+#: install.php:56
+msgid "Database name"
+msgstr "Nom de la base de donnée"
+
+#: install.php:60
+msgid "Database user"
+msgstr "Utilisateur de la base de donnée"
+
+#: install.php:65
+msgid "Database password"
+msgstr "Mot de passe de la base de donnée"
+
+#: install.php:69
+msgid "Please set"
+msgstr ""
+
+#: template.php:138
+msgid "Toggle Dropdown"
+msgstr ""
+
+#: template.php:147
+msgid "Help with translation!"
+msgstr "Aidez à traduire !"
+
