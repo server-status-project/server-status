@@ -106,7 +106,7 @@ class User
   /**
    * Processes submitted form and adds user unless problem is encountered, 
    * calling this is possible only for Superadmin (other ranks cannot add users)
-   * or when the installation script is being run. Also checks require_oncements
+   * or when the installation script is being run. Also checks requirements
    * for username and email being unique and char limits.
    * @return void
    */

@@ -66,7 +66,7 @@ class Incident
 
   /**
    * Processes submitted form and adds incident unless problem is encountered, 
-   * calling this is possible only for admin or higher rank. Also checks require_oncements
+   * calling this is possible only for admin or higher rank. Also checks requirements
    * for char limits.
    * @return void
    */
