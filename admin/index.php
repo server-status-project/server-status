@@ -1,8 +1,8 @@
 <?php
 
-if (!file_exists("config.php"))
+if (!file_exists("../config.php"))
 {
-  require_once("../install.php");
+  header("Location: ../");
 }
 else{
   require_once("../config.php");
