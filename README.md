@@ -35,3 +35,9 @@ It was written as a school project where we had to create a website. I went with
 
 ### I want feature XY!
 You can write an issue and I will try to take a look when I get some time *OR* you can actually make a fork as the code it GNU licensed. Pull requests are most welcome!
+
+___
+
+If you like this project, buy us a coffee!
+
+<a href="https://www.buymeacoffee.com/Pryx"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" target="_blank"></a>
