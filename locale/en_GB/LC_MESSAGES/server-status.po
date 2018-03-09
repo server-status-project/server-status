@@ -7,11 +7,11 @@ msgstr ""
 "Project-Id-Version: Server status\n"
 "Language: en-gb\n"
 
-#: 404.php:7
+#: 404.php:12
 msgid "Page Not Found"
 msgstr "Page Not Found"
 
-#: 404.php:8
+#: 404.php:13
 msgid "Sorry, but the page you were trying to view does not exist."
 msgstr "Sorry, but the page you were trying to view does not exist."
 
@@ -27,7 +27,7 @@ msgstr "Welcome"
 msgid "New incident"
 msgstr "New incident"
 
-#: admin/dashboard.php:72
+#: admin/dashboard.php:72 install.php:48 install.php:157
 msgid "Title"
 msgstr "Title"
 
@@ -65,12 +65,12 @@ msgstr "Please log in to continue."
 
 #: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
 #: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:69
-#: classes/user.php:125 classes/user.php:375 install.php:150 install.php:175
+#: classes/user.php:125 classes/user.php:375 install.php:163 install.php:188
 msgid "Email"
 msgstr "Email"
 
 #: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
-#: classes/user.php:128 classes/user.php:357 install.php:163 install.php:178
+#: classes/user.php:128 classes/user.php:357 install.php:176 install.php:191
 msgid "Password"
 msgstr "Password"
 
@@ -133,17 +133,17 @@ msgid "New user"
 msgstr "New user"
 
 #: admin/new-user.php:19 admin/settings.php:38 admin/settings.php:69
-#: classes/user.php:119 install.php:144 install.php:149 install.php:170
+#: classes/user.php:119 install.php:152 install.php:162 install.php:183
 msgid "Name"
 msgstr "Name"
 
 #: admin/new-user.php:20 admin/settings.php:69 classes/user.php:122
-#: install.php:171
+#: install.php:184
 msgid "Surname"
 msgstr "Surname"
 
 #: admin/new-user.php:23 admin/settings.php:69 classes/user.php:317
-#: install.php:174
+#: install.php:187
 msgid "Username"
 msgstr "Username"
 
@@ -183,7 +183,7 @@ msgstr "Add new user"
 msgid "Role"
 msgstr "Role"
 
-#: admin/user.php:35 install.php:162 install.php:167
+#: admin/user.php:35 install.php:175 install.php:180
 msgid "User"
 msgstr "User"
 
@@ -191,7 +191,7 @@ msgstr "User"
 msgid "User settings"
 msgstr "User settings"
 
-#: classes/constellation.php:36 config.php:40
+#: classes/constellation.php:36
 msgid "Planned maintenance"
 msgstr "Planned maintenance"
 
@@ -304,31 +304,31 @@ msgstr "Change email"
 msgid "Old password"
 msgstr "Old password"
 
-#: classes/user.php:398
+#: classes/user.php:412
 msgid "Passwords do not match!"
 msgstr "Passwords do not match!"
 
-#: classes/user.php:404
+#: classes/user.php:418
 msgid "Cannot change password of other users!"
 msgstr "Cannot change password of other users!"
 
-#: classes/user.php:434
+#: classes/user.php:448
 msgid "Wrong password!"
 msgstr "Wrong password!"
 
-#: classes/user.php:460 classes/user.php:551
+#: classes/user.php:474 classes/user.php:565
 msgid "Invalid token detected, please retry your request from start!"
 msgstr "Invalid token detected, please retry your request from start!"
 
-#: classes/user.php:490
+#: classes/user.php:504
 msgid "Reset password"
 msgstr "Reset password"
 
-#: classes/user.php:515
+#: classes/user.php:529
 msgid "Email change"
 msgstr "Email change"
 
-#: classes/incident.php:50 classes/user.php:594
+#: classes/incident.php:50 classes/user.php:608
 msgid "You don't have permission to do that!"
 msgstr "You don't have permission to do that!"
 
@@ -404,15 +404,15 @@ msgstr "Current status"
 msgid "Status page"
 msgstr "Status page"
 
-#: install.php:127
+#: install.php:133
 msgid "Install"
 msgstr "Install"
 
-#: install.php:129
+#: install.php:135
 msgid "Installation"
 msgstr "Installation"
 
-#: config.php:33 install.php:26
+#: install.php:26
 msgid "Connection failed: %s\n"
 ""
 msgstr "Connection failed: %s\n"
@@ -422,47 +422,43 @@ msgstr "Connection failed: %s\n"
 msgid "Please set valid url!"
 msgstr "Please set valid url!"
 
-#: install.php:93
+#: install.php:98
 msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
 msgstr "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
 
-#: install.php:140
+#: install.php:148
 msgid "Website details"
 msgstr "Website details"
 
-#: install.php:141
-msgid "We need a name for your status page and a url, so we can mail users link for forgotten password etc."
-msgstr "We need a name for your status page and a url, so we can mail users link for forgotten password etc."
-
-#: install.php:40 install.php:145
+#: install.php:40 install.php:153
 msgid "Url"
 msgstr "Url"
 
-#: install.php:147
+#: install.php:160
 msgid "Also an email address for mailer would be nice :)"
 msgstr "Also an email address for mailer would be nice :)"
 
-#: install.php:154
+#: install.php:167
 msgid "Database connection"
 msgstr "Database connection"
 
-#: install.php:155
+#: install.php:168
 msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
 msgstr "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
 
-#: install.php:158
+#: install.php:171
 msgid "Server"
 msgstr "Server"
 
-#: install.php:159
+#: install.php:172
 msgid "Database"
 msgstr "Database"
 
-#: install.php:168
+#: install.php:181
 msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
 msgstr "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
 
-#: install.php:181
+#: install.php:194
 msgid "Run install!"
 msgstr "Run install!"
 
@@ -470,11 +466,11 @@ msgstr "Run install!"
 msgid "Rank"
 msgstr "Rank"
 
-#: classes/user.php:491
+#: classes/user.php:505
 msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
 msgstr "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
 
-#: classes/user.php:516
+#: classes/user.php:530
 msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
 msgstr "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
 
@@ -490,29 +486,25 @@ msgstr "Server name"
 msgid "Mailer name"
 msgstr "Mailer name"
 
-#: install.php:48
+#: install.php:52
 msgid "Mailer email"
 msgstr "Mailer email"
 
-#: install.php:52
+#: install.php:56
 msgid "Database server"
 msgstr "Database server"
 
-#: install.php:56
+#: install.php:60
 msgid "Database name"
 msgstr "Database name"
 
-#: install.php:60
+#: install.php:64
 msgid "Database user"
 msgstr "Database user"
 
-#: install.php:65
+#: install.php:69
 msgid "Database password"
 msgstr "Database password"
-
-#: install.php:69
-msgid "Please set"
-msgstr "Please set"
 
 #: template.php:138
 msgid "Toggle Dropdown"
@@ -521,4 +513,28 @@ msgstr "Toggle Dropdown"
 #: template.php:147
 msgid "Help with translation!"
 msgstr "Help with translation!"
+
+#: classes/user.php:389
+msgid "Deactivate user"
+msgstr "Deactivate user"
+
+#: classes/user.php:391
+msgid "Activate user"
+msgstr "Activate user"
+
+#: install.php:73
+msgid "Please enter"
+msgstr "Please enter"
+
+#: install.php:144
+msgid "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
+msgstr "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
+
+#: install.php:149
+msgid "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
+msgstr "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
+
+#: install.php:155
+msgid "A title that you want to be shown on the top of the page."
+msgstr "A title that you want to be shown on the top of the page."
 
