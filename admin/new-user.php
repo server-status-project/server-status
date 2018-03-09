@@ -9,7 +9,7 @@ Template::render_header(_("New user"), true); ?>
     <h2>Add new user</h2>
 </div>
 
-<form action="<?php echo WEB_URL;?>/admin/?do=new-user&amp;new=user" method="POST" class="form-horizontal">
+<form action="<?php echo WEB_URL;?>/admin/?do=new-use&new=user" method="POST" class="form-horizontal">
 	<?php if (isset($message))
     {?>
       <p class="alert alert-danger"><?php echo $message?></p>

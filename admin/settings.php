@@ -22,7 +22,7 @@ if (isset($message)){
 <section>
 <h3 class="pull-left"><?php echo _("Services");?></h3>
 <?php if ($user->get_rank() <= 1){?>
-<form action="?do=settings&amp;new=service" method="post">
+<form action="?do=settings&new=service" method="post">
 	<div class="input-group pull-right new-service">
 		<input class="form-control" name="service" placeholder="Name" type="text" value="<?php echo ((isset($_POST['service']))?htmlspecialchars($_POST['service']):''); ?>" maxlength="50" required>
 		<span class="input-group-btn">
@@ -52,7 +52,7 @@ while($result = $query->fetch_assoc())
 	echo "<td>".$result['name']."</td>";
 	if ($user->get_rank()<=1)
 	{
-		echo '<td><a href="'.WEB_URL.'/admin/?do=settings&amp;delete='.$result['id'].'" class="pull-right delete-service"><i class="fa fa-trash"></i></a></td>';
+		echo '<td><a href="'.WEB_URL.'/admin/?do=settings&delete='.$result['id'].'" class="pull-right delete-service"><i class="fa fa-trash"></i></a></td>';
 	}
 	echo "</tr>";
 }?>
@@ -74,7 +74,7 @@ while($result = $query->fetch_assoc())
 {
 	echo "<tr>";
 	echo "<td>".$result['id']."</td>";
-	echo "<td><a href='".WEB_URL."/admin/?do=user&amp;id=".$result['id']."'>".$result['username']."</a></td>";
+	echo "<td><a href='".WEB_URL."/admin/?do=user&id=".$result['id']."'>".$result['username']."</a></td>";
 	echo "<td>".$result['name']."</td>";
 	echo "<td>".$result['surname']."</td>";
 	echo "<td><a href=\"mailto:".$result['email']."\">".$result['email']."</a></td>";
