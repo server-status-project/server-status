@@ -9,7 +9,7 @@ msgstr ""
 
 #: 404.php:7
 msgid "Page Not Found"
-msgstr "Page non trouvé"
+msgstr "Page non trouvée"
 
 #: 404.php:8
 msgid "Sorry, but the page you were trying to view does not exist."
@@ -67,7 +67,7 @@ msgstr "Connectez-vous pour continuer"
 #: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:69
 #: classes/user.php:125 classes/user.php:375 install.php:150 install.php:175
 msgid "Email"
-msgstr "E-mail"
+msgstr "Email"
 
 #: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
 #: classes/user.php:128 classes/user.php:357 install.php:163 install.php:178
@@ -80,7 +80,7 @@ msgstr "Mot de passe oublié ?"
 
 #: admin/login-form.php:23
 msgid "Remember me"
-msgstr "Se rappeler de moi"
+msgstr "Se souvenir de moi"
 
 #: admin/lost-password.php:2 admin/lost-password.php:5
 msgid "Lost password"
@@ -140,7 +140,7 @@ msgstr "Prénom"
 #: admin/new-user.php:20 admin/settings.php:69 classes/user.php:122
 #: install.php:171
 msgid "Surname"
-msgstr "Nom de famille"
+msgstr "Nom"
 
 #: admin/new-user.php:23 admin/settings.php:69 classes/user.php:317
 #: install.php:174
@@ -177,7 +177,7 @@ msgstr "Utilisateurs"
 
 #: admin/settings.php:66
 msgid "Add new user"
-msgstr "Ajouter un nouveau utilisateur"
+msgstr "Ajouter un nouvel utilisateur"
 
 #: admin/settings.php:69 classes/user.php:329
 msgid "Role"
@@ -286,7 +286,7 @@ msgstr "Email/Mot de passe incorrect"
 
 #: classes/user.php:295
 msgid "Invalid token detected, please login again!"
-msgstr ""
+msgstr "Jeton invalide détécté, veuillez vous reconnecter à nouveau!"
 
 #: classes/user.php:309
 msgid "Profile picture"
@@ -318,7 +318,7 @@ msgstr "Mot de passe incorrect !"
 
 #: classes/user.php:460 classes/user.php:551
 msgid "Invalid token detected, please retry your request from start!"
-msgstr ""
+msgstr "Jeton invalide détécté. Ressayez, svp, votre requete depuis le debut!"
 
 #: classes/user.php:490
 msgid "Reset password"
@@ -326,7 +326,7 @@ msgstr "Réinitialiser le mot de passe"
 
 #: classes/user.php:515
 msgid "Email change"
-msgstr ""
+msgstr "Adresse email changée"
 
 #: classes/incident.php:50 classes/user.php:594
 msgid "You don't have permission to do that!"
@@ -346,31 +346,31 @@ msgstr "Opérationnel"
 
 #: config.php:43
 msgid "Some systems are experiencing major outages"
-msgstr ""
+msgstr "Certains systèmes rencontrent des pannes majeures"
 
 #: config.php:43
 msgid "Some systems are experiencing minor outages"
-msgstr ""
+msgstr "Certains systèmes rencontrent des pannes mineures"
 
 #: config.php:43
 msgid "Some systems are under maintenance"
-msgstr ""
+msgstr "Certains systèmes sont en maintenance"
 
 #: config.php:44
 msgid "Our systems are experiencing major outages."
-msgstr ""
+msgstr "Nos systèmes rencontrent des pannes majeures"
 
 #: config.php:44
 msgid "Our systems are experiencing minor outages"
-msgstr ""
+msgstr "Nos systèmes rencontrent des pannes mineures"
 
 #: config.php:44
 msgid "Our systems are under maintenance"
-msgstr ""
+msgstr "Nos systèmes sont en cours de maintenance"
 
 #: config.php:44
 msgid "All systems operational"
-msgstr "Tous les systèmes sont opérationnel"
+msgstr "Tous les systèmes sont opérationnels"
 
 #: config.php:45
 msgid "Super admin"
@@ -382,7 +382,7 @@ msgstr "Admin"
 
 #: template.php:53
 msgid "Service Status"
-msgstr "Etats des systèmes"
+msgstr "État du service"
 
 #: template.php:97
 msgid "Toggle navigation"
@@ -398,7 +398,7 @@ msgstr "Déconnexion"
 
 #: index.php:27
 msgid "Current status"
-msgstr "Etat actuel"
+msgstr "État actuel"
 
 #: install.php:4
 msgid "Status page"
@@ -423,15 +423,15 @@ msgstr "Entrez un URL valide !"
 
 #: install.php:93
 msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
-msgstr ""
+msgstr "Erreur lors de la création de la base de donnée. Vérifiez les permissions de votre compte ou votre version de MySQL.<br>Error: %s"
 
 #: install.php:140
 msgid "Website details"
-msgstr ""
+msgstr "Détails du site"
 
 #: install.php:141
 msgid "We need a name for your status page and a url, so we can mail users link for forgotten password etc."
-msgstr ""
+msgstr "Un nom et un URL est requis pour pouvoir envoyer un lien pour les mots de passe oublié par exemple"
 
 #: install.php:40 install.php:145
 msgid "Url"
@@ -439,15 +439,15 @@ msgstr "URL"
 
 #: install.php:147
 msgid "Also an email address for mailer would be nice :)"
-msgstr ""
+msgstr "Bien sur une adresse email pour l'emetteur serait bien :)"
 
 #: install.php:154
 msgid "Database connection"
-msgstr ""
+msgstr "Connexion à la base de données"
 
 #: install.php:155
 msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
-msgstr ""
+msgstr "Nous avons besoin d'une connexion à la base de données pour créer les tables. Controlez, s'il vous plait, que votre compte à les permissions pour se connecter"
 
 #: install.php:158
 msgid "Server"
@@ -459,23 +459,23 @@ msgstr "Base de donnéee"
 
 #: install.php:168
 msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
-msgstr ""
+msgstr "Et finalement, nous avons besoin d'informations pour créer un nouvel utilisateur. Vous n'avez pas besoin de les fournir, mais alors... Pas de page status d'admin..."
 
 #: install.php:181
 msgid "Run install!"
-msgstr ""
+msgstr "Démarrage de l'installation"
 
 #: classes/user.php:132
 msgid "Rank"
-msgstr ""
+msgstr "Place"
 
 #: classes/user.php:491
 msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
-msgstr ""
+msgstr "Bonjour %s!<br>Ci-dessous, vous trouverez un lien pour changer votre mot de passe. Ce lien est valable pendant 24 heures. Si vous n'avez fait aucune demande, ignorez ce message. <br><br><a href=\"%s\">Réinitialiser mon mot de passe</a><br><br>Si ce lien ne fonctionne pas, copier &amp; et coller ce lien dans votre navigateur: <br>%s"
 
 #: classes/user.php:516
 msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
-msgstr ""
+msgstr "Bonjour %s!<br>Ci-dessous, vous trouverez un lien pour changer votre email. Ce lien est valable pendant 24 heures. Si vous n'avez fait aucune demande, ignorez ce message. <br><br><a href=\"%s\">Changer mon email</a><br><br>Si ce lien ne fonctionne pas, copier &amp; et coller ce lien dans votre navigateur: <br>%s "
 
 #: config.php:45
 msgid "Editor"
@@ -487,15 +487,15 @@ msgstr "Nom du serveur"
 
 #: install.php:44
 msgid "Mailer name"
-msgstr ""
+msgstr "Nom de l'expéditeur"
 
 #: install.php:48
 msgid "Mailer email"
-msgstr ""
+msgstr "Adresse email de l'expéditeur"
 
 #: install.php:52
 msgid "Database server"
-msgstr ""
+msgstr "Serveur de base de données"
 
 #: install.php:56
 msgid "Database name"
@@ -511,11 +511,11 @@ msgstr "Mot de passe de la base de donnée"
 
 #: install.php:69
 msgid "Please set"
-msgstr ""
+msgstr "Renseigner, s'il vous plait"
 
 #: template.php:138
 msgid "Toggle Dropdown"
-msgstr ""
+msgstr "Activer / désactiver le menu déroulant"
 
 #: template.php:147
 msgid "Help with translation!"
