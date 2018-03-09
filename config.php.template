@@ -3,6 +3,7 @@
 session_start();
 //You can change these:
 define("NAME", '##name##'); //Website name
+define("TITLE", "##title##");
 define("WEB_URL", "##url##"); //Used for links 
 define("MAILER_NAME", "##mailer##"); //Mailer name
 define("MAILER_ADDRESS", "##mailer_email##"); //Mailer address

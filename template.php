@@ -50,7 +50,7 @@ class Template{
             </div>
             <div class="navbar-left hidden-xs">
               <ul class="nav navbar-nav">
-                <li><a href="<?php echo WEB_URL;?>/"><h1><?php echo _("Service Status");?></h1></a></li>
+                <li><a href="<?php echo WEB_URL;?>/"><h1><?php echo _((defined('TITLE')?TITLE:"Service Status"));?></h1></a></li>
               </ul>
             </div><!--/.nav-collapse -->
 
