@@ -117,8 +117,6 @@ div.center {
 .service{
 	float: left;
 	box-sizing: border-box;
-	width:60%;
-	min-width: 200px;
 	padding: 15px 35px;
 	font-weight: bold;
 	font-size: 1.1em;
@@ -132,10 +130,8 @@ a h1{
 }
 
 .status{
-	float: left;
+	float: right;
 	box-sizing: border-box;
-	width:40%;
-	min-width: 150px;
 	padding: 15px 35px;
 	text-align: right;
 	font-size: 1.05em;
@@ -472,10 +468,6 @@ body .panel-heading input::placeholder{
 	margin-right: 4px;
 	margin-top: 0;
 	vertical-align: middle;
-}
-
-body.admin{
-	min-width: 500px
 }
 
 body.admin table td{
