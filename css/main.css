@@ -123,7 +123,7 @@ div.center {
 	font-family: 'Fira Sans', sans-serif;
 }
 
-a h1{
+body a h1{
 	font-size: 1.3em;
 	margin: 0;
 	line-height: 1.3em
@@ -496,6 +496,10 @@ i.danger{
 	line-height: 34px
 }
 
+.table-responsive{
+	width:100%;
+}
+
 .col-md-6{
 	line-height: 34px
 }
@@ -591,4 +595,8 @@ i.danger{
 {
 	margin: 2px;
 	border: 1px;
+}
+
+body .h1,body  .h2,body  .h3,body  h1,body  h2,body  h3 {
+    margin-top: 18px;
 }
