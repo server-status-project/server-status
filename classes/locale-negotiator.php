@@ -279,6 +279,8 @@ class LocaleNegotiator
 		$best_match = false;
 		//So we have also lang code as value
 		$accepted_langs = array_flip($this->accepted_langs);
+
+		global $lang;
 		foreach ($langs as $lang) {
 			if (strlen($lang)>2){
 				if (in_array($lang, $accepted_langs)){
@@ -292,7 +294,9 @@ class LocaleNegotiator
 				});
 
 				if (count($possible)){
-					$best_match = $possible[0];
+					foreach ($possible as $value) {
+						$best_match = $value;
+					}
 					break;
 				}
 			}

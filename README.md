@@ -1,7 +1,7 @@
 # Server status page
 ![screenshot](https://status.trucksbook.eu/img/screenshot.png)
 
-Very simple server status page written in PHP that can run on **PHP 5.3+** - even on **shared webhosting**. Because why waste your money on another server (or host on a server that you might want to do maintenance on), when you can use cheap webhosting?
+Very simple server status page written in PHP that can run on **PHP 5.4+** - even on **shared webhosting**. Because why waste your money on another server (or host on a server that you might want to do maintenance on), when you can use cheap webhosting?
 
 ## How do I install this thing?
 Simply put the files on your server and access it from your browser. There will be a simple install dialog waiting for you.

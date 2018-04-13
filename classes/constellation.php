@@ -69,7 +69,7 @@ class Constellation
    * @param boolean $admin
    * @return array of services 
    */
-  public function render_status($admin = 0){
+  public function render_status($admin = false, $heading = true){
     global $mysqli;
     
     $query = $mysqli->query("SELECT id, name  FROM services");
@@ -93,8 +93,10 @@ class Constellation
           $array[] = new Service($result['id'], $result['name']);
         }
       }      
-
-      echo Service::current_status($array);
+      if ($heading)
+      {
+        echo Service::current_status($array);
+      }
     }
     else{
       $array[] = new Service(0, _("No services"), -1);

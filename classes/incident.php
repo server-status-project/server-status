@@ -2,7 +2,7 @@
 /**
 * Class for creating and rendering an incident
 */
-class Incident
+class Incident implements JsonSerializable
 {
   private $id;
   private $date;
@@ -182,5 +182,17 @@ class Incident
         </div>
       </article>
       <?php
+  }
+
+  public function jsonSerialize() {
+    return [
+      "id" => $this->id,
+      "date" => $this->date,
+      "end_date" => $this->end_date,
+      "text" => $this->text,
+      "type" => $this->type,
+      "title" => $this->title,
+      "username" => $this->username
+    ];
   }
 }          

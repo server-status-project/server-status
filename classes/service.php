@@ -2,7 +2,7 @@
 /**
 * Class for managing services
 */
-class Service
+class Service implements JsonSerializable
 {
   private $id;
   private $name;
@@ -167,4 +167,15 @@ class Service
       </div>
   <?php
   }
-}          
+
+  public function jsonSerialize() {
+    global $statuses;
+    return [
+      "id" => $this->id,
+      "name" => $this->name,
+      "status" => $this->status,
+      "status_string" => $statuses[$this->status]
+    ];
+  }
+
+}
