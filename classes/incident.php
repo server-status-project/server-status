@@ -118,8 +118,10 @@ class Incident implements JsonSerializable
       }
 
       if (!empty($_POST['time'])){
-        $time = strtotime($_POST['time']);  
-        $end_time = strtotime($_POST['end_time']);
+        $input_time = (isset($_POST['time_js'])?$_POST['time_js']: $_POST['time']);
+        $input_end_time = (isset($_POST['end_time_js'])?$_POST['end_time_js']: $_POST['end_time']);
+        $time = strtotime($input_time);  
+        $end_time = strtotime($input_end_time);
         if (!$time)
         {
           $message = _("Start date format is not recognized. Please use ISO 8601 format.");

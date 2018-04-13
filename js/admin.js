@@ -1,9 +1,9 @@
 (function(){
-	$("#time_input").flatpickr({enableTime:true, minDate: "today",time_24hr:true, formatDate: function(date, format) {
-    	return date.toISOString();
+	$("#time_input").flatpickr({enableTime:true, minDate: "today",time_24hr:true, onChange: function(date, dateStr, instance) {
+    	$("#time_input_js").val(date[0].toISOString());
 	}});
-	$("#end_time").flatpickr({enableTime:true, minDate: "today",time_24hr:true, formatDate: function(date, format) {
-	    return date.toISOString(); // iso date str
+	$("#end_time").flatpickr({enableTime:true, minDate: "today",time_24hr:true, onChange: function(date, dateStr, instance) {
+	    $("#end_time_js").val(date[0].toISOString()); // iso date str
 	}});
 
 
