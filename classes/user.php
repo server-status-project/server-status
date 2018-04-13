@@ -283,8 +283,9 @@ class User
       $year = strtotime('+356 days', time());
       unset($_COOKIE['token']);
       $_SESSION['user'] = $id;
-      $token = Token::add($id, 'remember', $year);
-      setcookie('token', $token, $year);
+      $new_token = Token::add($id, 'remember', $year);
+      setcookie('token', $new_token, $year, "/");
+      setcookie('user', $id, $year, "/");
     }
     else
     {
