@@ -253,7 +253,8 @@ class LocaleNegotiator
 		$langs = [];
 
 		if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-		    preg_match_all('/([a-z]{1,8}(-[a-z]{1,8})?)\s*(;\s*q\s*=\s*(1|0\.[0-9]+))?/i', $_SERVER['HTTP_ACCEPT_LANGUAGE'], $lang_parse);
+			$http_accept_language = str_replace("-", "_", $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+		    preg_match_all('/([a-z]{1,8}(-[a-z]{1,8})?)\s*(;\s*q\s*=\s*(1|0\.[0-9]+))?/i', $http_accept_language, $lang_parse);
 
 		    if (count($lang_parse[1])) {
 		        $langs = array_combine($lang_parse[1], $lang_parse[4]);
