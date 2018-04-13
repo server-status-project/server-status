@@ -30,6 +30,9 @@ password: Ss123456
 ```
 Please note that changes are reverted every hour.
 
+### Can I somehow pull status info from Server status programatically?
+Yes you can! As of [9f7e15f](https://github.com/Pryx/server-status/commit/9f7e15fcd1d900108cbb0b3cad4bdc5ecf8b741b) we added API to pull status data... And more APIs are coming! Results are encoded in JSON format which should be pretty easy to use in any common programming language.
+
 ### Why does this project exist?
 It was written as a school project where we had to create a website. I went with this because I found the lack of good looking, easy to install and use status page rather weird. Therefore my goal (as stated above) was to create a simplistic status page that could run almost anywhere. The code is not the nicest or cleanest and it definitely doesn't have that many features, but hey, it works!
 
