@@ -52,7 +52,7 @@ class Constellation
     $offset += $limit;
 
     if ($query->num_rows){
-      while(($result = $query->fetch_assoc()) && $limit-->0)
+      while(($result = $query->fetch_assoc()) && $limit-- > 0)
       {
         $incident = new Incident($result);
         $incident->render($admin);

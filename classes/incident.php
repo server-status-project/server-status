@@ -7,6 +7,8 @@ class Incident implements JsonSerializable
   private $id;
   private $date;
   private $end_date;
+  private $timestamp;
+  private $end_timestamp;
   private $text;
   private $type;
   private $title;
@@ -20,6 +22,8 @@ class Incident implements JsonSerializable
   {
   	//TODO: Maybe get data from id?
     $this->id = $data['status_id'];
+    $this->timestamp = $data['time'];
+    $this->end_timestamp = $data['end_time'];
     $this->date = new DateTime("@".$data['time']);
     $this->date = $this->date->format('Y-m-d H:i:sP');
     if ($data['end_time']>0){
@@ -187,8 +191,8 @@ class Incident implements JsonSerializable
   public function jsonSerialize() {
     return [
       "id" => $this->id,
-      "date" => $this->date,
-      "end_date" => $this->end_date,
+      "date" => $this->timestamp,
+      "end_date" => $this->end_timestamp,
       "text" => $this->text,
       "type" => $this->type,
       "title" => $this->title,
