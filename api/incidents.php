@@ -8,12 +8,11 @@ else{
 	require_once("../config.php");
 	require_once("../classes/constellation.php");
 
-	if (isset($_GET['future']) && $_GET['future'] == true)
-	{
-		$result = $constellation->get_incidents(true);
-	}else{
-		$result = $constellation->get_incidents();
-	}
+  $limit = (isset($_GET['limit'])?$_GET['limit']:5);
+  $offset = (isset($_GET['offset'])?$_GET['offset']:0);
+  $timestamp = (isset($_GET['timestamp']))?$_GET['timestamp']:time();
+
+	$result = $constellation->get_incidents((isset($_GET['future'])?$_GET['future']:false), $offset, $limit, $timestamp);
 	
 	echo json_encode($result);
 }
