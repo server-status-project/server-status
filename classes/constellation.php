@@ -23,23 +23,24 @@ class Constellation
     {
       $offset = 0; 
     }
+
+    $limit = (isset($_GET['limit'])?$_GET['limit']:5);
+    $offset = (isset($_GET['offset'])?$_GET['offset']:0);
+    $timestamp = (isset($_GET['timestamp']))?$_GET['timestamp']:time();
+
+    $incidents = $this->get_incidents($future, $offset, $limit, $timestamp);
+
     $ajax = isset($_GET['ajax']);
-    $limit++;
-    $c = ($future)?">=":"<=";
-    $timestamp = (isset($_GET['timestamp'])&& !$future)?$_GET['timestamp']:time();
-    $sql = $mysqli->prepare("SELECT *, status.id as status_id FROM status INNER JOIN users ON user_id=users.id WHERE `time` $c ? AND `end_time` $c ?  OR (`time`<=? AND `end_time` $c ? ) ORDER BY `time` DESC LIMIT ? OFFSET ?");
-    $sql->bind_param("iiiiii",$timestamp, $timestamp, $timestamp, $timestamp, $limit, $offset);
-    $sql->execute();
-    $query = $sql->get_result();
-    if ($future && $query->num_rows && !$ajax)
+
+    if ($future && count($incidents["incidents"]) && !$ajax)
     {
       echo "<h3>"._("Planned maintenance")."</h3>";
     }
-    else if ($query->num_rows &&!$ajax)
+    else if (count($incidents["incidents"]) &&!$ajax)
     {
       if ($offset) 
       {
-        echo '<noscript><div class="centered"><a href="'.WEB_URL.'/?offset='.($offset-$limit+1).'&timestamp='.$timestamp.'" class="btn btn-default">'._("Back").'</a></div></noscript>';
+        echo '<noscript><div class="centered"><a href="'.WEB_URL.'/?offset='.($offset-$limit).'&timestamp='.$timestamp.'" class="btn btn-default">'._("Back").'</a></div></noscript>';
       }
       echo "<h3>"._("Past incidents")."</h3>";
     }
@@ -47,16 +48,15 @@ class Constellation
     {
       echo "<h3>"._("No incidents")."</h3>";
     }
-    $show = !$future && $query->num_rows==$limit;
-    $limit--;
+    $show = !$future && $incidents["more"];
+
     $offset += $limit;
 
-    if ($query->num_rows){
-      while(($result = $query->fetch_assoc()) && $limit-- > 0)
-      {
-        $incident = new Incident($result);
+    if (count($incidents["incidents"])){
+      foreach ($incidents['incidents'] as $incident) {
         $incident->render($admin);
       }
+
       if ($show)
       {
         echo '<div class="centered"><a href="'.WEB_URL.'/?offset='.($offset).'&timestamp='.$timestamp.'" id="loadmore" class="btn btn-default">'._("Load more").'</a></div>';
@@ -112,6 +112,38 @@ class Constellation
     else{
       return $array;
     }
+  }
+
+
+  function get_incidents($future = false, $offset = 0, $limit = 5, $timestamp = 0){
+    global $mysqli;
+    if ($timestamp == 0)
+    {
+      $timestamp = time();
+    }
+
+    $c = ($future)?">=":"<=";
+    $limit++;
+    $sql = $mysqli->prepare("SELECT *, status.id as status_id FROM status INNER JOIN users ON user_id=users.id WHERE `time` $c ? AND `end_time` $c ?  OR (`time`<=? AND `end_time` $c ? ) ORDER BY `time` DESC LIMIT ? OFFSET ?");
+    $sql->bind_param("iiiiii",$timestamp, $timestamp, $timestamp, $timestamp, $limit, $offset);
+    $sql->execute();
+    $query = $sql->get_result();
+    $array = [];
+    $limit--;
+    $more = false;
+    if ($query->num_rows>$limit){
+      $more = true; 
+    }
+    if ($query->num_rows){
+      while(($result = $query->fetch_assoc()) && $limit-- > 0)
+      {
+        $array[] = new Incident($result);
+      }
+    }
+    return [
+      "more" => $more,
+      "incidents" => $array
+    ];
   }
 }          
 
