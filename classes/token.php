@@ -69,6 +69,6 @@ class Token
     $stmt = $mysqli->prepare("DELETE FROM tokens WHERE token = ? OR expire<?");
     $stmt->bind_param("sd", $token,$time);
     $stmt->execute();
-    $query = $stmt->get_result();
+    $stmt->get_result();
   }
 }          

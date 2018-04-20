@@ -549,7 +549,7 @@ class User
       $stmt = $mysqli->prepare("UPDATE users SET email = ? WHERE id=?");
       $stmt->bind_param("sd", $email, $id);
       $stmt->execute();
-      $query = $stmt->get_result();
+      $stmt->get_result();
       Token::delete($token);
       header("Location: ".WEB_URL."/admin/");
     }

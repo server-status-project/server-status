@@ -11,7 +11,7 @@
 	var icons = ["fa fa-times", "fa fa-exclamation", "fa fa-info", "fa fa-check"];
 
 	$("body").on("change","#new-incident select", function(){
-		var val = $(this).val();
+		var val = parseInt($(this).val()); //this should make exploitation harder
 
 		$("#new-incident .panel.new .panel-heading i").get(0).className = icons[val];
 		$("#new-incident .panel.new").get(0).className = classes[val] + " new";
@@ -22,9 +22,9 @@
 	$("body").on("submit","#new-incident",function(){
 		var time = Date.parse($('#time_input').val());
 		var end_time = Date.parse($('#end_time').val());
-		var type = $("#type").val();
+		var type = $("#type").val() || 0;
 
-		if (type == 2 &&(isNaN(time) || isNaN(end_time)))
+		if (type === 2 &&(isNaN(time) || isNaN(end_time)))
 		{
 			if (isNaN(end_time))
 			{
@@ -39,7 +39,7 @@
 			}
 			return false;	
 		}
-		else if (type == 2 && time >= end_time)
+		else if (type === 2 && time >= end_time)
 		{
 			$.growl.error({ message: "End time is either the same or earlier than start time!" });
 			$('#time').addClass("error");
@@ -47,7 +47,7 @@
 			return false;	
 		}
 
-		if($('#status-container :checkbox:checked').length == 0)
+		if($('#status-container :checkbox:checked').length === 0)
 		{
 			$.growl.error({ message: "Please check at least one service!" });
 			$('#status-container').addClass("error");

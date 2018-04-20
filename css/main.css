@@ -341,8 +341,8 @@ body a h1{
 }
 
 @media (max-width: 991px) {
-	#footerwrap .col-md-8, #footerwrap .col-md-4 {
-    	text-align: center !important;
+	body #footerwrap .col-md-8, #footerwrap .col-md-4 {
+    	text-align: center;
 	}
 }
 

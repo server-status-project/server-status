@@ -121,9 +121,9 @@ class Constellation
       $timestamp = time();
     }
 
-    $c = ($future)?">=":"<=";
+    $operator = ($future)?">=":"<=";
     $limit++;
-    $sql = $mysqli->prepare("SELECT *, status.id as status_id FROM status INNER JOIN users ON user_id=users.id WHERE `time` $c ? AND `end_time` $c ?  OR (`time`<=? AND `end_time` $c ? ) ORDER BY `time` DESC LIMIT ? OFFSET ?");
+    $sql = $mysqli->prepare("SELECT *, status.id as status_id FROM status INNER JOIN users ON user_id=users.id WHERE `time` $operator ? AND `end_time` $operator ?  OR (`time`<=? AND `end_time` $operator ? ) ORDER BY `time` DESC LIMIT ? OFFSET ?");
     $sql->bind_param("iiiiii",$timestamp, $timestamp, $timestamp, $timestamp, $limit, $offset);
     $sql->execute();
     $query = $sql->get_result();
