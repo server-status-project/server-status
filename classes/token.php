@@ -30,7 +30,7 @@ class Token
    * @param String $data
    * @return int count of results in database
    */
-  public static function validate_token($token, $id, $data)
+  public static function validate($token, $id, $data)
   {
     global $mysqli;
     $time = time();

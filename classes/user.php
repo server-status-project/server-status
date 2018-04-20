@@ -273,7 +273,7 @@ class User
     $id = $_COOKIE['user'];
     $token = $_COOKIE['token'];
 
-    if (Token::validate_token($token, $id, "remember"))
+    if (Token::validate($token, $id, "remember"))
     {
       $year = strtotime('+356 days', time());
       unset($_COOKIE['token']);
@@ -401,7 +401,6 @@ class User
   public function change_password($token = false)
   {
     global $mysqli, $message;
-    $time = time();
     $id = $this->id;
     if ($_POST['password']!=$_POST['password_repeat'])
     {
@@ -437,7 +436,7 @@ class User
             $stmt = $mysqli->prepare("DELETE FROM tokens WHERE user = ? AND data = 'remember'");
     		    $stmt->bind_param("d", $id);
     		    $stmt->execute();
-    		    $query = $stmt->get_result();
+    		    $stmt->get_result();
             User::logout();
           }
           else{
@@ -445,7 +444,7 @@ class User
           }
         }
       }else{
-        if (Token::validate_token($token, $id, "passwd"))
+        if (Token::validate($token, $id, "passwd"))
         {
           $stmt = $mysqli->prepare("SELECT password_salt as salt FROM users WHERE id=?");
           $stmt->bind_param("i", $id);
@@ -463,7 +462,7 @@ class User
           $stmt = $mysqli->prepare("DELETE FROM tokens WHERE user = ? AND data = 'remember'");
     		  $stmt->bind_param("d", $id);
     		  $stmt->execute();
-    		  $query = $stmt->get_result();
+    		  $stmt->get_result();
         }
         else
         {
@@ -538,13 +537,12 @@ class User
   public function change_email()
   {
     global $mysqli, $message;
-    $time = time();
     $token = $_GET['token'];
     $id = $_GET['id'];
 
-    if (Token::validate_token($token, $id, "email;%"))
+    if (Token::validate($token, $id, "email;%"))
     {
-      $data = explode(";", $result['data']);
+      $data = explode(";", Token::get_data($token, $id));
 
       $email = $data[1];
 
@@ -569,12 +567,10 @@ class User
    * @return void
    */
   public static function logout(){
-    global $mysqli;
     session_unset();
     if (isset($_COOKIE['token']))
     {
       $token = $_COOKIE['token'];
-      $time = time();
       Token::delete($token);
       unset($_COOKIE['user']);
       unset($_COOKIE['token']);
