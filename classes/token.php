@@ -19,7 +19,7 @@ class Token
     $stmt = $mysqli->prepare("INSERT INTO tokens VALUES(?, ?, ?, ?)");
     $stmt->bind_param("siis", $token, $id, $expire, $data);
     $stmt->execute();
-    $query = $stmt->get_result();
+    $stmt->get_result();
     return $token;
   }
 
@@ -39,6 +39,22 @@ class Token
     $stmt->execute();
     $query = $stmt->get_result();
     return $query->fetch_assoc()['count'];
+  }
+
+  /**
+   * Returns token data
+   * @param String $token
+   * @param int $id user ID
+   * @return String data
+   */
+  public static function get_data($token, $id)
+  {
+    global $mysqli;
+    $stmt = $mysqli->prepare("SELECT data as count FROM tokens WHERE token = ? AND user = ?");
+    $stmt->bind_param("si", $token, $id);
+    $stmt->execute();
+    $query = $stmt->get_result();
+    return $query->fetch_assoc()['data'];
   }
 
   /**

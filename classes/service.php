@@ -74,7 +74,7 @@ class Service implements JsonSerializable
       $stmt = $mysqli->prepare("INSERT INTO services VALUES(NULL,?)");
       $stmt->bind_param("s", $name);
       $stmt->execute();
-      $query = $stmt->get_result();
+      $stmt->get_result();
       header("Location: ".WEB_URL."/admin/?do=settings");
     }else
     {
@@ -88,7 +88,7 @@ class Service implements JsonSerializable
    */
   public static function delete()
   {
-    global $user;
+    global $user, $message;
     if ($user->get_rank()<=1)
     {
       global $mysqli;

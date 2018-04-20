@@ -230,7 +230,7 @@ class LocaleNegotiator
 		$this->default_language = $default_language;
 		//Works only if the server supports the locale
 		//This basically means $accepted_langs[<lang_code>] = "<lang name>";
-		foreach ($tmp as $key => $value) {
+		foreach ($tmp as $value) {
 			$lang = basename($value);
 			$this->accepted_langs[$lang] = $this->all_locales[$lang];
 		}

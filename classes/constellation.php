@@ -18,7 +18,6 @@ class Constellation
    * @param Boolean $admin - specifies whether to render admin controls
    */
   public function render_incidents($future=false, $offset=0, $limit = 5, $admin = 0){
-    global $mysqli;
     if ($offset<0)
     {
       $offset = 0; 

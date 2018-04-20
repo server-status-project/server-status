@@ -84,12 +84,7 @@ class User
   public function toggle()
   {
     global $mysqli, $message, $user;
-    $id = $_SESSION['user'];
-    $stmt = $mysqli->prepare("SELECT permission FROM users WHERE id=?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $query = $stmt->get_result();
-    $permission = $result['permission'];
+
     $id = $_GET['id'];
     if ($this->id!=$_SESSION['user'] && $user->get_rank()<=1 && ($user->get_rank()<$this->rank))
     {
@@ -274,10 +269,10 @@ class User
    */
   public static function restore_session()
   {
-    global $mysqli, $message;
+    global $message;
     $id = $_COOKIE['user'];
     $token = $_COOKIE['token'];
-    $time = time();
+
     if (Token::validate_token($token, $id, "remember"))
     {
       $year = strtotime('+356 days', time());
@@ -405,7 +400,7 @@ class User
    */
   public function change_password($token = false)
   {
-    global $mysqli, $user, $message;
+    global $mysqli, $message;
     $time = time();
     $id = $this->id;
     if ($_POST['password']!=$_POST['password_repeat'])
@@ -440,9 +435,9 @@ class User
             $stmt->execute();
             $stmt->close();
             $stmt = $mysqli->prepare("DELETE FROM tokens WHERE user = ? AND data = 'remember'");
-		    $stmt->bind_param("d", $id);
-		    $stmt->execute();
-		    $query = $stmt->get_result();
+    		    $stmt->bind_param("d", $id);
+    		    $stmt->execute();
+    		    $query = $stmt->get_result();
             User::logout();
           }
           else{
@@ -466,9 +461,9 @@ class User
           $stmt->execute();
           $stmt->close();
           $stmt = $mysqli->prepare("DELETE FROM tokens WHERE user = ? AND data = 'remember'");
-		  $stmt->bind_param("d", $id);
-		  $stmt->execute();
-		  $query = $stmt->get_result();
+    		  $stmt->bind_param("d", $id);
+    		  $stmt->execute();
+    		  $query = $stmt->get_result();
         }
         else
         {
@@ -517,13 +512,12 @@ class User
    * @return void
    */
   public function email_link(){
-    global $mysqli;
+    global $user;
     $email = $_POST['email'];
     $time = strtotime('+1 day', time());
     $id = $this->id;
 
     $token = Token::add($id, 'email;$email', $time);
-
 
     $link = WEB_URL."/admin/?do=change-email&id=$id&token=$token";
     $to      = $email;
