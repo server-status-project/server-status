@@ -32,6 +32,9 @@ password: Ss123456
 ```
 Please note that changes are reverted every hour.
 
+### I noticed there is a new release. How do I update?
+Updating server status is fairly straightforward. Simply copy over the new files (with exception of `install.php`). Please double check that `config.php` didn't change - if it did, you will need to update it accordingly. This is also pretty straightforward - copy over the old `define()` statements and fill out any new ones (this should be fairly easy as the names are usually pretty self explanatory). This should not be required in future as it is planned to move most settings to database.
+
 ### Can I somehow pull status info from Server status programatically?
 Yes you can! As of [9f7e15f](https://github.com/Pryx/server-status/commit/9f7e15fcd1d900108cbb0b3cad4bdc5ecf8b741b) we added API to pull status data... And more APIs are coming! Results are encoded in JSON format which should be pretty easy to use in any common programming language.
 
