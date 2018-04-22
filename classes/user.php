@@ -303,22 +303,41 @@ class User
     ?>
     <div class="row">
       <div class="col-md-2 col-md-offset-2"><img src="https://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $this->email ) ) );?>" alt="<?php echo _("Profile picture");?>"></div>
-      <div class="col-md-6"><h3><?php echo $this->name." ".$this->surname;?></h3></div>
+      <form action="<?php echo WEB_URL;?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
+        <div class="col-md-6">
+          <div class="input-group">
+            <input type="text" name="name" class="form-control form-name" value=<?php echo $this->name;?>>
+            <input type="text" name="surname" class="form-control form-name" value=<?php echo $this->surname;?>>
+            <span id="name-group-btn">              
+              <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change name");?></button>
+            </span>
+          </div>
+        </div>
+      </form>
     </div>
     <div class="row">
       <div class="col-md-2 col-md-offset-2"><strong><?php echo _("ID");?></strong></div>
       <div class="col-md-6"><?php echo $this->id; ?></div>
     </div>
-    <div class="row">
-      <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Username");?></strong></div>
-      <div class="col-md-6"><?php echo $this->username." "; if ($this->id!=$_SESSION['user'] && $user->get_rank()<=1 && ($user->get_rank()<$this->rank))
-      {
-        echo "<a href='".WEB_URL."/admin/?do=user&id=".$this->id."&what=toggle'>";
-        echo "<i class='fa fa-".($this->active?"check success":"times danger")."'></i></a>";
-      }else{
-        echo "<i class='fa fa-".($this->active?"check success":"times danger")."'></i>";
-      }?></div>
-    </div>
+    <form action="<?php echo WEB_URL;?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
+      <div class="row">
+        <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Username");?></strong></div>
+        <div class="col-md-6">
+          <div class="input-group">
+              <input type="text" class="form-control" name="username" required value=<?php echo $this->username." "; if ($this->id!=$_SESSION['user'] && $user->get_rank()<=1 && ($user->get_rank()<$this->rank))
+            {
+              echo "<a href='".WEB_URL."/admin/?do=user&amp;id=".$this->id."&amp;what=toggle'>";
+              echo "<i class='fa fa-".($this->active?"check success":"times danger")."'></i></a>";
+            }else{
+              echo "<i class='fa fa-".($this->active?"check success":"times danger")."'></i>";
+            }?> 
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change username");?></button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
 
     <form action="<?php echo WEB_URL;?>/admin/?do=user&id=<?php echo $this->id; ?>" method="POST">
       <div class="row">
@@ -390,6 +409,35 @@ class User
       </div>
     </div>
     <?php }
+  }
+
+  public function change_username()
+  {
+    global $mysqli, $message;
+    $id = $this->id;
+    $used = false;
+
+    $stmt = $mysqli->prepare("SELECT count(*) FROM users WHERE username LIKE ?");
+    $stmt->bind_param("s",$_POST["username"]);
+    $stmt->execute();
+    if ($stmt->num_rows > 0)
+    {
+        $used = true;
+    }
+
+      if ($_SESSION['user'] != $id)
+      {
+        $message = _("Cannot change username of other users!");
+      }else{
+        if ($used)
+        {
+          $message = _("This username is already taken.");
+        }else{
+          $stmt = $mysqli->prepare("UPDATE users SET username = ? WHERE id=?");
+          $stmt->bind_param("si",$_POST["username"],$id);
+          $stmt->execute();
+        }
+      }
   }
 
   /**

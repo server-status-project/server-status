@@ -16,6 +16,11 @@ if (isset($_POST['password']))
 	$displayed_user->change_password();
 }
 
+if (isset($_POST['username']))
+{
+	$displayed_user->change_username();
+}
+
 if (isset($_POST['email']))
 {
 	$displayed_user->email_link();
