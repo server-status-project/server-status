@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: Server status\n"
 "Language: de\n"
 
-#: 404.php:7
+#: 404.php:12
 msgid "Page Not Found"
-msgstr ""
+msgstr "Seite nicht gefunden"
 
-#: 404.php:8
+#: 404.php:13
 msgid "Sorry, but the page you were trying to view does not exist."
-msgstr ""
+msgstr "Entschuldigung, die aufgerufene Seite existiert nicht."
 
 #: admin/dashboard.php:22 admin/dashboard.php:26 template.php:106
 msgid "Dashboard"
@@ -27,7 +27,7 @@ msgstr "Willkommen"
 msgid "New incident"
 msgstr "Neuer Vorfall"
 
-#: admin/dashboard.php:72
+#: admin/dashboard.php:72 install.php:48 install.php:157
 msgid "Title"
 msgstr "Titel"
 
@@ -37,11 +37,11 @@ msgstr "Zeit"
 
 #: admin/dashboard.php:75
 msgid "Here goes your text..."
-msgstr ""
+msgstr "Hier erscheint dein Text..."
 
 #: admin/dashboard.php:78 classes/incident.php:177
 msgid "Posted by"
-msgstr "gepostet von"
+msgstr "Gepostet von"
 
 #: admin/dashboard.php:78 classes/incident.php:179
 msgid "Ending"
@@ -49,11 +49,11 @@ msgstr "Ende"
 
 #: admin/dashboard.php:78
 msgid "End time"
-msgstr ""
+msgstr "Endzeit"
 
 #: admin/dashboard.php:96 admin/new-user.php:53
 msgid "Submit"
-msgstr ""
+msgstr "Absenden"
 
 #: admin/login-form.php:2 admin/login-form.php:5 admin/login-form.php:27
 msgid "Login"
@@ -65,12 +65,12 @@ msgstr "Bitte melde dich an um fortzufahren"
 
 #: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
 #: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:69
-#: classes/user.php:125 classes/user.php:375 install.php:150 install.php:175
+#: classes/user.php:125 classes/user.php:375 install.php:163 install.php:188
 msgid "Email"
 msgstr "Email"
 
 #: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
-#: classes/user.php:128 classes/user.php:357 install.php:163 install.php:178
+#: classes/user.php:128 classes/user.php:357 install.php:176 install.php:191
 msgid "Password"
 msgstr "Passwort"
 
@@ -80,15 +80,15 @@ msgstr "Passwort vergessen?"
 
 #: admin/login-form.php:23
 msgid "Remember me"
-msgstr ""
+msgstr "Eingeloggt bleiben"
 
 #: admin/lost-password.php:2 admin/lost-password.php:5
 msgid "Lost password"
-msgstr ""
+msgstr "Password vergessen"
 
 #: admin/lost-password.php:16
 msgid "Go back"
-msgstr ""
+msgstr "Zurück gehen"
 
 #: admin/lost-password.php:20
 msgid "Password changed successfully!"
@@ -96,11 +96,11 @@ msgstr "Passwort erfolgreich geändert!"
 
 #: admin/lost-password.php:21 admin/lost-password.php:35
 msgid "Go back to login page"
-msgstr ""
+msgstr "Gehe zurück zum Login"
 
 #: admin/lost-password.php:30
 msgid "Go back to start"
-msgstr ""
+msgstr "Gehe zurück zum Start"
 
 #: admin/lost-password.php:34
 msgid "Email with password reset link has been sent!"
@@ -108,11 +108,11 @@ msgstr "Email mit Passwort Reset Link wurde versandt!"
 
 #: admin/lost-password.php:50
 msgid "Submit request"
-msgstr ""
+msgstr "Anfrage abschicken"
 
 #: admin/lost-password.php:57
 msgid "Reset password for %s (%s)"
-msgstr ""
+msgstr "Passwort zurücksetzen für %s (%s)"
 
 #: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:361
 #: classes/user.php:362
@@ -122,7 +122,7 @@ msgstr "Neues Passwort"
 #: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:363
 #: classes/user.php:364
 msgid "Repeat password"
-msgstr ""
+msgstr "Password erneut eingeben"
 
 #: admin/lost-password.php:64 classes/user.php:365
 msgid "Change password"
@@ -133,17 +133,17 @@ msgid "New user"
 msgstr "Neuer User"
 
 #: admin/new-user.php:19 admin/settings.php:38 admin/settings.php:69
-#: classes/user.php:119 install.php:144 install.php:149 install.php:170
+#: classes/user.php:119 install.php:152 install.php:162 install.php:183
 msgid "Name"
 msgstr "Vorname"
 
 #: admin/new-user.php:20 admin/settings.php:69 classes/user.php:122
-#: install.php:171
+#: install.php:184
 msgid "Surname"
 msgstr "Nachname"
 
 #: admin/new-user.php:23 admin/settings.php:69 classes/user.php:317
-#: install.php:174
+#: install.php:187
 msgid "Username"
 msgstr "Benutzername"
 
@@ -183,7 +183,7 @@ msgstr "Neuen Benutzer hinzufügen"
 msgid "Role"
 msgstr "Role"
 
-#: admin/user.php:35 install.php:162 install.php:167
+#: admin/user.php:35 install.php:175 install.php:180
 msgid "User"
 msgstr "Benutzer"
 
@@ -191,17 +191,17 @@ msgstr "Benutzer"
 msgid "User settings"
 msgstr "Benutzer Einstellungen"
 
-#: classes/constellation.php:36 config.php:40
+#: classes/constellation.php:36
 msgid "Planned maintenance"
 msgstr "geplante Wartung"
 
 #: classes/constellation.php:42
 msgid "Back"
-msgstr ""
+msgstr "Zurück"
 
 #: classes/constellation.php:44
 msgid "Past incidents"
-msgstr ""
+msgstr "Vergangene Vorfälle"
 
 #: classes/constellation.php:48
 msgid "No incidents"
@@ -217,7 +217,7 @@ msgstr "Keine Services"
 
 #: classes/incident.php:83
 msgid "Please enter title"
-msgstr ""
+msgstr "Bitte gebe einen Title ein"
 
 #: classes/incident.php:86
 msgid "Title too long! Character limit is 50"
@@ -225,35 +225,35 @@ msgstr "Titel zu lang! Zeichenlimit is 50"
 
 #: classes/incident.php:92
 msgid "Please enter text"
-msgstr ""
+msgstr "Bitte Text eingeben"
 
 #: classes/incident.php:98
 msgid "Please set start and end time! Use ISO 8601 format."
-msgstr ""
+msgstr "Bitte setze die Start- und Endzeit! Verwende das ISO 8601 Format."
 
 #: classes/incident.php:103
 msgid "Please select at least one service"
-msgstr ""
+msgstr "Bitte wähle mindestens einen Service"
 
 #: classes/incident.php:121
 msgid "Start date format is not recognized. Please use ISO 8601 format."
-msgstr ""
+msgstr "Startdatum wurde nicht erkannt. Bitte verwende das ISO 8601 Format."
 
 #: classes/incident.php:127
 msgid "End date format is not recognized. Please use ISO 8601 format."
-msgstr ""
+msgstr "Enddatum wurde nicht erkannt. Bitte verwende das ISO 8601 Format."
 
 #: classes/incident.php:179
 msgid "Ended"
-msgstr ""
+msgstr "Vorbei"
 
 #: classes/service.php:63
 msgid "Service name is too long! Character limit is 50"
-msgstr ""
+msgstr "Name des Services ist zu lang! Maximal 50 Zeichen"
 
 #: classes/service.php:66
 msgid "Please enter name!"
-msgstr ""
+msgstr "Bitte Namen eingeben!"
 
 #: classes/service.php:81 classes/service.php:123 classes/user.php:102
 #: classes/user.php:204
@@ -262,7 +262,7 @@ msgstr "Du hast nicht die Berechtigung das zu tun!"
 
 #: classes/user.php:165
 msgid "Please mind the following character limits: "
-msgstr ""
+msgstr "Bitte beachte die folgenden Zeichenbeschränkungen: "
 
 #: classes/user.php:182
 msgid "User account created"
@@ -270,7 +270,7 @@ msgstr "Benutzer Konto wurde erstellt"
 
 #: classes/user.php:183
 msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
-msgstr ""
+msgstr "Hallo %s!<br>Dein Account wurde erstellt. Du kannst dich mit deiner E-Mail-Adresse bei <a href=\"%s\">%s</a> mit dem Passwort %s anmelden - Bitte ändere dein Passwort sobald wie möglich. "
 
 #: classes/user.php:196
 msgid "Username or email already used"
@@ -286,7 +286,7 @@ msgstr "Falsche Email oder Passwort"
 
 #: classes/user.php:295
 msgid "Invalid token detected, please login again!"
-msgstr ""
+msgstr "Ungültiger Token, bitte melden dich erneut an!"
 
 #: classes/user.php:309
 msgid "Profile picture"
@@ -294,230 +294,249 @@ msgstr "Profilbild"
 
 #: classes/user.php:334
 msgid "Change role"
-msgstr ""
+msgstr "Rolle ändern"
 
 #: classes/user.php:349
 msgid "Change email"
-msgstr ""
+msgstr "E-Mail-Adresse ändern"
 
 #: classes/user.php:359 classes/user.php:360
 msgid "Old password"
-msgstr ""
+msgstr "Altes Passwort"
 
-#: classes/user.php:398
+#: classes/user.php:412
 msgid "Passwords do not match!"
-msgstr ""
+msgstr "Passwörter stimmen nicht überein"
 
-#: classes/user.php:404
+#: classes/user.php:418
 msgid "Cannot change password of other users!"
-msgstr ""
+msgstr "Das Passwort eines anderen Benutzers kann nicht geändert werden!"
 
-#: classes/user.php:434
+#: classes/user.php:448
 msgid "Wrong password!"
 msgstr "Falsches Passwort!"
 
-#: classes/user.php:460 classes/user.php:551
+#: classes/user.php:474 classes/user.php:565
 msgid "Invalid token detected, please retry your request from start!"
-msgstr ""
+msgstr "Ungültiger Token, bitte starte deine Anfrage neu!"
 
-#: classes/user.php:490
+#: classes/user.php:504
 msgid "Reset password"
-msgstr ""
+msgstr "Passwort zurücksetzen"
 
-#: classes/user.php:515
+#: classes/user.php:529
 msgid "Email change"
-msgstr ""
+msgstr "E-Mail-Adresse ändern"
 
-#: classes/incident.php:50 classes/user.php:594
+#: classes/incident.php:50 classes/user.php:608
 msgid "You don't have permission to do that!"
-msgstr ""
+msgstr "Du hast dafür keine Berechtigung!"
 
 #: config.php:40
 msgid "Major outage"
-msgstr ""
+msgstr "Größere Unterbrechung"
 
 #: config.php:40
 msgid "Minor outage"
-msgstr ""
+msgstr "Kleinere Unterbrechung"
 
 #: config.php:40
 msgid "Operational"
-msgstr ""
+msgstr "Funktionsfähig"
 
 #: config.php:43
 msgid "Some systems are experiencing major outages"
-msgstr ""
+msgstr "Einige Systeme haben größere Unterbrechungen"
 
 #: config.php:43
 msgid "Some systems are experiencing minor outages"
-msgstr ""
+msgstr "Einige Systeme haben kleinere Unterbrechungen"
 
 #: config.php:43
 msgid "Some systems are under maintenance"
-msgstr ""
+msgstr "Einige System werden gewartet"
 
 #: config.php:44
 msgid "Our systems are experiencing major outages."
-msgstr ""
+msgstr "Unsere Systeme haben größere Unterbrechungen."
 
 #: config.php:44
 msgid "Our systems are experiencing minor outages"
-msgstr ""
+msgstr "Unsere Systeme haben kleinere Unterbrechungen."
 
 #: config.php:44
 msgid "Our systems are under maintenance"
-msgstr ""
+msgstr "Unsere System werden gewartet"
 
 #: config.php:44
 msgid "All systems operational"
-msgstr ""
+msgstr "Alle Systeme sind funktionsfähig"
 
 #: config.php:45
 msgid "Super admin"
-msgstr ""
+msgstr "Super-Administrator"
 
 #: config.php:45
 msgid "Admin"
-msgstr ""
+msgstr "Administrator"
 
 #: template.php:53
 msgid "Service Status"
-msgstr ""
+msgstr "Status des Services"
 
 #: template.php:97
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Navigationsleiste ein- / ausblenden"
 
 #: template.php:107
 msgid "User (%s)"
-msgstr ""
+msgstr "Benutzer (%s)"
 
 #: template.php:109
 msgid "Logout"
-msgstr ""
+msgstr "Abmelden"
 
 #: index.php:27
 msgid "Current status"
-msgstr ""
+msgstr "Aktueller Status"
 
 #: install.php:4
 msgid "Status page"
-msgstr ""
+msgstr "Statusseite"
 
-#: install.php:127
+#: install.php:133
 msgid "Install"
-msgstr ""
+msgstr "Installieren"
 
-#: install.php:129
+#: install.php:135
 msgid "Installation"
-msgstr ""
+msgstr "Installation"
 
-#: config.php:33 install.php:26
+#: install.php:26
 msgid "Connection failed: %s\n"
 ""
-msgstr ""
+msgstr "Verbindung fehlgeschlagen: %s\n"
+"\n"
+""
 
 #: install.php:31
 msgid "Please set valid url!"
-msgstr ""
+msgstr "Bitte setze eine gültige URL!"
 
-#: install.php:93
+#: install.php:98
 msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
-msgstr ""
+msgstr "Fehler beim Erstellen der Datenbank! Bitte überprüfe die Berechtigungen für den Account oder die MySQL-Version.<br>Fehler: %s"
 
-#: install.php:140
+#: install.php:148
 msgid "Website details"
-msgstr ""
+msgstr "Details über Webseite"
 
-#: install.php:141
-msgid "We need a name for your status page and a url, so we can mail users link for forgotten password etc."
-msgstr ""
-
-#: install.php:40 install.php:145
+#: install.php:40 install.php:153
 msgid "Url"
-msgstr ""
+msgstr "URL"
 
-#: install.php:147
+#: install.php:160
 msgid "Also an email address for mailer would be nice :)"
-msgstr ""
+msgstr "Außerdem solltest Du noch eine E-Mail-Adresse angeben :)"
 
-#: install.php:154
+#: install.php:167
 msgid "Database connection"
-msgstr ""
-
-#: install.php:155
-msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
-msgstr ""
-
-#: install.php:158
-msgid "Server"
-msgstr ""
-
-#: install.php:159
-msgid "Database"
-msgstr ""
+msgstr "Verbindung zur Datenbank"
 
 #: install.php:168
-msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
-msgstr ""
+msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
+msgstr "Wir benötigen eine Verbindung zur Datenbank, um Tabellen zu erstellen. Bitte überprüfe, ob dein Account die benötigten Berechtigungen besitzt."
+
+#: install.php:171
+msgid "Server"
+msgstr "Server"
+
+#: install.php:172
+msgid "Database"
+msgstr "Datenbank"
 
 #: install.php:181
+msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
+msgstr "Zum Schluss benötigen wir Informationen, um einen neuen Benutzer erstellen zu können. Du musst sie nicht angeben ... aber denn gibt es keinen Adminbereich ..."
+
+#: install.php:194
 msgid "Run install!"
-msgstr ""
+msgstr "Installation starten!"
 
 #: classes/user.php:132
 msgid "Rank"
-msgstr ""
+msgstr "Rang"
 
-#: classes/user.php:491
+#: classes/user.php:505
 msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
-msgstr ""
+msgstr "Hallo %s!<br>Weiter unten findest Du den Link, zm dein Passwort zu ändern. Der Link ist 24 Stunden lang gültig. Wenn Du das nicht angefragt hast, kannst Du diese Mail ignorieren. <br><br><a href=\"%s\">PASSWORT ZURÜCKSETZEN</a><br><br>Wenn der Link nicht funktioniert, kopiere ihn und füge ihn in deinem Browser ein: <br>%s "
 
-#: classes/user.php:516
+#: classes/user.php:530
 msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
-msgstr ""
+msgstr "\n"
+"Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s "
 
 #: config.php:45
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #: install.php:36
 msgid "Server name"
-msgstr ""
+msgstr "Name der Servers"
 
 #: install.php:44
 msgid "Mailer name"
-msgstr ""
-
-#: install.php:48
-msgid "Mailer email"
-msgstr ""
+msgstr "Name"
 
 #: install.php:52
-msgid "Database server"
-msgstr ""
+msgid "Mailer email"
+msgstr "E-Mail"
 
 #: install.php:56
-msgid "Database name"
-msgstr ""
+msgid "Database server"
+msgstr "Datenbankserver"
 
 #: install.php:60
-msgid "Database user"
-msgstr ""
+msgid "Database name"
+msgstr "Datenbank-Name"
 
-#: install.php:65
-msgid "Database password"
-msgstr ""
+#: install.php:64
+msgid "Database user"
+msgstr "Datenbank-Benutzer"
 
 #: install.php:69
-msgid "Please set"
-msgstr ""
+msgid "Database password"
+msgstr "Datenbank-Password"
 
 #: template.php:138
 msgid "Toggle Dropdown"
-msgstr ""
+msgstr "Ein- / Ausklappen"
 
 #: template.php:147
 msgid "Help with translation!"
-msgstr ""
+msgstr "Bei der Übersetzung helfen"
+
+#: classes/user.php:389
+msgid "Deactivate user"
+msgstr "Benutzer deaktivieren"
+
+#: classes/user.php:391
+msgid "Activate user"
+msgstr "Benutzer aktivieren"
+
+#: install.php:73
+msgid "Please enter"
+msgstr "Bitte eingeben"
+
+#: install.php:144
+msgid "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
+msgstr "Wir werden dir einige einfache Fragen über deine Webseite stellen. Die meisten können später in der Datei config.php bearbeitet werden."
+
+#: install.php:149
+msgid "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
+msgstr "Wir brauchen einen Namen für deine Statusseite (wird im Seitentitel hinter dem Bindestrich angezeigt) und eine URL für die Installation (z. B. <a href='#'>https://example.com/status</a>) - ohne den letzten Schrägstrich), damit wir E-Mails mit Links für vergessene Passwörter etc. senden können."
+
+#: install.php:155
+msgid "A title that you want to be shown on the top of the page."
+msgstr "Ein Titel, der oben auf der Seite angezeigt werden soll."
 
