@@ -190,6 +190,7 @@ class LocaleNegotiator
 		'sr_Latn_CS' => 'Srpski',
 		'sr_Latn_ME' => 'Srpski',
 		'sr_Latn_RS' => 'Srpski',
+		'sr_RS' => 'Srpski',
 		'sv_FI' => 'Svenska',
 		'sv_SE' => 'Svenska',
 		'sw_KE' => 'Kiswahili',
