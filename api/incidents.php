@@ -13,6 +13,7 @@ else{
   $timestamp = (isset($_GET['timestamp']))?$_GET['timestamp']:time();
 
 	$result = $constellation->get_incidents((isset($_GET['future'])?$_GET['future']:false), $offset, $limit, $timestamp);
-	
+	header('Cache-Control: no-cache');
+	header('Content-type: application/json');
 	echo json_encode($result);
 }

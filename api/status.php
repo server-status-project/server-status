@@ -7,6 +7,8 @@ if (!file_exists("../config.php"))
 else{
   require_once("../config.php");
   require_once("../classes/constellation.php");
+  header('Cache-Control: no-cache');
+  header('Content-type: application/json');
 
   if (!isset($_GET['id']))
   {
