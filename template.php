@@ -1,4 +1,5 @@
-<?php 
+<?php
+require_once("telegram.php"); 
 /**
 * Class that encapsulates methods to render header and footer
 */
@@ -55,7 +56,14 @@ class Template{
             </div>
             <div class="navbar-collapse collapse navbar-right navbar-admin">
               <ul class="nav navbar-nav">
-                <li><a href="#"><script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="jhuesserstatusbot" data-size="small" data-userpic="false" data-auth-url="https://status.jhuesser.ch/check.php" data-request-access="write"></script></a></li>
+              <?php
+              $tg_user = getTelegramUserData();
+              if($tg_user !== false){
+                  echo '<li><a href="https://status.jhuesser.ch/index.php?subscriber_logout=1">Logout</a></li>';
+              } else {
+                echo '<li><a href="#"><script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="jhuesserstatusbot" data-size="small" data-userpic="false" data-auth-url="https://status.jhuesser.ch/check.php" data-request-access="write"></script></a></li>';
+              }
+              ?>
               </ul>
             </div>
             <!--/.nav-collapse -->
