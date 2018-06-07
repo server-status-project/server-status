@@ -158,11 +158,19 @@ class Incident implements JsonSerializable
             $firstname = $subscriberData['firstname'];
             
             $tg_message = urlencode('Hi ' . $firstname . chr(10) . 'There is a status update on a service that you have subscribed. <a href="' . WEB_URL . '">View online</a>');
-            $response = json_decode(file_get_contents("https://api.telegram.org/bot" . TG_BOT_API_TOKEN . "/sendMessage?chat_id=" . $telegramID . "&parse_mode=HTML&text=" . $tg_message));
+            $response = json_decode(file_get_contents("https://api.telegram.org/bot" . TG_BOT_API_TOKEN . "/sendMessage?chat_id=" . $telegramID . "&parse_mode=HTML&text=" . $tg_message), true);
+            if($response['ok'] == true){
+              $tgsent = true;
+            }
         }
        
       }
-      header("Location: ".WEB_URL."/admin");
+      if($tgsent){
+        header("Location: ".WEB_URL."/admin?sent=true");
+
+      } else {
+      header("Location: ".WEB_URL."/admin?sent=false");
+      }
     }
   }
   }
