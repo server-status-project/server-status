@@ -52,7 +52,13 @@ class Template{
               <ul class="nav navbar-nav">
                 <li><a href="<?php echo WEB_URL;?>/"><h1><?php echo _((defined('TITLE')?TITLE:"Service Status"));?></h1></a></li>
               </ul>
-            </div><!--/.nav-collapse -->
+            </div>
+            <div class="navbar-collapse collapse navbar-right navbar-admin">
+              <ul class="nav navbar-nav">
+                <li><a href="#"><script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="jhuesserstatusbot" data-size="small" data-userpic="false" data-auth-url="https://status.jhuesser.ch/check.php" data-request-access="write"></script></a></li>
+              </ul>
+            </div>
+            <!--/.nav-collapse -->
 
           </div>
         </div>
