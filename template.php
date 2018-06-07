@@ -44,10 +44,16 @@ class Template{
         <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
       </head>
       <body>
-        <div class="navbar navbar-default" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="<?php echo WEB_URL;?>"><img src="<?php echo WEB_URL;?>/img/logo_white.png" alt="logo" class="menu-logo" width="50" height="50"></a>
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only"><?php echo _("Toggle navigation");?></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            <a class="navbar-brand" href="<?php echo WEB_URL;?>"><img src="<?php echo WEB_URL;?>/img/logo_white.png" alt="logo" class="menu-logo" width="50" height="50"></a>
             </div>
             <div class="navbar-left hidden-xs">
               <ul class="nav navbar-nav">
@@ -59,19 +65,18 @@ class Template{
               <?php
               $tg_user = getTelegramUserData();
               if($tg_user !== false){
-                  echo '<li><a href="?do=subscriptions">Subscriptions</a></li>';
-                  echo '<li><a href="https://status.jhuesser.ch/index.php?subscriber_logout=1">Logout</a></li>';
+                echo'<li><a href="?do=subscriptions">Subscriptions</a></li>';
+                echo '<li><a href="https://status.jhuesser.ch/index.php?subscriber_logout=1">Logout</a></li>';
               } else {
                 echo '<li><a href="#"><script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="jhuesserstatusbot" data-size="small" data-userpic="false" data-auth-url="https://status.jhuesser.ch/check.php" data-request-access="write"></script></a></li>';
-              }
-              ?>
-              </ul>
-            </div>
-            <!--/.nav-collapse -->
-
+              }?>
+                </ul>
+            </div><!--/.nav-collapse -->
           </div>
         </div>
-        <div id="wrapper" class="center">
+        <div id="wrapper" class="center admin">
+
+    
     <?php 
       }else{
         global $user;
@@ -115,6 +120,11 @@ class Template{
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="<?php echo WEB_URL;?>/admin"><img src="<?php echo WEB_URL;?>/img/logo_white.png" alt="logo" class="menu-logo" width="50" height="50"></a>
+            </div>
+            <div class="navbar-left hidden-xs">
+              <ul class="nav navbar-nav">
+                <li><a href="<?php echo WEB_URL;?>/"><h1><?php echo _((defined('TITLE')?TITLE:"Service Status"));?></h1></a></li>
+              </ul>
             </div>
             <div class="navbar-collapse collapse navbar-right navbar-admin">
               <ul class="nav navbar-nav">
