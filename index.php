@@ -21,6 +21,12 @@ if (isset($_GET['ajax']))
   $offset = $_GET['offset'];
 }
 
+if (isset($_GET['subscriber_logout'])){
+  setcookie('tg_user', '');
+	setcookie('referer', '', time() - 3600);
+  header('Location: index.php');
+}
+
 Template::render_header("Status");
 ?>
     <div class="text-center">

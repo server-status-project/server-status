@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 //This should later be translatable, maybe find a better solution?
 //This is here for better generation of POT files :)
@@ -7,6 +8,8 @@ $icons = array("fa fa-times", "fa fa-exclamation", "fa fa-info", "fa fa-check" )
 $some = array(_("Some systems are experiencing major outages"), _("Some systems are experiencing minor outages"), _("Some systems are under maintenance"));
 $all = array(_("Our systems are experiencing major outages."), _("Our systems are experiencing minor outages"), _("Our systems are under maintenance"), _("All systems operational"));
 $permissions = array(_("Super admin"), _("Admin"), _("Editor"));
+
+require_once("telegram.php"); 
 
 /**
 * Class that encapsulates methods to render header and footer
@@ -64,7 +67,14 @@ class Template{
             </div>
             <div class="navbar-collapse collapse navbar-right navbar-admin">
               <ul class="nav navbar-nav">
-                <li><a href="#"><script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="jhuesserstatusbot" data-size="small" data-userpic="false" data-auth-url="https://status.jhuesser.ch/check.php" data-request-access="write"></script></a></li>
+              <?php
+              $tg_user = getTelegramUserData();
+              if($tg_user !== false){
+                  echo '<li><a href="https://status.jhuesser.ch/index.php?subscriber_logout=1">Logout</a></li>';
+              } else {
+                echo '<li><a href="#"><script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="jhuesserstatusbot" data-size="small" data-userpic="false" data-auth-url="https://status.jhuesser.ch/check.php" data-request-access="write"></script></a></li>';
+              }
+              ?>
               </ul>
             </div>
             <!--/.nav-collapse -->
