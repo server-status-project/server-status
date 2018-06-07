@@ -7,6 +7,8 @@ define("TITLE", "##title##");
 define("WEB_URL", "##url##"); //Used for links 
 define("MAILER_NAME", "##mailer##"); //Mailer name
 define("MAILER_ADDRESS", "##mailer_email##"); //Mailer address
+define("TG_BOT_API_TOKEN", "##tg_bot_token##"); //Telegram Bot Token 
+define("TG_BOT_USERNAME", "##tg_bot_username##"); //Telegram Bot username
 define("INSTALL_OVERRIDE", false);
 define("DEFAULT_LANGUAGE", "en_GB");
 
