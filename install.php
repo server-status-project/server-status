@@ -121,6 +121,8 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##user##", $_POST['dbuser'], $config);
 		$config = str_replace("##password##", $_POST['dbpassword'], $config);
 		$config = str_replace("##name##", $_POST['servername'], $config);
+		$config = str_replace("##tg_bot_token##", $_POST['tgtoken'], $config);
+		$config = str_replace("##tg_bot_username##", $_POST['tgbot'], $config);
 		file_put_contents("config.php", $config);
 
 		unlink("config.php.template");
@@ -174,6 +176,15 @@ if (!empty($message))
 		<div class="form-group clearfix">
 			<div class="col-sm-6"><label for="dbuser"><?php echo _("User");?>: </label><input type="text" name="dbuser" value="<?php echo ((isset($_POST['dbuser']))?htmlspecialchars($_POST['dbuser'], ENT_QUOTES):'');?>" id="dbuser" placeholder="<?php echo _("User");?>" class="form-control" required></div>
 			<div class="col-sm-6"><label for="dbpassword"><?php echo _("Password");?>: </label><input type="password" name="dbpassword" value="<?php echo ((isset($_POST['dbpassword']))?htmlspecialchars($_POST['dbpassword'], ENT_QUOTES):'');?>" id="dbpassword" placeholder="<?php echo _("Password");?>" class="form-control" required></div>
+		</div>
+	</section>
+	<section class="install-section clearfix">
+		<h2><?php echo _("Telegram");?></h2>
+		<summary><?php echo _("You can provide a subscription feature through telegram.");?></summary>
+
+		<div class="form-group clearfix">
+			<div class="col-sm-6"><label for="tgtoken"><?php echo _("Telegram bot API Token");?>: </label><input type="text" name="tgtoken" value="<?php echo ((isset($_POST['tgtoken']))?htmlspecialchars($_POST['tgtoken'], ENT_QUOTES):'');?>" id="tgtoken" placeholder="<?php echo _("Telegram Bot API Token");?>" class="form-control" required></div>
+			<div class="col-sm-6"><label for="tgbot"><?php echo _("Telegram Bot Username");?>: </label><input type="text" name="tgbot" value="<?php echo ((isset($_POST['tgbot']))?htmlspecialchars($_POST['tgbot'], ENT_QUOTES):'');?>" id="tgbot" placeholder="<?php echo _("Telegram Bot Username");?>" class="form-control" required></div>
 		</div>
 	</section>
 	<section class="install-section clearfix">
