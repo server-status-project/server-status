@@ -162,7 +162,7 @@ class Incident implements JsonSerializable
 
         $query = $mysqli->query("SELECT * FROM services_subscriber WHERE serviceIDFK=" . $service);
 				while($subscriber = $query->fetch_assoc()){
-          $subscriberQuery = $mysqli->query("SELECT * FROM subscribers WHERE userID=" . $subscriber['userIDFK']);
+          $subscriberQuery = $mysqli->query("SELECT * FROM subscribers WHERE subscriberID=" . $subscriber['subscriberIDFK']);
           while($subscriberData = $subscriberQuery->fetch_assoc()){
             $telegramID = $subscriberData['telegramID'];
             $firstname = $subscriberData['firstname'];
@@ -170,14 +170,14 @@ class Incident implements JsonSerializable
             
             $tg_message = urlencode('Hi ' . $firstname . chr(10) . 'There is a status update on a service that you have subscribed. <a href="' . WEB_URL . '">View online</a>');
             $response = json_decode(file_get_contents("https://api.telegram.org/bot" . TG_BOT_API_TOKEN . "/sendMessage?chat_id=" . $telegramID . "&parse_mode=HTML&text=" . $tg_message));
-            
+            print_r($response);
         }
        
       }
-     // header("Location: ".WEB_URL."/admin");
+      header("Location: ".WEB_URL."/admin");
     }
   }
-
+  }
 
   /**
    * Renders incident
