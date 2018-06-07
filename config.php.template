@@ -13,6 +13,8 @@ define("POLICY_MAIL", "##policy_mail##"); //contact email in policy
 define("POLICY_PHONE", "##policy_phone##");
 define("WHO_WE_ARE","##who_we_are##");
 define("POLICY_URL","##policy_url##");
+define("TG_BOT_API_TOKEN", "##tg_bot_token##"); //Telegram Bot Token 
+define("TG_BOT_USERNAME", "##tg_bot_username##"); //Telegram Bot username
 define("INSTALL_OVERRIDE", false);
 define("DEFAULT_LANGUAGE", "en_GB");
 
