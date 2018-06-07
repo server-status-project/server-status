@@ -111,12 +111,14 @@ if(isset($_POST['server']) && empty($message))
 
 	if (empty($message))
 	{
-		//Create config
+		$fullname = $_POST['surname'] . " " . $_POST['name'];
+		//Create config & privacy policy
 		$config = file_get_contents("config.php.template");
+		$policy = file_get_contents("policy.php");
 		$config = str_replace("##name##", $_POST['servername'], $config);
 		$config = str_replace("##title##", $_POST['title'], $config);
 		$config = str_replace("##url##", $_POST['url'], $config);
-		$config = str_replace("##mailer##", $_POST['mailer'], $config);
+		$policy = str_replace("##mailer##", $_POST['mailer'], $policy);
 		$config = str_replace("##mailer_email##", $_POST['mailer_email'], $config);
 		$config = str_replace("##server##", $_POST['server'], $config);
 		$config = str_replace("##database##", $_POST['database'], $config);
@@ -132,6 +134,7 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##policy_url##", $policy_url_conf, $config);
 		$config = str_replace("##tg_bot_token##", $_POST['tgtoken'], $config);
 		$config = str_replace("##tg_bot_username##", $_POST['tgbot'], $config);
+		$policy = str_replace("##name##", $fullname, $policy);
 		file_put_contents("config.php", $config);
 		
 
@@ -248,17 +251,14 @@ if (!empty($message))
 			<div class=""><label for="who_we_are"><?php echo _("Who we are");?>: </label><textarea class="form-control" id="who_we_are" rows="3" name="who_we_are" placeholder="<?php echo _("Some info about yourself");?>" value="<?php echo ((isset($_POST['who_we_are']))?htmlspecialchars($_POST['who_we_are'], ENT_QUOTES):'');?>"></textarea></div>
 		</div>
 	</section>
-
 	<section class="install-section clearfix">
 		<h2><?php echo _("Telegram");?></h2>
 		<summary><?php echo _("You can provide a subscription feature through telegram.");?></summary>
-
 		<div class="form-group clearfix">
 			<div class="col-sm-6"><label for="tgtoken"><?php echo _("Telegram bot API Token");?>: </label><input type="text" name="tgtoken" value="<?php echo ((isset($_POST['tgtoken']))?htmlspecialchars($_POST['tgtoken'], ENT_QUOTES):'');?>" id="tgtoken" placeholder="<?php echo _("Telegram Bot API Token");?>" class="form-control" required></div>
 			<div class="col-sm-6"><label for="tgbot"><?php echo _("Telegram Bot Username");?>: </label><input type="text" name="tgbot" value="<?php echo ((isset($_POST['tgbot']))?htmlspecialchars($_POST['tgbot'], ENT_QUOTES):'');?>" id="tgbot" placeholder="<?php echo _("Telegram Bot Username");?>" class="form-control" required></div>
 		</div>
-	</section>
-		
+	</section>		
 	<section class="install-section clearfix">
 		<div class="form-group clearfix">
 			<div class="col-sm-12"><label for="url"><?php echo _("External Policy Url");?>: </label>
