@@ -34,4 +34,9 @@
 	The most effective way to do this is to disable cookies in your browser. We suggest consulting the Help section of your browser 
 	or taking a look at the About Cookies website which offers guidance for all modern browsers");
 
+	echo "<h1>" . _("Contact & Privacy Policy") . "</h2>";
+	echo "<h2>" . _("Contact") . "</h2>";
+	echo "##name## <br>";
+	echo "##email## <br>";
+
 	Template::render_footer();
