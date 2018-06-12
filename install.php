@@ -116,7 +116,7 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##name##", $_POST['servername'], $config);
 		$config = str_replace("##title##", $_POST['title'], $config);
 		$config = str_replace("##url##", $_POST['url'], $config);
-		$policy = str_replace("##mailer##", $_POST['mailer'], $policy);
+		$policy = str_replace("##email##", $_POST['mailer_email'], $policy);
 		$config = str_replace("##mailer_email##", $_POST['mailer_email'], $config);
 		$config = str_replace("##server##", $_POST['server'], $config);
 		$config = str_replace("##database##", $_POST['database'], $config);
@@ -125,6 +125,8 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##name##", $_POST['servername'], $config);
 		$policy = str_replace("##name##", $fullname, $policy);
 		file_put_contents("config.php", $config);
+		file_put_contents("policy.php", $policy);
+		
 
 		unlink("config.php.template");
 		unlink("install.sql");
