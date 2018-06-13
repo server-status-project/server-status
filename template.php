@@ -55,12 +55,12 @@ class Template{
               </ul>
             </div>
             <div class="navbar-collapse collapse navbar-right navbar-admin">
-              <ul class="nav navbar-nav">
+              <ul class="nav navbar-nav mr-auto">
               <?php
               $tg_user = getTelegramUserData();
               if($tg_user !== false){
-                  echo '<li><a href="?do=subscriptions">Subscriptions</a></li>';
-                  echo '<li><a href="https://status.jhuesser.ch/index.php?subscriber_logout=1">Logout</a></li>';
+                  echo '<li class="nav-item"><a href="?do=subscriptions">Subscriptions</a></li>';
+                  echo '<li class="nav-item"><a href="https://status.jhuesser.ch/index.php?subscriber_logout=1">Logout</a></li>';
               } else {
                 echo '<li><a href="#"><script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="jhuesserstatusbot" data-size="small" data-userpic="false" data-auth-url="https://status.jhuesser.ch/check.php" data-request-access="write"></script></a></li>';
               }
