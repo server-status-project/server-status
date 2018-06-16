@@ -18,8 +18,8 @@
 	echo _("In collaboration with our hosting provider we try our best to protect our 
 	databases against access from third parties, losses, misuse or forgery.
 	") . "<br><br>";
-	echo _("If you access our websites, the following informations will be saved: IP-address, Date, Time, Browser queries, 
-	General informations about your browser, operating system and all search queries on the sites. 
+	echo _("If you access our websites, the following information will be saved: IP-address, Date, Time, Browser queries, 
+	General information about your browser, operating system and all search queries on the sites. 
 	This user data will be used for anonym user statistics to recognize trends and improve our content.
 	") . "<br><br>";
 	echo "<h3>" . _("Cookies") . "</h3>";
