@@ -15,13 +15,17 @@
 	the misuse of their personal data and privacy. We stick to this law. Personal information is kept strictly confidential and 
 	will not passed or sold to third parties.
 	") . "<br><br>";
+	echo "<h4>" . _("How we protect your data") . "</h4>";
 	echo _("In collaboration with our hosting provider we try our best to protect our 
 	databases against access from third parties, losses, misuse or forgery.
 	") . "<br><br>";
+	echo "<h4>" . _("Personal data we collect") . "</h4>";
 	echo _("If you access our websites, the following information will be saved: IP-address, Date, Time, Browser queries, 
 	General information about your browser, operating system and all search queries on the sites. 
 	This user data will be used for anonym user statistics to recognize trends and improve our content.
 	") . "<br><br>";
+	echo "<h4>" . _("Third party that receive your personal data") . "</h4>";
+	echo "We don't share any of your data with a third party.";
 	echo "<h3>" . _("Cookies") . "</h3>";
 	echo _("This site uses cookies – small text files that are placed on your machine to help the site provide a better user experience. 
 	In general, cookies are used to retain user preferences, store information for things like shopping carts, 
