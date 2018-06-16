@@ -41,9 +41,10 @@
 	echo '<h2>' . _("Privacy Policy") . '</h2>';
 	echo '<h3>' . _("General") . "</h3>";
 	echo _("General
-	Based on article 13 of the Swiss Federal Constitution and the and the data protection provisions of the Swiss Confederation 
-	(Federal Act on Data Protection, FADP), every person has the right to be protected against the misuse of their personal 
-	data and privacy. We stick to this law. Personal information is kept strictly confidential and will not passed or sold to third parties.
+	Based on regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons 
+	with regard to the processing of personal data and on the free movement of such data, every person has the right to be protected against 
+	the misuse of their personal data and privacy. We stick to this law. Personal information is kept strictly confidential and 
+	will not passed or sold to third parties.
 	") . "<br><br>";
 	echo _("In collaboration with our hosting provider we try our best to protect our 
 	databases against access from third parties, losses, misuse or forgery.
