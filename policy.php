@@ -54,7 +54,7 @@
 	echo _("In collaboration with our hosting provider we try our best to protect our 
 	databases against access from third parties, losses, misuse or forgery.
 	") . "<br><br>";
-	echo "<h2>" . _("Third party that receive your personal data") . "</24>";
+	echo "<h2>" . _("Third party that receive your personal data") . "</h2>";
 	echo "Our hosting provider can access the date we store on their server. We have a data processing agreement with them.";
 	echo "<h3>" . _("Cookies") . "</h3>";
 	echo _("This site uses cookies – small text files that are placed on your machine to help the site provide a better user experience. 
