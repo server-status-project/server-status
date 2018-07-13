@@ -111,14 +111,12 @@ if(isset($_POST['server']) && empty($message))
 
 	if (empty($message))
 	{
-		$fullname = $_POST['surname'] . " " . $_POST['name'];
-		//Create config & privacy policy
+		//Create config
 		$config = file_get_contents("config.php.template");
-		$policy = file_get_contents("policy.php");
 		$config = str_replace("##name##", $_POST['servername'], $config);
 		$config = str_replace("##title##", $_POST['title'], $config);
 		$config = str_replace("##url##", $_POST['url'], $config);
-		$policy = str_replace("##email##", $_POST['mailer_email'], $policy);
+		$config = str_replace("##mailer##", $_POST['mailer'], $config);
 		$config = str_replace("##mailer_email##", $_POST['mailer_email'], $config);
 		$config = str_replace("##server##", $_POST['server'], $config);
 		$config = str_replace("##database##", $_POST['database'], $config);
@@ -137,7 +135,7 @@ if(isset($_POST['server']) && empty($message))
 		$policy = str_replace("##name##", $fullname, $policy);
 		file_put_contents("config.php", $config);
 		file_put_contents("policy.php", $policy);
-
+		
 		unlink("config.php.template");
 		unlink("install.sql");
 		unlink(__FILE__);
