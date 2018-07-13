@@ -7,6 +7,11 @@ define("TITLE", "##title##");
 define("WEB_URL", "##url##"); //Used for links 
 define("MAILER_NAME", "##mailer##"); //Mailer name
 define("MAILER_ADDRESS", "##mailer_email##"); //Mailer address
+define("POLICY_NAME", "##policy-name##"); //name for contact in policy
+define("ADDRESS", "##address##");
+define("POLICY_MAIL", "##policy-mail##"); //contact email in policy
+define("POLICY_PHONE", "##policy-phone##");
+define("WHO_WE_ARE","##who-we-are##");
 define("INSTALL_OVERRIDE", false);
 define("DEFAULT_LANGUAGE", "en_GB");
 
