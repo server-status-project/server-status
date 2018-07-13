@@ -121,11 +121,11 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##user##", $_POST['dbuser'], $config);
 		$config = str_replace("##password##", $_POST['dbpassword'], $config);
 		$config = str_replace("##name##", $_POST['servername'], $config);
-		$config = str_replace("##policy-name##", $POST['policy-name'], $config);
+		$config = str_replace("##policy_name##", $POST['policy_name'], $config);
 		$config = str_replace("##address##", $_POST['address'], $config);
-		$config = str_replace("##policy-mail##", $POST['policy-mail'], $config);
-		$config = str_replace("##policy-phone##", $_POST['policy-phone'],$config);
-		$config = str_replace("#who-we-are##", $_POST['who-we-are'], $config);
+		$config = str_replace("##policy_mail##", $POST['policy_mail'], $config);
+		$config = str_replace("##policy_phone##", $_POST['policy_phone'],$config);
+		$config = str_replace("##who_we_are##", $_POST['who_we_are'], $config);
 		file_put_contents("config.php", $config);
 		
 
@@ -187,15 +187,15 @@ if (!empty($message))
 		<summary><?php echo _("Since you are collection personal information, the GDPR forces you to have a privacy policy. Enter the details below.");?></summary>
 
 		<div class="form-group clearfix">
-			<div class="col-sm-6"><label for="policy-name"><?php echo _("Name");?>: </label><input type="text" name="policy-name" value="<?php echo ((isset($_POST['policy-name']))?htmlspecialchars($_POST['policy-name'], ENT_QUOTES):'');?>" id="policy-name" placeholder="<?php echo _("Company name");?>" class="form-control" required></div>
-			<div class="col-sm-6"><label for="address"><?php echo _("Adress");?>: </label><input type="text" name="address" value="<?php echo ((isset($_POST['address']))?htmlspecialchars($_POST['address'], ENT_QUOTES):'');?>" id="address" placeholder="<?php echo _("Full address");?>" class="form-control" required></div>
+			<div class="col-sm-6"><label for="policy_name"><?php echo _("Name");?>: </label><input type="text" name="policy_name" value="<?php echo ((isset($_POST['policy_name']))?htmlspecialchars($_POST['policy_name'], ENT_QUOTES):'');?>" id="policy_name" placeholder="<?php echo _("Company name");?>" class="form-control" required></div>
+			<div class="col-sm-6"><label for="address"><?php echo _("Address");?>: </label><input type="text" name="address" value="<?php echo ((isset($_POST['address']))?htmlspecialchars($_POST['address'], ENT_QUOTES):'');?>" id="address" placeholder="<?php echo _("Full address");?>" class="form-control" required></div>
 		</div>
 		<div class="form-group clearfix">
-			<div class="col-sm-6"><label for="policy-mail"><?php echo _("E-Mail");?>: </label><input type="text" name="policy-mail" value="<?php echo ((isset($_POST['policy-mail']))?htmlspecialchars($_POST['policy-mail'], ENT_QUOTES):'');?>" id="policy-mail" placeholder="<?php echo _("E-Mail");?>" class="form-control" required></div>
-			<div class="col-sm-6"><label for="policy-phone"><?php echo _("Phone");?>: </label><input type="password" name="policy-phone" value="<?php echo ((isset($_POST['policy-phone']))?htmlspecialchars($_POST['policy-phone'], ENT_QUOTES):'');?>" id="policy-phone" placeholder="<?php echo _("Phone number");?>" class="form-control"></div>
+			<div class="col-sm-6"><label for="policy_mail"><?php echo _("E-Mail");?>: </label><input type="text" name="policy-mail" value="<?php echo ((isset($_POST['policy-mail']))?htmlspecialchars($_POST['policy-mail'], ENT_QUOTES):'');?>" id="policy-mail" placeholder="<?php echo _("E-Mail");?>" class="form-control" required></div>
+			<div class="col-sm-6"><label for="policy_phone"><?php echo _("Phone");?>: </label><input type="text" name="policy_phone" value="<?php echo ((isset($_POST['policy_phone']))?htmlspecialchars($_POST['policy_phone'], ENT_QUOTES):'');?>" id="policy_phone" placeholder="<?php echo _("Phone number");?>" class="form-control"></div>
 		</div>
 		<div class="form-group clearfix">
-		<div class=""><label for="who-we-are"><?php echo _("Who we are");?>: </label><textarea class="form-control" id="who-we-are" rows="3" placeholder="<?php echo _("A small text about yourself");?>" value="<?php echo ((isset($_POST['who-we-are']))?htmlspecialchars($_POST['who-we-are'], ENT_QUOTES):'');?>"></textarea></div>
+			<div class=""><label for="who_we_are"><?php echo _("Who we are");?>: </label><textarea class="form-control" id="who_we-are" rows="3" name="who-we-are" placeholder="<?php echo _("A small text about yourself");?>" value="<?php echo ((isset($_POST['who-we-are']))?htmlspecialchars($_POST['who-we-are'], ENT_QUOTES):'');?>"></textarea></div>
 		</div>
 	</section>
 	<section class="install-section clearfix">
