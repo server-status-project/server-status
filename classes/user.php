@@ -304,47 +304,56 @@ class User
   {
     global $permissions, $user;
     ?>
-    <div class="row">
-      <div class="col-md-2 col-md-offset-2"><img src="https://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $this->email ) ) );?>" 
+    <div class="row user">
+      <div class="col-md-2 col-md-offset-2"><img src="https://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $this->email ) ) );?>?s=160" 
       alt="<?php echo _("Profile picture");?>"></div>
       <form action="<?php echo WEB_URL;?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
         <div class="col-md-6">
           <div class="input-group">
-            <input type="text" name="name" class="form-control form-name" value=<?php echo $this->name;?>>
-            <input type="text" name="surname" class="form-control form-name" value=<?php echo $this->surname;?>>
-            <span id="name-group-btn">              
-              <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change name");?></button>
-            </span>
+            <div class="col-md-12">
+              <div class="row">
+                <label class="form-name" for="name"><?php echo _("Name"); ?></label>
+                <label class="form-name" for="surname"><?php echo _("Surname"); ?></label>
+              </div>
+              <div class="row">
+                <input type="text" name="name" placeholder="<?php echo _("Name"); ?>" 
+                  title="<?php echo _("Name"); ?>" class="form-control form-name" value=<?php echo $this->name;?>>
+                <input type="text" name="surname" placeholder="<?php echo _("Surname"); ?>" 
+                  title="<?php echo _("Surname"); ?>" class="form-control form-name" value=<?php echo $this->surname;?>>        
+              </div>
+            </div>
+          </div>
+          <div class="input-group">
+            <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change name");?></button>
           </div>
         </div>
       </form>
     </div>
-    <div class="row">
-      <div class="col-md-2 col-md-offset-2"><strong><?php echo _("ID");?></strong></div>
-      <div class="col-md-6"><?php echo $this->id; ?></div>
-    </div>
     <form action="<?php echo WEB_URL;?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
-      <div class="row">
+      <div class="row user">
         <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Username");?></strong></div>
         <div class="col-md-6">
+          <?php
+          if ($this->id==$_SESSION['user'] || $user->get_rank()<1){?>
           <div class="input-group">
-              <input type="text" class="form-control" name="username" required value=<?php echo $this->username." "; 
-            if ($this->id!=$_SESSION['user'] && $user->get_rank()<=1 && ($user->get_rank()<$this->rank)){
-              echo "<a href='".WEB_URL."/admin/?do=user&amp;id=".$this->id."&amp;what=toggle'>";
-              echo "<i class='fa fa-".($this->active?"check success":"times danger")."'></i></a>";
-            }else{
-              echo "<i class='fa fa-".($this->active?"check success":"times danger")."'></i>";
-            }?> 
+              <input type="text" class="form-control" name="username" required value="<?php echo htmlspecialchars($this->username, ENT_QUOTES);?>">
             <span class="input-group-btn">
               <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change username");?></button>
             </span>
           </div>
+        <?php
+          }else{?><?php echo $this->username." ";
+            if ($user->get_rank()>=1){
+              echo "<i class='fa fa-".($this->active?"check success":"times danger")."'></i>";
+            }
+          }
+        ?>
         </div>
       </div>
     </form>
 
     <form action="<?php echo WEB_URL;?>/admin/?do=user&id=<?php echo $this->id; ?>" method="POST">
-      <div class="row">
+      <div class="row user">
         <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Role");?></strong></div>
         <div class="col-md-6"><?php if ($user->get_rank() == 0 && $this->id != $_SESSION['user']){?> 
         <div class="input-group"><select class="form-control" name="permission">
@@ -358,10 +367,10 @@ class User
     </div>
   </form>
 
-  <?php if($this->id==$_SESSION['user'])
+  <?php if($this->id==$_SESSION['user']||$user->get_rank()<1)
   {?>
     <form action="<?php echo WEB_URL;?>/admin/?do=user" method="POST">
-      <div class="row">
+      <div class="row user">
         <div class="col-md-2 col-md-offset-2"><strong>Email</strong></div>
         <div class="col-md-6">
           <div class="input-group">
@@ -373,6 +382,21 @@ class User
         </div>
       </div>
     </form>
+  <?php }else
+  {
+    ?>
+    <div class="row user">
+      <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Email");?></strong></div>
+      <div class="col-md-6">
+        <a href="mailto:<?php echo $this->email; ?>"><?php echo $this->email; ?></a>
+      </div>
+    </div>
+    <?php
+  }
+
+  if($this->id==$_SESSION['user']){
+  ?>
+
     <form action="<?php echo WEB_URL;?>/admin/?do=user" method="POST">
       <div class="row">
         <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Password");?></strong></div>
@@ -389,17 +413,7 @@ class User
     </form>
     <?php
   }
-  else
-  {
-    ?>
-    <div class="row">
-      <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Email");?></strong></div>
-      <div class="col-md-6">
-        <a href="mailto:<?php echo $this->email; ?>"><?php echo $this->email; ?></a>
-      </div>
-    </div>
-    <?php
-  }
+  
   if ($this->id!=$_SESSION['user'] && $user->get_rank()<=1 && ($user->get_rank()<$this->rank))
       {?>
   <div class="row">
@@ -417,29 +431,41 @@ class User
     <?php }
   }
 
+  /**
+   * Changes username of user by ID.
+   * @return void
+   */
   public function change_username()
   {
-    global $mysqli, $message;
+    global $mysqli, $message, $user;
     $id = $this->id;
-    $used = false;
 
     $stmt = $mysqli->prepare("SELECT count(*) FROM users WHERE username LIKE ?");
     $stmt->bind_param("s",$_POST["username"]);
     $stmt->execute();
+    $stmt->close();
     if ($stmt->num_rows > 0)
     {
       $message = _("This username is already taken.");
       return;
     }
 
-    if ($_SESSION['user'] != $id)
+    if ($_SESSION['user'] != $id || $user->get_rank()>0)
     {
       $message = _("Cannot change username of other users!");
     }else{
       $stmt = $mysqli->prepare("UPDATE users SET username = ? WHERE id=?");
       $stmt->bind_param("si",$_POST["username"],$id);
       $stmt->execute();
+      $stmt->close();
+      header("Location: /admin/?do=user");
     }
+  }
+
+
+  public function change_name()
+  {
+    
   }
 
   /**
@@ -566,10 +592,21 @@ class User
    * @return void
    */
   public function email_link(){
-    global $user;
+    global $user, $mysqli;
+    
     $email = $_POST['email'];
-    $time = strtotime('+1 day', time());
     $id = $this->id;
+
+    if ($user->get_rank()<1 && $id!=$_SESSION['user'])
+    {
+      $stmt = $mysqli->prepare("UPDATE users SET email = ? WHERE id=?");
+      $stmt->bind_param("sd", $email, $id);
+      $stmt->execute();
+      $stmt->get_result();
+      return;
+    }
+
+    $time = strtotime('+1 day', time());
 
     $token = Token::add($id, 'email;$email', $time);
 
@@ -583,6 +620,7 @@ class User
     $headers .= "Reply-To: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL; 
 
     mail($to, $subject, $msg, $headers);
+    return 'Confirmation email sent!';
   }
 
   /**
@@ -591,7 +629,7 @@ class User
    */
   public function change_email()
   {
-    global $mysqli, $message;
+    global $mysqli, $message, $user;
     $token = $_GET['token'];
     $id = $_GET['id'];
 

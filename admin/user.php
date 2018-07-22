@@ -23,7 +23,7 @@ if (isset($_POST['username']))
 
 if (isset($_POST['email']))
 {
-	$displayed_user->email_link();
+	$success = $displayed_user->email_link();
 }
 
 if (isset($_POST['permission']))
@@ -47,4 +47,7 @@ Template::render_header(_("User"), true);
     <p class="alert alert-danger"><?php echo $message?></p>
 <?php }
 
+ if (isset($success)){?>
+    <p class="alert alert-success"><?php echo $success?></p>
+<?php }
 $displayed_user->render_user_settings();
