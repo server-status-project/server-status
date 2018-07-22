@@ -93,7 +93,7 @@ div.center {
 
 #wrapper
 {
-	max-width: 900px;
+	max-width: 1024px;
 	min-height: calc(100vh - 157px);
 	padding-right: 15px;
 	padding-left: 15px
@@ -599,4 +599,20 @@ i.danger{
 
 body .h1,body  .h2,body  .h3,body  h1,body  h2,body  h3 {
     margin-top: 18px;
+}
+
+.row.user .input-group
+{
+	width: 100%;
+	margin-bottom: 5px
+}
+
+.row.user .form-name{
+	width: 50%;
+	float: left;
+}
+
+label.form-name
+{
+	line-height: 20px
 }
