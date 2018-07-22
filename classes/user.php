@@ -673,7 +673,7 @@ class User
    */
   public function change_email()
   {
-    global $mysqli, $message, $user;
+    global $mysqli, $message;
     $token = $_GET['token'];
     $id = $_GET['id'];
 
