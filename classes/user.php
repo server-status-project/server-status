@@ -127,72 +127,72 @@ class User
         $messages[] = _("Rank");
       }
 
-      if (!isset($messages)){
-        $name = $_POST['name'];
-        $surname = $_POST['surname'];
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $pass = $_POST['password'];
-        
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL))
-        {
-          $message = "Invalid email!";
-          return;
-        }
-
-        $variables = array();
-        if (strlen($name)>50){
-          $variables[] = 'name: 50';
-        }
-        if (strlen($surname)>50){
-          $variables[] = 'surname: 50';
-        }
-        if (strlen($username)>50){
-          $variables[] = 'username: 50';
-        }
-        if (strlen($email)>60){
-          $variables[] = 'email: 60';
-        }
-
-
-        if (!empty($variables))
-        {
-          $message = _("Please mind the following character limits: ");
-          $message .= implode(", ", $variables);
-          return;
-        }
-
-        $salt = uniqid(mt_rand(), true);
-        $hash = hash('sha256', $pass.$salt);
-        $permission = $_POST['permission'];
-        
-
-        $stmt = $mysqli->prepare("INSERT INTO users values (NULL, ?, ?, ?, ?, ?, ?, ?, 1)");
-        $stmt->bind_param("ssssssi", $email, $username, $name, $surname, $hash, $salt, $permission);
-        $stmt->execute();
-
-        if ($stmt->affected_rows>0)
-        {
-          $to      = $email;
-          $subject = _('User account created').' - '.NAME;
-          $msg = sprintf(_("Hi %s!<br>"."Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."), $name." ".$surname,WEB_URL."/admin", WEB_URL."/admin", $pass);
-          $headers = "Content-Type: text/html; charset=utf-8 ".PHP_EOL;
-          $headers .= "MIME-Version: 1.0 ".PHP_EOL;
-          $headers .= "From: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL;
-          $headers .= "Reply-To: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL; 
-
-          mail($to, $subject, $msg, $headers);
-          if (!INSTALL_OVERRIDE) 
-          {
-            header("Location: ".WEB_URL."/admin/?do=settings");
-          }
-        }
-        else{
-          $message = _("Username or email already used");
-        }
-      }
-      else{
+      if (isset($messages)){
         $message = "Please enter ".implode(", ", $messages);
+        return;
+      }
+      
+      $name = $_POST['name'];
+      $surname = $_POST['surname'];
+      $username = $_POST['username'];
+      $email = $_POST['email'];
+      $pass = $_POST['password'];
+        
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+      {
+        $message = "Invalid email!";
+        return;
+      }
+
+      $variables = array();
+      if (strlen($name)>50){
+        $variables[] = 'name: 50';
+      }
+      if (strlen($surname)>50){
+        $variables[] = 'surname: 50';
+      }
+      if (strlen($username)>50){
+        $variables[] = 'username: 50';
+      }
+      if (strlen($email)>60){
+        $variables[] = 'email: 60';
+      }
+
+
+      if (!empty($variables))
+      {
+        $message = _("Please mind the following character limits: ");
+        $message .= implode(", ", $variables);
+        return;
+      }
+
+      $salt = uniqid(mt_rand(), true);
+      $hash = hash('sha256', $pass.$salt);
+      $permission = $_POST['permission'];
+      
+
+      $stmt = $mysqli->prepare("INSERT INTO users values (NULL, ?, ?, ?, ?, ?, ?, ?, 1)");
+      $stmt->bind_param("ssssssi", $email, $username, $name, $surname, $hash, $salt, $permission);
+      $stmt->execute();
+
+      if ($stmt->affected_rows==0)
+      {
+        $message = _("Username or email already used");
+        return;
+      }
+
+      $to      = $email;
+      $subject = _('User account created').' - '.NAME;
+      $msg = sprintf(_("Hi %s!<br>"."Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."), $name." ".$surname,WEB_URL."/admin", WEB_URL."/admin", $pass);
+      $headers = "Content-Type: text/html; charset=utf-8 ".PHP_EOL;
+      $headers .= "MIME-Version: 1.0 ".PHP_EOL;
+      $headers .= "From: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL;
+      $headers .= "Reply-To: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL; 
+
+      mail($to, $subject, $msg, $headers);
+      if (!INSTALL_OVERRIDE) 
+      {
+        header("Location: ".WEB_URL."/admin/?do=settings");
       }
     }
     else {
@@ -210,55 +210,58 @@ class User
   public static function login()
   {
     global $message, $mysqli;
-    if (isset($_POST['email']))
+    if (!isset($_POST['email']) || !isset($_POST['email']))
     {
-      $email = $_POST['email'];
-      $pass = $_POST['pass'];
-
-      $stmt = $mysqli->prepare("SELECT id,password_salt as salt,active FROM users WHERE email=?");
-      $stmt->bind_param("s", $email);
-      $stmt->execute();
-      $query = $stmt->get_result();
-      if ($query->num_rows)
-      {
-        $result = $query->fetch_assoc();
-
-        $salt = $result["salt"];
-        $id =  $result["id"];
-        $active =  $result["active"];
-        if (!$active)
-        {
-          $message = _("Your account has been disabled. Please contact administrator.");
-        }
-        else
-        {
-          $hash = hash('sha256', $pass.$salt);
-
-          $stmt = $mysqli->prepare("SELECT count(*) as count FROM users WHERE id=? AND password_hash=?");
-          $stmt->bind_param("is", $id, $hash);
-          $stmt->execute();
-          $query = $stmt->get_result();
-          if (!$query->fetch_assoc()['count'])
-          {
-            $message = _("Wrong email or password");
-          }else
-          {
-            if (isset($_POST['remember'])&&$_POST['remember'])
-            {
-              $year = strtotime('+356 days', time());
-              $token = Token::add($id, 'remember', $year);
-              setcookie('token', $token, $year, "/");
-              setcookie('user', $id, $year, "/");
-            }
-            $_SESSION['user'] = $id;
-            header("Location: ".WEB_URL."/admin");
-          }
-        }
-      }
-      else{
-        $message = _("Wrong email or password");
-      }
+      $message = _("Please fill in your email and password!");
+      return;
     }
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+
+    $stmt = $mysqli->prepare("SELECT id,password_salt as salt,active FROM users WHERE email=?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $query = $stmt->get_result();
+
+    if ($query->num_rows<1)
+    {
+      $message = _("Wrong email or password");
+      return;
+    }
+      
+    $result = $query->fetch_assoc();
+    $salt = $result["salt"];
+    $id =  $result["id"];
+    $active =  $result["active"];
+
+    if (!$active)
+    {
+      $message = _("Your account has been disabled. Please contact administrator.");
+      return;
+    }
+
+    $hash = hash('sha256', $pass.$salt);
+    $stmt = $mysqli->prepare("SELECT count(*) as count FROM users WHERE id=? AND password_hash=?");
+    $stmt->bind_param("is", $id, $hash);
+    $stmt->execute();
+    $query = $stmt->get_result();
+
+    if (!$query->fetch_assoc()['count'])
+    {
+      $message = _("Wrong email or password");
+      return;
+    }
+
+    if (isset($_POST['remember'])&&$_POST['remember'])
+    {
+      $year = strtotime('+356 days', time());
+      $token = Token::add($id, 'remember', $year);
+      setcookie('token', $token, $year, "/");
+      setcookie('user', $id, $year, "/");
+    }
+
+    $_SESSION['user'] = $id;
+    header("Location: ".WEB_URL."/admin");
   }
 
   /**
@@ -302,7 +305,8 @@ class User
     global $permissions, $user;
     ?>
     <div class="row">
-      <div class="col-md-2 col-md-offset-2"><img src="https://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $this->email ) ) );?>" alt="<?php echo _("Profile picture");?>"></div>
+      <div class="col-md-2 col-md-offset-2"><img src="https://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $this->email ) ) );?>" 
+      alt="<?php echo _("Profile picture");?>"></div>
       <form action="<?php echo WEB_URL;?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
         <div class="col-md-6">
           <div class="input-group">
@@ -324,8 +328,8 @@ class User
         <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Username");?></strong></div>
         <div class="col-md-6">
           <div class="input-group">
-              <input type="text" class="form-control" name="username" required value=<?php echo $this->username." "; if ($this->id!=$_SESSION['user'] && $user->get_rank()<=1 && ($user->get_rank()<$this->rank))
-            {
+              <input type="text" class="form-control" name="username" required value=<?php echo $this->username." "; 
+            if ($this->id!=$_SESSION['user'] && $user->get_rank()<=1 && ($user->get_rank()<$this->rank)){
               echo "<a href='".WEB_URL."/admin/?do=user&amp;id=".$this->id."&amp;what=toggle'>";
               echo "<i class='fa fa-".($this->active?"check success":"times danger")."'></i></a>";
             }else{
@@ -342,7 +346,9 @@ class User
     <form action="<?php echo WEB_URL;?>/admin/?do=user&id=<?php echo $this->id; ?>" method="POST">
       <div class="row">
         <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Role");?></strong></div>
-        <div class="col-md-6"><?php if ($user->get_rank() == 0 && $this->id != $_SESSION['user']){?> <div class="input-group"><select class="form-control" name="permission"><?php foreach ($permissions as $key => $value) {
+        <div class="col-md-6"><?php if ($user->get_rank() == 0 && $this->id != $_SESSION['user']){?> 
+        <div class="input-group"><select class="form-control" name="permission">
+        <?php foreach ($permissions as $key => $value) {
           echo "<option value='$key' ".($key==$this->rank?"selected":"").">$value</option>";
         } ?>
         </select><span class="input-group-btn">
@@ -422,22 +428,18 @@ class User
     $stmt->execute();
     if ($stmt->num_rows > 0)
     {
-        $used = true;
+      $message = _("This username is already taken.");
+      return;
     }
 
-      if ($_SESSION['user'] != $id)
-      {
-        $message = _("Cannot change username of other users!");
-      }else{
-        if ($used)
-        {
-          $message = _("This username is already taken.");
-        }else{
-          $stmt = $mysqli->prepare("UPDATE users SET username = ? WHERE id=?");
-          $stmt->bind_param("si",$_POST["username"],$id);
-          $stmt->execute();
-        }
-      }
+    if ($_SESSION['user'] != $id)
+    {
+      $message = _("Cannot change username of other users!");
+    }else{
+      $stmt = $mysqli->prepare("UPDATE users SET username = ? WHERE id=?");
+      $stmt->bind_param("si",$_POST["username"],$id);
+      $stmt->execute();
+    }
   }
 
   /**
@@ -453,72 +455,77 @@ class User
     if ($_POST['password']!=$_POST['password_repeat'])
     {
       $message = _("Passwords do not match!");
-    }else{
-      if (!$token)
+      return;
+    }
+
+    if (!$token)
+    {
+      if ($_SESSION['user']!=$id)
       {
-        if ($_SESSION['user']!=$id)
-        {
-          $message = _("Cannot change password of other users!");
-        }else{
-          $stmt = $mysqli->prepare("SELECT password_salt as salt FROM users WHERE id=?");
-          $stmt->bind_param("i", $id);
-          $stmt->execute();
-          $query = $stmt->get_result();
-
-          $result = $query->fetch_assoc();
-          $salt = $result['salt'];
-          $pass = $_POST['old_password'];
-          $hash = hash('sha256', $pass.$salt);
-
-          $stmt = $mysqli->prepare("SELECT count(*) as count FROM users WHERE id=? AND password_hash = ?");
-          $stmt->bind_param("is", $id, $hash);
-          $stmt->execute();
-          if ($stmt->get_result()->fetch_assoc()['count'])
-          {
-            $pass = $_POST['password'];
-            $hash = hash('sha256', $pass.$salt);
-            $stmt = $mysqli->prepare("UPDATE users SET password_hash = ? WHERE id=?");
-            $stmt->bind_param("si", $hash, $id);
-            $stmt->execute();
-            $stmt->close();
-            $stmt = $mysqli->prepare("DELETE FROM tokens WHERE user = ? AND data = 'remember'");
-    		    $stmt->bind_param("d", $id);
-    		    $stmt->execute();
-    		    $stmt->get_result();
-            User::logout();
-          }
-          else{
-            $message = _("Wrong password!");
-          }
-        }
+        $message = _("Cannot change password of other users!");
       }else{
-        if (Token::validate($token, $id, "passwd"))
+        $stmt = $mysqli->prepare("SELECT password_salt as salt FROM users WHERE id=?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $query = $stmt->get_result();
+        $result = $query->fetch_assoc();
+
+        $salt = $result['salt'];
+        $pass = $_POST['old_password'];
+        $hash = hash('sha256', $pass.$salt);
+
+        $stmt = $mysqli->prepare("SELECT count(*) as count FROM users WHERE id=? AND password_hash = ?");
+        $stmt->bind_param("is", $id, $hash);
+        $stmt->execute();
+
+        if ($stmt->get_result()->fetch_assoc()['count'])
         {
-          $stmt = $mysqli->prepare("SELECT password_salt as salt FROM users WHERE id=?");
-          $stmt->bind_param("i", $id);
-          $stmt->execute();
-          $query = $stmt->get_result();
-          $result = $query->fetch_assoc();
-          $salt = $result['salt'];
           $pass = $_POST['password'];
           $hash = hash('sha256', $pass.$salt);
-
           $stmt = $mysqli->prepare("UPDATE users SET password_hash = ? WHERE id=?");
-          $stmt->bind_param("si", $hash,$id);
+          $stmt->bind_param("si", $hash, $id);
           $stmt->execute();
           $stmt->close();
-          $stmt = $mysqli->prepare("DELETE FROM tokens WHERE user = ? AND data = 'remember'");
-    		  $stmt->bind_param("d", $id);
-    		  $stmt->execute();
-    		  $stmt->get_result();
-        }
-        else
-        {
-          $message = _("Invalid token detected, please retry your request from start!");
-        }
 
-        Token::delete($token);
+          $stmt = $mysqli->prepare("DELETE FROM tokens WHERE user = ? AND data = 'remember'");
+  		    $stmt->bind_param("d", $id);
+  		    $stmt->execute();
+          $stmt->get_result();
+          
+          User::logout();
+        }
+        else{
+          $message = _("Wrong password!");
+        }
       }
+    }else{
+      if (Token::validate($token, $id, "passwd"))
+      {
+        $stmt = $mysqli->prepare("SELECT password_salt as salt FROM users WHERE id=?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $query = $stmt->get_result();
+        $result = $query->fetch_assoc();
+
+        $salt = $result['salt'];
+        $pass = $_POST['password'];
+        $hash = hash('sha256', $pass.$salt);
+
+        $stmt = $mysqli->prepare("UPDATE users SET password_hash = ? WHERE id=?");
+        $stmt->bind_param("si", $hash,$id);
+        $stmt->execute();
+        $stmt->close();
+
+        $stmt = $mysqli->prepare("DELETE FROM tokens WHERE user = ? AND data = 'remember'");
+  		  $stmt->bind_param("d", $id);
+  		  $stmt->execute();
+  		  $stmt->get_result();
+      }
+      else
+      {
+        $message = _("Invalid token detected, please retry your request from start!");
+      }
+      Token::delete($token);
     }
   }
 
