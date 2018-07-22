@@ -210,7 +210,12 @@ class User
   public static function login()
   {
     global $message, $mysqli;
-    if (!isset($_POST['email']) || !isset($_POST['email']))
+    if (!isset($_POST['email']) && !isset($_POST['email']))
+    {
+      return;
+    }
+
+    if ((!isset($_POST['email']) || !isset($_POST['email'])))
     {
       $message = _("Please fill in your email and password!");
       return;
@@ -307,8 +312,10 @@ class User
     <div class="row user">
       <div class="col-md-2 col-md-offset-2"><img src="https://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $this->email ) ) );?>?s=160" 
       alt="<?php echo _("Profile picture");?>"></div>
-      <form action="<?php echo WEB_URL;?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
-        <div class="col-md-6">
+      <div class="col-md-6">
+      <?php if($this->id==$_SESSION['user']||$user->get_rank()<1){
+      ?>
+        <form action="<?php echo WEB_URL;?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
           <div class="input-group">
             <div class="col-md-12">
               <div class="row">
@@ -317,17 +324,25 @@ class User
               </div>
               <div class="row">
                 <input type="text" name="name" placeholder="<?php echo _("Name"); ?>" 
-                  title="<?php echo _("Name"); ?>" class="form-control form-name" value=<?php echo $this->name;?>>
+                  title="<?php echo _("Name"); ?>" class="form-control form-name" 
+                  value=<?php echo htmlspecialchars($this->name, ENT_QUOTES);?>>
                 <input type="text" name="surname" placeholder="<?php echo _("Surname"); ?>" 
-                  title="<?php echo _("Surname"); ?>" class="form-control form-name" value=<?php echo $this->surname;?>>        
+                  title="<?php echo _("Surname"); ?>" class="form-control form-name" 
+                  value=<?php echo htmlspecialchars($this->surname, ENT_QUOTES);?>>        
               </div>
             </div>
           </div>
           <div class="input-group">
             <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change name");?></button>
           </div>
-        </div>
-      </form>
+        </form>
+        <?php
+        }else{
+        ?>
+         <h3><?php echo $this->name." ".$this->surname;?></h3>
+        <?php
+        }?>
+      </div>
     </div>
     <form action="<?php echo WEB_URL;?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
       <div class="row user">
@@ -369,7 +384,7 @@ class User
 
   <?php if($this->id==$_SESSION['user']||$user->get_rank()<1)
   {?>
-    <form action="<?php echo WEB_URL;?>/admin/?do=user" method="POST">
+    <form action="<?php echo WEB_URL;?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
       <div class="row user">
         <div class="col-md-2 col-md-offset-2"><strong>Email</strong></div>
         <div class="col-md-6">
@@ -432,7 +447,7 @@ class User
   }
 
   /**
-   * Changes username of user by ID.
+   * Changes username of user by POST[ID].
    * @return void
    */
   public function change_username()
@@ -443,14 +458,14 @@ class User
     $stmt = $mysqli->prepare("SELECT count(*) FROM users WHERE username LIKE ?");
     $stmt->bind_param("s",$_POST["username"]);
     $stmt->execute();
-    $stmt->close();
     if ($stmt->num_rows > 0)
     {
       $message = _("This username is already taken.");
       return;
     }
+    $stmt->close();
 
-    if ($_SESSION['user'] != $id || $user->get_rank()>0)
+    if ($_SESSION['user'] != $id && $user->get_rank()>0)
     {
       $message = _("Cannot change username of other users!");
     }else{
@@ -458,14 +473,42 @@ class User
       $stmt->bind_param("si",$_POST["username"],$id);
       $stmt->execute();
       $stmt->close();
-      header("Location: /admin/?do=user");
+      header("Location: /admin/?do=user&id=".$id);
     }
   }
 
-
+  /**
+   * Changes name and surname of user by POST[ID].
+   * @return void
+   */
   public function change_name()
   {
-    
+    global $mysqli, $message, $user;
+    if (strlen(trim($_POST['name']))==0) {
+      $messages[] = _("Name");
+    }
+    if(strlen(trim($_POST['surname']))==0) {
+      $messages[] = _("Surname");
+    }
+
+    if (!empty($messages))
+    {
+      $message = "Please enter ".implode(", ", $messages);
+      return;
+    }
+
+    $id = $this->id;
+
+    if ($_SESSION['user'] != $id && $user->get_rank()>0)
+    {
+      $message = _("Cannot change names of other users!");
+    }else{
+      $stmt = $mysqli->prepare("UPDATE users SET `name` = ?, `surname` = ?  WHERE id=?");
+      $stmt->bind_param("ssi",$_POST["name"],$_POST["surname"],$id);
+      $stmt->execute();
+      $stmt->close();
+      header("Location: /admin/?do=user&id=".$id);
+    }
   }
 
   /**
@@ -603,6 +646,7 @@ class User
       $stmt->bind_param("sd", $email, $id);
       $stmt->execute();
       $stmt->get_result();
+      header("Location: /admin/?do=user&id=".$id);
       return;
     }
 
@@ -620,7 +664,7 @@ class User
     $headers .= "Reply-To: ".MAILER_NAME.' <'.MAILER_ADDRESS.'>'.PHP_EOL; 
 
     mail($to, $subject, $msg, $headers);
-    return 'Confirmation email sent!';
+    return _('Confirmation email sent!');
   }
 
   /**

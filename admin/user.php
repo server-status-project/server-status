@@ -21,6 +21,11 @@ if (isset($_POST['username']))
 	$displayed_user->change_username();
 }
 
+if (isset($_POST['name']))
+{
+	$displayed_user->change_name();
+}
+
 if (isset($_POST['email']))
 {
 	$success = $displayed_user->email_link();
@@ -41,7 +46,13 @@ Template::render_header(_("User"), true);
 
 ?>
 <div class="text-center">
-  	<h1><?php echo _("User settings");?></h1>
+	  <h1><?php 
+	  if ($_SESSION['user'] == $_GET['id'])
+	  {
+		echo _("User settings");
+	  }else{
+		echo _("User");
+	  } ?></h1>
 </div>
 <?php if (isset($message)){?>
     <p class="alert alert-danger"><?php echo $message?></p>
