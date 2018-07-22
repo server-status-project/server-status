@@ -339,7 +339,7 @@ msgstr "Grave interruzione"
 
 #: config.php:40
 msgid "Minor outage"
-msgstr "Minore interruzione"
+msgstr "Lieve interruzione"
 
 #: config.php:40
 msgid "Operational"
@@ -371,7 +371,7 @@ msgstr "I nostri sistemi sono in manutenzione"
 
 #: config.php:44
 msgid "All systems operational"
-msgstr "Tutti i sistemi operativi"
+msgstr "Tutti i sistemi sono operativi"
 
 #: config.php:45
 msgid "Super admin"
