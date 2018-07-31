@@ -121,9 +121,9 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##user##", $_POST['dbuser'], $config);
 		$config = str_replace("##password##", $_POST['dbpassword'], $config);
 		$config = str_replace("##name##", $_POST['servername'], $config);
-		$config = str_replace("##policy_name##", $POST['policy_name'], $config);
+		$config = str_replace("##policy_name##", $_POST['policy_name'], $config);
 		$config = str_replace("##address##", $_POST['address'], $config);
-		$config = str_replace("##policy_mail##", $POST['policy_mail'], $config);
+		$config = str_replace("##policy_mail##", $_POST['policy_mail'], $config);
 		$config = str_replace("##policy_phone##", $_POST['policy_phone'],$config);
 		$config = str_replace("##who_we_are##", $_POST['who_we_are'], $config);
 		file_put_contents("config.php", $config);
