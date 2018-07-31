@@ -191,11 +191,11 @@ if (!empty($message))
 			<div class="col-sm-6"><label for="address"><?php echo _("Address");?>: </label><input type="text" name="address" value="<?php echo ((isset($_POST['address']))?htmlspecialchars($_POST['address'], ENT_QUOTES):'');?>" id="address" placeholder="<?php echo _("Full address");?>" class="form-control" required></div>
 		</div>
 		<div class="form-group clearfix">
-			<div class="col-sm-6"><label for="policy_mail"><?php echo _("E-Mail");?>: </label><input type="text" name="policy-mail" value="<?php echo ((isset($_POST['policy-mail']))?htmlspecialchars($_POST['policy-mail'], ENT_QUOTES):'');?>" id="policy-mail" placeholder="<?php echo _("E-Mail");?>" class="form-control" required></div>
+			<div class="col-sm-6"><label for="policy_mail"><?php echo _("E-Mail");?>: </label><input type="text" name="policy_mail" value="<?php echo ((isset($_POST['policy_mail']))?htmlspecialchars($_POST['policy_mail'], ENT_QUOTES):'');?>" id="policy_mail" placeholder="<?php echo _("E-Mail");?>" class="form-control" required></div>
 			<div class="col-sm-6"><label for="policy_phone"><?php echo _("Phone");?>: </label><input type="text" name="policy_phone" value="<?php echo ((isset($_POST['policy_phone']))?htmlspecialchars($_POST['policy_phone'], ENT_QUOTES):'');?>" id="policy_phone" placeholder="<?php echo _("Phone number");?>" class="form-control"></div>
 		</div>
 		<div class="form-group clearfix">
-			<div class=""><label for="who_we_are"><?php echo _("Who we are");?>: </label><textarea class="form-control" id="who_we-are" rows="3" name="who-we-are" placeholder="<?php echo _("A small text about yourself");?>" value="<?php echo ((isset($_POST['who-we-are']))?htmlspecialchars($_POST['who-we-are'], ENT_QUOTES):'');?>"></textarea></div>
+			<div class=""><label for="who_we_are"><?php echo _("Who we are");?>: </label><textarea class="form-control" id="who_we_are" rows="3" name="who_we_are" placeholder="<?php echo _("A small text about yourself");?>" value="<?php echo ((isset($_POST['who_we_are']))?htmlspecialchars($_POST['who_we_are'], ENT_QUOTES):'');?>"></textarea></div>
 		</div>
 	</section>
 	<section class="install-section clearfix">
