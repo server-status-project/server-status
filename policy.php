@@ -42,7 +42,9 @@
 	echo POLICY_NAME . "<br>";
 	echo ADDRESS . "<br>";
 	echo POLICY_MAIL . "<br>";
-	echo POLICY_PHONE . "<br>";
+	if(defined('POLICY_PHONE') && POLICY_PHONE != ""){
+		echo POLICY_PHONE . "<br>";
+	}
 
 	echo '<h2>' . _("What personal data we collect and why") . '</h2>';
 	echo '<h3>' . _("Global") . "</h3>";
