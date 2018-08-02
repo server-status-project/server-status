@@ -123,7 +123,13 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##name##", $_POST['servername'], $config);
 		$config = str_replace("##tg_bot_token##", $_POST['tgtoken'], $config);
 		$config = str_replace("##tg_bot_username##", $_POST['tgbot'], $config);
+		$config = str_replace("##policy_name##", $_POST['policy_name'], $config);
+		$config = str_replace("##address##", $_POST['address'], $config);
+		$config = str_replace("##policy_mail##", $_POST['policy_mail'], $config);
+		$config = str_replace("##policy_phone##", $_POST['policy_phone'],$config);
+		$config = str_replace("##who_we_are##", $_POST['who_we_are'], $config);
 		file_put_contents("config.php", $config);
+		
 
 		unlink("config.php.template");
 		unlink("install.sql");
@@ -179,12 +185,28 @@ if (!empty($message))
 		</div>
 	</section>
 	<section class="install-section clearfix">
+<<<<<<< HEAD
 		<h2><?php echo _("Telegram");?></h2>
 		<summary><?php echo _("You can provide a subscription feature through telegram.");?></summary>
 
 		<div class="form-group clearfix">
 			<div class="col-sm-6"><label for="tgtoken"><?php echo _("Telegram bot API Token");?>: </label><input type="text" name="tgtoken" value="<?php echo ((isset($_POST['tgtoken']))?htmlspecialchars($_POST['tgtoken'], ENT_QUOTES):'');?>" id="tgtoken" placeholder="<?php echo _("Telegram Bot API Token");?>" class="form-control" required></div>
 			<div class="col-sm-6"><label for="tgbot"><?php echo _("Telegram Bot Username");?>: </label><input type="text" name="tgbot" value="<?php echo ((isset($_POST['tgbot']))?htmlspecialchars($_POST['tgbot'], ENT_QUOTES):'');?>" id="tgbot" placeholder="<?php echo _("Telegram Bot Username");?>" class="form-control" required></div>
+=======
+		<h2><?php echo _("Privacy Policy");?></h2>
+		<summary><?php echo _("Since you are collection personal information, the GDPR forces you to have a privacy policy. Enter the details below.");?></summary>
+
+		<div class="form-group clearfix">
+			<div class="col-sm-6"><label for="policy_name"><?php echo _("Name");?>: </label><input type="text" name="policy_name" value="<?php echo ((isset($_POST['policy_name']))?htmlspecialchars($_POST['policy_name'], ENT_QUOTES):'');?>" id="policy_name" placeholder="<?php echo _("Company name");?>" class="form-control" required></div>
+			<div class="col-sm-6"><label for="address"><?php echo _("Address");?>: </label><input type="text" name="address" value="<?php echo ((isset($_POST['address']))?htmlspecialchars($_POST['address'], ENT_QUOTES):'');?>" id="address" placeholder="<?php echo _("Full address");?>" class="form-control" required></div>
+		</div>
+		<div class="form-group clearfix">
+			<div class="col-sm-6"><label for="policy_mail"><?php echo _("E-Mail");?>: </label><input type="text" name="policy_mail" value="<?php echo ((isset($_POST['policy_mail']))?htmlspecialchars($_POST['policy_mail'], ENT_QUOTES):'');?>" id="policy_mail" placeholder="<?php echo _("E-Mail");?>" class="form-control" required></div>
+			<div class="col-sm-6"><label for="policy_phone"><?php echo _("Phone");?>: </label><input type="text" name="policy_phone" value="<?php echo ((isset($_POST['policy_phone']))?htmlspecialchars($_POST['policy_phone'], ENT_QUOTES):'');?>" id="policy_phone" placeholder="<?php echo _("Phone number");?>" class="form-control"></div>
+		</div>
+		<div class="form-group clearfix">
+			<div class=""><label for="who_we_are"><?php echo _("Who we are");?>: </label><textarea class="form-control" id="who_we_are" rows="3" name="who_we_are" placeholder="<?php echo _("A small text about yourself");?>" value="<?php echo ((isset($_POST['who_we_are']))?htmlspecialchars($_POST['who_we_are'], ENT_QUOTES):'');?>"></textarea></div>
+>>>>>>> privacy-policy
 		</div>
 	</section>
 	<section class="install-section clearfix">

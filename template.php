@@ -173,7 +173,7 @@ class Template{
               </div>
             </div>
           </div>
-          <div class="col-md-4 text-right"><a href="https://github.com/Pryx/server-status/" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a></div>
+          <div class="col-md-4 text-right"><a href="policy.php">Imprint & Privacy Policy</a><a href="https://github.com/Pryx/server-status/" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a></div>
         </div><!--/row -->
       </div><!--/container -->
     </div>
