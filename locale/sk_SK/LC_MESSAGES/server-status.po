@@ -15,7 +15,7 @@ msgstr "Stránka sa nenašla"
 msgid "Sorry, but the page you were trying to view does not exist."
 msgstr "Ľutujeme, ale stránka, ktorú ste sa pokúšali zobraziť, neexistuje"
 
-#: admin/dashboard.php:22 admin/dashboard.php:26 template.php:106
+#: admin/dashboard.php:22 admin/dashboard.php:26 template.php:115
 msgid "Dashboard"
 msgstr "Nástenka"
 
@@ -27,7 +27,7 @@ msgstr "Vitajte"
 msgid "New incident"
 msgstr "Nová udalosť"
 
-#: admin/dashboard.php:72 install.php:48 install.php:157
+#: admin/dashboard.php:72 install.php:48 install.php:163
 msgid "Title"
 msgstr "Názov"
 
@@ -35,24 +35,24 @@ msgstr "Názov"
 msgid "Time"
 msgstr "Čas"
 
-#: admin/dashboard.php:75
+#: admin/dashboard.php:77
 msgid "Here goes your text..."
 msgstr "Sem napíšte svoj text ..."
 
-#: admin/dashboard.php:78 classes/incident.php:177
+#: admin/dashboard.php:80 classes/incident.php:183
 msgid "Posted by"
 msgstr "Zverejnil"
 
-#: admin/dashboard.php:78 classes/incident.php:179
+#: admin/dashboard.php:80 classes/incident.php:185
 msgid "Ending"
 msgstr "Končí"
 
-#: admin/dashboard.php:78
+#: admin/dashboard.php:80
 msgid "End time"
 msgstr "Čas ukončenia\n"
 ""
 
-#: admin/dashboard.php:96 admin/new-user.php:53
+#: admin/dashboard.php:99 admin/new-user.php:53
 msgid "Submit"
 msgstr "Odoslať"
 
@@ -65,13 +65,13 @@ msgid "Please login to continue."
 msgstr "Prosím prihláste sa pre pokračovanie."
 
 #: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
-#: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:69
-#: classes/user.php:125 classes/user.php:375 install.php:163 install.php:188
+#: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:72
+#: classes/user.php:120 classes/user.php:404 install.php:169 install.php:210
 msgid "Email"
 msgstr "Email"
 
 #: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
-#: classes/user.php:128 classes/user.php:357 install.php:176 install.php:191
+#: classes/user.php:123 classes/user.php:417 install.php:182 install.php:213
 msgid "Password"
 msgstr "Heslo"
 
@@ -115,17 +115,17 @@ msgstr "Odoslať žiadosť"
 msgid "Reset password for %s (%s)"
 msgstr "Obnovenie hesla pre %s (%s)"
 
-#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:361
-#: classes/user.php:362
+#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:421
+#: classes/user.php:422
 msgid "New password"
 msgstr "Nové heslo"
 
-#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:363
-#: classes/user.php:364
+#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:423
+#: classes/user.php:424
 msgid "Repeat password"
 msgstr "Zopakujte heslo"
 
-#: admin/lost-password.php:64 classes/user.php:365
+#: admin/lost-password.php:64 classes/user.php:425
 msgid "Change password"
 msgstr "Zmeniť heslo"
 
@@ -133,18 +133,21 @@ msgstr "Zmeniť heslo"
 msgid "New user"
 msgstr "Nový užívateľ"
 
-#: admin/new-user.php:19 admin/settings.php:38 admin/settings.php:69
-#: classes/user.php:119 install.php:152 install.php:162 install.php:183
+#: admin/new-user.php:19 admin/settings.php:39 admin/settings.php:72
+#: classes/user.php:114 classes/user.php:322 classes/user.php:326
+#: classes/user.php:327 classes/user.php:488 install.php:158 install.php:168
+#: install.php:190 install.php:205
 msgid "Name"
 msgstr "Meno"
 
-#: admin/new-user.php:20 admin/settings.php:69 classes/user.php:122
-#: install.php:184
+#: admin/new-user.php:20 admin/settings.php:72 classes/user.php:117
+#: classes/user.php:323 classes/user.php:329 classes/user.php:330
+#: classes/user.php:491 install.php:206
 msgid "Surname"
 msgstr "Priezvisko"
 
-#: admin/new-user.php:23 admin/settings.php:69 classes/user.php:317
-#: install.php:187
+#: admin/new-user.php:23 admin/settings.php:72 classes/user.php:349
+#: install.php:209
 msgid "Username"
 msgstr "Užívateľské meno"
 
@@ -153,7 +156,7 @@ msgid "Permission"
 msgstr "Oprávnenie\n"
 ""
 
-#: admin/settings.php:12 template.php:108
+#: admin/settings.php:12 template.php:117
 msgid "Settings"
 msgstr "Nastavenia"
 
@@ -166,35 +169,35 @@ msgid "Add service"
 msgstr "Pridaj službu\n"
 ""
 
-#: admin/settings.php:37 admin/settings.php:69 classes/user.php:313
+#: admin/settings.php:38 admin/settings.php:72
 msgid "ID"
 msgstr "ID"
 
-#: admin/settings.php:41
+#: admin/settings.php:42
 msgid "Delete"
 msgstr "Vymazať"
 
-#: admin/settings.php:65
+#: admin/settings.php:67
 msgid "Users"
 msgstr "Užívatelia"
 
-#: admin/settings.php:66
+#: admin/settings.php:68
 msgid "Add new user"
 msgstr "Pridať nového používateľa"
 
-#: admin/settings.php:69 classes/user.php:329
+#: admin/settings.php:72 classes/user.php:372
 msgid "Role"
 msgstr "Rola"
 
-#: admin/user.php:35 install.php:175 install.php:180
+#: admin/user.php:45 admin/user.php:54 install.php:181 install.php:202
 msgid "User"
 msgstr "Užívateľ"
 
-#: admin/user.php:39
+#: admin/user.php:52
 msgid "User settings"
 msgstr "Používateľské nastavenia"
 
-#: classes/constellation.php:36
+#: classes/constellation.php:36 template.php:4
 msgid "Planned maintenance"
 msgstr "Plánovaná údržba"
 
@@ -210,43 +213,43 @@ msgstr "História udalostí"
 msgid "No incidents"
 msgstr "Žiadne udalosti"
 
-#: classes/constellation.php:62
+#: classes/constellation.php:61
 msgid "Load more"
 msgstr "Načítať viac"
 
-#: classes/constellation.php:100
+#: classes/constellation.php:101
 msgid "No services"
 msgstr "Žiadne služby"
 
-#: classes/incident.php:83
+#: classes/incident.php:87
 msgid "Please enter title"
 msgstr "Prosím zadajte názov"
 
-#: classes/incident.php:86
+#: classes/incident.php:90
 msgid "Title too long! Character limit is 50"
 msgstr "Nadpis je príliš dlhý! Maximálny počet znakov je 50"
 
-#: classes/incident.php:92
+#: classes/incident.php:96
 msgid "Please enter text"
 msgstr "Prosím zadajte text"
 
-#: classes/incident.php:98
+#: classes/incident.php:102
 msgid "Please set start and end time! Use ISO 8601 format."
 msgstr "Prosím nastavte čas začiatku a konca! Použite formát ISO 8601."
 
-#: classes/incident.php:103
+#: classes/incident.php:107
 msgid "Please select at least one service"
 msgstr "Prosím vyberte aspoň jednu službu"
 
-#: classes/incident.php:121
+#: classes/incident.php:127
 msgid "Start date format is not recognized. Please use ISO 8601 format."
 msgstr "Formát dátumu začiatku sa nedá rozpoznať. Prosím použite formát ISO 8601"
 
-#: classes/incident.php:127
+#: classes/incident.php:133
 msgid "End date format is not recognized. Please use ISO 8601 format."
 msgstr "Formát dátumu ukončenia sa nedá rozpoznať. Prosím použite formát ISO 8601"
 
-#: classes/incident.php:179
+#: classes/incident.php:185
 msgid "Ended"
 msgstr "Ukončený"
 
@@ -258,130 +261,130 @@ msgstr "Názov služby je príliš dlhý! Maximálny počet znakov je 50"
 msgid "Please enter name!"
 msgstr "Prosím zadajte meno!"
 
-#: classes/service.php:81 classes/service.php:123 classes/user.php:102
-#: classes/user.php:204
+#: classes/service.php:81 classes/service.php:123 classes/user.php:97
+#: classes/user.php:199
 msgid "You don't have the permission to do that!"
 msgstr "Nemáte na to povolenie!"
 
-#: classes/user.php:165
+#: classes/user.php:164
 msgid "Please mind the following character limits: "
 msgstr "Nezabudnite prosím na limity týchto znakov:␣"
 
-#: classes/user.php:182
+#: classes/user.php:185
 msgid "User account created"
 msgstr "Užívateľský účet bol vytvorený"
 
-#: classes/user.php:183
+#: classes/user.php:186
 msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
 msgstr "Ahoj %s!<br> Váš účet bol vytvorený. Môžete sa prihlásiť pomocou svojej e-mailovej adresy na adrese <a href=\"%s\">%s</a> s heslom %s - prosím, zmeňte ho čo najskôr."
 
-#: classes/user.php:196
+#: classes/user.php:180
 msgid "Username or email already used"
 msgstr "Používateľské meno alebo e-mail sa už používa"
 
-#: classes/user.php:236
+#: classes/user.php:244
 msgid "Your account has been disabled. Please contact administrator."
 msgstr "Váš účet bol zablokovaný. Kontaktujte správcu."
 
-#: classes/user.php:248 classes/user.php:264
+#: classes/user.php:233 classes/user.php:256
 msgid "Wrong email or password"
 msgstr "Nesprávny e-mail alebo heslo."
 
-#: classes/user.php:295
+#: classes/user.php:299
 msgid "Invalid token detected, please login again!"
 msgstr "Neplatný token, prihláste sa prosím znovu!"
 
-#: classes/user.php:309
+#: classes/user.php:314
 msgid "Profile picture"
 msgstr "Profilový obrázok"
 
-#: classes/user.php:334
+#: classes/user.php:379
 msgid "Change role"
 msgstr "Zmena role"
 
-#: classes/user.php:349
+#: classes/user.php:394
 msgid "Change email"
 msgstr "Zmeniť e-mail"
 
-#: classes/user.php:359 classes/user.php:360
+#: classes/user.php:419 classes/user.php:420
 msgid "Old password"
 msgstr "Staré heslo"
 
-#: classes/user.php:412
+#: classes/user.php:526
 msgid "Passwords do not match!"
 msgstr "Heslá sa nezhodujú!"
 
-#: classes/user.php:418
+#: classes/user.php:534
 msgid "Cannot change password of other users!"
 msgstr "Nemôžete zmeniť heslo iných používateľov!"
 
-#: classes/user.php:448
+#: classes/user.php:567
 msgid "Wrong password!"
 msgstr "Zlé heslo!"
 
-#: classes/user.php:474 classes/user.php:565
+#: classes/user.php:595 classes/user.php:695
 msgid "Invalid token detected, please retry your request from start!"
 msgstr "Zistil sa neplatný token, zopakujte svoju požiadavku od začiatku!"
 
-#: classes/user.php:504
+#: classes/user.php:623
 msgid "Reset password"
 msgstr "Obnoviť heslo"
 
-#: classes/user.php:529
+#: classes/user.php:659
 msgid "Email change"
 msgstr "Zmena e-mailu"
 
-#: classes/incident.php:50 classes/user.php:608
+#: classes/incident.php:54 classes/user.php:736
 msgid "You don't have permission to do that!"
 msgstr "Nemáte k tomu oprávnenie!"
 
-#: config.php:40
+#: template.php:4
 msgid "Major outage"
 msgstr "Veľký výpadok"
 
-#: config.php:40
+#: template.php:4
 msgid "Minor outage"
 msgstr "Menší výpadok"
 
-#: config.php:40
+#: template.php:4
 msgid "Operational"
 msgstr "Funkčný\n"
 ""
 
-#: config.php:43
+#: template.php:7
 msgid "Some systems are experiencing major outages"
 msgstr "Niektoré systémy majú závažné výpadky"
 
-#: config.php:43
+#: template.php:7
 msgid "Some systems are experiencing minor outages"
 msgstr "Niektoré systémy majú menšie výpadky"
 
-#: config.php:43
+#: template.php:7
 msgid "Some systems are under maintenance"
 msgstr "Niektoré systémy sú v údržbe"
 
-#: config.php:44
+#: template.php:8
 msgid "Our systems are experiencing major outages."
 msgstr "Naše systémy majú závažné výpadky."
 
-#: config.php:44
+#: template.php:8
 msgid "Our systems are experiencing minor outages"
 msgstr "Naše systémy majú menšie výpadky"
 
-#: config.php:44
+#: template.php:8
 msgid "Our systems are under maintenance"
 msgstr "Naše  systémy sú v údržbe"
 
-#: config.php:44
+#: template.php:8
 msgid "All systems operational"
 msgstr "Všetky systémy sú funkčné\n"
 ""
 
-#: config.php:45
+#: template.php:9
 msgid "Super admin"
 msgstr "Super admin"
 
-#: config.php:45
+#: template.php:9
 msgid "Admin"
 msgstr "Admin"
 
@@ -389,15 +392,15 @@ msgstr "Admin"
 msgid "Service Status"
 msgstr "Stav služieb"
 
-#: template.php:97
+#: template.php:106
 msgid "Toggle navigation"
 msgstr "Prepnúť navigáciu"
 
-#: template.php:107
+#: template.php:116
 msgid "User (%s)"
 msgstr "Používateľ (%s)"
 
-#: template.php:109
+#: template.php:118
 msgid "Logout"
 msgstr "Odhlásiť sa"
 
@@ -409,11 +412,11 @@ msgstr "Momentálna situácia"
 msgid "Status page"
 msgstr "Stavová stránka"
 
-#: install.php:133
+#: install.php:139
 msgid "Install"
 msgstr "Inštalovať"
 
-#: install.php:135
+#: install.php:141
 msgid "Installation"
 msgstr "Inštalácia"
 
@@ -430,55 +433,55 @@ msgstr "Prosím zadajte platnú adresu url!"
 msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
 msgstr "Chyba pri vytváraní databázy. Skontrolujte povolenie pre svoj účet alebo verziu MYSQL.<br>Chyba: %s"
 
-#: install.php:148
+#: install.php:154
 msgid "Website details"
 msgstr "Podrobnosti o webe"
 
-#: install.php:40 install.php:153
+#: install.php:40 install.php:159
 msgid "Url"
 msgstr "Url"
 
-#: install.php:160
+#: install.php:166
 msgid "Also an email address for mailer would be nice :)"
 msgstr "Tiež emailová adresa pre mailovací skript by bodla :)"
 
-#: install.php:167
+#: install.php:173
 msgid "Database connection"
 msgstr "Pripojenie k databáze"
 
-#: install.php:168
+#: install.php:174
 msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
 msgstr "Potrebujeme aby databázové spojenie mohlo vytvárať tabuľky. Prosím skontrolujte že k tomu máte oprávnenie."
 
-#: install.php:171
+#: install.php:177
 msgid "Server"
 msgstr "Server"
 
-#: install.php:172
+#: install.php:178
 msgid "Database"
 msgstr "Databáza"
 
-#: install.php:181
+#: install.php:203
 msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
 msgstr "A nakoniec potrebujeme info pre vytvorenie užívateľov. Nemusíte nám ho dať, ale ako potom vleziete do administrácie?"
 
-#: install.php:194
+#: install.php:216
 msgid "Run install!"
 msgstr "Spustiť inštaláciu!"
 
-#: classes/user.php:132
+#: classes/user.php:127
 msgid "Rank"
 msgstr "Hodnosť"
 
-#: classes/user.php:505
+#: classes/user.php:624
 msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
 msgstr "Zdravíme, %s!<br>Nižšie nájdete odkaz na zmenu hesla. Odkaz je platný 24 hodín. Ak ste o resetovanie hesla nepožiadali, správu môžete ignorovať. <br><br><a href=\"%s\">ZRESETOVAT HESLO</a><br><br>Ak odkaz nefunguje, skopírujte ho do svojho prehliadača: <br>%s"
 
-#: classes/user.php:530
+#: classes/user.php:660
 msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
 msgstr "Zdravíme, %s!<br>Nižšie nájdete odkaz pre zmenu emailu. Odkaz je platný 24 hodín. Ak ste o resetovanie hesla nepožiadali, správu môžete ignorovať. <br><br><a href=\"%s\">ZRESETOVAT HESLO</a><br><br>Ak odkaz nefunguje, skopírujte ho do svojho prehliadača: <br>%s"
 
-#: config.php:45
+#: template.php:9
 msgid "Editor"
 msgstr "Editor"
 
@@ -510,19 +513,19 @@ msgstr "Používateľ databázy"
 msgid "Database password"
 msgstr "Heslo databázy"
 
-#: template.php:138
+#: template.php:147
 msgid "Toggle Dropdown"
 msgstr "Prepínanie rozbaľovacieho okna"
 
-#: template.php:147
+#: template.php:156
 msgid "Help with translation!"
 msgstr "Pomoc s prekladom!"
 
-#: classes/user.php:389
+#: classes/user.php:439
 msgid "Deactivate user"
 msgstr "Deaktivovať používateľa"
 
-#: classes/user.php:391
+#: classes/user.php:441
 msgid "Activate user"
 msgstr "Aktivovať používateľa"
 
@@ -530,15 +533,162 @@ msgstr "Aktivovať používateľa"
 msgid "Please enter"
 msgstr "Prosím vložte"
 
-#: install.php:144
+#: install.php:150
 msgid "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
 msgstr "Budeme sa vás pýtať na pár základných otázok o vašom webe. Väčšinu nastavení možno potom zmeniť v súbore config.php"
 
-#: install.php:149
+#: install.php:155
 msgid "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
 msgstr "Potrebujeme názov pre vašu status stránku (zobrazený za pomlčkou) a odkaz na umiestnenie webu (napr. <a href='#'>https://example.com/status</a> - bez lomítka na konci), aby sme mohli používateľom poslať odkaz pre obnovenie hesla atď."
 
-#: install.php:155
+#: install.php:161
 msgid "A title that you want to be shown on the top of the page."
 msgstr "Názov ktorý chcete mať zobrazený na vrchu stránky."
+
+#: api/status.php:24
+#, fuzzy
+msgid "Service does not exist!"
+msgstr "Služba neexistuje!"
+
+#: classes/user.php:220
+#, fuzzy
+msgid "Please fill in your email and password!"
+msgstr "Vyplňte prosím email a heslo!"
+
+#: classes/user.php:336
+#, fuzzy
+msgid "Change name"
+msgstr "Zmeniť meno"
+
+#: classes/user.php:356
+#, fuzzy
+msgid "Change username"
+msgstr "Zmeniť prezývku"
+
+#: classes/user.php:463
+#, fuzzy
+msgid "This username is already taken."
+msgstr "Táto prezývka je už používaná."
+
+#: classes/user.php:470
+#, fuzzy
+msgid "Cannot change username of other users!"
+msgstr "Nemôžete meniť prezývky ostatných!"
+
+#: classes/user.php:504
+#, fuzzy
+msgid "Cannot change names of other users!"
+msgstr "Nemôžete meniť mená ostatných!"
+
+#: classes/user.php:667
+#, fuzzy
+msgid "Confirmation email sent!"
+msgstr "Potvrdzovací email bol odoslaný!"
+
+#: install.php:186 policy.php:6
+#, fuzzy
+msgid "Privacy Policy"
+msgstr "Ochrana súkromia"
+
+#: install.php:190
+#, fuzzy
+msgid "Company name"
+msgstr "Názov spoločnosti"
+
+#: install.php:191
+#, fuzzy
+msgid "Address"
+msgstr "Adresa"
+
+#: install.php:191
+#, fuzzy
+msgid "Full address"
+msgstr "Celá adresa"
+
+#: install.php:194
+#, fuzzy
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: install.php:195
+#, fuzzy
+msgid "Phone"
+msgstr "Telefón"
+
+#: install.php:195
+#, fuzzy
+msgid "Phone number"
+msgstr "Telefónne číslo"
+
+#: install.php:198 policy.php:7
+#, fuzzy
+msgid "Who we are"
+msgstr "Kto sme"
+
+#: policy.php:9
+#, fuzzy
+msgid "Contact"
+msgstr "Kontakt"
+
+#: policy.php:17
+#, fuzzy
+msgid "What personal data we collect and why"
+msgstr "Aké dáta zbierame a prečo"
+
+#: policy.php:19
+#, fuzzy
+msgid "If you access our websites, the following information will be saved: IP-address, Date, Time, Browser queries, \n"
+"\tGeneral information about your browser, operating system and all search queries on the sites. \n"
+"\tThis user data will be used for anonym user statistics to recognize trends and improve our content.\n"
+"\t"
+msgstr "Pri prístupe na náš web bude uložené nasledujúce: IP adresa, dátum, čas, otázka, všeobecné informácie o Vašom prehliadači, operačný systém a vaše vyhľadávanie. Tieto užívateľské dáta sú využité pre anonymné používateľské štatistiky pre rozoznanie trendov a zlepšenie obsahu."
+
+#: policy.php:23
+#, fuzzy
+msgid "How we protect your data"
+msgstr "Ako chránime vaše dáta"
+
+#: policy.php:24
+#, fuzzy
+msgid "In collaboration with our hosting provider we try our best to protect our \n"
+"\tdatabases against access from third parties, losses, misuse or forgery.\n"
+"\t"
+msgstr "Spolu s naším poskytovateľom hostingu sa snažíme, aby naše databázy boli čo najlepšie zabezpečené proti neoprávnenému prístupu tretích strán, strát, zneužitia alebo falšovania."
+
+#: policy.php:27
+#, fuzzy
+msgid "Third party that receive your personal data"
+msgstr "Tretie strany, ktorým poskytujeme vaše dáta"
+
+#: policy.php:29
+#, fuzzy
+msgid "Cookies"
+msgstr "Cookies"
+
+#: policy.php:30
+#, fuzzy
+msgid "This site uses cookies – small text files that are placed on your machine to help the site provide a better user experience. \n"
+"\tIn general, cookies are used to retain user preferences, store information for things like shopping carts, \n"
+"\tand provide anonymised tracking data to third party applications like Google Analytics. \n"
+"\tAs a rule, cookies will make your browsing experience better. However, you may prefer to disable cookies on this site and on others. \n"
+"\tThe most effective way to do this is to disable cookies in your browser. We suggest consulting the Help section of your browser \n"
+"\tor taking a look at the About Cookies website which offers guidance for all modern browsers"
+msgstr "Tieto stránky používajú súbory cookie - malé textové súbory, ktoré sú umiestnené na vašom počítači a pomáhajú nám tak poskytovať lepšie užívateľské prostredie.\n"
+"Všeobecne platí, že súbory cookie slúžia na uchovanie užívateľských nastavení, ukladanie informácií o veciach, ako sú nákupné vozíky,\n"
+"a poskytujú anonymné dáta pre sledovacie aplikácie tretích strán, ako je Google Analytics.\n"
+"Súbory cookie spravidla zlepšujú funkcionalitu stránok. Môžete však uprednostňovať vypnutie súborov cookie na tejto i ostattních stránkach.\n"
+"Najúčinnejší spôsob, ako to urobiť, je zakázať cookies vo vašom prehliadači. Navrhujeme využiť vstavanú sekciu Pomocník v prehliadači\n"
+"alebo sa pozrieť na webovú stránku \"About Cookies\", ktorá ponúka pokyny pre všetky moderné prehliadače"
+
+#: install.php:187
+msgid "Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below."
+msgstr ""
+
+#: install.php:198
+msgid "Some info about yourself"
+msgstr ""
+
+#: policy.php:18
+msgid "General"
+msgstr ""
 
