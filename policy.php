@@ -3,7 +3,7 @@
 	require_once("config.php");
 	Template::render_header("Privacy Policy");
 
-	echo "<h1>" . _("Privcacy Policy") . "</h2>";
+	echo "<h1>" . _("Privacy Policy") . "</h2>";
 	echo "<h2>" . _("Who we are") . "</h2>";
 	echo WHO_WE_ARE;
 	echo "<h2>" . _("Contact") . "</h2>";
@@ -15,7 +15,7 @@
 	}
 
 	echo '<h2>' . _("What personal data we collect and why") . '</h2>';
-	echo '<h3>' . _("Global") . "</h3>";
+	echo '<h3>' . _("General") . "</h3>";
 	echo _("If you access our websites, the following information will be saved: IP-address, Date, Time, Browser queries, 
 	General information about your browser, operating system and all search queries on the sites. 
 	This user data will be used for anonym user statistics to recognize trends and improve our content.

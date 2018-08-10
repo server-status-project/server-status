@@ -184,7 +184,7 @@ if (!empty($message))
 	</section>
 	<section class="install-section clearfix">
 		<h2><?php echo _("Privacy Policy");?></h2>
-		<summary><?php echo _("Since you are collection personal information, the GDPR forces you to have a privacy policy. Enter the details below.");?></summary>
+		<summary><?php echo _("Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below.");?></summary>
 
 		<div class="form-group clearfix">
 			<div class="col-sm-6"><label for="policy_name"><?php echo _("Name");?>: </label><input type="text" name="policy_name" value="<?php echo ((isset($_POST['policy_name']))?htmlspecialchars($_POST['policy_name'], ENT_QUOTES):'');?>" id="policy_name" placeholder="<?php echo _("Company name");?>" class="form-control" required></div>
@@ -195,7 +195,7 @@ if (!empty($message))
 			<div class="col-sm-6"><label for="policy_phone"><?php echo _("Phone");?>: </label><input type="text" name="policy_phone" value="<?php echo ((isset($_POST['policy_phone']))?htmlspecialchars($_POST['policy_phone'], ENT_QUOTES):'');?>" id="policy_phone" placeholder="<?php echo _("Phone number");?>" class="form-control"></div>
 		</div>
 		<div class="form-group clearfix">
-			<div class=""><label for="who_we_are"><?php echo _("Who we are");?>: </label><textarea class="form-control" id="who_we_are" rows="3" name="who_we_are" placeholder="<?php echo _("A small text about yourself");?>" value="<?php echo ((isset($_POST['who_we_are']))?htmlspecialchars($_POST['who_we_are'], ENT_QUOTES):'');?>"></textarea></div>
+			<div class=""><label for="who_we_are"><?php echo _("Who we are");?>: </label><textarea class="form-control" id="who_we_are" rows="3" name="who_we_are" placeholder="<?php echo _("Some info about yourself");?>" value="<?php echo ((isset($_POST['who_we_are']))?htmlspecialchars($_POST['who_we_are'], ENT_QUOTES):'');?>"></textarea></div>
 		</div>
 	</section>
 	<section class="install-section clearfix">
