@@ -117,9 +117,9 @@ class Incident implements JsonSerializable
         $services = $_POST['services'];
       }
 
-      if (!empty($_POST['time'])){
-        $input_time = (isset($_POST['time_js'])?$_POST['time_js']: $_POST['time']);
-        $input_end_time = (isset($_POST['end_time_js'])?$_POST['end_time_js']: $_POST['end_time']);
+      if (!empty($_POST['time']) && $type == 2){
+        $input_time = (!empty($_POST['time_js'])?$_POST['time_js']: $_POST['time']);
+        $input_end_time = (!empty($_POST['end_time_js'])?$_POST['end_time_js']: $_POST['end_time']);
         $time = strtotime($input_time);  
         $end_time = strtotime($input_end_time);
         if (!$time)
@@ -131,6 +131,12 @@ class Incident implements JsonSerializable
         if (!$end_time)
         {
           $message = _("End date format is not recognized. Please use ISO 8601 format.");
+          return;
+        }
+
+        if ($time >= $end_time)
+        {
+          $message = _("End time is either the same or earlier than start time!");
           return;
         }
       }else{
