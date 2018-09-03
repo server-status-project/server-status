@@ -1,5 +1,16 @@
+
 <?php
+//This should later be translatable, maybe find a better solution?
+//This is here for better generation of POT files :)
+$statuses = array(_("Major outage"), _("Minor outage"), _("Planned maintenance"), _("Operational") );
+$classes = array("danger", "warning", "primary", "success" );
+$icons = array("fa fa-times", "fa fa-exclamation", "fa fa-info", "fa fa-check" );
+$some = array(_("Some systems are experiencing major outages"), _("Some systems are experiencing minor outages"), _("Some systems are under maintenance"));
+$all = array(_("Our systems are experiencing major outages."), _("Our systems are experiencing minor outages"), _("Our systems are under maintenance"), _("All systems operational"));
+$permissions = array(_("Super admin"), _("Admin"), _("Editor"));
+
 require_once("telegram.php"); 
+
 /**
 * Class that encapsulates methods to render header and footer
 */

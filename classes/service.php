@@ -94,7 +94,7 @@ class Service implements JsonSerializable
       global $mysqli;
       $id = $_GET['delete'];
 
-      $stmt = $mysqli->prepare("SELECT service_id, status_id as status, (SELECT count(*) FROM services_status as s WHERE s.status_id=status) as count FROM services_status WHERE service_id = ? GROUP BY status_id");
+      $stmt = $mysqli->prepare("SELECT status_id as status, (SELECT count(*) FROM services_status as s WHERE s.status_id=status) as count FROM services_status WHERE service_id = ? GROUP BY status");
       $stmt->bind_param("i", $id);
       $stmt->execute();
       $query = $stmt->get_result();

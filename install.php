@@ -185,16 +185,18 @@ if (!empty($message))
 		</div>
 	</section>
 	<section class="install-section clearfix">
-<<<<<<< HEAD
 		<h2><?php echo _("Telegram");?></h2>
 		<summary><?php echo _("You can provide a subscription feature through telegram.");?></summary>
 
 		<div class="form-group clearfix">
 			<div class="col-sm-6"><label for="tgtoken"><?php echo _("Telegram bot API Token");?>: </label><input type="text" name="tgtoken" value="<?php echo ((isset($_POST['tgtoken']))?htmlspecialchars($_POST['tgtoken'], ENT_QUOTES):'');?>" id="tgtoken" placeholder="<?php echo _("Telegram Bot API Token");?>" class="form-control" required></div>
 			<div class="col-sm-6"><label for="tgbot"><?php echo _("Telegram Bot Username");?>: </label><input type="text" name="tgbot" value="<?php echo ((isset($_POST['tgbot']))?htmlspecialchars($_POST['tgbot'], ENT_QUOTES):'');?>" id="tgbot" placeholder="<?php echo _("Telegram Bot Username");?>" class="form-control" required></div>
-=======
+
 		<h2><?php echo _("Privacy Policy");?></h2>
 		<summary><?php echo _("Since you are collection personal information, the GDPR forces you to have a privacy policy. Enter the details below.");?></summary>
+		<h2><?php echo _("Privacy Policy");?></h2>
+		<summary><?php echo _("Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below.");?></summary>
+
 
 		<div class="form-group clearfix">
 			<div class="col-sm-6"><label for="policy_name"><?php echo _("Name");?>: </label><input type="text" name="policy_name" value="<?php echo ((isset($_POST['policy_name']))?htmlspecialchars($_POST['policy_name'], ENT_QUOTES):'');?>" id="policy_name" placeholder="<?php echo _("Company name");?>" class="form-control" required></div>
@@ -206,7 +208,7 @@ if (!empty($message))
 		</div>
 		<div class="form-group clearfix">
 			<div class=""><label for="who_we_are"><?php echo _("Who we are");?>: </label><textarea class="form-control" id="who_we_are" rows="3" name="who_we_are" placeholder="<?php echo _("A small text about yourself");?>" value="<?php echo ((isset($_POST['who_we_are']))?htmlspecialchars($_POST['who_we_are'], ENT_QUOTES):'');?>"></textarea></div>
->>>>>>> privacy-policy
+
 		</div>
 	</section>
 	<section class="install-section clearfix">

@@ -3,7 +3,9 @@
 	require_once("config.php");
 	Template::render_header("Privacy Policy");
 
-	echo "<h1>" . _("Privcacy Policy") . "</h2>";
+
+	echo "<h1>" . _("Privcacy Policy") . "</h1>";
+
 	echo "<h2>" . _("Who we are") . "</h2>";
 	echo WHO_WE_ARE;
 	echo "<h2>" . _("Contact") . "</h2>";
@@ -31,6 +33,11 @@
 	echo _("Although we are receiving this data, we only save your telegram ID, your telegram username and the first and last name you provided telegram when registred for their service.");
 	echo _("We are saving this data, to provide a subscription service which alerts you about status update via our telegram bot. With this data we know who we need to send the alert to. Also we know your name, so we can say hi to you.");
 	echo _("Because of this, we also save who has subscribed which service.");	
+	echo '<h3>' . _("General") . "</h3>";
+	echo _("If you access our websites, the following information will be saved: IP-address, Date, Time, Browser queries, 
+	General information about your browser, operating system and all search queries on the sites. 
+	This user data will be used for anonym user statistics to recognize trends and improve our content.
+	") . "<br><br>";
 	echo "<h2>" . _("How we protect your data") . "</h2>";
 	echo _("In collaboration with our hosting provider we try our best to protect our 
 	databases against access from third parties, losses, misuse or forgery.

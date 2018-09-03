@@ -15,42 +15,44 @@
 
 		$("#new-incident .panel.new .panel-heading i").get(0).className = icons[val];
 		$("#new-incident .panel.new").get(0).className = classes[val] + " new";
+		$("#time_input").val("");
+		$("#end_time").val("");
 	});
 
 	$("#new-incident select").trigger("change");
 
 	$("body").on("submit","#new-incident",function(){
-		var time = Date.parse($('#time_input').val());
-		var end_time = Date.parse($('#end_time').val());
+		var time = Date.parse($("#time_input").val());
+		var end_time = Date.parse($("#end_time").val());
 		var type = $("#type").val() || 0;
 
-		if (type === 2 &&(isNaN(time) || isNaN(end_time)))
+		if (parseInt(type) === 2 &&(isNaN(time) || isNaN(end_time)))
 		{
 			if (isNaN(end_time))
 			{
-				$('#time_input').addClass("error");	
+				$("#time_input").addClass("error");	
 				$.growl.error({ message: "Start time is invalid!" });
 			}
 			
 			if (isNaN(end_time))
 			{
-				$('#end_time').addClass("error");
+				$("#end_time").addClass("error");
 				$.growl.error({ message: "End time is invalid!" });	
 			}
 			return false;	
 		}
-		else if (type === 2 && time >= end_time)
+		else if (parseInt(type) === 2 && time >= end_time)
 		{
 			$.growl.error({ message: "End time is either the same or earlier than start time!" });
-			$('#time').addClass("error");
-			$('#end_time').addClass("error");
+			$("#time").addClass("error");
+			$("#end_time").addClass("error");
 			return false;	
 		}
 
-		if($('#status-container :checkbox:checked').length === 0)
+		if($("#status-container :checkbox:checked").length === 0)
 		{
 			$.growl.error({ message: "Please check at least one service!" });
-			$('#status-container').addClass("error");
+			$("#status-container").addClass("error");
 			return false;
 		}
 	});

@@ -10,6 +10,7 @@ ErrorDocument 404 /404.php
 <IfModule mod_rewrite.c>
 	#DELETE THIS IF YOU DON'T HAVE HTTPS! 
 	RewriteEngine On
+	RewriteCond %{HTTP:X-Forwarded-Proto} !https
 	RewriteCond %{HTTPS} off
 	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>

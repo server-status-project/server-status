@@ -7,11 +7,11 @@ msgstr ""
 "Project-Id-Version: Server status\n"
 "Language: zh-CN\n"
 
-#: 404.php:7
+#: 404.php:12
 msgid "Page Not Found"
 msgstr "网页未找到"
 
-#: 404.php:8
+#: 404.php:13
 msgid "Sorry, but the page you were trying to view does not exist."
 msgstr "抱歉，您尝试查看的网页不存在。"
 
@@ -27,7 +27,7 @@ msgstr "欢迎"
 msgid "New incident"
 msgstr "新事件"
 
-#: admin/dashboard.php:72
+#: admin/dashboard.php:72 install.php:48 install.php:157
 msgid "Title"
 msgstr "标题"
 
@@ -65,12 +65,12 @@ msgstr "请登录访问更多内容。"
 
 #: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
 #: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:69
-#: classes/user.php:125 classes/user.php:375 install.php:150 install.php:175
+#: classes/user.php:125 classes/user.php:375 install.php:163 install.php:188
 msgid "Email"
 msgstr "Email"
 
 #: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
-#: classes/user.php:128 classes/user.php:357 install.php:163 install.php:178
+#: classes/user.php:128 classes/user.php:357 install.php:176 install.php:191
 msgid "Password"
 msgstr "密码"
 
@@ -133,17 +133,17 @@ msgid "New user"
 msgstr "新用户"
 
 #: admin/new-user.php:19 admin/settings.php:38 admin/settings.php:69
-#: classes/user.php:119 install.php:144 install.php:149 install.php:170
+#: classes/user.php:119 install.php:152 install.php:162 install.php:183
 msgid "Name"
 msgstr "名字"
 
 #: admin/new-user.php:20 admin/settings.php:69 classes/user.php:122
-#: install.php:171
+#: install.php:184
 msgid "Surname"
 msgstr "姓"
 
 #: admin/new-user.php:23 admin/settings.php:69 classes/user.php:317
-#: install.php:174
+#: install.php:187
 msgid "Username"
 msgstr "用户名"
 
@@ -183,7 +183,7 @@ msgstr "添加新用户"
 msgid "Role"
 msgstr "角色"
 
-#: admin/user.php:35 install.php:162 install.php:167
+#: admin/user.php:35 install.php:175 install.php:180
 msgid "User"
 msgstr "用户"
 
@@ -191,7 +191,7 @@ msgstr "用户"
 msgid "User settings"
 msgstr "用户设置"
 
-#: classes/constellation.php:36 config.php:40
+#: classes/constellation.php:36
 msgid "Planned maintenance"
 msgstr "计划维护"
 
@@ -304,31 +304,31 @@ msgstr "更改电子邮件"
 msgid "Old password"
 msgstr "旧密码"
 
-#: classes/user.php:398
+#: classes/user.php:412
 msgid "Passwords do not match!"
 msgstr "密码不匹配！"
 
-#: classes/user.php:404
+#: classes/user.php:418
 msgid "Cannot change password of other users!"
 msgstr "无法更改其他用户的密码！"
 
-#: classes/user.php:434
+#: classes/user.php:448
 msgid "Wrong password!"
 msgstr "密码错误！"
 
-#: classes/user.php:460 classes/user.php:551
+#: classes/user.php:474 classes/user.php:565
 msgid "Invalid token detected, please retry your request from start!"
 msgstr "检测到无效令牌，请从头开始重试你的请求！"
 
-#: classes/user.php:490
+#: classes/user.php:504
 msgid "Reset password"
 msgstr "重设密码"
 
-#: classes/user.php:515
+#: classes/user.php:529
 msgid "Email change"
 msgstr "Email更改"
 
-#: classes/incident.php:50 classes/user.php:594
+#: classes/incident.php:50 classes/user.php:608
 msgid "You don't have permission to do that!"
 msgstr "你没有这个权限！"
 
@@ -404,15 +404,15 @@ msgstr "当前状态"
 msgid "Status page"
 msgstr "状态页"
 
-#: install.php:127
+#: install.php:133
 msgid "Install"
 msgstr "安装"
 
-#: install.php:129
+#: install.php:135
 msgid "Installation"
 msgstr "安装"
 
-#: config.php:33 install.php:26
+#: install.php:26
 msgid "Connection failed: %s\n"
 ""
 msgstr "连接失败： %s"
@@ -421,47 +421,43 @@ msgstr "连接失败： %s"
 msgid "Please set valid url!"
 msgstr "请设置有效的网址！"
 
-#: install.php:93
+#: install.php:98
 msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
 msgstr "创建数据库时出错。 请检查您的帐户或MYSQL版本的权限。<br>错误： %s"
 
-#: install.php:140
+#: install.php:148
 msgid "Website details"
 msgstr "网站详情"
 
-#: install.php:141
-msgid "We need a name for your status page and a url, so we can mail users link for forgotten password etc."
-msgstr "我们需要一个你的状态页面和URL的名称，我们可以邮寄用户链接以忘记的密码等。"
-
-#: install.php:40 install.php:145
+#: install.php:40 install.php:153
 msgid "Url"
 msgstr "网址"
 
-#: install.php:147
+#: install.php:160
 msgid "Also an email address for mailer would be nice :)"
 msgstr "邮件邮寄地址也不错:)"
 
-#: install.php:154
+#: install.php:167
 msgid "Database connection"
 msgstr "数据库连接"
 
-#: install.php:155
+#: install.php:168
 msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
 msgstr "我们需要数据库连接来创建表。 请检查您的帐户是否有权执行此操作。"
 
-#: install.php:158
+#: install.php:171
 msgid "Server"
 msgstr "服务器"
 
-#: install.php:159
+#: install.php:172
 msgid "Database"
 msgstr "数据库"
 
-#: install.php:168
+#: install.php:181
 msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
 msgstr "最后，我们需要信息来创建一个新的用户。 你不必提供它，但是...将没有状态页管理员..."
 
-#: install.php:181
+#: install.php:194
 msgid "Run install!"
 msgstr "运行安装！"
 
@@ -469,11 +465,11 @@ msgstr "运行安装！"
 msgid "Rank"
 msgstr "等级"
 
-#: classes/user.php:491
+#: classes/user.php:505
 msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
 msgstr "嗨 %s!<br>下面你将找到链接来更改您的密码。该链接对24小内有效。如果您没有要求, 请随意忽略它。<br><br><a href=\"%s\"> 重置密码 </a><br><br>如果链接无法正常工作, 请将其复制  &amp; 粘贴到您的浏览器中: <br>%s"
 
-#: classes/user.php:516
+#: classes/user.php:530
 msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
 msgstr "嗨 %s!<br>下面你将找到链接来更改您的电子邮件。该链接对24小内有效。如果您没有要求, 请随意忽略它。<br><br><a href=\"%s\"> 更改电子邮件 </a><br><br>如果链接无法正常工作, 请将其复制  &amp; 粘贴到您的浏览器中: <br>%s"
 
@@ -489,29 +485,25 @@ msgstr "服务器名称"
 msgid "Mailer name"
 msgstr "邮件名称"
 
-#: install.php:48
+#: install.php:52
 msgid "Mailer email"
 msgstr "邮寄者电子邮件"
 
-#: install.php:52
+#: install.php:56
 msgid "Database server"
 msgstr "数据库服务器"
 
-#: install.php:56
+#: install.php:60
 msgid "Database name"
 msgstr "数据库名称"
 
-#: install.php:60
+#: install.php:64
 msgid "Database user"
 msgstr "数据库用户"
 
-#: install.php:65
+#: install.php:69
 msgid "Database password"
 msgstr "数据库密码"
-
-#: install.php:69
-msgid "Please set"
-msgstr "请设置"
 
 #: template.php:138
 msgid "Toggle Dropdown"
@@ -520,4 +512,28 @@ msgstr "切换下拉菜单"
 #: template.php:147
 msgid "Help with translation!"
 msgstr "帮助翻译！"
+
+#: classes/user.php:389
+msgid "Deactivate user"
+msgstr "取消激活用户"
+
+#: classes/user.php:391
+msgid "Activate user"
+msgstr "激活用户"
+
+#: install.php:73
+msgid "Please enter"
+msgstr "请输入"
+
+#: install.php:144
+msgid "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
+msgstr "我们会问你一些关于你网站的基本问题。 大多数设置可以稍后在config.php文件中编辑。"
+
+#: install.php:149
+msgid "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
+msgstr "我们需要您的状态页面的名称（显示在破折号后面的页面标题后面）以及你的服务器状态安装的URL（即<a href='#'>https://example.com/status</a> - 无 最后的斜杠），所以我们可以邮寄用户链接忘记密码等..."
+
+#: install.php:155
+msgid "A title that you want to be shown on the top of the page."
+msgstr "您希望显示在页面顶部的标题。"
 
