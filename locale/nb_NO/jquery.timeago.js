@@ -7,7 +7,7 @@
     factory(jQuery);
   }
 }(function (jQuery) {
-  // English (Template)
+  // Norsk
   jQuery.timeago.settings.strings = {
     prefixAgo: null,
     prefixFromNow: null,
@@ -22,7 +22,7 @@
     days: "%d dager",
     month: "ca en måned",
     months: "%d måneder",
-    year: "about a year",
+    year: "ca ett år",
     years: "%d år",
     wordSeparator: " ",
     numbers: []
