@@ -146,9 +146,9 @@ class Service implements JsonSerializable
       
     if ($statuses[$worst] == count($array))
     {
-      echo $all[$worst];
+      echo _($all[$worst]);
     }else{
-      echo $some[$worst];
+      echo _($some[$worst]);
     }
     echo '</div>';
   }

@@ -1,0 +1,667 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Server status\n"
+"Language: nb\n"
+
+#: 404.php:12
+msgid "Page Not Found"
+msgstr "Siden eksisterer ikke"
+
+#: 404.php:13
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr "Beklager, men siden du prøver å aksessere eksisterer ikke"
+
+#: admin/dashboard.php:22 admin/dashboard.php:26 template.php:115
+msgid "Dashboard"
+msgstr "Dashbord"
+
+#: admin/dashboard.php:27
+msgid "Welcome"
+msgstr "Velkommen"
+
+#: admin/dashboard.php:39
+msgid "New incident"
+msgstr "Ny hendelse"
+
+#: admin/dashboard.php:72 install.php:48 install.php:163
+msgid "Title"
+msgstr "Tittel"
+
+#: admin/dashboard.php:72
+msgid "Time"
+msgstr "Tid"
+
+#: admin/dashboard.php:77
+msgid "Here goes your text..."
+msgstr "Her går teksten din"
+
+#: admin/dashboard.php:80 classes/incident.php:183
+msgid "Posted by"
+msgstr "Postet av"
+
+#: admin/dashboard.php:80 classes/incident.php:185
+msgid "Ending"
+msgstr "Slutt"
+
+#: admin/dashboard.php:80
+msgid "End time"
+msgstr "Slutt tid"
+
+#: admin/dashboard.php:99 admin/new-user.php:53
+msgid "Submit"
+msgstr "Send"
+
+#: admin/login-form.php:2 admin/login-form.php:5 admin/login-form.php:27
+msgid "Login"
+msgstr "Brukernavn"
+
+#: admin/login-form.php:11
+msgid "Please login to continue."
+msgstr "Vennligst logg inn for å fortsette"
+
+#: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
+#: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:72
+#: classes/user.php:120 classes/user.php:404 install.php:169 install.php:210
+msgid "Email"
+msgstr "E-post"
+
+#: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
+#: classes/user.php:123 classes/user.php:417 install.php:182 install.php:213
+msgid "Password"
+msgstr "Passord"
+
+#: admin/login-form.php:22
+msgid "Forgotten password?"
+msgstr "Glemt passord"
+
+#: admin/login-form.php:23
+msgid "Remember me"
+msgstr "Husk meg"
+
+#: admin/lost-password.php:2 admin/lost-password.php:5
+msgid "Lost password"
+msgstr "Mistet passord"
+
+#: admin/lost-password.php:16
+msgid "Go back"
+msgstr "Gå tilbake"
+
+#: admin/lost-password.php:20
+msgid "Password changed successfully!"
+msgstr "Passord endret"
+
+#: admin/lost-password.php:21 admin/lost-password.php:35
+msgid "Go back to login page"
+msgstr "Gå tilbake til påloggingssiden"
+
+#: admin/lost-password.php:30
+msgid "Go back to start"
+msgstr "Gå tilbake til start"
+
+#: admin/lost-password.php:34
+msgid "Email with password reset link has been sent!"
+msgstr "E-post med passord reset lenke er blitt sendt!"
+
+#: admin/lost-password.php:50
+msgid "Submit request"
+msgstr "Send forespørsel"
+
+#: admin/lost-password.php:57
+msgid "Reset password for %s (%s)"
+msgstr "Reset passord for %s (%s)"
+
+#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:421
+#: classes/user.php:422
+msgid "New password"
+msgstr "Nytt pasord"
+
+#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:423
+#: classes/user.php:424
+msgid "Repeat password"
+msgstr "Gjennta passord"
+
+#: admin/lost-password.php:64 classes/user.php:425
+msgid "Change password"
+msgstr "Endre passord"
+
+#: admin/new-user.php:7
+msgid "New user"
+msgstr "Ny bruker"
+
+#: admin/new-user.php:19 admin/settings.php:39 admin/settings.php:72
+#: classes/user.php:114 classes/user.php:322 classes/user.php:326
+#: classes/user.php:327 classes/user.php:488 install.php:158 install.php:168
+#: install.php:190 install.php:205
+msgid "Name"
+msgstr "Navn"
+
+#: admin/new-user.php:20 admin/settings.php:72 classes/user.php:117
+#: classes/user.php:323 classes/user.php:329 classes/user.php:330
+#: classes/user.php:491 install.php:206
+msgid "Surname"
+msgstr "Fornavn"
+
+#: admin/new-user.php:23 admin/settings.php:72 classes/user.php:349
+#: install.php:209
+msgid "Username"
+msgstr "Brukernavn"
+
+#: admin/new-user.php:29
+msgid "Permission"
+msgstr "Rettigheter"
+
+#: admin/settings.php:12 template.php:117
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: admin/settings.php:23
+msgid "Services"
+msgstr "Tjenester"
+
+#: admin/settings.php:29
+msgid "Add service"
+msgstr "Lett til tjenester"
+
+#: admin/settings.php:38 admin/settings.php:72
+msgid "ID"
+msgstr "ID"
+
+#: admin/settings.php:42
+msgid "Delete"
+msgstr "Slett"
+
+#: admin/settings.php:67
+msgid "Users"
+msgstr "Bruker"
+
+#: admin/settings.php:68
+msgid "Add new user"
+msgstr "Legg til ny bruker"
+
+#: admin/settings.php:72 classes/user.php:372
+msgid "Role"
+msgstr "Rolle"
+
+#: admin/user.php:45 admin/user.php:54 install.php:181 install.php:202
+msgid "User"
+msgstr "Bruker"
+
+#: admin/user.php:52
+msgid "User settings"
+msgstr "Bruker instillinger"
+
+#: classes/constellation.php:36 template.php:4
+msgid "Planned maintenance"
+msgstr "Planlagt vedlikehold"
+
+#: classes/constellation.php:42
+msgid "Back"
+msgstr "Tilbake"
+
+#: classes/constellation.php:44
+msgid "Past incidents"
+msgstr "Tidligere hendelser"
+
+#: classes/constellation.php:48
+msgid "No incidents"
+msgstr "Ingen hendelser"
+
+#: classes/constellation.php:61
+msgid "Load more"
+msgstr "Vis flere"
+
+#: classes/constellation.php:101
+msgid "No services"
+msgstr "Ingen tjenester"
+
+#: classes/incident.php:87
+msgid "Please enter title"
+msgstr "Vennligst oppgi tittel"
+
+#: classes/incident.php:90
+msgid "Title too long! Character limit is 50"
+msgstr "Tittel er for lang. Maks 50 tegn"
+
+#: classes/incident.php:96
+msgid "Please enter text"
+msgstr "Vennligst skriv tekst"
+
+#: classes/incident.php:102
+msgid "Please set start and end time! Use ISO 8601 format."
+msgstr "Vennligst sett start og slutt tid! Benytt ISO 8601 formatet."
+
+#: classes/incident.php:107
+msgid "Please select at least one service"
+msgstr "Vennligst velg mist en tjeneste"
+
+#: classes/incident.php:127
+msgid "Start date format is not recognized. Please use ISO 8601 format."
+msgstr "Start dato format er ikke gyldig. Vennligst benytt ISO 8601 formatet."
+
+#: classes/incident.php:133
+msgid "End date format is not recognized. Please use ISO 8601 format."
+msgstr "Slutt dato format er ikke gyldig. Vennligst benytt ISO 8601 formatet."
+
+#: classes/incident.php:185
+msgid "Ended"
+msgstr "Sluttet"
+
+#: classes/service.php:63
+msgid "Service name is too long! Character limit is 50"
+msgstr "Tjeneste navn er for langt. Maks 50 tegn"
+
+#: classes/service.php:66
+msgid "Please enter name!"
+msgstr "Vennligst oppgi navn!"
+
+#: classes/service.php:81 classes/service.php:123 classes/user.php:97
+#: classes/user.php:199
+msgid "You don't have the permission to do that!"
+msgstr "Du har ikke rettighter til å gjøre det!"
+
+#: classes/user.php:164
+msgid "Please mind the following character limits: "
+msgstr "Vennligst oppretthold følgende tegn begrensning:"
+
+#: classes/user.php:185
+msgid "User account created"
+msgstr "Bruker konto opprettet"
+
+#: classes/user.php:186
+msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
+msgstr "Hei %s!<br> Din konto er opprettet. Du kan logge inn med e-postadressen din på <a href=\"%s\">%s</a> med passord %s - vennligst endre det så snart som mulig."
+
+#: classes/user.php:180
+msgid "Username or email already used"
+msgstr "Brukernavn eller e-post er allerede brukt"
+
+#: classes/user.php:244
+msgid "Your account has been disabled. Please contact administrator."
+msgstr "Din konto er blitt deaktivert. Vennligst kontkat administrator."
+
+#: classes/user.php:233 classes/user.php:256
+msgid "Wrong email or password"
+msgstr "Feil e-post eller passord"
+
+#: classes/user.php:299
+msgid "Invalid token detected, please login again!"
+msgstr "Ugyldig token oppdaget, prøv igjen."
+
+#: classes/user.php:314
+msgid "Profile picture"
+msgstr "Profil bilde"
+
+#: classes/user.php:379
+msgid "Change role"
+msgstr "Endre rolle"
+
+#: classes/user.php:394
+msgid "Change email"
+msgstr "Endre e-post"
+
+#: classes/user.php:419 classes/user.php:420
+msgid "Old password"
+msgstr "Gammelt passord"
+
+#: classes/user.php:526
+msgid "Passwords do not match!"
+msgstr "Passord stemmer ikke!"
+
+#: classes/user.php:534
+msgid "Cannot change password of other users!"
+msgstr "Kan ikke endre passord for andre brukere!"
+
+#: classes/user.php:567
+msgid "Wrong password!"
+msgstr "Feilt passord!"
+
+#: classes/user.php:595 classes/user.php:695
+msgid "Invalid token detected, please retry your request from start!"
+msgstr "Ugyldig token oppdaget, vennligst prøv igjen fra start!"
+
+#: classes/user.php:623
+msgid "Reset password"
+msgstr "Reset passord"
+
+#: classes/user.php:659
+msgid "Email change"
+msgstr "E-post endre"
+
+#: classes/incident.php:54 classes/user.php:736
+msgid "You don't have permission to do that!"
+msgstr "Du har ikke rettigheter til å gjøre det"
+
+#: template.php:4
+msgid "Major outage"
+msgstr "Større brudd"
+
+#: template.php:4
+msgid "Minor outage"
+msgstr "Mindre brudd"
+
+#: template.php:4
+msgid "Operational"
+msgstr "Operative"
+
+#: template.php:7
+msgid "Some systems are experiencing major outages"
+msgstr "Noen systemer opplever støtte brudd"
+
+#: template.php:7
+msgid "Some systems are experiencing minor outages"
+msgstr "Noen systemer opplever mindre brudd"
+
+#: template.php:7
+msgid "Some systems are under maintenance"
+msgstr "Noen systemer er under vedlikehold"
+
+#: template.php:8
+msgid "Our systems are experiencing major outages."
+msgstr "Våre systemer opplever større brudd"
+
+#: template.php:8
+msgid "Our systems are experiencing minor outages"
+msgstr "Våre systemer opplever mindre brudd"
+
+#: template.php:8
+msgid "Our systems are under maintenance"
+msgstr "Våre systemer er under veldikehold"
+
+#: template.php:8
+msgid "All systems operational"
+msgstr "Alle systemer operative"
+
+#: template.php:9
+msgid "Super admin"
+msgstr "Super admin"
+
+#: template.php:9
+msgid "Admin"
+msgstr "Admin"
+
+#: template.php:53
+msgid "Service Status"
+msgstr "Tjeneste Status"
+
+#: template.php:106
+msgid "Toggle navigation"
+msgstr "Veksel navigering"
+
+#: template.php:116
+msgid "User (%s)"
+msgstr "Bruker (%s)"
+
+#: template.php:118
+msgid "Logout"
+msgstr "Logg av"
+
+#: index.php:27
+msgid "Current status"
+msgstr "Nåværende status"
+
+#: install.php:4
+msgid "Status page"
+msgstr "Status side"
+
+#: install.php:139
+msgid "Install"
+msgstr "Installer"
+
+#: install.php:141
+msgid "Installation"
+msgstr "Installasjon"
+
+#: install.php:26
+msgid "Connection failed: %s\n"
+msgstr "Tilkobling feilet: %s\n"
+
+#: install.php:31
+msgid "Please set valid url!"
+msgstr "Vennligst sett gyldig url!"
+
+#: install.php:98
+msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
+msgstr "Feil ved oppretting av database. Sjekk rettigheter for din konto eller MYSQL versjon. <br>Error: %s"
+
+#: install.php:154
+msgid "Website details"
+msgstr "Website detaljer"
+
+#: install.php:40 install.php:159
+msgid "Url"
+msgstr "Url"
+
+#: install.php:166
+msgid "Also an email address for mailer would be nice :)"
+msgstr "Også en e-postadresse for mailer ville være fint. :-)"
+
+#: install.php:173
+msgid "Database connection"
+msgstr "Database tilkobling"
+
+#: install.php:174
+msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
+msgstr "Vi trenger databaseforbindelse for å kunne lage tabeller. Kontroller at kontoen din har tillatelse til å gjøre det."
+
+#: install.php:177
+msgid "Server"
+msgstr "Server"
+
+#: install.php:178
+msgid "Database"
+msgstr "Database"
+
+#: install.php:203
+msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
+msgstr "Og til slutt trenger vi informasjon for å opprette en ny bruker. Du trenger ikke å gi det, men så ... Ingen status side admin ..."
+
+#: install.php:216
+msgid "Run install!"
+msgstr "Kjør installering"
+
+#: classes/user.php:127
+msgid "Rank"
+msgstr "Rang"
+
+#: classes/user.php:624
+msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+msgstr "Hei %s!<br>Nedenfor finner du lenke for å endre passordet ditt. Koblingen er gyldig i 24 timer. Hvis du ikke ba om dette, kan du overse den.<br><br><a href=\"%s\">RESET PASSORD</a><br><br>Hvis koblingen ikke virker, kopier & amp; lim den inn i nettleseren din: <br>%s"
+
+#: classes/user.php:660
+msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+msgstr "Hei%s!<br>Nedenfor finner du lenke for å endre din e-post. Koblingen er gyldig i 24 timer. Hvis du ikke ba om dette, kan du overse den.<br><br><a href=\"%s\">ENDRE E-POST</a><br><br>Hvis koblingen ikke virker, kopier & amp; lim den inn i nettleseren din: <br>%s"
+
+#: template.php:9
+msgid "Editor"
+msgstr "Editor"
+
+#: install.php:36
+msgid "Server name"
+msgstr "Server navn"
+
+#: install.php:44
+msgid "Mailer name"
+msgstr "Mailer navn"
+
+#: install.php:52
+msgid "Mailer email"
+msgstr "Mailer e-post"
+
+#: install.php:56
+msgid "Database server"
+msgstr "Database server"
+
+#: install.php:60
+msgid "Database name"
+msgstr "Database navn"
+
+#: install.php:64
+msgid "Database user"
+msgstr "Database bruker"
+
+#: install.php:69
+msgid "Database password"
+msgstr "Database passord"
+
+#: template.php:147
+msgid "Toggle Dropdown"
+msgstr "Veksle nedtrekksmeny"
+
+#: template.php:156
+msgid "Help with translation!"
+msgstr "Hjelp med oversettelse!"
+
+#: classes/user.php:439
+msgid "Deactivate user"
+msgstr "Deaktiver bruker"
+
+#: classes/user.php:441
+msgid "Activate user"
+msgstr "Aktiver bruker"
+
+#: install.php:73
+msgid "Please enter"
+msgstr "Vennligst skriv"
+
+#: install.php:150
+msgid "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
+msgstr "Vi vil stille deg noen grunnleggende spørsmål om nettstedet ditt. De fleste innstillingene kan senere redigeres i config.php-filen."
+
+#: install.php:155
+msgid "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
+msgstr "Vi trenger et navn på statussiden din (vist bak sidetittel etter bindestrek) og en URL for serverstatusinstallasjonen din (dvs. <a href='#'> https://example.com/status </a> - uten den etterfølgende skråstrek), så vi kan sende brukere link for glemt passord osv..."
+
+#: install.php:161
+msgid "A title that you want to be shown on the top of the page."
+msgstr "En tittel du ønsker skal vises øverst på siden."
+
+#: api/status.php:24
+msgid "Service does not exist!"
+msgstr "Tjenesten eksisterer ikke"
+
+#: classes/user.php:220
+msgid "Please fill in your email and password!"
+msgstr "Vennligst fyll ut e-post og passord!"
+
+#: classes/user.php:336
+msgid "Change name"
+msgstr "Endre navn"
+
+#: classes/user.php:356
+msgid "Change username"
+msgstr "Endre brukernavn"
+
+#: classes/user.php:463
+msgid "This username is already taken."
+msgstr "Ditt brukernavn er allerede brukt."
+
+#: classes/user.php:470
+msgid "Cannot change username of other users!"
+msgstr "Kan ikke endre brukernavn for andre brukere!"
+
+#: classes/user.php:504
+msgid "Cannot change names of other users!"
+msgstr "Kan ikke endre navnet for andre brukere!"
+
+#: classes/user.php:667
+msgid "Confirmation email sent!"
+msgstr "Bekreftelses e-post er sent!"
+
+#: install.php:186 policy.php:6
+msgid "Privacy Policy"
+msgstr "Personvernerklæring"
+
+#: install.php:190
+msgid "Company name"
+msgstr "Firma navn"
+
+#: install.php:191
+msgid "Address"
+msgstr "Adresse"
+
+#: install.php:191
+msgid "Full address"
+msgstr "Full adresse"
+
+#: install.php:194
+msgid "E-Mail"
+msgstr "E-post"
+
+#: install.php:195
+msgid "Phone"
+msgstr "Telefon"
+
+#: install.php:195
+msgid "Phone number"
+msgstr "Telefon nummer"
+
+#: install.php:198 policy.php:7
+msgid "Who we are"
+msgstr "Hvem er vi"
+
+#: policy.php:9
+msgid "Contact"
+msgstr "Kontakt"
+
+#: policy.php:17
+msgid "What personal data we collect and why"
+msgstr "Hvilke personlige data vi innhenter og hvorfor"
+
+#: policy.php:19
+msgid "If you access our websites, the following information will be saved: IP-address, Date, Time, Browser queries, \n"
+"\tGeneral information about your browser, operating system and all search queries on the sites. \n"
+"\tThis user data will be used for anonym user statistics to recognize trends and improve our content.\n"
+"\t"
+msgstr "Hvis du får tilgang til våre nettsteder, blir følgende informasjon lagret: IP-adresse, dato, klokkeslett, nettleserforespørsler,\n"
+"Generell informasjon om nettleseren, operativsystemet og alle søk på nettstedene.\n"
+"Disse brukerdataene blir brukt til anonym brukerstatistikk for å gjenkjenne trender og forbedre innholdet."
+
+#: policy.php:23
+msgid "How we protect your data"
+msgstr "Hvordan beskytter vi dine data"
+
+#: policy.php:24
+msgid "In collaboration with our hosting provider we try our best to protect our \n"
+"\tdatabases against access from third parties, losses, misuse or forgery.\n"
+"\t"
+msgstr "I samarbeid med vår hosting leverandør prøver vi vårt beste for å beskytte vår\n"
+"databaser mot tilgang fra tredjeparter, tap, misbruk eller forfalskning."
+
+#: policy.php:27
+msgid "Third party that receive your personal data"
+msgstr "Tredjepart som vil motta dine personlige data"
+
+#: policy.php:29
+msgid "Cookies"
+msgstr "Informasjonskapsler"
+
+#: policy.php:30
+msgid "This site uses cookies – small text files that are placed on your machine to help the site provide a better user experience. \n"
+"\tIn general, cookies are used to retain user preferences, store information for things like shopping carts, \n"
+"\tand provide anonymised tracking data to third party applications like Google Analytics. \n"
+"\tAs a rule, cookies will make your browsing experience better. However, you may prefer to disable cookies on this site and on others. \n"
+"\tThe most effective way to do this is to disable cookies in your browser. We suggest consulting the Help section of your browser \n"
+"\tor taking a look at the About Cookies website which offers guidance for all modern browsers"
+msgstr "Dette nettstedet bruker informasjonskapsler - små tekstfiler som er plassert på maskinen din for å hjelpe nettstedet å gi en bedre brukeropplevelse.\n"
+"Generelt brukes informasjonskapsler for å beholde brukerinnstillinger, lagre informasjon for ting som handlekurver,\n"
+"og gi anonymisert sporingsdata til tredjepartsprogrammer som Google Analytics.\n"
+"Informasjonskapslene vil som regel gjøre surfingopplevelsen din bedre. Du kan imidlertid foretrekke å deaktivere informasjonskapsler på dette nettstedet og andre.\n"
+"Den mest effektive måten å gjøre dette på er å deaktivere informasjonskapsler i nettleseren din. Vi foreslår at du konsulterer Hjelp-delen av nettleseren din\n"
+"eller ta en titt på Om Cookies nettsiden som gir veiledning for alle moderne nettlesere"
+
+#: install.php:187
+msgid "Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below."
+msgstr "Siden du samler inn personlig informasjon, må en i følge GDPR ha en personvernpolicy. Skriv inn detaljene nedenfor."
+
+#: install.php:198
+msgid "Some info about yourself"
+msgstr "Litt info om deg selv"
+
+#: policy.php:18
+msgid "General"
+msgstr "Generelt"
+
