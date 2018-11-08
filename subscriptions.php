@@ -45,7 +45,7 @@ if ($query->num_rows){
 	$subs = array();
 	while($result = $query->fetch_assoc())
 	{
-		echo '<a href="https://status.jhuesser.ch/subscriptions.php?remove=' . $result['id'] .'" class="list-group-item">' . $result['name'] . '</a>';
+		echo '<a href="'.WEB_URL.'/subscriptions.php?remove=' . $result['id'] .'" class="list-group-item">' . $result['name'] . '</a>';
 		$subs[] = $result['name'];
 	}
 	echo "</div>";
@@ -59,10 +59,10 @@ if ($query->num_rows){
 
 	while($result = $query->fetch_assoc()){
 		if(empty($subs)){
-			echo '<a href="https://status.jhuesser.ch/subscriptions.php?add=' . $result['id'] . '" class="list-group-item list-group-item-action">' . $result['name'] . '</a>';
+			echo '<a href="'.WEB_URL.'/subscriptions.php?add=' . $result['id'] . '" class="list-group-item list-group-item-action">' . $result['name'] . '</a>';
 
 		} elseif(!in_array($result['name'], $subs)){
-			echo '<a href="https://status.jhuesser.ch/subscriptions.php?add=' . $result['id'] . '" class="list-group-item list-group-item-action">' . $result['name'] . '</a>';
+			echo '<a href="'.WEB_URL.'/subscriptions.php?add=' . $result['id'] . '" class="list-group-item list-group-item-action">' . $result['name'] . '</a>';
 		}
 	}
 	echo '</div>';

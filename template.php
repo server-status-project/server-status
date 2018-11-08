@@ -76,9 +76,9 @@ class Template{
               $tg_user = getTelegramUserData();
               if($tg_user !== false){
                 echo'<li><a href="?do=subscriptions">Subscriptions</a></li>';
-                echo '<li><a href="index.php?subscriber_logout=1">Logout</a></li>';
+                echo '<li><a href="'.WEB_URL.'/index.php?subscriber_logout=1">Logout</a></li>';
               } else {
-                echo '<li><a href="#"><script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="jhuesserstatusbot" data-size="small" data-userpic="false" data-auth-url="https://status.jhuesser.ch/check.php" data-request-access="write"></script></a></li>';
+                echo '<li><a href="#"><script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="'.TG_BOT_USERNAME.'" data-size="small" data-userpic="false" data-auth-url="'.WEB_URL.'/check.php" data-request-access="write"></script></a></li>';
               }?>
                 </ul>
             </div><!--/.nav-collapse -->
