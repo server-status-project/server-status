@@ -138,7 +138,7 @@ class Template{
     <div id="footerwrap">
       <div class="container">
         <div class="row centered">
-          <div class="col-md-4 text-left">Copyright © <?php echo date("Y");?> Vojtěch Sajdl</div>
+          <div class="col-md-4 text-left"><a href="https://github.com/Pryx/server-status/" target="_blank"><i class="fab fa-github" aria-hidden="true"></i>&nbsp;</a>Copyright © <?php echo date("Y");?> Vojtěch Sajdl</div>
           <div class="col-md-4 text-center">
             <div class="btn-group dropup">
               <button type="button" class="btn btn-primary"><?php echo '<img src="'.WEB_URL.'/locale/'.$_SESSION['locale'].'/flag.png" alt="'.$lang_names[$_SESSION['locale']].'">'.$lang_names[$_SESSION['locale']];?></button>
@@ -157,7 +157,7 @@ class Template{
               </div>
             </div>
           </div>
-          <div class="col-md-4 text-right"><a href="policy.php">Imprint & Privacy Policy</a><a href="https://github.com/Pryx/server-status/" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a></div>
+          <div class="col-md-4 text-right"><a href="<?php echo POLICY_URL; ?>"><?php echo _("Imprint & Privacy Policy");?></a><!-- <a href="https://github.com/Pryx/server-status/" target="_blank"><i class="fab fa-github" aria-hidden="true"></i></a> --></div>
         </div><!--/row -->
       </div><!--/container -->
     </div>

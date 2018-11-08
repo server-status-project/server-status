@@ -3,6 +3,7 @@ require_once("template.php");
 define("WEB_URL", "."); //Website name
 define("NAME", _('Status page')); //Website name
 define("MINIMUM_PHP_VERSION", "5.4.0");
+define("POLICY_URL", "policy.php"); //Default policy URL
 require_once("classes/locale-negotiator.php");
 
 $negotiator = new LocaleNegotiator("en_GB");
@@ -127,6 +128,8 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##policy_mail##", $_POST['policy_mail'], $config);
 		$config = str_replace("##policy_phone##", $_POST['policy_phone'],$config);
 		$config = str_replace("##who_we_are##", $_POST['who_we_are'], $config);
+		$policy_url_conf = ( ! empty($_POST['policy_url']) ) ? $_POST['policy_url'] : POLICY_URL;
+		$config = str_replace("##policy_url##", $policy_url_conf, $config);
 		file_put_contents("config.php", $config);
 		
 
@@ -238,6 +241,12 @@ if (!empty($message))
 		</div>
 		<div class="form-group clearfix">
 			<div class=""><label for="who_we_are"><?php echo _("Who we are");?>: </label><textarea class="form-control" id="who_we_are" rows="3" name="who_we_are" placeholder="<?php echo _("Some info about yourself");?>" value="<?php echo ((isset($_POST['who_we_are']))?htmlspecialchars($_POST['who_we_are'], ENT_QUOTES):'');?>"></textarea></div>
+		</div>
+		<div class="form-group clearfix">
+			<div class="col-sm-12"><label for="url"><?php echo _("External Policy Url");?>: </label>
+				<summary><?php echo _("If you alredy have an existing Policy published, please provide the full Url to override the local policy definition. Leave blank to use the local definition");?></summary>
+				<input type="policy_url" name="policy_url" value="<?php echo ((isset($_POST['policy_url']))?htmlspecialchars($_POST['policy_url'], ENT_QUOTES):'');?>" id="policy_url" placeholder="<?php echo _("External Policy Url");?>" class="form-control">
+			</div>
 		</div>
 	</section>
 	<section class="install-section clearfix">
