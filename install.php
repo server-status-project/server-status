@@ -2,6 +2,7 @@
 require_once("template.php");
 define("WEB_URL", "."); //Website name
 define("NAME", _('Status page')); //Website name
+define("MINIMUM_PHP_VERSION", "5.4.0");
 require_once("classes/locale-negotiator.php");
 
 $negotiator = new LocaleNegotiator("en_GB");
@@ -138,6 +139,47 @@ if(isset($_POST['server']) && empty($message))
 }
 Template::render_header(_("Install"));
 ?>
+<h1 class="text-center"><?php echo _("Prerequisite");?></h1>
+<summary><?php echo _("If any of the following prerequisites are shown as failed (red X), please correct the issue and reload the page before proceeding with the installation.");?></summary>
+<?php
+
+
+	$php_version_req = sprintf(_("Minimum PHP version %s"), MINIMUM_PHP_VERSION);
+    $preq_fail = array("remove", "danger");
+	$preq_ok   = array("ok", "success");
+
+	$preq_phpver = $preq_fail;
+	$preq_mysqlnd = $preq_fail;
+	$preq_writedir = $preq_fail;
+
+	// Check if PHP version if > MINIMUM_PHP_VERSION
+	if (strnatcmp(phpversion(), MINIMUM_PHP_VERSION) >= 0) { $preq_phpver = $preq_ok; }
+
+	// Check if we have mysqlnd installed
+	if ( function_exists('mysqli_get_client_stats') ) { $preq_mysqlnd = $preq_ok; }
+
+	// Check if we have access to write to location
+	if ( is_writable(__DIR__) ) { $preq_writedir = $preq_ok; }
+
+?>
+    <section class="prereq-section clearfix">
+  		<div class="container-fluid">
+			<div class="row ">
+		    	<div class="col-md-6 text-right"><label for="php version"><?php echo $php_version_req;?></div>
+	            <div class="col-md-6"><a href="#" class="btn btn-<?php echo $preq_phpver[1];?>"><span class="glyphicon glyphicon-<?php echo $preq_phpver[0]; ?>"></span></a></div>
+			</div>
+			<div class="row ">
+		    	<div class="col-md-6 text-right"><label for="mysqlnd Library installed"><?php echo _('PHP mysqlnd library installed');?></div>
+	            <div class="col-md-6"><a href="#" class="btn btn-<?php echo $preq_mysqlnd[1];?>"><span class="glyphicon glyphicon-<?php echo $preq_mysqlnd[0]; ?>"></span></a></div>
+			</div>
+            <div class="row">
+				<div class="col-md-6 text-right"><label for="write_access"><?php  echo _('Write access to web directory');?></div>
+	            <div class="col-md-6"><a href="#" class="btn btn-<?php echo $preq_writedir[1];?>"><span class="glyphicon glyphicon-<?php echo $preq_writedir[0]; ?>"></span></a></div>
+			</div>
+		</div>
+
+	</section>
+
 <h1 class="text-center"><?php echo _("Installation");?></h1>
 <?php
 if (!empty($message))
