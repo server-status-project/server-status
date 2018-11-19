@@ -168,8 +168,24 @@ class Incident implements JsonSerializable
    */
   public function render($admin=0){
     global $icons;
-    global $classes, $user;
+    global $classes, $user, $mysqli;
     $admin = $admin && (($user->get_rank()<=1) || ($user->get_username() == $this->username));
+
+    // Create id->service_name array
+    $stmt = $mysqli->prepare("SELECT services.id,services.name FROM services INNER JOIN services_status ON services.id = services_status.service_id WHERE services_status.status_id = ?");
+    $stmt->bind_param("i", $this->id);
+    $stmt->execute();
+    $query = $stmt->get_result();
+
+    $array = array();
+    if ($query->num_rows){
+      $timestamp = time();
+
+      while($result = $query->fetch_assoc()) {
+        $array[$result['id']] = $result['name'];
+      }
+    }
+
     ?>
      <article class="panel panel-<?php echo $classes[$this->type];?>">
         <div class="panel-heading icon">
@@ -184,6 +200,16 @@ class Incident implements JsonSerializable
         </div>
         <div class="panel-body">
           <?php echo $this->text; ?>
+        </div>
+        <div class="panel-footer panel-info clearfix">
+          <small>
+            <?php
+              echo _("Impacted service(s): ");
+              foreach ( $array as $key => $value ) {
+                echo '<span class="label label-default">'.$value . '</span>&nbsp;';
+              }
+            ?>
+          </small>
         </div>
         <div class="panel-footer clearfix">
           <small><?php echo _("Posted by");?>: <?php echo $this->username; 
