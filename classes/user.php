@@ -473,7 +473,7 @@ class User
       $stmt->bind_param("si",$_POST["username"],$id);
       $stmt->execute();
       $stmt->close();
-      header("Location: /admin/?do=user&id=".$id);
+      header("Location:  ".WEB_URL."/admin/?do=user&id=".$id);
     }
   }
 
@@ -507,7 +507,7 @@ class User
       $stmt->bind_param("ssi",$_POST["name"],$_POST["surname"],$id);
       $stmt->execute();
       $stmt->close();
-      header("Location: /admin/?do=user&id=".$id);
+      header("Location:  ".WEB_URL."/admin/?do=user&id=".$id);
     }
   }
 
@@ -646,7 +646,7 @@ class User
       $stmt->bind_param("sd", $email, $id);
       $stmt->execute();
       $stmt->get_result();
-      header("Location: /admin/?do=user&id=".$id);
+      header("Location: ".WEB_URL."/admin/?do=user&id=".$id);
       return;
     }
 
