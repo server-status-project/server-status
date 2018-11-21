@@ -158,7 +158,10 @@ Template::render_header(_("Install"));
 	// Check if PHP version if > MINIMUM_PHP_VERSION
 	if (strnatcmp(phpversion(), MINIMUM_PHP_VERSION) >= 0) { $preq_phpver = $preq_ok; }
 
-	// Check if we have mysqlnd installed
+	// Test for mysqlnd precense.  The mysqlnd driver provides some extra functions that is not available 
+	// if the plain mysql package is installed, and mysqli_get_client_stats is one of them. This is documented 
+	// on the PHP site at http://www.php.net/manual/en/mysqlnd.stats.php
+	// This test is also discussed at https://stackoverflow.com/questions/1475701/how-to-know-if-mysqlnd-is-the-active-driver
 	if ( function_exists('mysqli_get_client_stats') ) { $preq_mysqlnd = $preq_ok; }
 
 	// Check if we have access to write to location
