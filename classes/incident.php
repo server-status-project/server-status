@@ -13,6 +13,8 @@ class Incident implements JsonSerializable
   private $type;
   private $title;
   private $username;
+  private $service_id;
+  private $service_name;
 
   /**
    * Constructs service from its data.
@@ -34,6 +36,8 @@ class Incident implements JsonSerializable
     $this->title = $data['title'];
     $this->text = $data['text'];
     $this->username = $data['username'];
+    $this->service_id = $data['service_id'];
+    $this->service_name = $data['service_name'];
   }
 
   /**
@@ -170,6 +174,7 @@ class Incident implements JsonSerializable
     global $icons;
     global $classes, $user;
     $admin = $admin && (($user->get_rank()<=1) || ($user->get_username() == $this->username));
+
     ?>
      <article class="panel panel-<?php echo $classes[$this->type];?>">
         <div class="panel-heading icon">
@@ -186,7 +191,12 @@ class Incident implements JsonSerializable
           <?php echo $this->text; ?>
         </div>
         <div class="panel-footer clearfix">
-          <small><?php echo _("Posted by");?>: <?php echo $this->username; 
+          <small>
+              <?php echo _("Impacted service(s): ");
+              foreach ( $this->service_name as $key => $value ) {
+                echo '<span class="label label-default">'.$value . '</span>&nbsp;';
+              }
+
           if (isset($this->end_date)){?> 
             <span class="pull-right"><?php echo strtotime($this->end_date)>time()?_("Ending"):_("Ended");?>:&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
             <?php } ?>
