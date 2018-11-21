@@ -123,7 +123,7 @@ class Constellation
 
     $operator = ($future)?">=":"<=";
     $limit++;
-    $sql = $mysqli->prepare("SELECT *, status.id as status_id FROM status INNER JOIN users ON user_id=users.id WHERE `time` $operator ? AND `end_time` $operator ?  OR (`time`<=? AND `end_time` $operator ? ) ORDER BY `time` DESC LIMIT ? OFFSET ?");
+    $sql = $mysqli->prepare("SELECT users.id, status.type, status.title, status.text, status.time, status.end_time, users.username, status.id, status.id as status_id FROM status INNER JOIN users ON user_id=users.id WHERE `time` $operator ? AND `end_time` $operator ?  OR (`time`<=? AND `end_time` $operator ? ) ORDER BY `time` DESC LIMIT ? OFFSET ?");
     $sql->bind_param("iiiiii",$timestamp, $timestamp, $timestamp, $timestamp, $limit, $offset);
     $sql->execute();
     $query = $sql->get_result();
@@ -136,6 +136,18 @@ class Constellation
     if ($query->num_rows){
       while(($result = $query->fetch_assoc()) && $limit-- > 0)
       {
+        // Add service id and service names to an array in the Incident class
+        $stmt_service = $mysqli->prepare("SELECT services.id,services.name FROM services 
+                                                 INNER JOIN services_status ON services.id = services_status.service_id 
+                                                 WHERE services_status.status_id = ?");
+        $stmt_service->bind_param("i", $result['status_id']);
+        $stmt_service->execute();
+        $query_service = $stmt_service->get_result();
+        while($result_service = $query_service->fetch_assoc()) {
+          $result['service_id'][] = $result_service['id'];
+          $result['service_name'][] = $result_service['name'];
+        }
+
         $array[] = new Incident($result);
       }
     }

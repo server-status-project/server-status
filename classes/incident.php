@@ -13,6 +13,8 @@ class Incident implements JsonSerializable
   private $type;
   private $title;
   private $username;
+  private $service_id;
+  private $service_name;
 
   /**
    * Constructs service from its data.
@@ -34,6 +36,8 @@ class Incident implements JsonSerializable
     $this->title = $data['title'];
     $this->text = $data['text'];
     $this->username = $data['username'];
+    $this->service_id = $data['service_id'];
+    $this->service_name = $data['service_name'];
   }
 
   /**
@@ -168,23 +172,8 @@ class Incident implements JsonSerializable
    */
   public function render($admin=0){
     global $icons;
-    global $classes, $user, $mysqli;
+    global $classes, $user;
     $admin = $admin && (($user->get_rank()<=1) || ($user->get_username() == $this->username));
-
-    // Create id->service_name array
-    $stmt = $mysqli->prepare("SELECT services.id,services.name FROM services INNER JOIN services_status ON services.id = services_status.service_id WHERE services_status.status_id = ?");
-    $stmt->bind_param("i", $this->id);
-    $stmt->execute();
-    $query = $stmt->get_result();
-
-    $array = array();
-    if ($query->num_rows){
-      $timestamp = time();
-
-      while($result = $query->fetch_assoc()) {
-        $array[$result['id']] = $result['name'];
-      }
-    }
 
     ?>
      <article class="panel panel-<?php echo $classes[$this->type];?>">
@@ -201,18 +190,13 @@ class Incident implements JsonSerializable
         <div class="panel-body">
           <?php echo $this->text; ?>
         </div>
-        <div class="panel-footer panel-info clearfix">
+        <div class="panel-footer clearfix">
           <small>
-            <?php
-              echo _("Impacted service(s): ");
-              foreach ( $array as $key => $value ) {
+              <?php echo _("Impacted service(s): ");
+              foreach ( $this->service_name as $key => $value ) {
                 echo '<span class="label label-default">'.$value . '</span>&nbsp;';
               }
-            ?>
-          </small>
-        </div>
-        <div class="panel-footer clearfix">
-          <small><?php echo _("Posted by");?>: <?php echo $this->username; 
+
           if (isset($this->end_date)){?> 
             <span class="pull-right"><?php echo strtotime($this->end_date)>time()?_("Ending"):_("Ended");?>:&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
             <?php } ?>
