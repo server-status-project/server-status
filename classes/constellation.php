@@ -123,7 +123,7 @@ class Constellation
 
     $operator = ($future)?">=":"<=";
     $limit++;
-    $sql = $mysqli->prepare("SELECT users.id, status.type, status.title, status.text, status.time, status.end_time, users.username, status.id, status.id as status_id FROM status INNER JOIN users ON user_id=users.id WHERE `time` $operator ? AND `end_time` $operator ?  OR (`time`<=? AND `end_time` $operator ? ) ORDER BY `time` DESC LIMIT ? OFFSET ?");
+    $sql = $mysqli->prepare("SELECT users.id, status.type, status.title, status.text, status.time, status.end_time, users.username, status.id as status_id FROM status INNER JOIN users ON user_id=users.id WHERE `time` $operator ? AND `end_time` $operator ?  OR (`time`<=? AND `end_time` $operator ? ) ORDER BY `time` DESC LIMIT ? OFFSET ?");
     $sql->bind_param("iiiiii",$timestamp, $timestamp, $timestamp, $timestamp, $limit, $offset);
     $sql->execute();
     $query = $sql->get_result();
