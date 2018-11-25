@@ -13,7 +13,8 @@ Class Subscriptions
         $stmt = $mysqli->prepare("INSERT INTO services_subscriber (subscriberIDFK, serviceIDFK) VALUES (?, ?)");
         $stmt->bind_param("ii", $userID, $service);
         $stmt->execute();
-        $query = $stmt->get_result();
+        //$query = $stmt->get_result();
+        return true;
     }
     
     public function remove($userID, $service)
@@ -23,7 +24,8 @@ Class Subscriptions
         $stmt = $mysqli->prepare("DELETE FROM services_subscriber WHERE subscriberIDFK = ? AND serviceIDFK = ?");
         $stmt->bind_param("ii", $userID, $service);
         $stmt->execute();
-        $query = $stmt->get_result();
+        //$query = $stmt->get_result();
+        return true;
     }
     
     function render_subscribed_services($typeID, $subscriberID, $userID, $token)
@@ -37,9 +39,7 @@ Class Subscriptions
         $stmt->bind_param("ii", $typeID, $subscriberID);
         $stmt->execute();
         $query = $stmt->get_result();
-                
-        $timestamp = time();        
-        
+
         $strNotifyType = _('E-mail Notification subscription');
         if ( $typeID == 1 ) { $strNotifyType = _('Telegram Notification subscription'); }
 

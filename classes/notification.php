@@ -74,7 +74,7 @@ class Notification
 
                 // Handle telegram
                 if ($typeID == 1) {
-                    $this->submit_telegram($userID, $firstname, $token);
+                    $this->submit_telegram($userID, $firstname);
                 }
 
                 // Handle email
@@ -89,10 +89,9 @@ class Notification
      * Sends Telegram notification message using their web api.
      * @param string $userID The Telegram userid to send to
      * @param string $firstname The users firstname
-     * @param string $uthkey Token used for managing subscription
      * @return void
      */
-    public function submit_telegram($userID, $firstname, $token)
+    public function submit_telegram($userID, $firstname)
     {        
         // TODO Handle limitations (Max 30 different subscribers per second)
         // TODO Error handling

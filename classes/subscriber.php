@@ -132,7 +132,7 @@ Class Subscriber
         global $mysqli;
         $updateTime = strtotime("now");
         $stmt = $mysqli->prepare("UPDATE subscribers SET update_time = ? WHERE subscriberID=?");
-        $stmt->bind_param("ii", $updateTime, $subscriberId);
+        $stmt->bind_param("ii", $updateTime, $subscriberID);
         $stmt->execute();
         return true;
         
@@ -145,24 +145,25 @@ Class Subscriber
         
         $stmt = $mysqli->prepare("UPDATE subscribers SET update_time = ?, expires = ? WHERE subscriberID = ?");
         $tmp = null;
-        $stmt->bind_param("iii", $updateTime, $tmp, $subscriberId);
+        $stmt->bind_param("iii", $updateTime, $tmp, $subscriberID);
         $stmt->execute();
         return true;
     }
     
-    public function delete($id)
+    public function delete($subscriberID)
     {
         global $mysqli;
         
         $stmt = $mysqli->prepare("DELETE FROM services_subscriber WHERE subscriberIDFK = ?");
-        $stmt->bind_param("i", $this->id);
+        $stmt->bind_param("i", $subscriberID);
         $stmt->execute();
-        $query = $stmt->get_result();
+        //$query = $stmt->get_result();
         
         $stmt = $mysqli->prepare("DELETE FROM subscribers WHERE subscriberID = ?");
-        $stmt->bind_param("i", $this->id);
+        $stmt->bind_param("i", $subscriberID);
         $stmt->execute();
-        $query = $stmt->get_result();
+        //$query = $stmt->get_result();
+        return true;
      
     }
     
