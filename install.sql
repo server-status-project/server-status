@@ -91,3 +91,16 @@ ALTER TABLE `services_subscriber`
   ADD CONSTRAINT `services_subscriber_ibfk_1` FOREIGN KEY (`subscriberIDFK`) REFERENCES `subscribers` (`subscriberID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `services_subscriber_ibfk_2` FOREIGN KEY (`serviceIDFK`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
+
+ALTER TABLE `subscribers` CHANGE COLUMN lastname lastname varchar(255) DEFAULT NULL; # was varchar(255) NOT NULL
+ALTER TABLE `subscribers` CHANGE COLUMN firstname firstname varchar(255) DEFAULT NULL; # was varchar(255) NOT NULL
+ALTER TABLE `subscribers` CHANGE COLUMN telegramID userID varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL;
+ALTER TABLE `subscribers` ADD COLUMN typeID tinyint(1) NOT NULL AFTER subscriberID;
+ALTER TABLE `subscribers` ADD COLUMN token varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL AFTER lastname;
+ALTER TABLE `subscribers` ADD COLUMN expires int(11) DEFAULT NULL;
+ALTER TABLE `subscribers` ADD COLUMN active tinyint(1) DEFAULT NULL;
+ALTER TABLE `subscribers` ADD COLUMN create_time int(11) DEFAULT NULL;
+ALTER TABLE `subscribers` ADD COLUMN update_time int(11) DEFAULT NULL;
+ALTER TABLE `subscribers` DROP INDEX telegramID; # was UNIQUE (telegramID)
+ALTER TABLE `subscribers` ADD UNIQUE userID (userID);
+COMMIT;
