@@ -7,7 +7,10 @@ if (!file_exists("../config.php"))
 else{
   require_once("../config.php");
   require_once("../classes/constellation.php");
+  require_once("../classes/mailer.php");  
+  require_once("../classes/notification.php");
   require_once("../template.php");
+  require_once("../libs/parsedown/Parsedown.php");
 
   if(isset($_COOKIE['user'])&&!isset($_SESSION['user']))
   {
