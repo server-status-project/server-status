@@ -1,74 +1,42 @@
 <?php 
-require_once("template.php");
 require_once("config.php");
+require_once("template.php");
 require_once("classes/constellation.php");
+require_once("classes/subscriptions.php");
+require_once("classes/telegram.php");
+
+$subscription = new Subscriptions();
+$telegram     = new Telegram();
+
 Template::render_header("Subscriptions");
-$tg_user = getTelegramUserData();
 
-if($tg_user !== false){
-
-	if(isset($_GET['add'])){
-		$service = $_GET['add'];
-		$query = $mysqli->query("SELECT * FROM subscribers WHERE telegramID=" . $tg_user['id']);
-		while($subscriber = $query->fetch_assoc()){
-		  $subscriberID = $subscriber['subscriberID'];
-		}
-		$stmt = $mysqli->prepare("INSERT INTO services_subscriber VALUES (NULL,?, ?)"); 
-        $stmt->bind_param("ii", $subscriberID, $service);
-        $stmt->execute();
-		$query = $stmt->get_result();
-		header("Location: index.php?do=subscriptions");
-	}
-
-	if(isset($_GET['remove'])){
-		$service = $_GET['remove'];
-		$query = $mysqli->query("SELECT * FROM subscribers WHERE telegramID=" . $tg_user['id']);
-		while($subscriber = $query->fetch_assoc()){
-		  $subscriberID = $subscriber['subscriberID'];
-		}
-		$stmt = $mysqli->prepare("DELETE FROM services_subscriber WHERE subscriberIDFK = ? AND serviceIDFK = ?");
-		$stmt->bind_param("ii", $subscriberID, $service);
-		$stmt->execute();
-		$query = $stmt->get_result();
-		header("Location: index.php?do=subscriptions");
-	}
-
-	$query = $mysqli->query("SELECT services.id, services.name, subscribers.subscriberID, subscribers.telegramID
-	FROM services
-		LEFT JOIN services_subscriber ON services_subscriber.serviceIDFK = services.id
-		LEFT JOIN subscribers ON services_subscriber.subscriberIDFK = subscribers.subscriberID
-		WHERE subscribers.telegramID =" . $tg_user['id']);
-if ($query->num_rows){
-	$timestamp = time();
-	echo '<h1>' . _("Your subscriptions") . "</h1>";
-	echo '<div class="list-group">';
-	$subs = array();
-	while($result = $query->fetch_assoc())
-	{
-		echo '<a href="'.WEB_URL.'/subscriptions.php?remove=' . $result['id'] .'" class="list-group-item">' . $result['name'] . '</a>';
-		$subs[] = $result['name'];
-	}
-	echo "</div>";
+if ( SUBSCRIBE_TELEGRAM && $_SESSION['subscriber_typeid'] == 2 ) {
+    $tg_user = $telegram->getTelegramUserData();    // TODO: Do we need this any longer?
 }
 
-echo '<h1>' . _("Add new subscription") . '</h1>';
+if( $_SESSION['subscriber_valid'] ){
+    
+    $typeID       = $_SESSION['subscriber_typeid'];
+    $subscriberID = $_SESSION['subscriber_id'];   
+    $userID       = $_SESSION['subscriber_userid'];
+    $token        = $_SESSION['subscriber_token'];
+    
+    if(isset($_GET['add'])){
+        $subscription->add($subscriberID, $_GET['add']);
+    }
 
-$query = $mysqli->query("SELECT services.id, services.name from services");
-if ($query->num_rows){
-	echo '<div class="list-group">';
+    if(isset($_GET['remove'])){
+        $subscription->remove($subscriberID, $_GET['remove']);
+    }
 
-	while($result = $query->fetch_assoc()){
-		if(empty($subs)){
-			echo '<a href="'.WEB_URL.'/subscriptions.php?add=' . $result['id'] . '" class="list-group-item list-group-item-action">' . $result['name'] . '</a>';
+    $subscription->render_subscribed_services($typeID, $subscriberID, $userID, $token);
 
-		} elseif(!in_array($result['name'], $subs)){
-			echo '<a href="'.WEB_URL.'/subscriptions.php?add=' . $result['id'] . '" class="list-group-item list-group-item-action">' . $result['name'] . '</a>';
-		}
-	}
-	echo '</div>';
-}
-
-} else{
+} else {
+    
+    $header = _("Your session has expired or you tried something we don't suppprt");
+    $message = _('If your session expired, retry your link or in case of Telegram use the login button in the top menu.');
+    $constellation->render_warning($header, $message);
+    
 	header('Location: index.php');
 }
 
