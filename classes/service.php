@@ -71,7 +71,7 @@ class Service implements JsonSerializable
     {
       global $mysqli;
       $name = $_POST['service'];
-      $stmt = $mysqli->prepare("INSERT INTO services VALUES(NULL,?)");
+      $stmt = $mysqli->prepare("INSERT INTO services ( name ) VALUES ( ? )");
       $stmt->bind_param("s", $name);
       $stmt->execute();
       $stmt->get_result();
@@ -146,9 +146,9 @@ class Service implements JsonSerializable
       
     if ($statuses[$worst] == count($array))
     {
-      echo _($all[$worst]);
+      echo $all[$worst];
     }else{
-      echo _($some[$worst]);
+      echo $some[$worst];
     }
     echo '</div>';
   }
