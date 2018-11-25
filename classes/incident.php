@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . "/notification.php");
+
 /**
 * Class for creating and rendering an incident
 */
@@ -81,6 +83,9 @@ class Incident implements JsonSerializable
   public static function add()
   {
     global $mysqli, $message;
+    //Sould be a better way to get this array...
+    $statuses = array(_("Major outage"), _("Minor outage"), _("Planned maintenance"), _("Operational") );
+
     $user_id = $_SESSION['user'];
     $type = $_POST['type'];
     $title = $_POST['title'];
@@ -159,30 +164,22 @@ class Incident implements JsonSerializable
         $stmt->bind_param("ii", $service, $status_id);
         $stmt->execute();
         $query = $stmt->get_result();
-
-        $query = $mysqli->query("SELECT * FROM services_subscriber WHERE serviceIDFK=" . $service);
-				while($subscriber = $query->fetch_assoc()){
-          $subscriberQuery = $mysqli->query("SELECT * FROM subscribers WHERE subscriberID=" . $subscriber['subscriberIDFK']);
-          while($subscriberData = $subscriberQuery->fetch_assoc()){
-            $telegramID = $subscriberData['telegramID'];
-            $firstname = $subscriberData['firstname'];
-            
-            $tg_message = urlencode('Hi ' . $firstname . chr(10) . 'There is a status update on a service that you have subscribed. <a href="' . WEB_URL . '">View online</a>');
-            $response = json_decode(file_get_contents("https://api.telegram.org/bot" . TG_BOT_API_TOKEN . "/sendMessage?chat_id=" . $telegramID . "&parse_mode=HTML&text=" . $tg_message), true);
-            if($response['ok'] == true){
-              $tgsent = true;
-            }
-        }
-       
       }
-      if($tgsent){
-        header("Location: ".WEB_URL."/admin?sent=true");
+      
+      // Perform notification to subscribers
+      $notify = new Notification();
+      $notify->get_service_details($status_id);
 
-      } else {
-      header("Location: ".WEB_URL."/admin?sent=false");
-      }
+      $notify->type = $type;
+      $notify->time = $time;      
+      $notify->title = $title;
+      $notify->text = $text;
+      $notify->status = $statuses[$type];
+      
+      $notify->notify_subscribers();
+      
+      header("Location: ".WEB_URL."/admin?sent=true");
     }
-  }
   }
 
   /**
@@ -194,7 +191,7 @@ class Incident implements JsonSerializable
     global $icons;
     global $classes, $user;
     $admin = $admin && (($user->get_rank()<=1) || ($user->get_username() == $this->username));
-
+    $Parsedown = new Parsedown();
     ?>
      <article class="panel panel-<?php echo $classes[$this->type];?>">
         <div class="panel-heading icon">
@@ -208,7 +205,7 @@ class Incident implements JsonSerializable
           <time class="pull-right timeago" datetime="<?php echo $this->date; ?>"><?php echo $this->date; ?></time>
         </div>
         <div class="panel-body">
-          <?php echo $this->text; ?>
+          <?php echo $Parsedown->setBreaksEnabled(true)->text($this->text); ?>
         </div>
         <div class="panel-footer clearfix">
           <small>
