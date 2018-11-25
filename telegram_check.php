@@ -25,9 +25,5 @@ $subscriber->id = $subscriber_id;
 
 // make sure we don't have a logged in email subscriber
 $subscriber->set_logged_in();
-//$_SESSION['subscriber_valid'] = true;
-//$_SESSION['subscriber_typeid'] = 1;
-//$_SESSION['subscriber_userid'] = $auth_data['id'];
-//$_SESSION['subscriber_id'] = $subscriber_id;
 
 header('Location: subscriptions.php');
