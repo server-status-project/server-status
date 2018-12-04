@@ -50,15 +50,86 @@ class Constellation
     $show = !$future && $incidents["more"];
 
     $offset += $limit;
+    $timenow = new DateTime('NOW');
+    $dPrev = null;
+    $dateIPrev = null;
 
+    // Check to see if call is coming from the admin page. If loaded from the admin page
+    // the date headers will not be rendered.
+    // TODO: Should be an eaiser way to determine this...
+    $isonadmin = false;
+    // Handles default page load
+    $arr_url = explode("/", $_SERVER['PHP_SELF']);
+    if ( 'admin' == strtolower($arr_url[count($arr_url)-2]) ) {
+      $isonadmin = true;
+    }
+    // Handles calls that comes from the "Load More" button.
+    if (isset( $_SERVER['HTTP_REFERER']) ) {
+      $arr_url = explode("/", $_SERVER['HTTP_REFERER']);
+      if ( 'admin'== strtolower($arr_url[count($arr_url)-2]) ) {  // Get last array
+        $isonadmin = true;  // We are on the admin dashboard, so prevent rendering of incident dates headers
+      }
+    }
+    // Loop over dataset and create missing dates
     if (count($incidents["incidents"])){
+
+       // Get previous date from last loaded incident via GET to indicate where the rendering starts from
+       if (isset($_GET['lastviewed']) && is_numeric($_GET['lastviewed']) ) {
+          $timenow->setTimestamp($_GET['lastviewed']);
+          $dateIPrev =  $timenow->format("Y-m-d");
+       }
+
       foreach ($incidents['incidents'] as $incident) {
-        $incident->render($admin);
+
+        // Check if first incident is this date or earlier
+        // If earlier -> calc number of days and add no-incident display for timeperiod leading up to
+	
+        $dateIncident = new DateTime();
+        $dateIncident->setTimestamp($incident->timestamp);
+        $days = $timenow->diff($dateIncident)->format('%a');
+        if ( $days > 1 ) {
+          for ($i = 0; $i <= $days; $i++) {
+            $subs = "-" . $i . " days";
+            $timenowM = clone $timenow;	// Clone object to avoid master object to change during processing
+            $timenowM->modify($subs);	// Store -x days on cloned object
+            $datestr = $timenowM->format("Y-m-d");
+            $ordinal = $timenowM->format("S");
+
+            $datept1 = ucwords(strftime("%A ", $timenowM->getTimestamp()));
+            $datept2 = date("j", $timenowM->getTimestamp());
+            $datept3 = _($ordinal) . ucwords(strftime(" %B %Y", $timenowM->getTimestamp()));
+            $fulldatestr = $datept1 . $datept2 . $datept3;
+
+            $datestrI = substr($incident->date, 0, 10);
+
+            if  ( ($datestr != $datestrI) && ($datestr != $dateIPrev)) {
+              $incident->render_no_incident($fulldatestr, $isonadmin);
+            }
+
+            $dateIPrev = $datestrI;
+          }
+        }
+        $dateIPrev = $dateIncident->format("Y-m-d");
+
+        // Check if we need to add date header for incident being rendered. 
+        // It will only be rendered once per date
+        if ( $dPrev != $dateIPrev ) {
+          $dPrev = $dateIPrev;
+          $ordinal = $dateIncident->format("S");
+          $datept1 = ucwords(strftime("%A ", $dateIncident->getTimestamp()));
+          $datept2 = date("j", $dateIncident->getTimestamp());
+          $datept3 = _($ordinal) . ucwords(strftime(" %B %Y", $dateIncident->getTimestamp()));
+          $strIncDate = $datept1 . $datept2 . $datept3;
+        }
+
+        $timenow->setTimestamp($incident->timestamp);
+        $incident->render($admin, $strIncDate, $isonadmin);
+        $strIncDate = null;	// Reset field so it isn't repeated  for the multiple incidents
       }
 
       if ($show)
       {
-        echo '<div class="centered"><a href="'.WEB_URL.'/?offset='.($offset).'&timestamp='.$timestamp.'" id="loadmore" class="btn btn-default">'._("Load more").'</a></div>';
+        echo '<div class="centered"><a href="'.WEB_URL.'/?offset='.($offset).'&timestamp='.$timestamp.'&lastviewed='.$incident->timestamp.'" id="loadmore" class="btn btn-default">'._("Load more").'</a></div>';
       }
     }
   }

@@ -5,9 +5,9 @@
 class Incident implements JsonSerializable
 {
   private $id;
-  private $date;
+  public  $date;
   private $end_date;
-  private $timestamp;
+  public  $timestamp;
   private $end_timestamp;
   private $text;
   private $type;
@@ -168,15 +168,26 @@ class Incident implements JsonSerializable
   /**
    * Renders incident
    * @param Boolean $admin - decides whether admin controls should be rendered
+   * @param String $datestr - contains header date sting to show
+   * @param boolean isonadmin - Is set if the call is coming from the /admin/ dashboard
    * @return void
    */
-  public function render($admin=0){
+  public function render($admin=0, $datestr = "", $isonadmin = false){
     global $icons;
     global $classes, $user;
     $admin = $admin && (($user->get_rank()<=1) || ($user->get_username() == $this->username));
 
     ?>
-     <article class="panel panel-<?php echo $classes[$this->type];?>">
+
+     <?php if ( ($datestr <> '') && !$isonadmin ) { ?>
+       <article>
+         <div class="panel"> 
+           <h4><?php echo $datestr;?></h4>
+        </div>
+       </article> 
+     <?php } ?>
+
+        <article class="panel panel-<?php echo $classes[$this->type];?>">
         <div class="panel-heading icon">
           <i class="<?php echo $icons[$this->type];?>"></i>
         </div>
@@ -204,6 +215,29 @@ class Incident implements JsonSerializable
         </div>
       </article>
       <?php
+  }
+
+  /**
+   * Renders a "no incident reported" header
+   * @param String $datestr - contains header date sting to show
+   * @param boolean isonadmin - Is true if the call is coming from the /admin/ dashboard
+   * @return void
+   */
+  public function render_no_incident($datestr, $isonadmin)
+  {
+    // Do not render if user is on admin page
+    // TODO: There should be a simpler check for this...
+
+    if ( $datestr != '' && ! $isonadmin ) {
+    ?>
+      <article>
+         <div class="panel">
+          <h4><?php echo $datestr; ?></h4>
+          <p><?php echo _("No recorded incidents");?></p>
+	 </div>
+      </article>
+    <?php
+    }
   }
 
   public function jsonSerialize() {
