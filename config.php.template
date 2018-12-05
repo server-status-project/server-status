@@ -15,6 +15,7 @@ define("WHO_WE_ARE","##who_we_are##");
 define("POLICY_URL","##policy_url##");
 define("INSTALL_OVERRIDE", false);
 define("DEFAULT_LANGUAGE", "en_GB");
+define("SHOW_DAYS_WITHOUT_INCIDENTS", true);  //If enabled, renders a "No reported incident" header" for such days
 
 require("classes/locale-negotiator.php");
 

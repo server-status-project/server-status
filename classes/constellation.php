@@ -50,24 +50,25 @@ class Constellation
     $show = !$future && $incidents["more"];
 
     $offset += $limit;
-    $timenow = new DateTime('NOW');
-    $dPrev = null;
-    $dateIPrev = null;
+    $time_reference = new DateTime('NOW');
+    $date_previous_stored = null;
+    $date_incident_previous = null;
+    $incident_header_date = null;
 
     // Check to see if call is coming from the admin page. If loaded from the admin page
     // the date headers will not be rendered.
     // TODO: Should be an eaiser way to determine this...
-    $isonadmin = false;
+    $is_on_admin = false;
     // Handles default page load
     $arr_url = explode("/", $_SERVER['PHP_SELF']);
     if ( 'admin' == strtolower($arr_url[count($arr_url)-2]) ) {
-      $isonadmin = true;
+      $is_on_admin = true;
     }
     // Handles calls that comes from the "Load More" button.
     if (isset( $_SERVER['HTTP_REFERER']) ) {
       $arr_url = explode("/", $_SERVER['HTTP_REFERER']);
       if ( 'admin'== strtolower($arr_url[count($arr_url)-2]) ) {  // Get last array
-        $isonadmin = true;  // We are on the admin dashboard, so prevent rendering of incident dates headers
+        $is_on_admin = true;  // We are on the admin dashboard, so prevent rendering of incident dates headers
       }
     }
     // Loop over dataset and create missing dates
@@ -75,8 +76,9 @@ class Constellation
 
        // Get previous date from last loaded incident via GET to indicate where the rendering starts from
        if (isset($_GET['lastviewed']) && is_numeric($_GET['lastviewed']) ) {
-          $timenow->setTimestamp($_GET['lastviewed']);
-          $dateIPrev =  $timenow->format("Y-m-d");
+          $time_reference->setTimestamp($_GET['lastviewed']);
+          $date_incident_previous =  $time_reference->format("Y-m-d");
+          $date_previous_stored = $date_incident_previous;
        }
 
       foreach ($incidents['incidents'] as $incident) {
@@ -84,47 +86,46 @@ class Constellation
         // Check if first incident is this date or earlier
         // If earlier -> calc number of days and add no-incident display for timeperiod leading up to
 	
-        $dateIncident = new DateTime();
-        $dateIncident->setTimestamp($incident->timestamp);
-        $days = $timenow->diff($dateIncident)->format('%a');
+        $date_incident = new DateTime();
+        $date_incident->setTimestamp($incident->timestamp);
+        $days = $time_reference->diff($date_incident)->format('%a');
         if ( $days > 1 ) {
           for ($i = 0; $i <= $days; $i++) {
             $subs = "-" . $i . " days";
-            $timenowM = clone $timenow;	// Clone object to avoid master object to change during processing
-            $timenowM->modify($subs);	// Store -x days on cloned object
-            $datestr = $timenowM->format("Y-m-d");
-            $ordinal = $timenowM->format("S");
+            $time_reference_clone = clone $time_reference;	// Clone object to avoid master object to change during processing
+            $time_reference_clone->modify($subs);	// Store -x days on cloned object
+            $date_reference = $time_reference_clone->format("Y-m-d");
 
-            $datept1 = ucwords(strftime("%A ", $timenowM->getTimestamp()));
-            $datept2 = date("j", $timenowM->getTimestamp());
-            $datept3 = _($ordinal) . ucwords(strftime(" %B %Y", $timenowM->getTimestamp()));
-            $fulldatestr = $datept1 . $datept2 . $datept3;
+            $noincident_header_date  = ucwords(strftime("%A ", $time_reference_clone->getTimestamp()));
+            $noincident_header_date .= date("j", $time_reference_clone->getTimestamp());  // Return day in numbers without leading 0 or space
+            $noincident_header_date .= _($time_reference_clone->format("S"));
+            $noincident_header_date .= ucwords(strftime(" %B %Y", $time_reference_clone->getTimestamp()));
 
-            $datestrI = substr($incident->date, 0, 10);
+            $date_incident_current = substr($incident->date, 0, 10);	// Extract date Y-m-d from incident record
 
-            if  ( ($datestr != $datestrI) && ($datestr != $dateIPrev)) {
-              $incident->render_no_incident($fulldatestr, $isonadmin);
+            if  ( ($date_reference != $date_incident_current) && ($date_reference != $date_incident_previous) && SHOW_DAYS_WITHOUT_INCIDENTS ) {
+              $incident->render_no_incident($noincident_header_date, $is_on_admin);
             }
 
-            $dateIPrev = $datestrI;
+            $date_incident_previous = $date_incident_current;
           }
         }
-        $dateIPrev = $dateIncident->format("Y-m-d");
+        $date_incident_previous = $date_incident->format("Y-m-d");
 
         // Check if we need to add date header for incident being rendered. 
         // It will only be rendered once per date
-        if ( $dPrev != $dateIPrev ) {
-          $dPrev = $dateIPrev;
-          $ordinal = $dateIncident->format("S");
-          $datept1 = ucwords(strftime("%A ", $dateIncident->getTimestamp()));
-          $datept2 = date("j", $dateIncident->getTimestamp());
-          $datept3 = _($ordinal) . ucwords(strftime(" %B %Y", $dateIncident->getTimestamp()));
-          $strIncDate = $datept1 . $datept2 . $datept3;
+
+        if ( $date_previous_stored != $date_incident_previous ) {
+          $date_previous_stored  = $date_incident_previous;
+          $incident_header_date  = ucwords(strftime("%A ", $date_incident->getTimestamp()));
+          $incident_header_date .= date("j", $date_incident->getTimestamp());
+          $incident_header_date .= _($date_incident->format("S"));	// Translate st, nd, rd etc
+          $incident_header_date .= ucwords(strftime(" %B %Y", $date_incident->getTimestamp()));
         }
 
-        $timenow->setTimestamp($incident->timestamp);
-        $incident->render($admin, $strIncDate, $isonadmin);
-        $strIncDate = null;	// Reset field so it isn't repeated  for the multiple incidents
+        $time_reference->setTimestamp($incident->timestamp);
+        $incident->render($admin, $incident_header_date, $is_on_admin);
+        $incident_header_date = null;	// Reset field so it isn't repeated  for the multiple incidents
       }
 
       if ($show)
