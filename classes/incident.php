@@ -168,7 +168,7 @@ class Incident implements JsonSerializable
       
       // Perform notification to subscribers
       $notify = new Notification();
-      $notify->get_service_details($status_id);
+      $notify->populate_impacted_services($status_id);
 
       $notify->type = $type;
       $notify->time = $time;      
@@ -210,7 +210,7 @@ class Incident implements JsonSerializable
         <div class="panel-footer clearfix">
           <small>
               <?php echo _("Impacted service(s): ");
-              foreach ( $this->service_name as $key => $value ) {
+              foreach ( $this->service_name as $value ) {
                 echo '<span class="label label-default">'.$value . '</span>&nbsp;';
               }
 

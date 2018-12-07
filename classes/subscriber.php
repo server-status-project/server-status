@@ -115,7 +115,7 @@ Class Subscriber
         $stmt = $mysqli->prepare("INSERT INTO subscribers (typeID, userID, firstname, lastname, token, active, expires, create_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("issssiii", $typeID, $userID, $firstname, $lastname, $token, $active, $expireTime, $updateTime);
         $stmt->execute();
-        $query = $stmt->get_result();
+        //$query = $stmt->get_result();
         
         $this->id        = $mysqli->insert_id;
         $this->typeID    = $typeID;

@@ -18,10 +18,10 @@ class Notification
 
     /**
      * Generate an array of servicenames and service IDs affected by a given incident
-     * @param int $statsus_id The incident to query
+     * @param int $status_id The incident to query
      * @return boolean
      */
-    public function get_service_details($status_id)
+    public function populate_impacted_services($status_id)
     {
         global $mysqli;
         if (! empty($status_id)) {
@@ -89,7 +89,7 @@ class Notification
      * Sends Telegram notification message using their web api.
      * @param string $userID The Telegram userid to send to
      * @param string $firstname The users firstname
-     * @return void
+     * @return boolean
      */
     public function submit_telegram($userID, $firstname)
     {        
@@ -100,6 +100,10 @@ class Notification
         
         $tg_message = urlencode($msg);
         $response = json_decode(file_get_contents("https://api.telegram.org/bot" . TG_BOT_API_TOKEN . "/sendMessage?chat_id=" . $userID . "&parse_mode=HTML&text=" . $tg_message), true);
+        if (! array_key_exists("ok", $response) || $response['ok'] != 1 ) {
+            return false;
+        }
+        return true;
     }
 
     /**
