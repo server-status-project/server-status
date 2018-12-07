@@ -9,8 +9,6 @@ $some = array(_("Some systems are experiencing major outages"), _("Some systems 
 $all = array(_("Our systems are experiencing major outages."), _("Our systems are experiencing minor outages"), _("Our systems are under maintenance"), _("All systems operational"));
 $permissions = array(_("Super admin"), _("Admin"), _("Editor"));
 
-require_once("classes/telegram.php"); 
-
 /**
 * Class that encapsulates methods to render header and footer
 */
@@ -23,10 +21,6 @@ class Template{
   public static function render_header($page_name, $admin = false){
     if (!$admin)
     {
-        
-      $telegram = new Telegram();
-      $tg_user = $telegram->getTelegramUserData();  // TODO Is this needed any longer?
-      
       // Create subscriber menu sections for later inclusion
       // Check if we are on admin menu, if so do not display
       $arr_url = explode("/", $_SERVER['PHP_SELF']);
