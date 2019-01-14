@@ -15,7 +15,7 @@ msgstr "Stranica nije pronađena"
 msgid "Sorry, but the page you were trying to view does not exist."
 msgstr "Izvinjavamo se, ali stranica kojoj ste želeli da pristupite ne postoji."
 
-#: admin/dashboard.php:22 admin/dashboard.php:26 template.php:106
+#: admin/dashboard.php:22 admin/dashboard.php:26 template.php:115
 msgid "Dashboard"
 msgstr "Kontrolna ploča"
 
@@ -27,7 +27,7 @@ msgstr "Dobro došli"
 msgid "New incident"
 msgstr "Nova nezgoda"
 
-#: admin/dashboard.php:72 install.php:48 install.php:157
+#: admin/dashboard.php:72 install.php:48 install.php:163
 msgid "Title"
 msgstr "Naslov"
 
@@ -35,23 +35,23 @@ msgstr "Naslov"
 msgid "Time"
 msgstr "Vreme"
 
-#: admin/dashboard.php:75
+#: admin/dashboard.php:77
 msgid "Here goes your text..."
 msgstr "Ovde se nalazi vaš tekst"
 
-#: admin/dashboard.php:78 classes/incident.php:177
+#: admin/dashboard.php:80 classes/incident.php:183
 msgid "Posted by"
 msgstr "Postavljeno od strane"
 
-#: admin/dashboard.php:78 classes/incident.php:179
+#: admin/dashboard.php:80 classes/incident.php:185
 msgid "Ending"
 msgstr "Završetak"
 
-#: admin/dashboard.php:78
+#: admin/dashboard.php:80
 msgid "End time"
 msgstr "Završno vreme"
 
-#: admin/dashboard.php:96 admin/new-user.php:53
+#: admin/dashboard.php:99 admin/new-user.php:53
 msgid "Submit"
 msgstr "Postavi"
 
@@ -64,13 +64,13 @@ msgid "Please login to continue."
 msgstr "Molimo prijavite se kako bi nastavili"
 
 #: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
-#: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:69
-#: classes/user.php:125 classes/user.php:375 install.php:163 install.php:188
+#: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:72
+#: classes/user.php:120 classes/user.php:404 install.php:169 install.php:210
 msgid "Email"
 msgstr "Email"
 
 #: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
-#: classes/user.php:128 classes/user.php:357 install.php:176 install.php:191
+#: classes/user.php:123 classes/user.php:417 install.php:182 install.php:213
 msgid "Password"
 msgstr "Šifra"
 
@@ -114,17 +114,17 @@ msgstr "Pošaljite zahtev"
 msgid "Reset password for %s (%s)"
 msgstr "Resetuj šifru %s (%s)"
 
-#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:361
-#: classes/user.php:362
+#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:421
+#: classes/user.php:422
 msgid "New password"
 msgstr "Nova šifra"
 
-#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:363
-#: classes/user.php:364
+#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:423
+#: classes/user.php:424
 msgid "Repeat password"
 msgstr "Ponovite šifru"
 
-#: admin/lost-password.php:64 classes/user.php:365
+#: admin/lost-password.php:64 classes/user.php:425
 msgid "Change password"
 msgstr "Promenite šifru"
 
@@ -132,18 +132,21 @@ msgstr "Promenite šifru"
 msgid "New user"
 msgstr "Novi korisnik"
 
-#: admin/new-user.php:19 admin/settings.php:38 admin/settings.php:69
-#: classes/user.php:119 install.php:152 install.php:162 install.php:183
+#: admin/new-user.php:19 admin/settings.php:39 admin/settings.php:72
+#: classes/user.php:114 classes/user.php:322 classes/user.php:326
+#: classes/user.php:327 classes/user.php:488 install.php:158 install.php:168
+#: install.php:190 install.php:205
 msgid "Name"
 msgstr "Ime"
 
-#: admin/new-user.php:20 admin/settings.php:69 classes/user.php:122
-#: install.php:184
+#: admin/new-user.php:20 admin/settings.php:72 classes/user.php:117
+#: classes/user.php:323 classes/user.php:329 classes/user.php:330
+#: classes/user.php:491 install.php:206
 msgid "Surname"
 msgstr "Prezime"
 
-#: admin/new-user.php:23 admin/settings.php:69 classes/user.php:317
-#: install.php:187
+#: admin/new-user.php:23 admin/settings.php:72 classes/user.php:349
+#: install.php:209
 msgid "Username"
 msgstr "Korisničko ime"
 
@@ -151,7 +154,7 @@ msgstr "Korisničko ime"
 msgid "Permission"
 msgstr "Permisija"
 
-#: admin/settings.php:12 template.php:108
+#: admin/settings.php:12 template.php:117
 msgid "Settings"
 msgstr "Podešavanja"
 
@@ -163,35 +166,35 @@ msgstr "Usluge"
 msgid "Add service"
 msgstr "Dodaj usluge"
 
-#: admin/settings.php:37 admin/settings.php:69 classes/user.php:313
+#: admin/settings.php:38 admin/settings.php:72
 msgid "ID"
 msgstr "ID"
 
-#: admin/settings.php:41
+#: admin/settings.php:42
 msgid "Delete"
 msgstr "Izbriši"
 
-#: admin/settings.php:65
+#: admin/settings.php:67
 msgid "Users"
-msgstr ""
+msgstr "Корисници"
 
-#: admin/settings.php:66
+#: admin/settings.php:68
 msgid "Add new user"
 msgstr "Dodaj novog korisnika"
 
-#: admin/settings.php:69 classes/user.php:329
+#: admin/settings.php:72 classes/user.php:372
 msgid "Role"
 msgstr "Hijerarhija"
 
-#: admin/user.php:35 install.php:175 install.php:180
+#: admin/user.php:45 admin/user.php:54 install.php:181 install.php:202
 msgid "User"
 msgstr "Korisnik"
 
-#: admin/user.php:39
+#: admin/user.php:52
 msgid "User settings"
 msgstr "Korisnička podešavanja"
 
-#: classes/constellation.php:36
+#: classes/constellation.php:36 template.php:4
 msgid "Planned maintenance"
 msgstr "Planirano održavanje"
 
@@ -207,176 +210,176 @@ msgstr "Prošli incidenti"
 msgid "No incidents"
 msgstr "Nema incidenata"
 
-#: classes/constellation.php:62
+#: classes/constellation.php:61
 msgid "Load more"
 msgstr "Učitaj više"
 
-#: classes/constellation.php:100
+#: classes/constellation.php:101
 msgid "No services"
 msgstr "Nema usluga"
 
-#: classes/incident.php:83
+#: classes/incident.php:87
 msgid "Please enter title"
 msgstr "Molimo unesite naslov"
 
-#: classes/incident.php:86
+#: classes/incident.php:90
 msgid "Title too long! Character limit is 50"
 msgstr "Naslov je previše dugačak! Limit karaktera je 50"
 
-#: classes/incident.php:92
+#: classes/incident.php:96
 msgid "Please enter text"
 msgstr "Molimo unesite tekst"
 
-#: classes/incident.php:98
+#: classes/incident.php:102
 msgid "Please set start and end time! Use ISO 8601 format."
 msgstr "Molimo podesite početno i završno vreme! Koristite ISO 8601 format"
 
-#: classes/incident.php:103
+#: classes/incident.php:107
 msgid "Please select at least one service"
 msgstr "Molimo izaberite najmanje jednu uslugu"
 
-#: classes/incident.php:121
+#: classes/incident.php:127
 msgid "Start date format is not recognized. Please use ISO 8601 format."
 msgstr "Format početnog vremena nije prepoznat. Molimo koristite ISO 8604 format."
 
-#: classes/incident.php:127
+#: classes/incident.php:133
 msgid "End date format is not recognized. Please use ISO 8601 format."
 msgstr "Format završnog vremena nije prepoznat. Molimo koristite ISO 8604 format."
 
-#: classes/incident.php:179
+#: classes/incident.php:185
 msgid "Ended"
 msgstr "Završeno"
 
 #: classes/service.php:63
 msgid "Service name is too long! Character limit is 50"
-msgstr ""
+msgstr "Име услуге је предуго! Граница карактера је 50"
 
 #: classes/service.php:66
 msgid "Please enter name!"
 msgstr "Molimo unesite ime!"
 
-#: classes/service.php:81 classes/service.php:123 classes/user.php:102
-#: classes/user.php:204
+#: classes/service.php:81 classes/service.php:123 classes/user.php:97
+#: classes/user.php:199
 msgid "You don't have the permission to do that!"
 msgstr "Nemate dozvolu da obavite tu radnju!"
 
-#: classes/user.php:165
+#: classes/user.php:164
 msgid "Please mind the following character limits: "
 msgstr "Molimo obratite pažnju na limit karaktera:"
 
-#: classes/user.php:182
+#: classes/user.php:185
 msgid "User account created"
 msgstr "Korisnički nalog je kreiran"
 
-#: classes/user.php:183
+#: classes/user.php:186
 msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
 msgstr "Pozdrav %s!<br>Vaš nalog je kreiran. Možete se prijaviti sa vašom email adresom na <a href=\"%s\">%s</a>sa šifrom %s - molimo da je promenite što je pre moguće."
 
-#: classes/user.php:196
+#: classes/user.php:180
 msgid "Username or email already used"
 msgstr "Korisničko ime ili email je već u upotrebi"
 
-#: classes/user.php:236
+#: classes/user.php:244
 msgid "Your account has been disabled. Please contact administrator."
 msgstr "Vaš nalog je blokiran. Molimo kontaktirajte administratora"
 
-#: classes/user.php:248 classes/user.php:264
+#: classes/user.php:233 classes/user.php:256
 msgid "Wrong email or password"
 msgstr "Email ili šifra su pogrešni"
 
-#: classes/user.php:295
+#: classes/user.php:299
 msgid "Invalid token detected, please login again!"
 msgstr "Detektovan je pogrešan token, molimo prijavite se ponovo!"
 
-#: classes/user.php:309
+#: classes/user.php:314
 msgid "Profile picture"
 msgstr "Profilna slika"
 
-#: classes/user.php:334
+#: classes/user.php:379
 msgid "Change role"
 msgstr "Promenite hijerahiju"
 
-#: classes/user.php:349
+#: classes/user.php:394
 msgid "Change email"
 msgstr "Promenite email"
 
-#: classes/user.php:359 classes/user.php:360
+#: classes/user.php:419 classes/user.php:420
 msgid "Old password"
 msgstr "Stara šifra"
 
-#: classes/user.php:412
+#: classes/user.php:526
 msgid "Passwords do not match!"
 msgstr "Šifre se ne poklapaju"
 
-#: classes/user.php:418
+#: classes/user.php:534
 msgid "Cannot change password of other users!"
 msgstr "Ne možete menjati šifre drugih korisnika"
 
-#: classes/user.php:448
+#: classes/user.php:567
 msgid "Wrong password!"
 msgstr "Pogrešna šifra!"
 
-#: classes/user.php:474 classes/user.php:565
+#: classes/user.php:595 classes/user.php:695
 msgid "Invalid token detected, please retry your request from start!"
 msgstr "Detektovan je pogrešan token, molimo pokrenite vaš zahtev do početka!"
 
-#: classes/user.php:504
+#: classes/user.php:623
 msgid "Reset password"
 msgstr "Resetuj šifru"
 
-#: classes/user.php:529
+#: classes/user.php:659
 msgid "Email change"
 msgstr "Promena email adrese"
 
-#: classes/incident.php:50 classes/user.php:608
+#: classes/incident.php:54 classes/user.php:736
 msgid "You don't have permission to do that!"
 msgstr "Nemate dozvolu da obavite tu radnju!"
 
-#: config.php:40
+#: template.php:4
 msgid "Major outage"
 msgstr "Važna zastara"
 
-#: config.php:40
+#: template.php:4
 msgid "Minor outage"
 msgstr "Nebitna zastara"
 
-#: config.php:40
+#: template.php:4
 msgid "Operational"
 msgstr "Operativni"
 
-#: config.php:43
+#: template.php:7
 msgid "Some systems are experiencing major outages"
 msgstr "Neki sistemi iskušavaju velike zastare"
 
-#: config.php:43
+#: template.php:7
 msgid "Some systems are experiencing minor outages"
 msgstr "Neki sistemi iskušavaju nebitne zastare"
 
-#: config.php:43
+#: template.php:7
 msgid "Some systems are under maintenance"
 msgstr "Neki sistemi su pod održavanjem"
 
-#: config.php:44
+#: template.php:8
 msgid "Our systems are experiencing major outages."
 msgstr "Naši sistemi iskušavaju velike zastare"
 
-#: config.php:44
+#: template.php:8
 msgid "Our systems are experiencing minor outages"
 msgstr "Naši sistemi iskušavaju nebitne zastare"
 
-#: config.php:44
+#: template.php:8
 msgid "Our systems are under maintenance"
 msgstr " Naši sistemi su pod održavanjem"
 
-#: config.php:44
+#: template.php:8
 msgid "All systems operational"
 msgstr "Svi sistemi funkionišu"
 
-#: config.php:45
+#: template.php:9
 msgid "Super admin"
 msgstr "Super admin"
 
-#: config.php:45
+#: template.php:9
 msgid "Admin"
 msgstr "Admin"
 
@@ -384,15 +387,15 @@ msgstr "Admin"
 msgid "Service Status"
 msgstr "Status usluga"
 
-#: template.php:97
+#: template.php:106
 msgid "Toggle navigation"
 msgstr "Uključi navigaciju"
 
-#: template.php:107
+#: template.php:116
 msgid "User (%s)"
 msgstr "Korisnik (%s)"
 
-#: template.php:109
+#: template.php:118
 msgid "Logout"
 msgstr "Odjavite se"
 
@@ -404,11 +407,11 @@ msgstr "Trenutni status"
 msgid "Status page"
 msgstr "Status stranice"
 
-#: install.php:133
+#: install.php:139
 msgid "Install"
 msgstr "Instaliraj"
 
-#: install.php:135
+#: install.php:141
 msgid "Installation"
 msgstr "Instalacija"
 
@@ -425,55 +428,55 @@ msgstr "Molimo podesite validan url!"
 msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
 msgstr "Greška tokom kreiranja databaze. Molimo proverite dozvole vašeg naloga ili MYSQL verzije. <br>Greška: %s"
 
-#: install.php:148
+#: install.php:154
 msgid "Website details"
 msgstr "Detalji veb stranice"
 
-#: install.php:40 install.php:153
+#: install.php:40 install.php:159
 msgid "Url"
 msgstr "Url"
 
-#: install.php:160
+#: install.php:166
 msgid "Also an email address for mailer would be nice :)"
 msgstr "Email adresa za pošiljaoca bi bila odlična :)"
 
-#: install.php:167
+#: install.php:173
 msgid "Database connection"
 msgstr "Konekcija databaze"
 
-#: install.php:168
+#: install.php:174
 msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
 msgstr "Potrebna nam je konekcija ka databazi kako bi mogli da kreiramo tabele. Molimo proverite da li vaš nalog ima dozvolu za obavljane takve radnje."
 
-#: install.php:171
+#: install.php:177
 msgid "Server"
 msgstr "Server"
 
-#: install.php:172
+#: install.php:178
 msgid "Database"
 msgstr "Databaza"
 
-#: install.php:181
+#: install.php:203
 msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
 msgstr "I konačno, potrebne su nam informacije kako bi kreirali novi korisnički nalog. Ne morate nam ih dali, ali onda...Nema statusa o stranici za admine."
 
-#: install.php:194
+#: install.php:216
 msgid "Run install!"
 msgstr "Pokrenite instalaciju!"
 
-#: classes/user.php:132
+#: classes/user.php:127
 msgid "Rank"
 msgstr "Rank"
 
-#: classes/user.php:505
+#: classes/user.php:624
 msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
 msgstr "Pozdrav %s!<br> Ispod možeš naći link kako bi promenio svoju šifru. Ovaj link je dostupan narednih 24 sata. Ako niste ovo zahtevali, molimo ignorišite poruku. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>Ako link nije u funkciji, kopirajte &amp; prelepite u vaš pretraživač: <br>%s"
 
-#: classes/user.php:530
+#: classes/user.php:660
 msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
 msgstr "Pozdrav %s!<br> Ispod možeš naći link kako bi promenio svoj emaI. Ovaj link je dostupan narednih 24 sata. Ako niste ovo zahtevali, molimo ignorišite poruku. <br><br><a href=\"%s\">RESET EMAIL</a><br><br>Ako link nije u funkciji, kopirajte &amp; prelepite u vaš pretraživač: <br>%s"
 
-#: config.php:45
+#: template.php:9
 msgid "Editor"
 msgstr "Editor"
 
@@ -505,19 +508,19 @@ msgstr "Korisnik databaze"
 msgid "Database password"
 msgstr "Šifra databaze"
 
-#: template.php:138
+#: template.php:147
 msgid "Toggle Dropdown"
 msgstr "Uključite padajuću listu"
 
-#: template.php:147
+#: template.php:156
 msgid "Help with translation!"
 msgstr "Pomoć pri prevođenju!"
 
-#: classes/user.php:389
+#: classes/user.php:439
 msgid "Deactivate user"
 msgstr "Deaktivirajte korisnika"
 
-#: classes/user.php:391
+#: classes/user.php:441
 msgid "Activate user"
 msgstr "Aktivirajte korisnika"
 
@@ -525,15 +528,133 @@ msgstr "Aktivirajte korisnika"
 msgid "Please enter"
 msgstr "Molimo unesite"
 
-#: install.php:144
+#: install.php:150
 msgid "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
 msgstr "Pitaćemo vas neka osnovna pitanja u vezi vašeg sajta. Većina podešavanje može biti kasnije promenjenja u fajlu pod nazivom config.php"
 
-#: install.php:149
+#: install.php:155
 msgid "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
 msgstr "Potrebno nam je ime vaše statusne stranice (pokazano je izma naslova posle daske) i url vašeg statusa instalacije servera(i.e. <a href=\"#\">https://example.com/status</a> - without the trailing slash), tako da bi smo mogli da kontaktiramo korisnike koji su zaboravili šifru"
 
-#: install.php:155
+#: install.php:161
 msgid "A title that you want to be shown on the top of the page."
+msgstr ""
+
+#: api/status.php:24
+msgid "Service does not exist!"
+msgstr ""
+
+#: classes/user.php:220
+msgid "Please fill in your email and password!"
+msgstr ""
+
+#: classes/user.php:336
+msgid "Change name"
+msgstr ""
+
+#: classes/user.php:356
+msgid "Change username"
+msgstr ""
+
+#: classes/user.php:463
+msgid "This username is already taken."
+msgstr ""
+
+#: classes/user.php:470
+msgid "Cannot change username of other users!"
+msgstr ""
+
+#: classes/user.php:504
+msgid "Cannot change names of other users!"
+msgstr ""
+
+#: classes/user.php:667
+msgid "Confirmation email sent!"
+msgstr ""
+
+#: install.php:186 policy.php:6
+msgid "Privacy Policy"
+msgstr ""
+
+#: install.php:190
+msgid "Company name"
+msgstr ""
+
+#: install.php:191
+msgid "Address"
+msgstr ""
+
+#: install.php:191
+msgid "Full address"
+msgstr ""
+
+#: install.php:194
+msgid "E-Mail"
+msgstr ""
+
+#: install.php:195
+msgid "Phone"
+msgstr ""
+
+#: install.php:195
+msgid "Phone number"
+msgstr ""
+
+#: install.php:198 policy.php:7
+msgid "Who we are"
+msgstr ""
+
+#: policy.php:9
+msgid "Contact"
+msgstr ""
+
+#: policy.php:17
+msgid "What personal data we collect and why"
+msgstr ""
+
+#: policy.php:19
+msgid "If you access our websites, the following information will be saved: IP-address, Date, Time, Browser queries, \n"
+"\tGeneral information about your browser, operating system and all search queries on the sites. \n"
+"\tThis user data will be used for anonym user statistics to recognize trends and improve our content.\n"
+"\t"
+msgstr ""
+
+#: policy.php:23
+msgid "How we protect your data"
+msgstr ""
+
+#: policy.php:24
+msgid "In collaboration with our hosting provider we try our best to protect our \n"
+"\tdatabases against access from third parties, losses, misuse or forgery.\n"
+"\t"
+msgstr ""
+
+#: policy.php:27
+msgid "Third party that receive your personal data"
+msgstr ""
+
+#: policy.php:29
+msgid "Cookies"
+msgstr ""
+
+#: policy.php:30
+msgid "This site uses cookies – small text files that are placed on your machine to help the site provide a better user experience. \n"
+"\tIn general, cookies are used to retain user preferences, store information for things like shopping carts, \n"
+"\tand provide anonymised tracking data to third party applications like Google Analytics. \n"
+"\tAs a rule, cookies will make your browsing experience better. However, you may prefer to disable cookies on this site and on others. \n"
+"\tThe most effective way to do this is to disable cookies in your browser. We suggest consulting the Help section of your browser \n"
+"\tor taking a look at the About Cookies website which offers guidance for all modern browsers"
+msgstr ""
+
+#: install.php:187
+msgid "Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below."
+msgstr ""
+
+#: install.php:198
+msgid "Some info about yourself"
+msgstr ""
+
+#: policy.php:18
+msgid "General"
 msgstr ""
 
