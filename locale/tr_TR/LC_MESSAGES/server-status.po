@@ -647,23 +647,23 @@ msgid "This site uses cookies – small text files that are placed on your machi
 "\tAs a rule, cookies will make your browsing experience better. However, you may prefer to disable cookies on this site and on others. \n"
 "\tThe most effective way to do this is to disable cookies in your browser. We suggest consulting the Help section of your browser \n"
 "\tor taking a look at the About Cookies website which offers guidance for all modern browsers"
-msgstr "Bu site, sitenin daha iyi bir kullanıcı deneyimi sunmasına yardımcı olmak için bilgisayarınıza yerleştirilen küçük metin dosyaları olan tanımlama bilgilerini kullanır.\n"
+msgstr "Bu site, daha iyi bir kullanıcı deneyimi sunmasına yardımcı olmak için bilgisayarınıza yerleştirilen küçük metin dosyaları olan tanımlama bilgilerini kullanır.\n"
 "\n"
 "Genel olarak, çerezler kullanıcı tercihlerini saklamak, alışveriş sepeti gibi şeyler için bilgi depolamak ve Google Analytics gibi üçüncü taraf uygulamalara anonimleştirilmiş izleme verileri sağlamak için kullanılır.\n"
 "\n"
 "Kural olarak, çerezler tarama deneyiminizi daha iyi hale getirir. Ancak, bu sitede ve diğerlerinde çerezleri devre dışı bırakmayı tercih edebilirsiniz.\n"
 "\n"
-"Bunu yapmanın en etkili yolu tarayıcınızdaki çerezleri devre dışı bırakmaktır. Tarayıcınızın Yardım bölümüne bakmanızı veya tüm modern tarayıcılar için rehberlik sunan Hakkında Çerezler web sitesine göz atmanızı öneririz."
+"Bunu yapmanın en etkili yolu tarayıcınızdaki çerezleri devre dışı bırakmaktır. Tarayıcınızın yardım bölümüne bakmanızı veya tüm modern tarayıcılar için rehberlik sunan About Cookies web sitesine göz atmanızı öneririz."
 
 #: install.php:187
 msgid "Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below."
-msgstr ""
+msgstr "Kişisel bilgileri topladığınızdan beri, GSYİH'nın bir gizlilik politikasına sahip olmanız gerekir. Aşağıdaki bilgileri girin."
 
 #: install.php:198
 msgid "Some info about yourself"
-msgstr ""
+msgstr "Kendiniz hakkında bazı bilgiler"
 
 #: policy.php:18
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
