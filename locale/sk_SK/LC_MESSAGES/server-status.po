@@ -682,13 +682,13 @@ msgstr "Tieto stránky používajú súbory cookie - malé textové súbory, kto
 
 #: install.php:187
 msgid "Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below."
-msgstr ""
+msgstr "Keďže zhromažďujete osobné údaje, GDPR vyžaduje, aby ste mali zásady ochrany osobných údajov. Zadajte podrobnosti nižšie."
 
 #: install.php:198
 msgid "Some info about yourself"
-msgstr ""
+msgstr "Niektoré informácie o sebe"
 
 #: policy.php:18
 msgid "General"
-msgstr ""
+msgstr "Všeobecný"
 
