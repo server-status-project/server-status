@@ -15,7 +15,7 @@ msgstr "网页未找到"
 msgid "Sorry, but the page you were trying to view does not exist."
 msgstr "抱歉，您尝试查看的网页不存在。"
 
-#: admin/dashboard.php:22 admin/dashboard.php:26 template.php:106
+#: admin/dashboard.php:22 admin/dashboard.php:26 template.php:115
 msgid "Dashboard"
 msgstr "仪表盘"
 
@@ -27,7 +27,7 @@ msgstr "欢迎"
 msgid "New incident"
 msgstr "新事件"
 
-#: admin/dashboard.php:72 install.php:48 install.php:157
+#: admin/dashboard.php:72 install.php:48 install.php:163
 msgid "Title"
 msgstr "标题"
 
@@ -35,23 +35,23 @@ msgstr "标题"
 msgid "Time"
 msgstr "时间"
 
-#: admin/dashboard.php:75
+#: admin/dashboard.php:77
 msgid "Here goes your text..."
 msgstr "这里输入你的文字..."
 
-#: admin/dashboard.php:78 classes/incident.php:177
+#: admin/dashboard.php:80 classes/incident.php:183
 msgid "Posted by"
 msgstr "发布者"
 
-#: admin/dashboard.php:78 classes/incident.php:179
+#: admin/dashboard.php:80 classes/incident.php:185
 msgid "Ending"
 msgstr "结尾"
 
-#: admin/dashboard.php:78
+#: admin/dashboard.php:80
 msgid "End time"
 msgstr "结束时间"
 
-#: admin/dashboard.php:96 admin/new-user.php:53
+#: admin/dashboard.php:99 admin/new-user.php:53
 msgid "Submit"
 msgstr "提交"
 
@@ -64,13 +64,13 @@ msgid "Please login to continue."
 msgstr "请登录访问更多内容。"
 
 #: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
-#: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:69
-#: classes/user.php:125 classes/user.php:375 install.php:163 install.php:188
+#: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:72
+#: classes/user.php:120 classes/user.php:404 install.php:169 install.php:210
 msgid "Email"
 msgstr "Email"
 
 #: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
-#: classes/user.php:128 classes/user.php:357 install.php:176 install.php:191
+#: classes/user.php:123 classes/user.php:417 install.php:182 install.php:213
 msgid "Password"
 msgstr "密码"
 
@@ -114,17 +114,17 @@ msgstr "提交请求"
 msgid "Reset password for %s (%s)"
 msgstr "重置 %s (%s) 的密码"
 
-#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:361
-#: classes/user.php:362
+#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:421
+#: classes/user.php:422
 msgid "New password"
 msgstr "新的密码"
 
-#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:363
-#: classes/user.php:364
+#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:423
+#: classes/user.php:424
 msgid "Repeat password"
 msgstr "重复输入密码"
 
-#: admin/lost-password.php:64 classes/user.php:365
+#: admin/lost-password.php:64 classes/user.php:425
 msgid "Change password"
 msgstr "更改密码"
 
@@ -132,18 +132,21 @@ msgstr "更改密码"
 msgid "New user"
 msgstr "新用户"
 
-#: admin/new-user.php:19 admin/settings.php:38 admin/settings.php:69
-#: classes/user.php:119 install.php:152 install.php:162 install.php:183
+#: admin/new-user.php:19 admin/settings.php:39 admin/settings.php:72
+#: classes/user.php:114 classes/user.php:322 classes/user.php:326
+#: classes/user.php:327 classes/user.php:488 install.php:158 install.php:168
+#: install.php:190 install.php:205
 msgid "Name"
 msgstr "名字"
 
-#: admin/new-user.php:20 admin/settings.php:69 classes/user.php:122
-#: install.php:184
+#: admin/new-user.php:20 admin/settings.php:72 classes/user.php:117
+#: classes/user.php:323 classes/user.php:329 classes/user.php:330
+#: classes/user.php:491 install.php:206
 msgid "Surname"
 msgstr "姓"
 
-#: admin/new-user.php:23 admin/settings.php:69 classes/user.php:317
-#: install.php:187
+#: admin/new-user.php:23 admin/settings.php:72 classes/user.php:349
+#: install.php:209
 msgid "Username"
 msgstr "用户名"
 
@@ -151,7 +154,7 @@ msgstr "用户名"
 msgid "Permission"
 msgstr "允许"
 
-#: admin/settings.php:12 template.php:108
+#: admin/settings.php:12 template.php:117
 msgid "Settings"
 msgstr "设置"
 
@@ -163,35 +166,35 @@ msgstr "服务"
 msgid "Add service"
 msgstr "添加服务"
 
-#: admin/settings.php:37 admin/settings.php:69 classes/user.php:313
+#: admin/settings.php:38 admin/settings.php:72
 msgid "ID"
 msgstr "ID"
 
-#: admin/settings.php:41
+#: admin/settings.php:42
 msgid "Delete"
 msgstr "删除"
 
-#: admin/settings.php:65
+#: admin/settings.php:67
 msgid "Users"
 msgstr "用户"
 
-#: admin/settings.php:66
+#: admin/settings.php:68
 msgid "Add new user"
 msgstr "添加新用户"
 
-#: admin/settings.php:69 classes/user.php:329
+#: admin/settings.php:72 classes/user.php:372
 msgid "Role"
 msgstr "角色"
 
-#: admin/user.php:35 install.php:175 install.php:180
+#: admin/user.php:45 admin/user.php:54 install.php:181 install.php:202
 msgid "User"
 msgstr "用户"
 
-#: admin/user.php:39
+#: admin/user.php:52
 msgid "User settings"
 msgstr "用户设置"
 
-#: classes/constellation.php:36
+#: classes/constellation.php:36 template.php:4
 msgid "Planned maintenance"
 msgstr "计划维护"
 
@@ -207,43 +210,43 @@ msgstr "过去的事件"
 msgid "No incidents"
 msgstr "没有事件"
 
-#: classes/constellation.php:62
+#: classes/constellation.php:61
 msgid "Load more"
 msgstr "加载更多"
 
-#: classes/constellation.php:100
+#: classes/constellation.php:101
 msgid "No services"
 msgstr "没有服务"
 
-#: classes/incident.php:83
+#: classes/incident.php:87
 msgid "Please enter title"
 msgstr "请输入标题"
 
-#: classes/incident.php:86
+#: classes/incident.php:90
 msgid "Title too long! Character limit is 50"
 msgstr "标题太长了！ 字符限制为50"
 
-#: classes/incident.php:92
+#: classes/incident.php:96
 msgid "Please enter text"
 msgstr "请输入文字"
 
-#: classes/incident.php:98
+#: classes/incident.php:102
 msgid "Please set start and end time! Use ISO 8601 format."
 msgstr "请设置开始和结束时间！ 使用  ISO 8601 格式。"
 
-#: classes/incident.php:103
+#: classes/incident.php:107
 msgid "Please select at least one service"
 msgstr "请至少选择一项服务"
 
-#: classes/incident.php:121
+#: classes/incident.php:127
 msgid "Start date format is not recognized. Please use ISO 8601 format."
 msgstr "开始日期格式不被识别。 请使用 ISO 8601 格式。"
 
-#: classes/incident.php:127
+#: classes/incident.php:133
 msgid "End date format is not recognized. Please use ISO 8601 format."
 msgstr "结束日期格式不被识别。  请使用 ISO 8601 格式。"
 
-#: classes/incident.php:179
+#: classes/incident.php:185
 msgid "Ended"
 msgstr "截至"
 
@@ -255,128 +258,128 @@ msgstr "服务名称太长了！ 字符限制为50"
 msgid "Please enter name!"
 msgstr "请输入名字！"
 
-#: classes/service.php:81 classes/service.php:123 classes/user.php:102
-#: classes/user.php:204
+#: classes/service.php:81 classes/service.php:123 classes/user.php:97
+#: classes/user.php:199
 msgid "You don't have the permission to do that!"
 msgstr "你没有这个权限！"
 
-#: classes/user.php:165
+#: classes/user.php:164
 msgid "Please mind the following character limits: "
 msgstr "请注意以下字符限制：␣"
 
-#: classes/user.php:182
+#: classes/user.php:185
 msgid "User account created"
 msgstr "用户帐户已创建"
 
-#: classes/user.php:183
+#: classes/user.php:186
 msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
 msgstr "你好 %s!<br>你的帐户已创建。 可以使用密码 %s 在 <a href=\"%s\">%s</a> 上以你的电子邮件地址登录 - 请尽快更改。"
 
-#: classes/user.php:196
+#: classes/user.php:180
 msgid "Username or email already used"
 msgstr "用户名或电子邮件已被使用"
 
-#: classes/user.php:236
+#: classes/user.php:244
 msgid "Your account has been disabled. Please contact administrator."
 msgstr "您的帐户已禁用。 请联系管理员。"
 
-#: classes/user.php:248 classes/user.php:264
+#: classes/user.php:233 classes/user.php:256
 msgid "Wrong email or password"
 msgstr "错误的电子邮件或密码"
 
-#: classes/user.php:295
+#: classes/user.php:299
 msgid "Invalid token detected, please login again!"
 msgstr "检测到无效标记，请再次登录！"
 
-#: classes/user.php:309
+#: classes/user.php:314
 msgid "Profile picture"
 msgstr "资料图片"
 
-#: classes/user.php:334
+#: classes/user.php:379
 msgid "Change role"
 msgstr "改变角色"
 
-#: classes/user.php:349
+#: classes/user.php:394
 msgid "Change email"
 msgstr "更改电子邮件"
 
-#: classes/user.php:359 classes/user.php:360
+#: classes/user.php:419 classes/user.php:420
 msgid "Old password"
 msgstr "旧密码"
 
-#: classes/user.php:412
+#: classes/user.php:526
 msgid "Passwords do not match!"
 msgstr "密码不匹配！"
 
-#: classes/user.php:418
+#: classes/user.php:534
 msgid "Cannot change password of other users!"
 msgstr "无法更改其他用户的密码！"
 
-#: classes/user.php:448
+#: classes/user.php:567
 msgid "Wrong password!"
 msgstr "密码错误！"
 
-#: classes/user.php:474 classes/user.php:565
+#: classes/user.php:595 classes/user.php:695
 msgid "Invalid token detected, please retry your request from start!"
 msgstr "检测到无效令牌，请从头开始重试你的请求！"
 
-#: classes/user.php:504
+#: classes/user.php:623
 msgid "Reset password"
 msgstr "重设密码"
 
-#: classes/user.php:529
+#: classes/user.php:659
 msgid "Email change"
 msgstr "Email更改"
 
-#: classes/incident.php:50 classes/user.php:608
+#: classes/incident.php:54 classes/user.php:736
 msgid "You don't have permission to do that!"
 msgstr "你没有这个权限！"
 
-#: config.php:40
+#: template.php:4
 msgid "Major outage"
 msgstr "重大中断"
 
-#: config.php:40
+#: template.php:4
 msgid "Minor outage"
 msgstr "轻微中断"
 
-#: config.php:40
+#: template.php:4
 msgid "Operational"
 msgstr "运行正常"
 
-#: config.php:43
+#: template.php:7
 msgid "Some systems are experiencing major outages"
 msgstr "部分系统正在经历重大中断"
 
-#: config.php:43
+#: template.php:7
 msgid "Some systems are experiencing minor outages"
 msgstr "部分系统正在经历轻微中断"
 
-#: config.php:43
+#: template.php:7
 msgid "Some systems are under maintenance"
 msgstr "部分系统正在维护中"
 
-#: config.php:44
+#: template.php:8
 msgid "Our systems are experiencing major outages."
 msgstr "我们的系统正在经历重大中断。"
 
-#: config.php:44
+#: template.php:8
 msgid "Our systems are experiencing minor outages"
 msgstr "我们的系统遇到一些轻微中断"
 
-#: config.php:44
+#: template.php:8
 msgid "Our systems are under maintenance"
 msgstr "我们的系统正在维护中"
 
-#: config.php:44
+#: template.php:8
 msgid "All systems operational"
 msgstr "所有系统运行正常"
 
-#: config.php:45
+#: template.php:9
 msgid "Super admin"
 msgstr "超级管理员"
 
-#: config.php:45
+#: template.php:9
 msgid "Admin"
 msgstr "管理员"
 
@@ -384,15 +387,15 @@ msgstr "管理员"
 msgid "Service Status"
 msgstr "服务状态"
 
-#: template.php:97
+#: template.php:106
 msgid "Toggle navigation"
 msgstr "切换导航"
 
-#: template.php:107
+#: template.php:116
 msgid "User (%s)"
 msgstr "用户 (%s)"
 
-#: template.php:109
+#: template.php:118
 msgid "Logout"
 msgstr "注销"
 
@@ -404,11 +407,11 @@ msgstr "当前状态"
 msgid "Status page"
 msgstr "状态页"
 
-#: install.php:133
+#: install.php:139
 msgid "Install"
 msgstr "安装"
 
-#: install.php:135
+#: install.php:141
 msgid "Installation"
 msgstr "安装"
 
@@ -425,55 +428,55 @@ msgstr "请设置有效的网址！"
 msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
 msgstr "创建数据库时出错。 请检查您的帐户或MYSQL版本的权限。<br>错误： %s"
 
-#: install.php:148
+#: install.php:154
 msgid "Website details"
 msgstr "网站详情"
 
-#: install.php:40 install.php:153
+#: install.php:40 install.php:159
 msgid "Url"
 msgstr "网址"
 
-#: install.php:160
+#: install.php:166
 msgid "Also an email address for mailer would be nice :)"
 msgstr "邮件邮寄地址也不错:)"
 
-#: install.php:167
+#: install.php:173
 msgid "Database connection"
 msgstr "数据库连接"
 
-#: install.php:168
+#: install.php:174
 msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
 msgstr "我们需要数据库连接来创建表。 请检查您的帐户是否有权执行此操作。"
 
-#: install.php:171
+#: install.php:177
 msgid "Server"
 msgstr "服务器"
 
-#: install.php:172
+#: install.php:178
 msgid "Database"
 msgstr "数据库"
 
-#: install.php:181
+#: install.php:203
 msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
 msgstr "最后，我们需要信息来创建一个新的用户。 你不必提供它，但是...将没有状态页管理员..."
 
-#: install.php:194
+#: install.php:216
 msgid "Run install!"
 msgstr "运行安装！"
 
-#: classes/user.php:132
+#: classes/user.php:127
 msgid "Rank"
 msgstr "等级"
 
-#: classes/user.php:505
+#: classes/user.php:624
 msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
 msgstr "嗨 %s!<br>下面你将找到链接来更改您的密码。该链接对24小内有效。如果您没有要求, 请随意忽略它。<br><br><a href=\"%s\"> 重置密码 </a><br><br>如果链接无法正常工作, 请将其复制  &amp; 粘贴到您的浏览器中: <br>%s"
 
-#: classes/user.php:530
+#: classes/user.php:660
 msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
 msgstr "嗨 %s!<br>下面你将找到链接来更改您的电子邮件。该链接对24小内有效。如果您没有要求, 请随意忽略它。<br><br><a href=\"%s\"> 更改电子邮件 </a><br><br>如果链接无法正常工作, 请将其复制  &amp; 粘贴到您的浏览器中: <br>%s"
 
-#: config.php:45
+#: template.php:9
 msgid "Editor"
 msgstr "编辑"
 
@@ -505,19 +508,19 @@ msgstr "数据库用户"
 msgid "Database password"
 msgstr "数据库密码"
 
-#: template.php:138
+#: template.php:147
 msgid "Toggle Dropdown"
 msgstr "切换下拉菜单"
 
-#: template.php:147
+#: template.php:156
 msgid "Help with translation!"
 msgstr "帮助翻译！"
 
-#: classes/user.php:389
+#: classes/user.php:439
 msgid "Deactivate user"
 msgstr "取消激活用户"
 
-#: classes/user.php:391
+#: classes/user.php:441
 msgid "Activate user"
 msgstr "激活用户"
 
@@ -525,15 +528,140 @@ msgstr "激活用户"
 msgid "Please enter"
 msgstr "请输入"
 
-#: install.php:144
+#: install.php:150
 msgid "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
 msgstr "我们会问你一些关于你网站的基本问题。 大多数设置可以稍后在config.php文件中编辑。"
 
-#: install.php:149
+#: install.php:155
 msgid "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
 msgstr "我们需要您的状态页面的名称（显示在破折号后面的页面标题后面）以及你的服务器状态安装的URL（即<a href='#'>https://example.com/status</a> - 无 最后的斜杠），所以我们可以邮寄用户链接忘记密码等..."
 
-#: install.php:155
+#: install.php:161
 msgid "A title that you want to be shown on the top of the page."
 msgstr "您希望显示在页面顶部的标题。"
+
+#: api/status.php:24
+msgid "Service does not exist!"
+msgstr "服务不存在！"
+
+#: classes/user.php:220
+msgid "Please fill in your email and password!"
+msgstr "请填写你的电子邮件和密码！"
+
+#: classes/user.php:336
+msgid "Change name"
+msgstr "更换名字"
+
+#: classes/user.php:356
+msgid "Change username"
+msgstr "更改用户名"
+
+#: classes/user.php:463
+msgid "This username is already taken."
+msgstr "该用户名已被使用。"
+
+#: classes/user.php:470
+msgid "Cannot change username of other users!"
+msgstr "无法更改其他用户的用户名！"
+
+#: classes/user.php:504
+msgid "Cannot change names of other users!"
+msgstr "无法更改其他用户的名字！"
+
+#: classes/user.php:667
+msgid "Confirmation email sent!"
+msgstr "已发送确认电子邮件！"
+
+#: install.php:186 policy.php:6
+msgid "Privacy Policy"
+msgstr "隐私政策"
+
+#: install.php:190
+msgid "Company name"
+msgstr "公司名称"
+
+#: install.php:191
+msgid "Address"
+msgstr "地址"
+
+#: install.php:191
+msgid "Full address"
+msgstr "完整地址"
+
+#: install.php:194
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: install.php:195
+msgid "Phone"
+msgstr "电话"
+
+#: install.php:195
+msgid "Phone number"
+msgstr "电话号码"
+
+#: install.php:198 policy.php:7
+msgid "Who we are"
+msgstr "我们是谁"
+
+#: policy.php:9
+msgid "Contact"
+msgstr "联系"
+
+#: policy.php:17
+msgid "What personal data we collect and why"
+msgstr "我们收集了哪些个人数据以及原因"
+
+#: policy.php:19
+msgid "If you access our websites, the following information will be saved: IP-address, Date, Time, Browser queries, \n"
+"\tGeneral information about your browser, operating system and all search queries on the sites. \n"
+"\tThis user data will be used for anonym user statistics to recognize trends and improve our content.\n"
+"\t"
+msgstr "如果您访问我们的网站，将保存以下信息：IP地址，日期，时间，浏览器查询，\n"
+"有关您的浏览器，操作系统和网站上所有搜索查询的一般信息。\n"
+"此用户数据将用于匿名用户统计信息，以识别趋势并改进我们的内容。"
+
+#: policy.php:23
+msgid "How we protect your data"
+msgstr "我们如何保护您的数据"
+
+#: policy.php:24
+msgid "In collaboration with our hosting provider we try our best to protect our \n"
+"\tdatabases against access from third parties, losses, misuse or forgery.\n"
+"\t"
+msgstr "与我们的托管提供商合作, 我们尽力保护我们的数据库不受第三方的访问, 损失, 误用或伪造。"
+
+#: policy.php:27
+msgid "Third party that receive your personal data"
+msgstr "收到你个人数据的第三方"
+
+#: policy.php:29
+msgid "Cookies"
+msgstr "Cookies"
+
+#: policy.php:30
+msgid "This site uses cookies – small text files that are placed on your machine to help the site provide a better user experience. \n"
+"\tIn general, cookies are used to retain user preferences, store information for things like shopping carts, \n"
+"\tand provide anonymised tracking data to third party applications like Google Analytics. \n"
+"\tAs a rule, cookies will make your browsing experience better. However, you may prefer to disable cookies on this site and on others. \n"
+"\tThe most effective way to do this is to disable cookies in your browser. We suggest consulting the Help section of your browser \n"
+"\tor taking a look at the About Cookies website which offers guidance for all modern browsers"
+msgstr "此站点使用Cookie-放置在您的计算机上的小文本文件，以帮助站点提供更好的用户体验。\n"
+"一般来说，cookie用于保留用户偏好，存储购物车之类的信息，\n"
+"并向Google Analytics等第三方应用程序提供匿名跟踪数据。\n"
+"一般来说，Cookie会让你的浏览体验更好。但是，您可能希望禁用此站点和其他站点上的cookie。\n"
+"最有效的方法是在浏览器中禁用cookie。我们建议咨询您的浏览器的帮助部分。\n"
+"或者看看有关Cookies网站，为所有现代浏览器提供了指导。"
+
+#: install.php:187
+msgid "Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below."
+msgstr "由于你正在收集个人信息，因此GDPR需要您制定隐私政策。 在下面输入详细信息。"
+
+#: install.php:198
+msgid "Some info about yourself"
+msgstr "关于你自己的一些信息"
+
+#: policy.php:18
+msgid "General"
+msgstr "一般"
 
