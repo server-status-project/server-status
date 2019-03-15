@@ -1,0 +1,666 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Server status\n"
+"Language: pl\n"
+
+#: 404.php:12
+msgid "Page Not Found"
+msgstr "Strona nie została znaleziona"
+
+#: 404.php:13
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr "Przepraszamy, ale strona, którą próbujesz wyświetlić, nie istnieje."
+
+#: admin/dashboard.php:22 admin/dashboard.php:26 template.php:115
+msgid "Dashboard"
+msgstr "Panel"
+
+#: admin/dashboard.php:27
+msgid "Welcome"
+msgstr "Witamy"
+
+#: admin/dashboard.php:39
+msgid "New incident"
+msgstr "Nowy incydent"
+
+#: admin/dashboard.php:72 install.php:48 install.php:163
+msgid "Title"
+msgstr "Tytuł"
+
+#: admin/dashboard.php:72
+msgid "Time"
+msgstr "Czas"
+
+#: admin/dashboard.php:77
+msgid "Here goes your text..."
+msgstr "Tutaj wpisz wiadomość..."
+
+#: admin/dashboard.php:80 classes/incident.php:183
+msgid "Posted by"
+msgstr "Wysłane przez"
+
+#: admin/dashboard.php:80 classes/incident.php:185
+msgid "Ending"
+msgstr "Zakończono"
+
+#: admin/dashboard.php:80
+msgid "End time"
+msgstr "Koniec czasu"
+
+#: admin/dashboard.php:99 admin/new-user.php:53
+msgid "Submit"
+msgstr "Zatwierdź"
+
+#: admin/login-form.php:2 admin/login-form.php:5 admin/login-form.php:27
+msgid "Login"
+msgstr "Zaloguj się"
+
+#: admin/login-form.php:11
+msgid "Please login to continue."
+msgstr "Proszę się zalogować, aby kontynuować."
+
+#: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
+#: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:72
+#: classes/user.php:120 classes/user.php:404 install.php:169 install.php:210
+msgid "Email"
+msgstr "E-mail"
+
+#: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
+#: classes/user.php:123 classes/user.php:417 install.php:182 install.php:213
+msgid "Password"
+msgstr "Hasło"
+
+#: admin/login-form.php:22
+msgid "Forgotten password?"
+msgstr "Zapomniane hasło?"
+
+#: admin/login-form.php:23
+msgid "Remember me"
+msgstr "Zapamiętaj mnie"
+
+#: admin/lost-password.php:2 admin/lost-password.php:5
+msgid "Lost password"
+msgstr "Utracone hasło"
+
+#: admin/lost-password.php:16
+msgid "Go back"
+msgstr "Wróć"
+
+#: admin/lost-password.php:20
+msgid "Password changed successfully!"
+msgstr "Hasło zostało zmienione pomyślnie!"
+
+#: admin/lost-password.php:21 admin/lost-password.php:35
+msgid "Go back to login page"
+msgstr "Wróć do strony logowania"
+
+#: admin/lost-password.php:30
+msgid "Go back to start"
+msgstr "Wróć, aby rozpocząć"
+
+#: admin/lost-password.php:34
+msgid "Email with password reset link has been sent!"
+msgstr "E-mail z linkiem do zmiany hasła został wysłany!"
+
+#: admin/lost-password.php:50
+msgid "Submit request"
+msgstr "Wyślij zapytanie"
+
+#: admin/lost-password.php:57
+msgid "Reset password for %s (%s)"
+msgstr "Zresetuj hasło dla %s (%s)"
+
+#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:421
+#: classes/user.php:422
+msgid "New password"
+msgstr "Nowe hasło"
+
+#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:423
+#: classes/user.php:424
+msgid "Repeat password"
+msgstr "Powtórz hasło"
+
+#: admin/lost-password.php:64 classes/user.php:425
+msgid "Change password"
+msgstr "Zmień hasło"
+
+#: admin/new-user.php:7
+msgid "New user"
+msgstr "Nowy użytkownik"
+
+#: admin/new-user.php:19 admin/settings.php:39 admin/settings.php:72
+#: classes/user.php:114 classes/user.php:322 classes/user.php:326
+#: classes/user.php:327 classes/user.php:488 install.php:158 install.php:168
+#: install.php:190 install.php:205
+msgid "Name"
+msgstr "Imie"
+
+#: admin/new-user.php:20 admin/settings.php:72 classes/user.php:117
+#: classes/user.php:323 classes/user.php:329 classes/user.php:330
+#: classes/user.php:491 install.php:206
+msgid "Surname"
+msgstr "Nazwisko"
+
+#: admin/new-user.php:23 admin/settings.php:72 classes/user.php:349
+#: install.php:209
+msgid "Username"
+msgstr "Nazwa użytkownika"
+
+#: admin/new-user.php:29
+msgid "Permission"
+msgstr "Uprawnienia"
+
+#: admin/settings.php:12 template.php:117
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: admin/settings.php:23
+msgid "Services"
+msgstr "Usługi"
+
+#: admin/settings.php:29
+msgid "Add service"
+msgstr "Dodał usługę"
+
+#: admin/settings.php:38 admin/settings.php:72
+msgid "ID"
+msgstr "ID"
+
+#: admin/settings.php:42
+msgid "Delete"
+msgstr "Usuń"
+
+#: admin/settings.php:67
+msgid "Users"
+msgstr "Użytkownicy"
+
+#: admin/settings.php:68
+msgid "Add new user"
+msgstr "Dodaj nowego użytkownika"
+
+#: admin/settings.php:72 classes/user.php:372
+msgid "Role"
+msgstr "Rola"
+
+#: admin/user.php:45 admin/user.php:54 install.php:181 install.php:202
+msgid "User"
+msgstr "Użytkownik"
+
+#: admin/user.php:52
+msgid "User settings"
+msgstr "Ustawienia użytkownika"
+
+#: classes/constellation.php:36 template.php:4
+msgid "Planned maintenance"
+msgstr "Planowana konserwacja"
+
+#: classes/constellation.php:42
+msgid "Back"
+msgstr "Powrót"
+
+#: classes/constellation.php:44
+msgid "Past incidents"
+msgstr "Poprzednie incydenty"
+
+#: classes/constellation.php:48
+msgid "No incidents"
+msgstr "Brak incydentów"
+
+#: classes/constellation.php:61
+msgid "Load more"
+msgstr "Załaduj wiecej"
+
+#: classes/constellation.php:101
+msgid "No services"
+msgstr "Brak usług"
+
+#: classes/incident.php:87
+msgid "Please enter title"
+msgstr "Proszę podać tytuł"
+
+#: classes/incident.php:90
+msgid "Title too long! Character limit is 50"
+msgstr "Tytuł jest zbyt długi! Limit znaków to 50"
+
+#: classes/incident.php:96
+msgid "Please enter text"
+msgstr "Wpisz tekst"
+
+#: classes/incident.php:102
+msgid "Please set start and end time! Use ISO 8601 format."
+msgstr "Ustaw czas rozpoczęcia i zakończenia! Użyj formatu ISO 8601."
+
+#: classes/incident.php:107
+msgid "Please select at least one service"
+msgstr "Wybierz co najmniej jedną usługę\n"
+""
+
+#: classes/incident.php:127
+msgid "Start date format is not recognized. Please use ISO 8601 format."
+msgstr "Format daty rozpoczęcia nie został rozpoznany. Użyj formatu ISO 8601."
+
+#: classes/incident.php:133
+msgid "End date format is not recognized. Please use ISO 8601 format."
+msgstr "Format daty zakończenia nie został rozpoznany. Użyj formatu ISO 8601."
+
+#: classes/incident.php:185
+msgid "Ended"
+msgstr "Zakończono"
+
+#: classes/service.php:63
+msgid "Service name is too long! Character limit is 50"
+msgstr "Nazwa usługi jest za długa! Limit znaków to 50"
+
+#: classes/service.php:66
+msgid "Please enter name!"
+msgstr "Proszę podać nazwe!"
+
+#: classes/service.php:81 classes/service.php:123 classes/user.php:97
+#: classes/user.php:199
+msgid "You don't have the permission to do that!"
+msgstr "Nie masz wystarczających uprawnień!"
+
+#: classes/user.php:164
+msgid "Please mind the following character limits: "
+msgstr "Pamiętaj o limitach znaków: ␣"
+
+#: classes/user.php:185
+msgid "User account created"
+msgstr "Utworzono konto użytkownika"
+
+#: classes/user.php:186
+msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
+msgstr "Witaj, %s!<br>Twoje konto zostało utworzone. Możesz zalogować się za pomocą swojego adresu e-mail na stronie <a href=\"%s\">%s</a> z hasłem%s - zmień je tak szybko, jak to możliwe."
+
+#: classes/user.php:180
+msgid "Username or email already used"
+msgstr "Nazwa użytkownika lub adres e-mail już istnieje"
+
+#: classes/user.php:244
+msgid "Your account has been disabled. Please contact administrator."
+msgstr "Twoje konto zostało wyłączone. Skontaktuj się z administratorem."
+
+#: classes/user.php:233 classes/user.php:256
+msgid "Wrong email or password"
+msgstr "Błędny e-mail lub hasło"
+
+#: classes/user.php:299
+msgid "Invalid token detected, please login again!"
+msgstr "Wykryto nieprawidłowy token, spróbuj ponownie!"
+
+#: classes/user.php:314
+msgid "Profile picture"
+msgstr "Zdjęcie profilu"
+
+#: classes/user.php:379
+msgid "Change role"
+msgstr "Zmień role"
+
+#: classes/user.php:394
+msgid "Change email"
+msgstr "Zmień adres e-mail"
+
+#: classes/user.php:419 classes/user.php:420
+msgid "Old password"
+msgstr "Stare hasło"
+
+#: classes/user.php:526
+msgid "Passwords do not match!"
+msgstr "Hasła nie pasują do siebie!"
+
+#: classes/user.php:534
+msgid "Cannot change password of other users!"
+msgstr "Nie możesz zmieniać hasła innym użytkownika!"
+
+#: classes/user.php:567
+msgid "Wrong password!"
+msgstr "Złe hasło!"
+
+#: classes/user.php:595 classes/user.php:695
+msgid "Invalid token detected, please retry your request from start!"
+msgstr "Wykryto nieprawidłowy token, spróbuj ponownie!"
+
+#: classes/user.php:623
+msgid "Reset password"
+msgstr "Zresetuj hasło"
+
+#: classes/user.php:659
+msgid "Email change"
+msgstr "Zmiana adresu e-mail"
+
+#: classes/incident.php:54 classes/user.php:736
+msgid "You don't have permission to do that!"
+msgstr "Nie masz do tego uprawnień!"
+
+#: template.php:4
+msgid "Major outage"
+msgstr "Poważna przerwa?"
+
+#: template.php:4
+msgid "Minor outage"
+msgstr "Niewielkie awarie"
+
+#: template.php:4
+msgid "Operational"
+msgstr "Działa"
+
+#: template.php:7
+msgid "Some systems are experiencing major outages"
+msgstr "Niektóre systemy mają poważne awarie"
+
+#: template.php:7
+msgid "Some systems are experiencing minor outages"
+msgstr "Niektóre systemy mają niewielkie awarie"
+
+#: template.php:7
+msgid "Some systems are under maintenance"
+msgstr "Niektóre systemy są w trakcie konserwacji"
+
+#: template.php:8
+msgid "Our systems are experiencing major outages."
+msgstr "Nasze systemy mają poważne awarie"
+
+#: template.php:8
+msgid "Our systems are experiencing minor outages"
+msgstr "Nasze systemy mają niewielkie awarie"
+
+#: template.php:8
+msgid "Our systems are under maintenance"
+msgstr "Nasze systemy są w trakcie konserwacji"
+
+#: template.php:8
+msgid "All systems operational"
+msgstr "Wszystkie systemy działają"
+
+#: template.php:9
+msgid "Super admin"
+msgstr "Super admin"
+
+#: template.php:9
+msgid "Admin"
+msgstr "Administrator"
+
+#: template.php:53
+msgid "Service Status"
+msgstr "Status usługi"
+
+#: template.php:106
+msgid "Toggle navigation"
+msgstr "Zmień nawigację"
+
+#: template.php:116
+msgid "User (%s)"
+msgstr "Użytkownik (%s) "
+
+#: template.php:118
+msgid "Logout"
+msgstr "Wyloguj się"
+
+#: index.php:27
+msgid "Current status"
+msgstr "Aktualny stan"
+
+#: install.php:4
+msgid "Status page"
+msgstr "Strona statusów"
+
+#: install.php:139
+msgid "Install"
+msgstr "Instaluj"
+
+#: install.php:141
+msgid "Installation"
+msgstr "Instalacja"
+
+#: install.php:26
+msgid "Connection failed: %s\n"
+""
+msgstr "Utracono połączenie: %s"
+
+#: install.php:31
+msgid "Please set valid url!"
+msgstr "Ustaw prawidłowy adres URL!"
+
+#: install.php:98
+msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
+msgstr "Błąd podczas tworzenia bazy danych. Sprawdź uprawnienia do konta lub wersje MYSQL. <br>Błąd:%s"
+
+#: install.php:154
+msgid "Website details"
+msgstr "Szczegóły strony"
+
+#: install.php:40 install.php:159
+msgid "Url"
+msgstr "Url"
+
+#: install.php:166
+msgid "Also an email address for mailer would be nice :)"
+msgstr "Również adres e-mail dla powiadomień byłby miły :)"
+
+#: install.php:173
+msgid "Database connection"
+msgstr "Utracono połączenie z bazą danych"
+
+#: install.php:174
+msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
+msgstr "Potrzebujemy połączenia z bazą danych. Sprawdź, czy Twoje konto ma odpowiednie uprawnienia do tworzenia tabeli."
+
+#: install.php:177
+msgid "Server"
+msgstr "Serwer"
+
+#: install.php:178
+msgid "Database"
+msgstr "Baza danych"
+
+#: install.php:203
+msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
+msgstr "Na koniec potrzebujemy informacji, aby utworzyć nowego użytkownika. Nie musisz tego dostarczać, ale nie ma administratora strony..."
+
+#: install.php:216
+msgid "Run install!"
+msgstr "Uruchom instalację!"
+
+#: classes/user.php:127
+msgid "Rank"
+msgstr "Ranga"
+
+#: classes/user.php:624
+msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+msgstr "Witaj %s! <br>Poniżej znajduje się link do zmiany hasła. Link jest ważny przez 24 godziny. Jeśli nie poprosiłeś o to, możesz to zignorować.<br><br><a href=\"%s\"> ZMIEŃ HASŁO</a><br><br>Jeśli link nie działa, skopiuj &amp; I wklej go do przeglądarki: <br>%s"
+
+#: classes/user.php:660
+msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+msgstr "Witaj %s! <br>Poniżej znajduje się link do zmiany adresu e-mail. Link jest ważny przez 24 godziny. Jeśli nie poprosiłeś o to, możesz to zignorować.<br><br> <a href=\"%s\"> ZMIEŃ E-MAIL</a><br><br>Jeśli link nie działa, skopiuj &amp; i wklej go do przeglądarki: <br>%s"
+
+#: template.php:9
+msgid "Editor"
+msgstr "Edytor"
+
+#: install.php:36
+msgid "Server name"
+msgstr "Nazwa serwera"
+
+#: install.php:44
+msgid "Mailer name"
+msgstr "Nazwa Mailera"
+
+#: install.php:52
+msgid "Mailer email"
+msgstr "Adres e-mail Mailera"
+
+#: install.php:56
+msgid "Database server"
+msgstr "Serwer bazy danych"
+
+#: install.php:60
+msgid "Database name"
+msgstr "Nazwa bazy danych"
+
+#: install.php:64
+msgid "Database user"
+msgstr "Użytkownik bazy danych"
+
+#: install.php:69
+msgid "Database password"
+msgstr "Hasło bazy danych"
+
+#: template.php:147
+msgid "Toggle Dropdown"
+msgstr "Rozwiń"
+
+#: template.php:156
+msgid "Help with translation!"
+msgstr "Pomóż w tłumaczeniu!"
+
+#: classes/user.php:439
+msgid "Deactivate user"
+msgstr "Dezaktywuj użytkownika"
+
+#: classes/user.php:441
+msgid "Activate user"
+msgstr "Aktywuj użytkownika\n"
+""
+
+#: install.php:73
+msgid "Please enter"
+msgstr "Proszę wpisać"
+
+#: install.php:150
+msgid "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
+msgstr "Zadamy Ci kilka podstawowych pytań na temat Twojej strony. Większość ustawień można później edytować w pliku config.php."
+
+#: install.php:155
+msgid "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
+msgstr "Potrzebujemy nazwy strony statusu (wyświetlanej za tytułem strony po myślniku) i adresu URL instalacji twojego serwera (np. <a href='#'> https://example.com/status </a> - bez ukośnika na końcu), dzięki czemu możemy wysłać użytkownikom link do zapomnianego hasła itp. ..."
+
+#: install.php:161
+msgid "A title that you want to be shown on the top of the page."
+msgstr "Tytuł, który chcesz wyświetlać na górze strony."
+
+#: api/status.php:24
+msgid "Service does not exist!"
+msgstr "Usługa nie istnieje!"
+
+#: classes/user.php:220
+msgid "Please fill in your email and password!"
+msgstr "Proszę podać swój adres e-mail oraz hasło!"
+
+#: classes/user.php:336
+msgid "Change name"
+msgstr "Zmień nazwę"
+
+#: classes/user.php:356
+msgid "Change username"
+msgstr "Zmień nazwę użytkownika"
+
+#: classes/user.php:463
+msgid "This username is already taken."
+msgstr "Ta nazwa użytkownika jest już zajęta."
+
+#: classes/user.php:470
+msgid "Cannot change username of other users!"
+msgstr "Nie można zmieniać nazwy użytkownika innym użytkownikom!"
+
+#: classes/user.php:504
+msgid "Cannot change names of other users!"
+msgstr "Nie można zmienić imion innych użytkowników!"
+
+#: classes/user.php:667
+msgid "Confirmation email sent!"
+msgstr "Wysłano e-mail potwierdzający!"
+
+#: install.php:186 policy.php:6
+msgid "Privacy Policy"
+msgstr "Polityka prywatności"
+
+#: install.php:190
+msgid "Company name"
+msgstr "Nazwa firmy"
+
+#: install.php:191
+msgid "Address"
+msgstr "Adres"
+
+#: install.php:191
+msgid "Full address"
+msgstr "Pełny adres"
+
+#: install.php:194
+msgid "E-Mail"
+msgstr "E-mail"
+
+#: install.php:195
+msgid "Phone"
+msgstr "Telefon"
+
+#: install.php:195
+msgid "Phone number"
+msgstr "Numer telefonu"
+
+#: install.php:198 policy.php:7
+msgid "Who we are"
+msgstr "O nas"
+
+#: policy.php:9
+msgid "Contact"
+msgstr "Kontakt"
+
+#: policy.php:17
+msgid "What personal data we collect and why"
+msgstr "Jakie dane osobowe zbieramy i dlaczego"
+
+#: policy.php:19
+msgid "If you access our websites, the following information will be saved: IP-address, Date, Time, Browser queries, \n"
+"\tGeneral information about your browser, operating system and all search queries on the sites. \n"
+"\tThis user data will be used for anonym user statistics to recognize trends and improve our content.\n"
+"\t"
+msgstr "Jeśli uzyskasz dostęp do naszych stron internetowych, zapisane zostaną następujące informacje: adres IP, data, godzina, zapytania przeglądarki,\n"
+"Ogólne informacje o przeglądarce, systemie operacyjnym i wszystkich wyszukiwanych hasłach w witrynach.\n"
+"Te dane użytkownika będą wykorzystywane do statystyk anonimowych użytkowników w celu rozpoznawania trendów i ulepszania naszych treści."
+
+#: policy.php:23
+msgid "How we protect your data"
+msgstr "Jak chronimy Twoje dane"
+
+#: policy.php:24
+msgid "In collaboration with our hosting provider we try our best to protect our \n"
+"\tdatabases against access from third parties, losses, misuse or forgery.\n"
+"\t"
+msgstr "We współpracy z naszym dostawcą hostingu dokładamy wszelkich starań, aby chronić nasze bazy danych przed dostępem osób trzecich, stratami, niewłaściwym wykorzystaniem lub fałszowaniem."
+
+#: policy.php:27
+msgid "Third party that receive your personal data"
+msgstr "Osoba trzecia, która otrzymuje Twoje dane osobowe"
+
+#: policy.php:29
+msgid "Cookies"
+msgstr "Ciasteczka"
+
+#: policy.php:30
+msgid "This site uses cookies – small text files that are placed on your machine to help the site provide a better user experience. \n"
+"\tIn general, cookies are used to retain user preferences, store information for things like shopping carts, \n"
+"\tand provide anonymised tracking data to third party applications like Google Analytics. \n"
+"\tAs a rule, cookies will make your browsing experience better. However, you may prefer to disable cookies on this site and on others. \n"
+"\tThe most effective way to do this is to disable cookies in your browser. We suggest consulting the Help section of your browser \n"
+"\tor taking a look at the About Cookies website which offers guidance for all modern browsers"
+msgstr "Ta strona wykorzystuje pliki cookie - małe pliki tekstowe, które umieszczane są na Twoim komputerze, aby pomóc witrynie poprawić komfort użytkowania.\n"
+"Zasadniczo pliki cookie służą do zachowania preferencji użytkownika, przechowywania informacji o takich rzeczach, jak koszyki na zakupy i zapewniać anonimowe dane śledzenia do aplikacji innych firm, takich jak Google Analytics.\n"
+"Z zasady, ciasteczka sprawią, że twoje wrażenia z przeglądania będą lepsze. Możesz jednak lepiej wyłączyć pliki cookie na tej stronie i na innych. Najskuteczniejszym sposobem na to jest wyłączenie plików cookie w przeglądarce. Sugerujemy skorzystanie z sekcji Pomoc przeglądarki lub przeglądając stronę About Cookies, która zawiera wskazówki dla wszystkich nowoczesnych przeglądarek."
+
+#: install.php:187
+msgid "Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below."
+msgstr "Z racji iż zbierasz dane osobowe, RBP wymaga posiadania polityki prywatności. Wprowadź szczegóły poniżej."
+
+#: install.php:198
+msgid "Some info about yourself"
+msgstr "Informacje o tobie"
+
+#: policy.php:18
+msgid "General"
+msgstr "Ogólne"
+

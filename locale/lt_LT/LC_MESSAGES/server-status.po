@@ -1,0 +1,661 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Server status\n"
+"Language: lt\n"
+
+#: 404.php:12
+msgid "Page Not Found"
+msgstr "Puslapis nerastas "
+
+#: 404.php:13
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr "Atleiskit, bet puslapis neegzistuoja "
+
+#: admin/dashboard.php:22 admin/dashboard.php:26 template.php:115
+msgid "Dashboard"
+msgstr "Prietaisų skydelis "
+
+#: admin/dashboard.php:27
+msgid "Welcome"
+msgstr "Sveiki"
+
+#: admin/dashboard.php:39
+msgid "New incident"
+msgstr "Naujas įvykis "
+
+#: admin/dashboard.php:72 install.php:48 install.php:163
+msgid "Title"
+msgstr "Pavadinimas"
+
+#: admin/dashboard.php:72
+msgid "Time"
+msgstr "Laikas"
+
+#: admin/dashboard.php:77
+msgid "Here goes your text..."
+msgstr "Čia gali rašyti "
+
+#: admin/dashboard.php:80 classes/incident.php:183
+msgid "Posted by"
+msgstr "Paskelbtas "
+
+#: admin/dashboard.php:80 classes/incident.php:185
+msgid "Ending"
+msgstr "Pabaiga"
+
+#: admin/dashboard.php:80
+msgid "End time"
+msgstr "Baigias laikas"
+
+#: admin/dashboard.php:99 admin/new-user.php:53
+msgid "Submit"
+msgstr "Nusiųsti "
+
+#: admin/login-form.php:2 admin/login-form.php:5 admin/login-form.php:27
+msgid "Login"
+msgstr "Prisijungti "
+
+#: admin/login-form.php:11
+msgid "Please login to continue."
+msgstr "Prašome prisijungti ir tęsti "
+
+#: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
+#: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:72
+#: classes/user.php:120 classes/user.php:404 install.php:169 install.php:210
+msgid "Email"
+msgstr "Elektroninis paštas "
+
+#: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
+#: classes/user.php:123 classes/user.php:417 install.php:182 install.php:213
+msgid "Password"
+msgstr "Slaptažodis "
+
+#: admin/login-form.php:22
+msgid "Forgotten password?"
+msgstr "Pamiršote slaptažodį? "
+
+#: admin/login-form.php:23
+msgid "Remember me"
+msgstr "Prisiminti mane "
+
+#: admin/lost-password.php:2 admin/lost-password.php:5
+msgid "Lost password"
+msgstr "Pamečiau slaptažodį "
+
+#: admin/lost-password.php:16
+msgid "Go back"
+msgstr "Eiti atgal "
+
+#: admin/lost-password.php:20
+msgid "Password changed successfully!"
+msgstr "Slaptažodis pakeistas sėkmingai "
+
+#: admin/lost-password.php:21 admin/lost-password.php:35
+msgid "Go back to login page"
+msgstr "Eiti atgal prisijungti į puslapį "
+
+#: admin/lost-password.php:30
+msgid "Go back to start"
+msgstr "Eik atgal, kad pradėtum "
+
+#: admin/lost-password.php:34
+msgid "Email with password reset link has been sent!"
+msgstr "Į elektroninį paštą buvo nusiųstas slaptažodžio atkūrimas "
+
+#: admin/lost-password.php:50
+msgid "Submit request"
+msgstr "Nusiųsti paraišką "
+
+#: admin/lost-password.php:57
+msgid "Reset password for %s (%s)"
+msgstr "Atkurti slaptažodį, kad"
+
+#: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:421
+#: classes/user.php:422
+msgid "New password"
+msgstr "Naujas slaptažodis "
+
+#: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:423
+#: classes/user.php:424
+msgid "Repeat password"
+msgstr "Pakartokite slaptažodį "
+
+#: admin/lost-password.php:64 classes/user.php:425
+msgid "Change password"
+msgstr "Pakeisti slaptažodį "
+
+#: admin/new-user.php:7
+msgid "New user"
+msgstr "Naujas vartotojas "
+
+#: admin/new-user.php:19 admin/settings.php:39 admin/settings.php:72
+#: classes/user.php:114 classes/user.php:322 classes/user.php:326
+#: classes/user.php:327 classes/user.php:488 install.php:158 install.php:168
+#: install.php:190 install.php:205
+msgid "Name"
+msgstr "Vardas"
+
+#: admin/new-user.php:20 admin/settings.php:72 classes/user.php:117
+#: classes/user.php:323 classes/user.php:329 classes/user.php:330
+#: classes/user.php:491 install.php:206
+msgid "Surname"
+msgstr "Pavardė "
+
+#: admin/new-user.php:23 admin/settings.php:72 classes/user.php:349
+#: install.php:209
+msgid "Username"
+msgstr "Vartotojo vardas "
+
+#: admin/new-user.php:29
+msgid "Permission"
+msgstr "Leidimas"
+
+#: admin/settings.php:12 template.php:117
+msgid "Settings"
+msgstr "Nustatymai "
+
+#: admin/settings.php:23
+msgid "Services"
+msgstr "Paslaugos "
+
+#: admin/settings.php:29
+msgid "Add service"
+msgstr "Pridėti paslauga "
+
+#: admin/settings.php:38 admin/settings.php:72
+msgid "ID"
+msgstr "Vartotojo ID"
+
+#: admin/settings.php:42
+msgid "Delete"
+msgstr "Ištrinti "
+
+#: admin/settings.php:67
+msgid "Users"
+msgstr "Vartotojai "
+
+#: admin/settings.php:68
+msgid "Add new user"
+msgstr "Pridėti naują vartotoją "
+
+#: admin/settings.php:72 classes/user.php:372
+msgid "Role"
+msgstr "Rolė"
+
+#: admin/user.php:45 admin/user.php:54 install.php:181 install.php:202
+msgid "User"
+msgstr "Vartotojas "
+
+#: admin/user.php:52
+msgid "User settings"
+msgstr "Vartotojo nustatymai "
+
+#: classes/constellation.php:36 template.php:4
+msgid "Planned maintenance"
+msgstr "Planuojama priežiūra"
+
+#: classes/constellation.php:42
+msgid "Back"
+msgstr "Atgal"
+
+#: classes/constellation.php:44
+msgid "Past incidents"
+msgstr "Paskutiniai įvykiai"
+
+#: classes/constellation.php:48
+msgid "No incidents"
+msgstr "Nėra įvykių "
+
+#: classes/constellation.php:61
+msgid "Load more"
+msgstr "Užkrauti daugiau "
+
+#: classes/constellation.php:101
+msgid "No services"
+msgstr "Nėra paslaugų "
+
+#: classes/incident.php:87
+msgid "Please enter title"
+msgstr "Prašau parašyti pavadinimą "
+
+#: classes/incident.php:90
+msgid "Title too long! Character limit is 50"
+msgstr "Pavadinimas per ilgas, limitas 50"
+
+#: classes/incident.php:96
+msgid "Please enter text"
+msgstr "Prašau parašyti tekstą "
+
+#: classes/incident.php:102
+msgid "Please set start and end time! Use ISO 8601 format."
+msgstr "Prašau pradėti ir baigti laiką! Naudok ISO 8601 Formatą "
+
+#: classes/incident.php:107
+msgid "Please select at least one service"
+msgstr "Prašau pasirink vieną paslaugą "
+
+#: classes/incident.php:127
+msgid "Start date format is not recognized. Please use ISO 8601 format."
+msgstr ""
+
+#: classes/incident.php:133
+msgid "End date format is not recognized. Please use ISO 8601 format."
+msgstr ""
+
+#: classes/incident.php:185
+msgid "Ended"
+msgstr "Pabaiga "
+
+#: classes/service.php:63
+msgid "Service name is too long! Character limit is 50"
+msgstr "Paslaugos pavadinimas per ilgas! Limitas 50"
+
+#: classes/service.php:66
+msgid "Please enter name!"
+msgstr "Prašau parašyti vardą! "
+
+#: classes/service.php:81 classes/service.php:123 classes/user.php:97
+#: classes/user.php:199
+msgid "You don't have the permission to do that!"
+msgstr "Tu neturi teisių daryti tai! "
+
+#: classes/user.php:164
+msgid "Please mind the following character limits: "
+msgstr "Risiminkite šiuos apribojimus "
+
+#: classes/user.php:185
+msgid "User account created"
+msgstr "Vartotojas sukurtas "
+
+#: classes/user.php:186
+msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
+msgstr "Sveikas, tavo vartotojas sukurtas. Tu gali prisijungti su savo elektroniniu paštu\n"
+"Prašau pasikeisk kuo greičiau "
+
+#: classes/user.php:180
+msgid "Username or email already used"
+msgstr "Vardas ar elektroninis paštas jau naudojamas "
+
+#: classes/user.php:244
+msgid "Your account has been disabled. Please contact administrator."
+msgstr "Tavo vartotojas atjungtas. Prašau susisiek su administracija "
+
+#: classes/user.php:233 classes/user.php:256
+msgid "Wrong email or password"
+msgstr "Klaidingas elektroninis paštas arba slaptažodis "
+
+#: classes/user.php:299
+msgid "Invalid token detected, please login again!"
+msgstr ""
+
+#: classes/user.php:314
+msgid "Profile picture"
+msgstr "Profilio nuotrauka "
+
+#: classes/user.php:379
+msgid "Change role"
+msgstr "Keisti rolę"
+
+#: classes/user.php:394
+msgid "Change email"
+msgstr "Keisti elektroninį paštą "
+
+#: classes/user.php:419 classes/user.php:420
+msgid "Old password"
+msgstr "Senas slaptažodis "
+
+#: classes/user.php:526
+msgid "Passwords do not match!"
+msgstr "Slaptažodžiai nesutampa"
+
+#: classes/user.php:534
+msgid "Cannot change password of other users!"
+msgstr ""
+
+#: classes/user.php:567
+msgid "Wrong password!"
+msgstr "Neteisingas slaptažodis "
+
+#: classes/user.php:595 classes/user.php:695
+msgid "Invalid token detected, please retry your request from start!"
+msgstr ""
+
+#: classes/user.php:623
+msgid "Reset password"
+msgstr "Atkurti slaptažodį "
+
+#: classes/user.php:659
+msgid "Email change"
+msgstr "Pakeisti elektroninį paštą "
+
+#: classes/incident.php:54 classes/user.php:736
+msgid "You don't have permission to do that!"
+msgstr "Tu neturi leidimo daryti tai! "
+
+#: template.php:4
+msgid "Major outage"
+msgstr ""
+
+#: template.php:4
+msgid "Minor outage"
+msgstr ""
+
+#: template.php:4
+msgid "Operational"
+msgstr "Veikla "
+
+#: template.php:7
+msgid "Some systems are experiencing major outages"
+msgstr ""
+
+#: template.php:7
+msgid "Some systems are experiencing minor outages"
+msgstr ""
+
+#: template.php:7
+msgid "Some systems are under maintenance"
+msgstr ""
+
+#: template.php:8
+msgid "Our systems are experiencing major outages."
+msgstr ""
+
+#: template.php:8
+msgid "Our systems are experiencing minor outages"
+msgstr ""
+
+#: template.php:8
+msgid "Our systems are under maintenance"
+msgstr ""
+
+#: template.php:8
+msgid "All systems operational"
+msgstr "Visa sistemos veikla "
+
+#: template.php:9
+msgid "Super admin"
+msgstr "Super adminas"
+
+#: template.php:9
+msgid "Admin"
+msgstr "Adminas "
+
+#: template.php:53
+msgid "Service Status"
+msgstr "Paslaugų statusas "
+
+#: template.php:106
+msgid "Toggle navigation"
+msgstr ""
+
+#: template.php:116
+msgid "User (%s)"
+msgstr "Vartotojas"
+
+#: template.php:118
+msgid "Logout"
+msgstr "Atsijungti "
+
+#: index.php:27
+msgid "Current status"
+msgstr "Dabartinis statusas "
+
+#: install.php:4
+msgid "Status page"
+msgstr "Pradinis puslapis "
+
+#: install.php:139
+msgid "Install"
+msgstr "Instaliuoti "
+
+#: install.php:141
+msgid "Installation"
+msgstr "Instaliacija "
+
+#: install.php:26
+msgid "Connection failed: %s\n"
+""
+msgstr "Prisijungimo klaida "
+
+#: install.php:31
+msgid "Please set valid url!"
+msgstr "Prašau nu statyk galiojantį url"
+
+#: install.php:98
+msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
+msgstr "Klaida kuriant database. Patikrink savo vartotojo leidimus arba MYSQL versija"
+
+#: install.php:154
+msgid "Website details"
+msgstr "Puslapio detales"
+
+#: install.php:40 install.php:159
+msgid "Url"
+msgstr "Url"
+
+#: install.php:166
+msgid "Also an email address for mailer would be nice :)"
+msgstr ""
+
+#: install.php:173
+msgid "Database connection"
+msgstr "Database prisijungimas "
+
+#: install.php:174
+msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
+msgstr ""
+
+#: install.php:177
+msgid "Server"
+msgstr "Serveris "
+
+#: install.php:178
+msgid "Database"
+msgstr "Database "
+
+#: install.php:203
+msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
+msgstr ""
+
+#: install.php:216
+msgid "Run install!"
+msgstr "Vykdyti instaliacija "
+
+#: classes/user.php:127
+msgid "Rank"
+msgstr "Rankas "
+
+#: classes/user.php:624
+msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+msgstr "Sveiki. Apačioje rasi linka kuriame galėsi pasikeisti slaptažodį, jei to nedarei ignoruok. "
+
+#: classes/user.php:660
+msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
+msgstr ""
+
+#: template.php:9
+msgid "Editor"
+msgstr "Editorius"
+
+#: install.php:36
+msgid "Server name"
+msgstr "Serverio vardas"
+
+#: install.php:44
+msgid "Mailer name"
+msgstr ""
+
+#: install.php:52
+msgid "Mailer email"
+msgstr ""
+
+#: install.php:56
+msgid "Database server"
+msgstr ""
+
+#: install.php:60
+msgid "Database name"
+msgstr "Database vardas"
+
+#: install.php:64
+msgid "Database user"
+msgstr "Database vartotojas "
+
+#: install.php:69
+msgid "Database password"
+msgstr "Database slaptažodis "
+
+#: template.php:147
+msgid "Toggle Dropdown"
+msgstr ""
+
+#: template.php:156
+msgid "Help with translation!"
+msgstr "Padėk su vertimu "
+
+#: classes/user.php:439
+msgid "Deactivate user"
+msgstr "Neaktyvus vartotojas "
+
+#: classes/user.php:441
+msgid "Activate user"
+msgstr "Prisijungęs vartotojas "
+
+#: install.php:73
+msgid "Please enter"
+msgstr "Prašau užeik "
+
+#: install.php:150
+msgid "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
+msgstr ""
+
+#: install.php:155
+msgid "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
+msgstr ""
+
+#: install.php:161
+msgid "A title that you want to be shown on the top of the page."
+msgstr ""
+
+#: api/status.php:24
+msgid "Service does not exist!"
+msgstr "Paslauga neegzistuoja "
+
+#: classes/user.php:220
+msgid "Please fill in your email and password!"
+msgstr "Prašau užpildyti savo elektroninį paštą ir slaptažodį! "
+
+#: classes/user.php:336
+msgid "Change name"
+msgstr "Pakeisti vardą "
+
+#: classes/user.php:356
+msgid "Change username"
+msgstr "Pakeisti vartotojo vardą "
+
+#: classes/user.php:463
+msgid "This username is already taken."
+msgstr "Šitas vartotojo vardas jau yra sukurtas. "
+
+#: classes/user.php:470
+msgid "Cannot change username of other users!"
+msgstr ""
+
+#: classes/user.php:504
+msgid "Cannot change names of other users!"
+msgstr ""
+
+#: classes/user.php:667
+msgid "Confirmation email sent!"
+msgstr "Patvirtinimas nusiųstas į elektroninį paštą! "
+
+#: install.php:186 policy.php:6
+msgid "Privacy Policy"
+msgstr ""
+
+#: install.php:190
+msgid "Company name"
+msgstr "Kompanijos pavadinimas "
+
+#: install.php:191
+msgid "Address"
+msgstr "Adresas "
+
+#: install.php:191
+msgid "Full address"
+msgstr "Pilnas adresas"
+
+#: install.php:194
+msgid "E-Mail"
+msgstr "Elektroninis paštas "
+
+#: install.php:195
+msgid "Phone"
+msgstr "Telefonas "
+
+#: install.php:195
+msgid "Phone number"
+msgstr "Telefono numeris "
+
+#: install.php:198 policy.php:7
+msgid "Who we are"
+msgstr "Kas mes esam "
+
+#: policy.php:9
+msgid "Contact"
+msgstr "Kontaktai "
+
+#: policy.php:17
+msgid "What personal data we collect and why"
+msgstr ""
+
+#: policy.php:19
+msgid "If you access our websites, the following information will be saved: IP-address, Date, Time, Browser queries, \n"
+"\tGeneral information about your browser, operating system and all search queries on the sites. \n"
+"\tThis user data will be used for anonym user statistics to recognize trends and improve our content.\n"
+"\t"
+msgstr ""
+
+#: policy.php:23
+msgid "How we protect your data"
+msgstr "Kaip mes apsaugoskim tavo duomenis "
+
+#: policy.php:24
+msgid "In collaboration with our hosting provider we try our best to protect our \n"
+"\tdatabases against access from third parties, losses, misuse or forgery.\n"
+"\t"
+msgstr ""
+
+#: policy.php:27
+msgid "Third party that receive your personal data"
+msgstr ""
+
+#: policy.php:29
+msgid "Cookies"
+msgstr ""
+
+#: policy.php:30
+msgid "This site uses cookies – small text files that are placed on your machine to help the site provide a better user experience. \n"
+"\tIn general, cookies are used to retain user preferences, store information for things like shopping carts, \n"
+"\tand provide anonymised tracking data to third party applications like Google Analytics. \n"
+"\tAs a rule, cookies will make your browsing experience better. However, you may prefer to disable cookies on this site and on others. \n"
+"\tThe most effective way to do this is to disable cookies in your browser. We suggest consulting the Help section of your browser \n"
+"\tor taking a look at the About Cookies website which offers guidance for all modern browsers"
+msgstr ""
+
+#: install.php:187
+msgid "Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below."
+msgstr ""
+
+#: install.php:198
+msgid "Some info about yourself"
+msgstr ""
+
+#: policy.php:18
+msgid "General"
+msgstr ""
+
