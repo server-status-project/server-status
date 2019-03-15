@@ -45,11 +45,11 @@ msgstr "Postato da"
 
 #: admin/dashboard.php:80 classes/incident.php:185
 msgid "Ending"
-msgstr "fine"
+msgstr "Fine"
 
 #: admin/dashboard.php:80
 msgid "End time"
-msgstr "fine tempo"
+msgstr "Fine Tempo"
 
 #: admin/dashboard.php:99 admin/new-user.php:53
 msgid "Submit"
@@ -61,7 +61,7 @@ msgstr "Entra"
 
 #: admin/login-form.php:11
 msgid "Please login to continue."
-msgstr "Entra per continuare"
+msgstr "Accedi per poter continuare..."
 
 #: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
 #: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:72
