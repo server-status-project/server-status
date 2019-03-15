@@ -5,434 +5,433 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Project-Id-Version: Server status\n"
-"Language: it\n"
+"Language: lt\n"
 
 #: 404.php:12
 msgid "Page Not Found"
-msgstr "Pagina non trovata"
+msgstr "Puslapis nerastas "
 
 #: 404.php:13
 msgid "Sorry, but the page you were trying to view does not exist."
-msgstr "Mi dispiace ma la pagina che cerchi non esiste."
+msgstr "Atleiskit, bet puslapis neegzistuoja "
 
 #: admin/dashboard.php:22 admin/dashboard.php:26 template.php:115
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr "Prietaisų skydelis "
 
 #: admin/dashboard.php:27
 msgid "Welcome"
-msgstr "Benvenuto"
+msgstr "Sveiki"
 
 #: admin/dashboard.php:39
 msgid "New incident"
-msgstr "Nuovo incidente"
+msgstr "Naujas įvykis "
 
 #: admin/dashboard.php:72 install.php:48 install.php:163
 msgid "Title"
-msgstr "Titolo"
+msgstr "Pavadinimas"
 
 #: admin/dashboard.php:72
 msgid "Time"
-msgstr "Ora"
+msgstr "Laikas"
 
 #: admin/dashboard.php:77
 msgid "Here goes your text..."
-msgstr "Inserisci qui il testo..."
+msgstr "Čia gali rašyti "
 
 #: admin/dashboard.php:80 classes/incident.php:183
 msgid "Posted by"
-msgstr "Postato da"
+msgstr "Paskelbtas "
 
 #: admin/dashboard.php:80 classes/incident.php:185
 msgid "Ending"
-msgstr "Fine"
+msgstr "Pabaiga"
 
 #: admin/dashboard.php:80
 msgid "End time"
-msgstr "Fine Tempo"
+msgstr "Baigias laikas"
 
 #: admin/dashboard.php:99 admin/new-user.php:53
 msgid "Submit"
-msgstr "Invia"
+msgstr "Nusiųsti "
 
 #: admin/login-form.php:2 admin/login-form.php:5 admin/login-form.php:27
 msgid "Login"
-msgstr "Entra"
+msgstr "Prisijungti "
 
 #: admin/login-form.php:11
 msgid "Please login to continue."
-msgstr "Accedi per poter continuare..."
+msgstr "Prašome prisijungti ir tęsti "
 
 #: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
 #: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:72
 #: classes/user.php:120 classes/user.php:404 install.php:169 install.php:210
 msgid "Email"
-msgstr "Email"
+msgstr "Elektroninis paštas "
 
 #: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
 #: classes/user.php:123 classes/user.php:417 install.php:182 install.php:213
 msgid "Password"
-msgstr "Password"
+msgstr "Slaptažodis "
 
 #: admin/login-form.php:22
 msgid "Forgotten password?"
-msgstr "Password dimenticata?"
+msgstr "Pamiršote slaptažodį? "
 
 #: admin/login-form.php:23
 msgid "Remember me"
-msgstr "Ricordami"
+msgstr "Prisiminti mane "
 
 #: admin/lost-password.php:2 admin/lost-password.php:5
 msgid "Lost password"
-msgstr "Password persa"
+msgstr "Pamečiau slaptažodį "
 
 #: admin/lost-password.php:16
 msgid "Go back"
-msgstr "Indietro"
+msgstr "Eiti atgal "
 
 #: admin/lost-password.php:20
 msgid "Password changed successfully!"
-msgstr "Password cambiata con successo!"
+msgstr "Slaptažodis pakeistas sėkmingai "
 
 #: admin/lost-password.php:21 admin/lost-password.php:35
 msgid "Go back to login page"
-msgstr "Vai indietro nella pagina di login"
+msgstr "Eiti atgal prisijungti į puslapį "
 
 #: admin/lost-password.php:30
 msgid "Go back to start"
-msgstr "Torna indietro per iniziare"
+msgstr "Eik atgal, kad pradėtum "
 
 #: admin/lost-password.php:34
 msgid "Email with password reset link has been sent!"
-msgstr "Email di reset inviata!"
+msgstr "Į elektroninį paštą buvo nusiųstas slaptažodžio atkūrimas "
 
 #: admin/lost-password.php:50
 msgid "Submit request"
-msgstr "Invia richiesta"
+msgstr "Nusiųsti paraišką "
 
 #: admin/lost-password.php:57
 msgid "Reset password for %s (%s)"
-msgstr "Resetta password per %s (%s)"
+msgstr "Atkurti slaptažodį, kad"
 
 #: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:421
 #: classes/user.php:422
 msgid "New password"
-msgstr "Nuova password"
+msgstr "Naujas slaptažodis "
 
 #: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:423
 #: classes/user.php:424
 msgid "Repeat password"
-msgstr "Ripeti password"
+msgstr "Pakartokite slaptažodį "
 
 #: admin/lost-password.php:64 classes/user.php:425
 msgid "Change password"
-msgstr "Cambia password"
+msgstr "Pakeisti slaptažodį "
 
 #: admin/new-user.php:7
 msgid "New user"
-msgstr "Nuovo utente"
+msgstr "Naujas vartotojas "
 
 #: admin/new-user.php:19 admin/settings.php:39 admin/settings.php:72
 #: classes/user.php:114 classes/user.php:322 classes/user.php:326
 #: classes/user.php:327 classes/user.php:488 install.php:158 install.php:168
 #: install.php:190 install.php:205
 msgid "Name"
-msgstr "Nome"
+msgstr "Vardas"
 
 #: admin/new-user.php:20 admin/settings.php:72 classes/user.php:117
 #: classes/user.php:323 classes/user.php:329 classes/user.php:330
 #: classes/user.php:491 install.php:206
 msgid "Surname"
-msgstr "Cognome"
+msgstr "Pavardė "
 
 #: admin/new-user.php:23 admin/settings.php:72 classes/user.php:349
 #: install.php:209
 msgid "Username"
-msgstr "Username"
+msgstr "Vartotojo vardas "
 
 #: admin/new-user.php:29
 msgid "Permission"
-msgstr "Autorizzazione"
+msgstr "Leidimas"
 
 #: admin/settings.php:12 template.php:117
 msgid "Settings"
-msgstr "Impostazioni"
+msgstr "Nustatymai "
 
 #: admin/settings.php:23
 msgid "Services"
-msgstr "Servizi"
+msgstr "Paslaugos "
 
 #: admin/settings.php:29
 msgid "Add service"
-msgstr "Aggiungi servizio"
+msgstr "Pridėti paslauga "
 
 #: admin/settings.php:38 admin/settings.php:72
 msgid "ID"
-msgstr "ID"
+msgstr "Vartotojo ID"
 
 #: admin/settings.php:42
 msgid "Delete"
-msgstr "Elimina"
+msgstr "Ištrinti "
 
 #: admin/settings.php:67
 msgid "Users"
-msgstr "Utenti"
+msgstr "Vartotojai "
 
 #: admin/settings.php:68
 msgid "Add new user"
-msgstr "Aggiunti nuovo utente"
+msgstr "Pridėti naują vartotoją "
 
 #: admin/settings.php:72 classes/user.php:372
 msgid "Role"
-msgstr "Ruolo"
+msgstr "Rolė"
 
 #: admin/user.php:45 admin/user.php:54 install.php:181 install.php:202
 msgid "User"
-msgstr "Utente"
+msgstr "Vartotojas "
 
 #: admin/user.php:52
 msgid "User settings"
-msgstr "Impostazioni Utente"
+msgstr "Vartotojo nustatymai "
 
 #: classes/constellation.php:36 template.php:4
 msgid "Planned maintenance"
-msgstr "Manutenzione programmata"
+msgstr "Planuojama priežiūra"
 
 #: classes/constellation.php:42
 msgid "Back"
-msgstr "Indietro"
+msgstr "Atgal"
 
 #: classes/constellation.php:44
 msgid "Past incidents"
-msgstr "Incidenti passati"
+msgstr "Paskutiniai įvykiai"
 
 #: classes/constellation.php:48
 msgid "No incidents"
-msgstr "Nessun incidente"
+msgstr "Nėra įvykių "
 
 #: classes/constellation.php:61
 msgid "Load more"
-msgstr "Carica altro"
+msgstr "Užkrauti daugiau "
 
 #: classes/constellation.php:101
 msgid "No services"
-msgstr "Nessun servizio"
+msgstr "Nėra paslaugų "
 
 #: classes/incident.php:87
 msgid "Please enter title"
-msgstr "Inserisci un titolo"
+msgstr "Prašau parašyti pavadinimą "
 
 #: classes/incident.php:90
 msgid "Title too long! Character limit is 50"
-msgstr "Titolo troppo lungo! Limite carattere 50"
+msgstr "Pavadinimas per ilgas, limitas 50"
 
 #: classes/incident.php:96
 msgid "Please enter text"
-msgstr "Inserisci il testo"
+msgstr "Prašau parašyti tekstą "
 
 #: classes/incident.php:102
 msgid "Please set start and end time! Use ISO 8601 format."
-msgstr "Si prega di impostare l'ora di inizio e di fine! Usa il formato ISO 8601."
+msgstr "Prašau pradėti ir baigti laiką! Naudok ISO 8601 Formatą "
 
 #: classes/incident.php:107
 msgid "Please select at least one service"
-msgstr "Si prega di selezionare almeno un servizio\n"
-""
+msgstr "Prašau pasirink vieną paslaugą "
 
 #: classes/incident.php:127
 msgid "Start date format is not recognized. Please use ISO 8601 format."
-msgstr "Il formato della data di inizio non è riconosciuto. Si prega di utilizzare il formato ISO 8601."
+msgstr ""
 
 #: classes/incident.php:133
 msgid "End date format is not recognized. Please use ISO 8601 format."
-msgstr "Il formato della data di fine non è riconosciuto. Si prega di utilizzare il formato ISO 8601."
+msgstr ""
 
 #: classes/incident.php:185
 msgid "Ended"
-msgstr "Conclusa"
+msgstr "Pabaiga "
 
 #: classes/service.php:63
 msgid "Service name is too long! Character limit is 50"
-msgstr "Il nome del servizio è troppo lungo! Il limite di caratteri è 50"
+msgstr "Paslaugos pavadinimas per ilgas! Limitas 50"
 
 #: classes/service.php:66
 msgid "Please enter name!"
-msgstr "Inserisci il nome!"
+msgstr "Prašau parašyti vardą! "
 
 #: classes/service.php:81 classes/service.php:123 classes/user.php:97
 #: classes/user.php:199
 msgid "You don't have the permission to do that!"
-msgstr "Non hai il permesso di farlo!"
+msgstr "Tu neturi teisių daryti tai! "
 
 #: classes/user.php:164
 msgid "Please mind the following character limits: "
-msgstr "Ricordati i seguenti limiti di caratteri:␣"
+msgstr "Risiminkite šiuos apribojimus "
 
 #: classes/user.php:185
 msgid "User account created"
-msgstr "Account utente creato"
+msgstr "Vartotojas sukurtas "
 
 #: classes/user.php:186
 msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
-msgstr "Ciao %s!<br>Il tuo account è stato creato. Puoi accedere con il tuo indirizzo email <a href=\"%s\">%s</a> e con password %s - per favore cambialo il prima possibile."
+msgstr "Sveikas, tavo vartotojas sukurtas. Tu gali prisijungti su savo elektroniniu paštu\n"
+"Prašau pasikeisk kuo greičiau "
 
 #: classes/user.php:180
 msgid "Username or email already used"
-msgstr "Username o email giù usati"
+msgstr "Vardas ar elektroninis paštas jau naudojamas "
 
 #: classes/user.php:244
 msgid "Your account has been disabled. Please contact administrator."
-msgstr "Il tuo account è stato disabilitato. Contatta l'amministratore."
+msgstr "Tavo vartotojas atjungtas. Prašau susisiek su administracija "
 
 #: classes/user.php:233 classes/user.php:256
 msgid "Wrong email or password"
-msgstr "Email o password errata."
+msgstr "Klaidingas elektroninis paštas arba slaptažodis "
 
 #: classes/user.php:299
 msgid "Invalid token detected, please login again!"
-msgstr "Rilevato token non valido, effettua nuovamente il login!"
+msgstr ""
 
 #: classes/user.php:314
 msgid "Profile picture"
-msgstr "Immagine profilo"
+msgstr "Profilio nuotrauka "
 
 #: classes/user.php:379
 msgid "Change role"
-msgstr "Cambia ruolo"
+msgstr "Keisti rolę"
 
 #: classes/user.php:394
 msgid "Change email"
-msgstr "Cambia email"
+msgstr "Keisti elektroninį paštą "
 
 #: classes/user.php:419 classes/user.php:420
 msgid "Old password"
-msgstr "Vecchia password"
+msgstr "Senas slaptažodis "
 
 #: classes/user.php:526
 msgid "Passwords do not match!"
-msgstr "Le passwords non corrispondono!"
+msgstr "Slaptažodžiai nesutampa"
 
 #: classes/user.php:534
 msgid "Cannot change password of other users!"
-msgstr "Impossibile cambiare la password di altri utenti!"
+msgstr ""
 
 #: classes/user.php:567
 msgid "Wrong password!"
-msgstr "Password errata!"
+msgstr "Neteisingas slaptažodis "
 
 #: classes/user.php:595 classes/user.php:695
 msgid "Invalid token detected, please retry your request from start!"
-msgstr "Rilevato token non valido, si prega di riprovare la richiesta dall'inizio!"
+msgstr ""
 
 #: classes/user.php:623
 msgid "Reset password"
-msgstr "Resetta password"
+msgstr "Atkurti slaptažodį "
 
 #: classes/user.php:659
 msgid "Email change"
-msgstr "Email cambiata"
+msgstr "Pakeisti elektroninį paštą "
 
 #: classes/incident.php:54 classes/user.php:736
 msgid "You don't have permission to do that!"
-msgstr "Non hai il permesso di farlo!"
+msgstr "Tu neturi leidimo daryti tai! "
 
 #: template.php:4
 msgid "Major outage"
-msgstr "Grave interruzione"
+msgstr ""
 
 #: template.php:4
 msgid "Minor outage"
-msgstr "Lieve interruzione"
+msgstr ""
 
 #: template.php:4
 msgid "Operational"
-msgstr "Operativo"
+msgstr "Veikla "
 
 #: template.php:7
 msgid "Some systems are experiencing major outages"
-msgstr "Alcuni sistemi stanno subendo interruzioni importanti"
+msgstr ""
 
 #: template.php:7
 msgid "Some systems are experiencing minor outages"
-msgstr "Alcuni sistemi stanno riscontrando interruzioni minori"
+msgstr ""
 
 #: template.php:7
 msgid "Some systems are under maintenance"
-msgstr "Alcuni sistemi sono in manutenzione"
+msgstr ""
 
 #: template.php:8
 msgid "Our systems are experiencing major outages."
-msgstr "I nostri sistemi stanno riscontrando interruzioni importanti."
+msgstr ""
 
 #: template.php:8
 msgid "Our systems are experiencing minor outages"
-msgstr "I nostri sistemi stanno riscontrando interruzioni minori"
+msgstr ""
 
 #: template.php:8
 msgid "Our systems are under maintenance"
-msgstr "I nostri sistemi sono in manutenzione"
+msgstr ""
 
 #: template.php:8
 msgid "All systems operational"
-msgstr "Tutti i sistemi sono operativi"
+msgstr "Visa sistemos veikla "
 
 #: template.php:9
 msgid "Super admin"
-msgstr "Super Amministratore\n"
-""
+msgstr "Super adminas"
 
 #: template.php:9
 msgid "Admin"
-msgstr "Admin"
+msgstr "Adminas "
 
 #: template.php:53
 msgid "Service Status"
-msgstr "Stato del servizio"
+msgstr "Paslaugų statusas "
 
 #: template.php:106
 msgid "Toggle navigation"
-msgstr "Attiva / disattiva la navigazione"
+msgstr ""
 
 #: template.php:116
 msgid "User (%s)"
-msgstr "Utente (%s)"
+msgstr "Vartotojas"
 
 #: template.php:118
 msgid "Logout"
-msgstr "Esci"
+msgstr "Atsijungti "
 
 #: index.php:27
 msgid "Current status"
-msgstr "Stato attuale"
+msgstr "Dabartinis statusas "
 
 #: install.php:4
 msgid "Status page"
-msgstr "Pagina di stato"
+msgstr "Pradinis puslapis "
 
 #: install.php:139
 msgid "Install"
-msgstr "Installa"
+msgstr "Instaliuoti "
 
 #: install.php:141
 msgid "Installation"
-msgstr "Installazione"
+msgstr "Instaliacija "
 
 #: install.php:26
 msgid "Connection failed: %s\n"
 ""
-msgstr "Connessione fallita: %s"
+msgstr "Prisijungimo klaida "
 
 #: install.php:31
 msgid "Please set valid url!"
-msgstr "Inserisci un url valido!"
+msgstr "Prašau nu statyk galiojantį url"
 
 #: install.php:98
 msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
-msgstr "Errore nella creazione del database. Controlla l'autorizzazione per il tuo account o la versione di MYSQL.<br>Error: %s"
+msgstr "Klaida kuriant database. Patikrink savo vartotojo leidimus arba MYSQL versija"
 
 #: install.php:154
 msgid "Website details"
-msgstr "Dettagli sito web"
+msgstr "Puslapio detales"
 
 #: install.php:40 install.php:159
 msgid "Url"
@@ -440,209 +439,204 @@ msgstr "Url"
 
 #: install.php:166
 msgid "Also an email address for mailer would be nice :)"
-msgstr "Anche un indirizzo email per il mailer sarebbe carino :)"
+msgstr ""
 
 #: install.php:173
 msgid "Database connection"
-msgstr "Connessione al database"
+msgstr "Database prisijungimas "
 
 #: install.php:174
 msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
-msgstr "Abbiamo bisogno di una connessione al database per poter creare tabelle. Per favore controlla che il tuo account abbia il permesso necessario per farlo."
+msgstr ""
 
 #: install.php:177
 msgid "Server"
-msgstr "Server"
+msgstr "Serveris "
 
 #: install.php:178
 msgid "Database"
-msgstr "Database"
+msgstr "Database "
 
 #: install.php:203
 msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
-msgstr "E infine, abbiamo bisogno di informazioni per creare un nuovo utente. Non devi fornirlo, ma poi ... Nessun amministratore della pagina di stato..."
+msgstr ""
 
 #: install.php:216
 msgid "Run install!"
-msgstr "Esegui l'installazione!"
+msgstr "Vykdyti instaliacija "
 
 #: classes/user.php:127
 msgid "Rank"
-msgstr "Rank"
+msgstr "Rankas "
 
 #: classes/user.php:624
 msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
-msgstr "Ciao %s!<br>Sotto troverai il link per cambiare la tua password. Il link è valido per 24 ore. Se non lo hai richiesto, ignora questo messaggio. <br><br><a href=\"%s\">RESETTA PASSWORD</a><br><br>Se il collegamento non funziona, copia &amp; incollalo nel tuo browser: <br>%s"
+msgstr "Sveiki. Apačioje rasi linka kuriame galėsi pasikeisti slaptažodį, jei to nedarei ignoruok. "
 
 #: classes/user.php:660
 msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
-msgstr "Ciao %s!<br>Sotto troverai il link per cambiare la tua password. Il link è valido per 24 ore. Se non lo hai richiesto, ignora questo messaggio. <br><br><a href=\"%s\">CAMBIA EMAIL</a><br><br>Se il collegamento non funziona, copia &amp; incollalo nel tuo browser: <br>%s\n"
-""
+msgstr ""
 
 #: template.php:9
 msgid "Editor"
-msgstr "Modifica"
+msgstr "Editorius"
 
 #: install.php:36
 msgid "Server name"
-msgstr "Nome server"
+msgstr "Serverio vardas"
 
 #: install.php:44
 msgid "Mailer name"
-msgstr "Noma mailer"
+msgstr ""
 
 #: install.php:52
 msgid "Mailer email"
-msgstr "Email mailer"
+msgstr ""
 
 #: install.php:56
 msgid "Database server"
-msgstr "Server database"
+msgstr ""
 
 #: install.php:60
 msgid "Database name"
-msgstr "Nome database"
+msgstr "Database vardas"
 
 #: install.php:64
 msgid "Database user"
-msgstr "Username database"
+msgstr "Database vartotojas "
 
 #: install.php:69
 msgid "Database password"
-msgstr "Password database"
+msgstr "Database slaptažodis "
 
 #: template.php:147
 msgid "Toggle Dropdown"
-msgstr "Attiva / disattiva elenco a discesa"
+msgstr ""
 
 #: template.php:156
 msgid "Help with translation!"
-msgstr "Aiutaci nella traduzione"
+msgstr "Padėk su vertimu "
 
 #: classes/user.php:439
 msgid "Deactivate user"
-msgstr "Disattiva utente"
+msgstr "Neaktyvus vartotojas "
 
 #: classes/user.php:441
 msgid "Activate user"
-msgstr "Attiva utente"
+msgstr "Prisijungęs vartotojas "
 
 #: install.php:73
 msgid "Please enter"
-msgstr "Per favore accedi"
+msgstr "Prašau užeik "
 
 #: install.php:150
 msgid "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
-msgstr "Ti faremo alcune domande di base sul tuo sito web. La maggior parte delle impostazioni può essere successivamente modificata nel file config.php."
+msgstr ""
 
 #: install.php:155
 msgid "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
-msgstr "Abbiamo bisogno di un nome per la tua pagina di stato (visualizzata dietro il titolo della pagina dopo il trattino) e un url dell'installazione dello stato del tuo server (es. <a href='#'>https://esempio.com/status</a> - senza la barra finale), in modo che possiamo inviare agli utenti il link per la password dimenticata, ecc ...\n"
-""
+msgstr ""
 
 #: install.php:161
 msgid "A title that you want to be shown on the top of the page."
-msgstr "Un titolo che si desidera mostrare nella parte superiore della pagina."
+msgstr ""
 
 #: api/status.php:24
 msgid "Service does not exist!"
-msgstr "Il servizio non esiste!"
+msgstr "Paslauga neegzistuoja "
 
 #: classes/user.php:220
 msgid "Please fill in your email and password!"
-msgstr "Per favore inserisci la tua email e password!"
+msgstr "Prašau užpildyti savo elektroninį paštą ir slaptažodį! "
 
 #: classes/user.php:336
 msgid "Change name"
-msgstr "Cambia nome"
+msgstr "Pakeisti vardą "
 
 #: classes/user.php:356
 msgid "Change username"
-msgstr "Cambia nome utente"
+msgstr "Pakeisti vartotojo vardą "
 
 #: classes/user.php:463
 msgid "This username is already taken."
-msgstr "Questo nome utente è già in uso."
+msgstr "Šitas vartotojo vardas jau yra sukurtas. "
 
 #: classes/user.php:470
 msgid "Cannot change username of other users!"
-msgstr "Impossibile cambiare il nome utente di altri utenti!"
+msgstr ""
 
 #: classes/user.php:504
 msgid "Cannot change names of other users!"
-msgstr "Non è possibile modificare i nomi degli altri utenti!"
+msgstr ""
 
 #: classes/user.php:667
 msgid "Confirmation email sent!"
-msgstr "Email di conferma inviata!"
+msgstr "Patvirtinimas nusiųstas į elektroninį paštą! "
 
 #: install.php:186 policy.php:6
 msgid "Privacy Policy"
-msgstr "Politica Sulla Riservatezza"
+msgstr ""
 
 #: install.php:190
 msgid "Company name"
-msgstr "Nome della ditta"
+msgstr "Kompanijos pavadinimas "
 
 #: install.php:191
 msgid "Address"
-msgstr "Indirizzo"
+msgstr "Adresas "
 
 #: install.php:191
 msgid "Full address"
-msgstr "Indirizzo completo"
+msgstr "Pilnas adresas"
 
 #: install.php:194
 msgid "E-Mail"
-msgstr "E-Mail"
+msgstr "Elektroninis paštas "
 
 #: install.php:195
 msgid "Phone"
-msgstr "Telefono"
+msgstr "Telefonas "
 
 #: install.php:195
 msgid "Phone number"
-msgstr "Numero di telefono"
+msgstr "Telefono numeris "
 
 #: install.php:198 policy.php:7
 msgid "Who we are"
-msgstr "Chi siamo"
+msgstr "Kas mes esam "
 
 #: policy.php:9
 msgid "Contact"
-msgstr "Contatto"
+msgstr "Kontaktai "
 
 #: policy.php:17
 msgid "What personal data we collect and why"
-msgstr "Quali dati personali raccogliamo e perché"
+msgstr ""
 
 #: policy.php:19
 msgid "If you access our websites, the following information will be saved: IP-address, Date, Time, Browser queries, \n"
 "\tGeneral information about your browser, operating system and all search queries on the sites. \n"
 "\tThis user data will be used for anonym user statistics to recognize trends and improve our content.\n"
 "\t"
-msgstr "Se accedi ai nostri siti Web, verranno salvate le seguenti informazioni: indirizzo IP, data, ora, query browser,\n"
-"Informazioni generali sul tuo browser, sistema operativo e tutte le query di ricerca sui siti.\n"
-"Questi dati utente verranno utilizzati per le statistiche anonime degli utenti per riconoscere le tendenze e migliorare i nostri contenuti."
+msgstr ""
 
 #: policy.php:23
 msgid "How we protect your data"
-msgstr "Come proteggiamo i tuoi dati"
+msgstr "Kaip mes apsaugoskim tavo duomenis "
 
 #: policy.php:24
 msgid "In collaboration with our hosting provider we try our best to protect our \n"
 "\tdatabases against access from third parties, losses, misuse or forgery.\n"
 "\t"
-msgstr "In collaborazione con il nostro provider di hosting facciamo del nostro meglio per proteggere i nostri\n"
-"database contro l'accesso da parte di terzi, perdite, uso improprio o contraffazione."
+msgstr ""
 
 #: policy.php:27
 msgid "Third party that receive your personal data"
-msgstr "Terza parte che riceve i tuoi dati personali"
+msgstr ""
 
 #: policy.php:29
 msgid "Cookies"
-msgstr "Biscotti"
+msgstr ""
 
 #: policy.php:30
 msgid "This site uses cookies – small text files that are placed on your machine to help the site provide a better user experience. \n"
@@ -651,22 +645,17 @@ msgid "This site uses cookies – small text files that are placed on your machi
 "\tAs a rule, cookies will make your browsing experience better. However, you may prefer to disable cookies on this site and on others. \n"
 "\tThe most effective way to do this is to disable cookies in your browser. We suggest consulting the Help section of your browser \n"
 "\tor taking a look at the About Cookies website which offers guidance for all modern browsers"
-msgstr "Questo sito utilizza i cookie: piccoli file di testo posizionati sulla macchina per aiutare il sito a fornire un'esperienza utente migliore.\n"
-"In generale, i cookie vengono utilizzati per conservare le preferenze dell'utente, memorizzare informazioni per cose come carrelli della spesa,\n"
-"e fornire dati di tracciamento resi anonimi a applicazioni di terze parti come Google Analytics.\n"
-"Di regola, i cookie renderanno la tua esperienza di navigazione migliore. Tuttavia, potresti preferire disabilitare i cookie su questo sito e su altri.\n"
-"Il modo più efficace per farlo è disabilitare i cookie nel tuo browser. Ti suggeriamo di consultare la sezione Aiuto del tuo browser\n"
-"o dare un'occhiata al sito Web About Cookies che offre una guida per tutti i browser moderni"
+msgstr ""
 
 #: install.php:187
 msgid "Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below."
-msgstr "Poiché stai raccogliendo informazioni personali, il GDPR ha bisogno che tu abbia una politica sulla privacy. Inserisci i dettagli di seguito."
+msgstr ""
 
 #: install.php:198
 msgid "Some info about yourself"
-msgstr "Alcune informazioni su di te"
+msgstr ""
 
 #: policy.php:18
 msgid "General"
-msgstr "Generale"
+msgstr ""
 

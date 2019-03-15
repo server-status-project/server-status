@@ -5,63 +5,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Project-Id-Version: Server status\n"
-"Language: it\n"
+"Language: pt-br\n"
 
 #: 404.php:12
 msgid "Page Not Found"
-msgstr "Pagina non trovata"
+msgstr "Página não encontrada"
 
 #: 404.php:13
 msgid "Sorry, but the page you were trying to view does not exist."
-msgstr "Mi dispiace ma la pagina che cerchi non esiste."
+msgstr "Desculpe, mas a página que você está tentando acessar, não existe"
 
 #: admin/dashboard.php:22 admin/dashboard.php:26 template.php:115
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr "Painel"
 
 #: admin/dashboard.php:27
 msgid "Welcome"
-msgstr "Benvenuto"
+msgstr "Bem vindo"
 
 #: admin/dashboard.php:39
 msgid "New incident"
-msgstr "Nuovo incidente"
+msgstr "Novo Incidente"
 
 #: admin/dashboard.php:72 install.php:48 install.php:163
 msgid "Title"
-msgstr "Titolo"
+msgstr "Título"
 
 #: admin/dashboard.php:72
 msgid "Time"
-msgstr "Ora"
+msgstr "Tempo"
 
 #: admin/dashboard.php:77
 msgid "Here goes your text..."
-msgstr "Inserisci qui il testo..."
+msgstr "Escreva aqui seu texto..."
 
 #: admin/dashboard.php:80 classes/incident.php:183
 msgid "Posted by"
-msgstr "Postato da"
+msgstr "Enviado por"
 
 #: admin/dashboard.php:80 classes/incident.php:185
 msgid "Ending"
-msgstr "Fine"
+msgstr "Terminando"
 
 #: admin/dashboard.php:80
 msgid "End time"
-msgstr "Fine Tempo"
+msgstr "Horário de término"
 
 #: admin/dashboard.php:99 admin/new-user.php:53
 msgid "Submit"
-msgstr "Invia"
+msgstr "Enviar"
 
 #: admin/login-form.php:2 admin/login-form.php:5 admin/login-form.php:27
 msgid "Login"
-msgstr "Entra"
+msgstr "Login"
 
 #: admin/login-form.php:11
 msgid "Please login to continue."
-msgstr "Accedi per poter continuare..."
+msgstr "Por Favor, faça login para continuar"
 
 #: admin/login-form.php:15 admin/login-form.php:16 admin/lost-password.php:46
 #: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:72
@@ -72,65 +72,65 @@ msgstr "Email"
 #: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
 #: classes/user.php:123 classes/user.php:417 install.php:182 install.php:213
 msgid "Password"
-msgstr "Password"
+msgstr "Senha"
 
 #: admin/login-form.php:22
 msgid "Forgotten password?"
-msgstr "Password dimenticata?"
+msgstr "Esqueceu a senha?"
 
 #: admin/login-form.php:23
 msgid "Remember me"
-msgstr "Ricordami"
+msgstr "Lembar-me"
 
 #: admin/lost-password.php:2 admin/lost-password.php:5
 msgid "Lost password"
-msgstr "Password persa"
+msgstr "Esqueceu a senha"
 
 #: admin/lost-password.php:16
 msgid "Go back"
-msgstr "Indietro"
+msgstr "Voltar"
 
 #: admin/lost-password.php:20
 msgid "Password changed successfully!"
-msgstr "Password cambiata con successo!"
+msgstr "Senha alterada com sucesso!"
 
 #: admin/lost-password.php:21 admin/lost-password.php:35
 msgid "Go back to login page"
-msgstr "Vai indietro nella pagina di login"
+msgstr "Voltar à página de login"
 
 #: admin/lost-password.php:30
 msgid "Go back to start"
-msgstr "Torna indietro per iniziare"
+msgstr "Voltar ao ínicio"
 
 #: admin/lost-password.php:34
 msgid "Email with password reset link has been sent!"
-msgstr "Email di reset inviata!"
+msgstr "Um email com o link para resetar a senha foi enviado!"
 
 #: admin/lost-password.php:50
 msgid "Submit request"
-msgstr "Invia richiesta"
+msgstr "Enviar pedido"
 
 #: admin/lost-password.php:57
 msgid "Reset password for %s (%s)"
-msgstr "Resetta password per %s (%s)"
+msgstr "Resetar senha para %s (%s)"
 
 #: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:421
 #: classes/user.php:422
 msgid "New password"
-msgstr "Nuova password"
+msgstr "Nova senha"
 
 #: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:423
 #: classes/user.php:424
 msgid "Repeat password"
-msgstr "Ripeti password"
+msgstr "Repetir senha"
 
 #: admin/lost-password.php:64 classes/user.php:425
 msgid "Change password"
-msgstr "Cambia password"
+msgstr "Alterar senha"
 
 #: admin/new-user.php:7
 msgid "New user"
-msgstr "Nuovo utente"
+msgstr "Novo usuário"
 
 #: admin/new-user.php:19 admin/settings.php:39 admin/settings.php:72
 #: classes/user.php:114 classes/user.php:322 classes/user.php:326
@@ -143,28 +143,28 @@ msgstr "Nome"
 #: classes/user.php:323 classes/user.php:329 classes/user.php:330
 #: classes/user.php:491 install.php:206
 msgid "Surname"
-msgstr "Cognome"
+msgstr "Sobrenome"
 
 #: admin/new-user.php:23 admin/settings.php:72 classes/user.php:349
 #: install.php:209
 msgid "Username"
-msgstr "Username"
+msgstr "Nome de usuário"
 
 #: admin/new-user.php:29
 msgid "Permission"
-msgstr "Autorizzazione"
+msgstr "Permissão"
 
 #: admin/settings.php:12 template.php:117
 msgid "Settings"
-msgstr "Impostazioni"
+msgstr "Configurações"
 
 #: admin/settings.php:23
 msgid "Services"
-msgstr "Servizi"
+msgstr "Serviços"
 
 #: admin/settings.php:29
 msgid "Add service"
-msgstr "Aggiungi servizio"
+msgstr "Adicionar serviço"
 
 #: admin/settings.php:38 admin/settings.php:72
 msgid "ID"
@@ -172,214 +172,212 @@ msgstr "ID"
 
 #: admin/settings.php:42
 msgid "Delete"
-msgstr "Elimina"
+msgstr "Deletar"
 
 #: admin/settings.php:67
 msgid "Users"
-msgstr "Utenti"
+msgstr "Usuários"
 
 #: admin/settings.php:68
 msgid "Add new user"
-msgstr "Aggiunti nuovo utente"
+msgstr "Adicionar novo usuário"
 
 #: admin/settings.php:72 classes/user.php:372
 msgid "Role"
-msgstr "Ruolo"
+msgstr "Função"
 
 #: admin/user.php:45 admin/user.php:54 install.php:181 install.php:202
 msgid "User"
-msgstr "Utente"
+msgstr "Usuário"
 
 #: admin/user.php:52
 msgid "User settings"
-msgstr "Impostazioni Utente"
+msgstr "Configurações do usuário"
 
 #: classes/constellation.php:36 template.php:4
 msgid "Planned maintenance"
-msgstr "Manutenzione programmata"
+msgstr "Manutenção planejada"
 
 #: classes/constellation.php:42
 msgid "Back"
-msgstr "Indietro"
+msgstr "Voltar"
 
 #: classes/constellation.php:44
 msgid "Past incidents"
-msgstr "Incidenti passati"
+msgstr "Incidentes anteriores"
 
 #: classes/constellation.php:48
 msgid "No incidents"
-msgstr "Nessun incidente"
+msgstr "Nenhum incidente"
 
 #: classes/constellation.php:61
 msgid "Load more"
-msgstr "Carica altro"
+msgstr "Carregar mais"
 
 #: classes/constellation.php:101
 msgid "No services"
-msgstr "Nessun servizio"
+msgstr "Sem serviços"
 
 #: classes/incident.php:87
 msgid "Please enter title"
-msgstr "Inserisci un titolo"
+msgstr "Por favor insira um título"
 
 #: classes/incident.php:90
 msgid "Title too long! Character limit is 50"
-msgstr "Titolo troppo lungo! Limite carattere 50"
+msgstr "Título muito longo! Limite de caracteres é 50"
 
 #: classes/incident.php:96
 msgid "Please enter text"
-msgstr "Inserisci il testo"
+msgstr "Por favor, inserir texto"
 
 #: classes/incident.php:102
 msgid "Please set start and end time! Use ISO 8601 format."
-msgstr "Si prega di impostare l'ora di inizio e di fine! Usa il formato ISO 8601."
+msgstr "Por favor, inserir horário de início e de fim! Utilize o formato ISO 8601"
 
 #: classes/incident.php:107
 msgid "Please select at least one service"
-msgstr "Si prega di selezionare almeno un servizio\n"
-""
+msgstr "Por favor, selecione pelo menos um serviço"
 
 #: classes/incident.php:127
 msgid "Start date format is not recognized. Please use ISO 8601 format."
-msgstr "Il formato della data di inizio non è riconosciuto. Si prega di utilizzare il formato ISO 8601."
+msgstr "O Formato da data de inicio não foi reconhecido"
 
 #: classes/incident.php:133
 msgid "End date format is not recognized. Please use ISO 8601 format."
-msgstr "Il formato della data di fine non è riconosciuto. Si prega di utilizzare il formato ISO 8601."
+msgstr "O Formato da data de fim não foi reconhecdo"
 
 #: classes/incident.php:185
 msgid "Ended"
-msgstr "Conclusa"
+msgstr "Terminado"
 
 #: classes/service.php:63
 msgid "Service name is too long! Character limit is 50"
-msgstr "Il nome del servizio è troppo lungo! Il limite di caratteri è 50"
+msgstr "Nome do serviço é muito longo, o limite é de 50 caracteres"
 
 #: classes/service.php:66
 msgid "Please enter name!"
-msgstr "Inserisci il nome!"
+msgstr "Insira um nome!"
 
 #: classes/service.php:81 classes/service.php:123 classes/user.php:97
 #: classes/user.php:199
 msgid "You don't have the permission to do that!"
-msgstr "Non hai il permesso di farlo!"
+msgstr "Você não tem permissão para fazer isso!"
 
 #: classes/user.php:164
 msgid "Please mind the following character limits: "
-msgstr "Ricordati i seguenti limiti di caratteri:␣"
+msgstr "Por favor, lembre que o limite de caractéres é:"
 
 #: classes/user.php:185
 msgid "User account created"
-msgstr "Account utente creato"
+msgstr "Conta de usuário criada"
 
 #: classes/user.php:186
 msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
-msgstr "Ciao %s!<br>Il tuo account è stato creato. Puoi accedere con il tuo indirizzo email <a href=\"%s\">%s</a> e con password %s - per favore cambialo il prima possibile."
+msgstr "Olá %s!<br> Sua conta foi criada. Você pode logar com seu email em<a href=\"%s\">%s</a> com a senha %s - lembre-se de mudar o mais rápido possível"
 
 #: classes/user.php:180
 msgid "Username or email already used"
-msgstr "Username o email giù usati"
+msgstr "Nome de usuário ou email já estão em uso"
 
 #: classes/user.php:244
 msgid "Your account has been disabled. Please contact administrator."
-msgstr "Il tuo account è stato disabilitato. Contatta l'amministratore."
+msgstr "Sua conta foi desativada. Por favor contate um administrador"
 
 #: classes/user.php:233 classes/user.php:256
 msgid "Wrong email or password"
-msgstr "Email o password errata."
+msgstr "Email ou senha erradas"
 
 #: classes/user.php:299
 msgid "Invalid token detected, please login again!"
-msgstr "Rilevato token non valido, effettua nuovamente il login!"
+msgstr "Token inválido detectado, faça login novamente!"
 
 #: classes/user.php:314
 msgid "Profile picture"
-msgstr "Immagine profilo"
+msgstr "Foto de perfil"
 
 #: classes/user.php:379
 msgid "Change role"
-msgstr "Cambia ruolo"
+msgstr "Mudar função"
 
 #: classes/user.php:394
 msgid "Change email"
-msgstr "Cambia email"
+msgstr "Mudar email"
 
 #: classes/user.php:419 classes/user.php:420
 msgid "Old password"
-msgstr "Vecchia password"
+msgstr "Senha antiga"
 
 #: classes/user.php:526
 msgid "Passwords do not match!"
-msgstr "Le passwords non corrispondono!"
+msgstr "As senhas nao são iguais!"
 
 #: classes/user.php:534
 msgid "Cannot change password of other users!"
-msgstr "Impossibile cambiare la password di altri utenti!"
+msgstr "Não é possível mudar a senha de outros usuários"
 
 #: classes/user.php:567
 msgid "Wrong password!"
-msgstr "Password errata!"
+msgstr "Senha incorreta!"
 
 #: classes/user.php:595 classes/user.php:695
 msgid "Invalid token detected, please retry your request from start!"
-msgstr "Rilevato token non valido, si prega di riprovare la richiesta dall'inizio!"
+msgstr "Token inválido detectado, por favor retorne o pedido ao começo"
 
 #: classes/user.php:623
 msgid "Reset password"
-msgstr "Resetta password"
+msgstr "Resetar senha"
 
 #: classes/user.php:659
 msgid "Email change"
-msgstr "Email cambiata"
+msgstr "Mudar email"
 
 #: classes/incident.php:54 classes/user.php:736
 msgid "You don't have permission to do that!"
-msgstr "Non hai il permesso di farlo!"
+msgstr "Você não tem permissão para fazer isso!"
 
 #: template.php:4
 msgid "Major outage"
-msgstr "Grave interruzione"
+msgstr "Major outage"
 
 #: template.php:4
 msgid "Minor outage"
-msgstr "Lieve interruzione"
+msgstr "Minor outage"
 
 #: template.php:4
 msgid "Operational"
-msgstr "Operativo"
+msgstr "Operacional"
 
 #: template.php:7
 msgid "Some systems are experiencing major outages"
-msgstr "Alcuni sistemi stanno subendo interruzioni importanti"
+msgstr "Alguns sistemas estão passando por major outages"
 
 #: template.php:7
 msgid "Some systems are experiencing minor outages"
-msgstr "Alcuni sistemi stanno riscontrando interruzioni minori"
+msgstr "Alguns sistemas estão passando por minor outages"
 
 #: template.php:7
 msgid "Some systems are under maintenance"
-msgstr "Alcuni sistemi sono in manutenzione"
+msgstr "Alguns sistemas estão passando por manutenções"
 
 #: template.php:8
 msgid "Our systems are experiencing major outages."
-msgstr "I nostri sistemi stanno riscontrando interruzioni importanti."
+msgstr "Nossos sistemas estão passando por major outages"
 
 #: template.php:8
 msgid "Our systems are experiencing minor outages"
-msgstr "I nostri sistemi stanno riscontrando interruzioni minori"
+msgstr "Nossos sistemas estão passando por minor outages"
 
 #: template.php:8
 msgid "Our systems are under maintenance"
-msgstr "I nostri sistemi sono in manutenzione"
+msgstr "Nossos sistemas estão passando por manutenções"
 
 #: template.php:8
 msgid "All systems operational"
-msgstr "Tutti i sistemi sono operativi"
+msgstr "Todos sistemas operacionais"
 
 #: template.php:9
 msgid "Super admin"
-msgstr "Super Amministratore\n"
-""
+msgstr "Super admin"
 
 #: template.php:9
 msgid "Admin"
@@ -387,52 +385,52 @@ msgstr "Admin"
 
 #: template.php:53
 msgid "Service Status"
-msgstr "Stato del servizio"
+msgstr "Status do Serviço"
 
 #: template.php:106
 msgid "Toggle navigation"
-msgstr "Attiva / disattiva la navigazione"
+msgstr "Mudar navegação"
 
 #: template.php:116
 msgid "User (%s)"
-msgstr "Utente (%s)"
+msgstr "Usuário (%s)"
 
 #: template.php:118
 msgid "Logout"
-msgstr "Esci"
+msgstr "Logout"
 
 #: index.php:27
 msgid "Current status"
-msgstr "Stato attuale"
+msgstr "Status atual"
 
 #: install.php:4
 msgid "Status page"
-msgstr "Pagina di stato"
+msgstr "Página de status"
 
 #: install.php:139
 msgid "Install"
-msgstr "Installa"
+msgstr "Instalar"
 
 #: install.php:141
 msgid "Installation"
-msgstr "Installazione"
+msgstr "Instalação"
 
 #: install.php:26
 msgid "Connection failed: %s\n"
 ""
-msgstr "Connessione fallita: %s"
+msgstr "Conexão falhou: %s"
 
 #: install.php:31
 msgid "Please set valid url!"
-msgstr "Inserisci un url valido!"
+msgstr "Insira uma url válida!"
 
 #: install.php:98
 msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
-msgstr "Errore nella creazione del database. Controlla l'autorizzazione per il tuo account o la versione di MYSQL.<br>Error: %s"
+msgstr "Erro na criação da base de dados. Verifique suas permissões ou a versão do MYSQL.<br>Erro: %s"
 
 #: install.php:154
 msgid "Website details"
-msgstr "Dettagli sito web"
+msgstr "Detalhes do site"
 
 #: install.php:40 install.php:159
 msgid "Url"
@@ -440,209 +438,208 @@ msgstr "Url"
 
 #: install.php:166
 msgid "Also an email address for mailer would be nice :)"
-msgstr "Anche un indirizzo email per il mailer sarebbe carino :)"
+msgstr "Um endereço de email seria legal :)"
 
 #: install.php:173
 msgid "Database connection"
-msgstr "Connessione al database"
+msgstr "Conexão à base de dados"
 
 #: install.php:174
 msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
-msgstr "Abbiamo bisogno di una connessione al database per poter creare tabelle. Per favore controlla che il tuo account abbia il permesso necessario per farlo."
+msgstr "Nós precisamos de uma conexão a base de dados para podermos criar tabelas. Verifique se sua conta tem as permissões nescessárias para isso"
 
 #: install.php:177
 msgid "Server"
-msgstr "Server"
+msgstr "Servidor"
 
 #: install.php:178
 msgid "Database"
-msgstr "Database"
+msgstr "Base de dados"
 
 #: install.php:203
 msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
-msgstr "E infine, abbiamo bisogno di informazioni per creare un nuovo utente. Non devi fornirlo, ma poi ... Nessun amministratore della pagina di stato..."
+msgstr "E finalmente, precisamos de informações para criar um novo usuário. Você não precisa fornecer, porém... Sem administrador da página de status =("
 
 #: install.php:216
 msgid "Run install!"
-msgstr "Esegui l'installazione!"
+msgstr "Rodar instalação"
 
 #: classes/user.php:127
 msgid "Rank"
-msgstr "Rank"
+msgstr "Ranking"
 
 #: classes/user.php:624
 msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
-msgstr "Ciao %s!<br>Sotto troverai il link per cambiare la tua password. Il link è valido per 24 ore. Se non lo hai richiesto, ignora questo messaggio. <br><br><a href=\"%s\">RESETTA PASSWORD</a><br><br>Se il collegamento non funziona, copia &amp; incollalo nel tuo browser: <br>%s"
+msgstr "Olá %s!<br> Abaixo você encontrará o link para alterar sua senha. O link é válido por 24hrs. Se você não pediu isso, apenas ignore <br><br> <a href=\"%s\">RESETAR SENHA</a><br><br> se o link não funcionar, copie e cole no seu navegador: <br> %s\n"
+""
 
 #: classes/user.php:660
 msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
-msgstr "Ciao %s!<br>Sotto troverai il link per cambiare la tua password. Il link è valido per 24 ore. Se non lo hai richiesto, ignora questo messaggio. <br><br><a href=\"%s\">CAMBIA EMAIL</a><br><br>Se il collegamento non funziona, copia &amp; incollalo nel tuo browser: <br>%s\n"
+msgstr "Olá %s!<br> Abaixo você encontrará o link para alterar seu email. O link é válido por 24hrs. Se você não pediu isso, apenas ignore <br><br> <a href=\"%s\">MUDAR EMAIL</a><br><br> se o link não funcionar, copie e cole no seu navegador: <br> %s\n"
 ""
 
 #: template.php:9
 msgid "Editor"
-msgstr "Modifica"
+msgstr "Editor"
 
 #: install.php:36
 msgid "Server name"
-msgstr "Nome server"
+msgstr "Nome do servidor"
 
 #: install.php:44
 msgid "Mailer name"
-msgstr "Noma mailer"
+msgstr "Nome do enviador de email"
 
 #: install.php:52
 msgid "Mailer email"
-msgstr "Email mailer"
+msgstr "Email do enviador de email"
 
 #: install.php:56
 msgid "Database server"
-msgstr "Server database"
+msgstr "Servidor da base de dados"
 
 #: install.php:60
 msgid "Database name"
-msgstr "Nome database"
+msgstr "Nome da base de dados"
 
 #: install.php:64
 msgid "Database user"
-msgstr "Username database"
+msgstr "Usuário da base de dados"
 
 #: install.php:69
 msgid "Database password"
-msgstr "Password database"
+msgstr "Senha da base de dados"
 
 #: template.php:147
 msgid "Toggle Dropdown"
-msgstr "Attiva / disattiva elenco a discesa"
+msgstr "Toggle Dropdown"
 
 #: template.php:156
 msgid "Help with translation!"
-msgstr "Aiutaci nella traduzione"
+msgstr "Ajude a traduzir!"
 
 #: classes/user.php:439
 msgid "Deactivate user"
-msgstr "Disattiva utente"
+msgstr "Desativar usuário"
 
 #: classes/user.php:441
 msgid "Activate user"
-msgstr "Attiva utente"
+msgstr "Ativar usuário"
 
 #: install.php:73
 msgid "Please enter"
-msgstr "Per favore accedi"
+msgstr "Por favor insira"
 
 #: install.php:150
 msgid "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
-msgstr "Ti faremo alcune domande di base sul tuo sito web. La maggior parte delle impostazioni può essere successivamente modificata nel file config.php."
+msgstr "Vamos começar, responda um pouco sobre seu site, edite depois no config.php"
 
 #: install.php:155
 msgid "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
-msgstr "Abbiamo bisogno di un nome per la tua pagina di stato (visualizzata dietro il titolo della pagina dopo il trattino) e un url dell'installazione dello stato del tuo server (es. <a href='#'>https://esempio.com/status</a> - senza la barra finale), in modo che possiamo inviare agli utenti il link per la password dimenticata, ecc ...\n"
-""
+msgstr "Nós precisamos de um nome para sua página de status e um url para a instalação da página de status como: http://example.com/status, para então podermos enviar email para os usuários que esqueceram a senha etc..."
 
 #: install.php:161
 msgid "A title that you want to be shown on the top of the page."
-msgstr "Un titolo che si desidera mostrare nella parte superiore della pagina."
+msgstr "O Título que será mostrado no topo da página"
 
 #: api/status.php:24
 msgid "Service does not exist!"
-msgstr "Il servizio non esiste!"
+msgstr "Serviço inexistente!"
 
 #: classes/user.php:220
 msgid "Please fill in your email and password!"
-msgstr "Per favore inserisci la tua email e password!"
+msgstr "Insira seu email e senha!"
 
 #: classes/user.php:336
 msgid "Change name"
-msgstr "Cambia nome"
+msgstr "Mudar nome"
 
 #: classes/user.php:356
 msgid "Change username"
-msgstr "Cambia nome utente"
+msgstr "Mudar nome de usuário"
 
 #: classes/user.php:463
 msgid "This username is already taken."
-msgstr "Questo nome utente è già in uso."
+msgstr "Esse nome de usuário já existe!"
 
 #: classes/user.php:470
 msgid "Cannot change username of other users!"
-msgstr "Impossibile cambiare il nome utente di altri utenti!"
+msgstr "Impossível mudar o nome de usuário de outras pessoas!"
 
 #: classes/user.php:504
 msgid "Cannot change names of other users!"
-msgstr "Non è possibile modificare i nomi degli altri utenti!"
+msgstr "Impossível mudar o nome de outros usuários!"
 
 #: classes/user.php:667
 msgid "Confirmation email sent!"
-msgstr "Email di conferma inviata!"
+msgstr "Email de confirmação enviado!"
 
 #: install.php:186 policy.php:6
 msgid "Privacy Policy"
-msgstr "Politica Sulla Riservatezza"
+msgstr "Politica de Privacidade"
 
 #: install.php:190
 msgid "Company name"
-msgstr "Nome della ditta"
+msgstr "Nome da Companhia"
 
 #: install.php:191
 msgid "Address"
-msgstr "Indirizzo"
+msgstr "Endereço"
 
 #: install.php:191
 msgid "Full address"
-msgstr "Indirizzo completo"
+msgstr "Endereço completo"
 
 #: install.php:194
 msgid "E-Mail"
-msgstr "E-Mail"
+msgstr "Email"
 
 #: install.php:195
 msgid "Phone"
-msgstr "Telefono"
+msgstr "Telefone"
 
 #: install.php:195
 msgid "Phone number"
-msgstr "Numero di telefono"
+msgstr "Número de telefone"
 
 #: install.php:198 policy.php:7
 msgid "Who we are"
-msgstr "Chi siamo"
+msgstr "Quem nós somos"
 
 #: policy.php:9
 msgid "Contact"
-msgstr "Contatto"
+msgstr "Contato"
 
 #: policy.php:17
 msgid "What personal data we collect and why"
-msgstr "Quali dati personali raccogliamo e perché"
+msgstr "Quais dados pessoais nos coletamos e por que?"
 
 #: policy.php:19
 msgid "If you access our websites, the following information will be saved: IP-address, Date, Time, Browser queries, \n"
 "\tGeneral information about your browser, operating system and all search queries on the sites. \n"
 "\tThis user data will be used for anonym user statistics to recognize trends and improve our content.\n"
 "\t"
-msgstr "Se accedi ai nostri siti Web, verranno salvate le seguenti informazioni: indirizzo IP, data, ora, query browser,\n"
-"Informazioni generali sul tuo browser, sistema operativo e tutte le query di ricerca sui siti.\n"
-"Questi dati utente verranno utilizzati per le statistiche anonime degli utenti per riconoscere le tendenze e migliorare i nostri contenuti."
+msgstr "Acessando nosso site, as seguintes informações salvas:\n"
+"endereço de IP, Data, horario, Pesquisas, informações gerais sobre seu navegador, sistema operacional e todas as ações no site.\n"
+"Esses dados de usuário serão salvos para estatísticas anônimas para otimizar e melhorar nossos sistemas."
 
 #: policy.php:23
 msgid "How we protect your data"
-msgstr "Come proteggiamo i tuoi dati"
+msgstr "Como nós protegemos seus dados"
 
 #: policy.php:24
 msgid "In collaboration with our hosting provider we try our best to protect our \n"
 "\tdatabases against access from third parties, losses, misuse or forgery.\n"
 "\t"
-msgstr "In collaborazione con il nostro provider di hosting facciamo del nostro meglio per proteggere i nostri\n"
-"database contro l'accesso da parte di terzi, perdite, uso improprio o contraffazione."
+msgstr "Em colaboração com nosso provedor de host nós damos nosso melhor para proteger nossa base de dados contra acessos de terceiros, perdas ou mau uso"
 
 #: policy.php:27
 msgid "Third party that receive your personal data"
-msgstr "Terza parte che riceve i tuoi dati personali"
+msgstr "Terceiros que recebem seus dados pessoais"
 
 #: policy.php:29
 msgid "Cookies"
-msgstr "Biscotti"
+msgstr "Cookies"
 
 #: policy.php:30
 msgid "This site uses cookies – small text files that are placed on your machine to help the site provide a better user experience. \n"
@@ -651,22 +648,21 @@ msgid "This site uses cookies – small text files that are placed on your machi
 "\tAs a rule, cookies will make your browsing experience better. However, you may prefer to disable cookies on this site and on others. \n"
 "\tThe most effective way to do this is to disable cookies in your browser. We suggest consulting the Help section of your browser \n"
 "\tor taking a look at the About Cookies website which offers guidance for all modern browsers"
-msgstr "Questo sito utilizza i cookie: piccoli file di testo posizionati sulla macchina per aiutare il sito a fornire un'esperienza utente migliore.\n"
-"In generale, i cookie vengono utilizzati per conservare le preferenze dell'utente, memorizzare informazioni per cose come carrelli della spesa,\n"
-"e fornire dati di tracciamento resi anonimi a applicazioni di terze parti come Google Analytics.\n"
-"Di regola, i cookie renderanno la tua esperienza di navigazione migliore. Tuttavia, potresti preferire disabilitare i cookie su questo sito e su altri.\n"
-"Il modo più efficace per farlo è disabilitare i cookie nel tuo browser. Ti suggeriamo di consultare la sezione Aiuto del tuo browser\n"
-"o dare un'occhiata al sito Web About Cookies che offre una guida per tutti i browser moderni"
+msgstr "Esse site usa cookies - pequenos arquivos de texto que ficam em sua máquina para otimizar a sua experiência no site.\n"
+"Os cookies em geral guardam informações para coisas como carrinhos de compras, e para enviar arquivos para aplicações como o Google Analytics.\n"
+"Como regra, os cookies devem fazer sua navegação melhor.\n"
+"Porém caso você queira, pode desabilitar os cookies neste site e nos outros.\n"
+"A maneira mais efetiva de fazer isso, é desabilitar no seu navegador."
 
 #: install.php:187
 msgid "Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below."
-msgstr "Poiché stai raccogliendo informazioni personali, il GDPR ha bisogno che tu abbia una politica sulla privacy. Inserisci i dettagli di seguito."
+msgstr "Você coletando dados pessoais, a GDPR obriga você a ter uma politica de privacidade. Insira os dados abaixo"
 
 #: install.php:198
 msgid "Some info about yourself"
-msgstr "Alcune informazioni su di te"
+msgstr "Algumas informações sobre você"
 
 #: policy.php:18
 msgid "General"
-msgstr "Generale"
+msgstr "Geral"
 
