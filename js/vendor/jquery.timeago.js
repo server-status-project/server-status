@@ -3,15 +3,15 @@
  * updating fuzzy timestamps (e.g. "4 minutes ago" or "about 1 day ago").
  *
  * @name timeago
- * @version 1.6.1
- * @requires jQuery v1.2.3+
+ * @version 1.6.7
+ * @requires jQuery >=1.5.0 <4.0
  * @author Ryan McGeary
  * @license MIT License - http://www.opensource.org/licenses/mit-license.php
  *
  * For usage and examples, visit:
  * http://timeago.yarp.com/
  *
- * Copyright (c) 2008-2017, Ryan McGeary (ryan -[at]- mcgeary [*dot*] org)
+ * Copyright (c) 2008-2019, Ryan McGeary (ryan -[at]- mcgeary [*dot*] org)
  */
 
 (function (factory) {
@@ -42,7 +42,7 @@
     settings: {
       refreshMillis: 60000,
       allowPast: true,
-      allowFuture: true,
+      allowFuture: false,
       localeTitle: false,
       cutoff: 0,
       autoDispose: true,
@@ -51,7 +51,7 @@
         prefixFromNow: null,
         suffixAgo: "ago",
         suffixFromNow: "from now",
-        inPast: 'any moment now',
+        inPast: "any moment now",
         seconds: "less than a minute",
         minute: "about a minute",
         minutes: "%d minutes",
