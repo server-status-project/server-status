@@ -27,6 +27,7 @@ if (!isset($_SESSION['locale'])||isset($_GET['lang']))
 	$_SESSION['locale'] = $best_match;
 }
 
+putenv('LANGUAGE='.$_SESSION['locale'].'.UTF-8');
 setlocale(LC_ALL, $_SESSION['locale'].".UTF-8");
 setlocale(LC_MESSAGES, $_SESSION['locale'].".UTF-8");
 bindtextdomain("server-status", __DIR__ . "/locale/");
