@@ -115,7 +115,7 @@ if(isset($_POST['server']) && empty($message))
 		$config = file_get_contents("config.php.template");
 		$config = str_replace("##name##", htmlspecialchars($_POST['servername'], ENT_QUOTES), $config);
 		$config = str_replace("##title##", htmlspecialchars($_POST['title'], ENT_QUOTES), $config);
-		$config = str_replace("##url##", urlencode($_POST['url']), $config);
+		$config = str_replace("##url##", $_POST['url'], $config);
 		$config = str_replace("##mailer##", htmlspecialchars($_POST['mailer'], ENT_QUOTES), $config);
 		$config = str_replace("##mailer_email##", htmlspecialchars($_POST['mailer_email'], ENT_QUOTES), $config);
 		$config = str_replace("##server##", htmlspecialchars($_POST['server'], ENT_QUOTES), $config);
@@ -128,7 +128,7 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##policy_mail##", htmlspecialchars($_POST['policy_mail'], ENT_QUOTES), $config);
 		$config = str_replace("##policy_phone##", htmlspecialchars($_POST['policy_phone'], ENT_QUOTES),$config);
 		$config = str_replace("##who_we_are##", htmlspecialchars($_POST['who_we_are'], ENT_QUOTES), $config);
-		$policy_url_conf = ( ! empty($_POST['policy_url']) ) ? htmlspecialchars($_POST['policy_url'], ENT_QUOTES) : urlencode($_POST['url'])."/policy.php";
+		$policy_url_conf = ( ! empty($_POST['policy_url']) ) ? htmlspecialchars($_POST['policy_url'], ENT_QUOTES) : $_POST['url']."/policy.php";
 		$config = str_replace("##policy_url##", $policy_url_conf, $config);
 		file_put_contents("config.php", $config);
 		
