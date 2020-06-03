@@ -83,8 +83,8 @@ class Incident implements JsonSerializable
     global $mysqli, $message;
     $user_id = $_SESSION['user'];
     $type = $_POST['type'];
-    $title = $_POST['title'];
-    $text = $_POST['text'];
+    $title = strip_tags($_POST['title']);
+    $text = strip_tags($_POST['text'], '<br>');
 
     if (strlen($title)==0)
     {
