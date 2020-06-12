@@ -8,6 +8,8 @@ function timeago()
 }
 
 (function(){
+	jQuery.timeago.settings.allowFuture = true;
+
 	timeago();
 	
 	$("body").on("click", ".navbar-toggle", function(){
