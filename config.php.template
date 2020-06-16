@@ -2,7 +2,7 @@
 //This is config file, please be careful
 session_start();
 //You can change these:
-define("NAME", '##name##'); //Website name
+define("NAME", "##name##"); //Website name
 define("TITLE", "##title##");
 define("WEB_URL", "##url##"); //Used for links 
 define("MAILER_NAME", "##mailer##"); //Mailer name
@@ -42,6 +42,7 @@ if (!isset($_SESSION['locale'])||isset($_GET['lang']))
 	$_SESSION['locale'] = $best_match;
 }
 
+putenv('LANGUAGE='.$_SESSION['locale'].'.UTF-8');
 setlocale(LC_ALL, $_SESSION['locale'].".UTF-8");
 setlocale(LC_MESSAGES, $_SESSION['locale'].".UTF-8");
 bindtextdomain("server-status", __DIR__ . "/locale/");

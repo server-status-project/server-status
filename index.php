@@ -1,15 +1,17 @@
 <?php
 require_once("libs/parsedown/Parsedown.php");
 
-if (!file_exists("config.php")) {
+if (!file_exists("config.php"))
+{
+  require_once("template.php");
   require_once("install.php");
 
 } elseif(isset($_GET['do'])) { // we can add other actions with $_GET['do'] later.
     // Fix for translation via _(). We need config.php first...
     require_once("config.php");
     require_once("template.php");
-    
-    
+
+
     switch ($_GET['do']) {
         case 'subscriptions':
             require_once("subscriptions.php");
@@ -17,12 +19,12 @@ if (!file_exists("config.php")) {
 
         case 'email_subscription':
         case 'manage':
-        case 'unsubscribe';        
+        case 'unsubscribe';
             require_once("email_subscriptions.php");
             break;
 
         default:
-            // TODO : How to handle url invalid/unknown [do] commands 
+            // TODO : How to handle url invalid/unknown [do] commands
             header('Location: index.php');
             break;
     }
@@ -59,11 +61,11 @@ Template::render_header("Status");
       <h2><?php echo _("Current status");?></h2>
     </div>
     <div id="current">
-    <?php $constellation->render_status();?>  
+    <?php $constellation->render_status();?>
     </div>
 
 <?php if ($mysqli->query("SELECT count(*) FROM status")->num_rows)
-{      
+{
   ?>
       <div id="timeline">
         <div class="item">
@@ -76,7 +78,7 @@ Template::render_header("Status");
           </div>
         </div>
       </div>
-<?php } 
+<?php }
 
 Template::render_footer();
 }

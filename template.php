@@ -210,7 +210,7 @@ class Template{
         </div><!--/row -->
       </div><!--/container -->
     </div>
-    <script src="<?php echo WEB_URL;?>/js/vendor/jquery-3.2.1.min.js"></script>
+    <script src="<?php echo WEB_URL;?>/js/vendor/jquery-3.5.1.min.js"></script>
     <script src="<?php echo WEB_URL;?>/js/vendor/jquery.timeago.js"></script>
     <script src="<?php echo WEB_URL;?>/locale/<?php echo $_SESSION['locale'];?>/jquery.timeago.js"></script>
     <?php if ($admin){?>

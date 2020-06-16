@@ -163,7 +163,7 @@ class Service implements JsonSerializable
     ?>
       <div class="item clearfix">
         <div class="service"><?php echo $this->name; ?></div>
-        <?php if ($this->status!=-1){?><div class="status <?php echo $classes[$this->status];?>"><?php echo $statuses[$this->status];?></div><?php }?>
+        <?php if ($this->status!=-1){?><div class="status <?php echo $classes[$this->status];?>"><?php echo _($statuses[$this->status]);?></div><?php }?>
       </div>
   <?php
   }

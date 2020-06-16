@@ -113,22 +113,22 @@ if(isset($_POST['server']) && empty($message))
 	{
 		//Create config
 		$config = file_get_contents("config.php.template");
-		$config = str_replace("##name##", $_POST['servername'], $config);
-		$config = str_replace("##title##", $_POST['title'], $config);
+		$config = str_replace("##name##", htmlspecialchars($_POST['servername'], ENT_QUOTES), $config);
+		$config = str_replace("##title##", htmlspecialchars($_POST['title'], ENT_QUOTES), $config);
 		$config = str_replace("##url##", $_POST['url'], $config);
-		$config = str_replace("##mailer##", $_POST['mailer'], $config);
-		$config = str_replace("##mailer_email##", $_POST['mailer_email'], $config);
-		$config = str_replace("##server##", $_POST['server'], $config);
-		$config = str_replace("##database##", $_POST['database'], $config);
-		$config = str_replace("##user##", $_POST['dbuser'], $config);
-		$config = str_replace("##password##", $_POST['dbpassword'], $config);
-		$config = str_replace("##name##", $_POST['servername'], $config);
-		$config = str_replace("##policy_name##", $_POST['policy_name'], $config);
-		$config = str_replace("##address##", $_POST['address'], $config);
-		$config = str_replace("##policy_mail##", $_POST['policy_mail'], $config);
-		$config = str_replace("##policy_phone##", $_POST['policy_phone'],$config);
-		$config = str_replace("##who_we_are##", $_POST['who_we_are'], $config);
-		$policy_url_conf = ( ! empty($_POST['policy_url']) ) ? $_POST['policy_url'] : POLICY_URL;
+		$config = str_replace("##mailer##", htmlspecialchars($_POST['mailer'], ENT_QUOTES), $config);
+		$config = str_replace("##mailer_email##", htmlspecialchars($_POST['mailer_email'], ENT_QUOTES), $config);
+		$config = str_replace("##server##", htmlspecialchars($_POST['server'], ENT_QUOTES), $config);
+		$config = str_replace("##database##", htmlspecialchars($_POST['database'], ENT_QUOTES), $config);
+		$config = str_replace("##user##", htmlspecialchars($_POST['dbuser'], ENT_QUOTES), $config);
+		$config = str_replace("##password##", htmlspecialchars($_POST['dbpassword'], ENT_QUOTES), $config);
+		$config = str_replace("##name##", htmlspecialchars($_POST['servername'], ENT_QUOTES), $config);
+		$config = str_replace("##policy_name##", htmlspecialchars($_POST['policy_name'], ENT_QUOTES), $config);
+		$config = str_replace("##address##", htmlspecialchars($_POST['address'], ENT_QUOTES), $config);
+		$config = str_replace("##policy_mail##", htmlspecialchars($_POST['policy_mail'], ENT_QUOTES), $config);
+		$config = str_replace("##policy_phone##", htmlspecialchars($_POST['policy_phone'], ENT_QUOTES),$config);
+		$config = str_replace("##who_we_are##", htmlspecialchars($_POST['who_we_are'], ENT_QUOTES), $config);
+		$policy_url_conf = ( ! empty($_POST['policy_url']) ) ? htmlspecialchars($_POST['policy_url'], ENT_QUOTES) : $_POST['url']."/policy.php";
 		$config = str_replace("##policy_url##", $policy_url_conf, $config);
 		$config = str_replace("##tg_bot_token##", $_POST['tgtoken'], $config);
 		$config = str_replace("##tg_bot_username##", $_POST['tgbot'], $config);
