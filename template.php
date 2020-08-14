@@ -108,7 +108,7 @@ class Template{
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="<?php echo WEB_URL;?>/admin"><img src="<?php echo WEB_URL;?>/img/logo_white.png" alt="logo" class="menu-logo" width="50" height="50"></a>
+              <a class="navbar-brand" href="<?php echo WEB_URL;?>/admin"><img src="<?php if(strlen(CUSTOM_LOGO_URL)>1){ echo CUSTOM_LOGO_URL; } else { echo WEB_URL."/img/logo_white.png"; } ?>" alt="logo" class="menu-logo" width="50" height="50"></a>
             </div>
             <div class="navbar-collapse collapse navbar-right navbar-admin">
               <ul class="nav navbar-nav">
