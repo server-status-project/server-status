@@ -1,4 +1,15 @@
-ErrorDocument 404 /404.php
+<?php 
+/********************************************************************/
+//                       create-htaccess.php
+//                  Created by Yigit Kerem Oktay
+// This file generates a .htaccess file that contains all necessary 
+// code for it.
+// This is needed because some hosts do not either unzip hidden files
+// or neither GitHub puts that file inside the zips.
+/********************************************************************/
+if(stripos($_SERVER['SERVER_SOFTWARE'],'apache')!== false){
+$f = fopen(".htaccess", "a+");
+fwrite($f, "ErrorDocument 404 /404.php
 
 <IfModule mod_headers.c>
     Header set X-UA-Compatible "IE=edge"
@@ -114,4 +125,29 @@ FileETag None
     ExpiresByType font/woff                             "access plus 1 month"
     ExpiresByType application/font-woff2                "access plus 1 month"
     ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
-</IfModule>
+</IfModule>");
+fclose($f);
+} else {
+$f = fopen("web.config", "a+");
+fwrite($f, "<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<system.webServer>
+		<rewrite>
+			<rules>
+				<rule name="Imported Rule 1" stopProcessing="true">
+					<match url="^(.*)$" ignoreCase="false" />
+					<conditions>
+						<add input="{HTTPS}" pattern="off" ignoreCase="false" />
+					</conditions>
+					<action type="Redirect" redirectType="Permanent" url="https://{HTTP_HOST}{URL}" />
+				</rule>
+			</rules>
+		</rewrite>
+		<staticContent>
+			<clientCache cacheControlCustom="public" cacheControlMode="UseMaxAge" cacheControlMaxAge="30.00:00:00" />
+		</staticContent>
+	</system.webServer>
+</configuration>");
+fclose($f);
+}
+?>
