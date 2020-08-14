@@ -1,4 +1,4 @@
-<?php 
+<?php
 //This should later be translatable, maybe find a better solution?
 //This is here for better generation of POT files :)
 $statuses = array(_("Major outage"), _("Minor outage"), _("Planned maintenance"), _("Operational") );
@@ -66,7 +66,7 @@ class Template{
           </div>
         </div>
         <div id="wrapper" class="center">
-    <?php 
+    <?php
       }else{
         global $user;
         ?>
@@ -121,7 +121,7 @@ class Template{
           </div>
         </div>
         <div id="wrapper" class="center admin">
-      <?php 
+      <?php
     }
   }
 
@@ -138,7 +138,7 @@ class Template{
     <div id="footerwrap">
       <div class="container">
         <div class="row centered">
-          <div class="col-md-4 text-left"><a href="https://github.com/Pryx/server-status/graphs/contributors" target="_blank">Copyright © <?php echo date("Y");?> Server Status Project Contributors <?php if($additional_copyright != ""){ echo " and ".$additional_copyright; } ?></a></div>
+          <div class="col-md-4 text-left"><a href="https://github.com/Pryx/server-status/graphs/contributors" target="_blank">Copyright © <?php echo date("Y");?> Server Status Project Contributors </a><?php if(strlen($additional_copyright)>1){ echo " and ".$additional_copyright; } ?></div>
           <div class="col-md-4 text-center">
             <div class="btn-group dropup">
               <button type="button" class="btn btn-primary"><?php echo '<img src="'.WEB_URL.'/locale/'.$_SESSION['locale'].'/flag.png" alt="'.$lang_names[$_SESSION['locale']].'">'.$lang_names[$_SESSION['locale']];?></button>
@@ -147,7 +147,7 @@ class Template{
                 <span class="sr-only"><?php echo _("Toggle Dropdown");?></span>
               </button>
               <div class="dropdown-menu">
-                <?php 
+                <?php
                 foreach ($lang_names as $key => $value) {
                   echo '<a href="?lang='.$key.'"><img src="'.WEB_URL.'/locale/'.$key.'/flag.png" alt="'.$value.'">'.$value.'</a>';
                 }
