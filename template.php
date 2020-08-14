@@ -129,7 +129,7 @@ class Template{
   * Renders footer
   * @param Boolean $admin decides whether to load admin scripts
   */
-  public static function render_footer($admin = false,$additional_copyright = "")
+  public static function render_footer($admin = false,$additional_copyright = COPYRIGHT_TEXT)
   {
     global $negotiator;
     $lang_names = $negotiator->get_accepted_langs();
