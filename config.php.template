@@ -1,7 +1,20 @@
 <?php
-//This is config file, please be careful
+/**************************************************************************************/
+//                      SERVER STATUS CONFIG FILE TEMPLATE
+//                THIS FILE IS FOR CREATING YOUR CONFIG MANUALLY
+//                     !!!!!!!IMPORTANT NOTE!!!!!!!!!
+//         You will need to create your htaccess or web.config file yourself.
+//           Please head to http(s)://yourdomain.com/create-server-config.php
+//		        Wait until script finishes.
+//               Then delete it from your document root.
+//   We are sorry for this inconvinience and we will be automating this process soon.
+//   ------------------------
+//   Contributors:
+//  Vojtěch Sajdl - Yigit Kerem Oktay - Thomas Nilsen - jhuesser
+/**************************************************************************************/
+
 session_start();
-//You can change these:
+//Start editing here
 define("NAME", "##name##"); //Website name
 define("TITLE", "##title##");
 define("WEB_URL", "##url##"); //Used for links 
@@ -15,7 +28,7 @@ define("WHO_WE_ARE","##who_we_are##");
 define("POLICY_URL","##policy_url##");
 define("INSTALL_OVERRIDE", false);
 define("DEFAULT_LANGUAGE", "en_GB");
-
+//Stop editing
 require("classes/locale-negotiator.php");
 
 $negotiator = new LocaleNegotiator(DEFAULT_LANGUAGE);
