@@ -64,3 +64,7 @@ ALTER TABLE `status`
   ADD CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 ALTER TABLE `tokens`
   ADD CONSTRAINT `user` FOREIGN KEY (`user`) REFERENCES `users` (`id`);
+ CREATE TABLE `settings` (
+  `SettingName` varchar(255) NOT NULL UNIQUE,
+  `SettingValue` varchar(255) NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
