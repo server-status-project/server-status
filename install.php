@@ -132,8 +132,8 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##policy_url##", $policy_url_conf, $config);
 		file_put_contents("config.php", $config);
 		
-		include_once "create-htaccess.php";
-		unlink("create-htaccess.php");
+		include_once "create-server-config.php";
+		unlink("create-server-config.php");
 		unlink("config.php.template");
 		unlink("install.sql");
 		unlink(__FILE__);
