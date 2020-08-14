@@ -1,4 +1,4 @@
-<?php 
+<?php
 //This should later be translatable, maybe find a better solution?
 //This is here for better generation of POT files :)
 $statuses = array(_("Major outage"), _("Minor outage"), _("Planned maintenance"), _("Operational") );
@@ -55,7 +55,7 @@ class Template{
         <div class="navbar navbar-default" role="navigation">
           <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand" href="<?php echo WEB_URL;?>"><img src="<?php echo WEB_URL;?>/img/logo_white.png" alt="logo" class="menu-logo" width="50" height="50"></a>
+              <a class="navbar-brand" href="<?php echo WEB_URL;?>"><a class="navbar-brand" href="<?php echo WEB_URL;?>/admin"><img src="<?php if(strlen(CUSTOM_LOGO_URL)>1){ echo CUSTOM_LOGO_URL; } else { echo WEB_URL."/img/logo_white.png"; } ?>" alt="logo" class="menu-logo" style="height:50px;"></a>
             </div>
             <div class="navbar-left hidden-xs">
               <ul class="nav navbar-nav">
@@ -66,7 +66,7 @@ class Template{
           </div>
         </div>
         <div id="wrapper" class="center">
-    <?php 
+    <?php
       }else{
         global $user;
         ?>
@@ -108,7 +108,7 @@ class Template{
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="<?php echo WEB_URL;?>/admin"><img src="<?php echo WEB_URL;?>/img/logo_white.png" alt="logo" class="menu-logo" width="50" height="50"></a>
+              <a class="navbar-brand" href="<?php echo WEB_URL;?>/admin"><img src="<?php if(strlen(CUSTOM_LOGO_URL)>1){ echo CUSTOM_LOGO_URL; } else { echo WEB_URL."/img/logo_white.png"; } ?>" alt="logo" class="menu-logo" width="50" height="50"></a>
             </div>
             <div class="navbar-collapse collapse navbar-right navbar-admin">
               <ul class="nav navbar-nav">
@@ -121,7 +121,7 @@ class Template{
           </div>
         </div>
         <div id="wrapper" class="center admin">
-      <?php 
+      <?php
     }
   }
 
@@ -138,7 +138,7 @@ class Template{
     <div id="footerwrap">
       <div class="container">
         <div class="row centered">
-          <div class="col-md-4 text-left"><a href="https://github.com/Pryx/server-status/" target="_blank"><i class="fab fa-github" aria-hidden="true"></i>&nbsp;</a>Copyright © <?php echo date("Y");?> Vojtěch Sajdl</div>
+          <div class="col-md-4 text-left"><a href="https://github.com/Pryx/server-status/graphs/contributions" target="_blank">Copyright © <?php echo date("Y");?> Server Status Project Contributors </a><?php if(strlen(COPYRIGHT_TEXT)>1){ echo " and ".COPYRIGHT_TEXT; } ?></div>
           <div class="col-md-4 text-center">
             <div class="btn-group dropup">
               <button type="button" class="btn btn-primary"><?php echo '<img src="'.WEB_URL.'/locale/'.$_SESSION['locale'].'/flag.png" alt="'.$lang_names[$_SESSION['locale']].'">'.$lang_names[$_SESSION['locale']];?></button>
@@ -147,7 +147,7 @@ class Template{
                 <span class="sr-only"><?php echo _("Toggle Dropdown");?></span>
               </button>
               <div class="dropdown-menu">
-                <?php 
+                <?php
                 foreach ($lang_names as $key => $value) {
                   echo '<a href="?lang='.$key.'"><img src="'.WEB_URL.'/locale/'.$key.'/flag.png" alt="'.$value.'">'.$value.'</a>';
                 }
