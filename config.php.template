@@ -35,6 +35,11 @@ define("POLICY_URL","##policy_url##");
 define("INSTALL_OVERRIDE", false);
 define("DEFAULT_LANGUAGE", "en_GB");
 define("CUSTOM_LOGO_URL",""); // This will use the default logo if left empty
+define("COPYRIGHT_TEXT",""); // Leave this empty if you don't want your copyright displayed
+// Without COPYRIGHT_TEXT Set
+// 2020 Server Status Project Contributors
+// With COPYRIGHT_TEXT Set
+// 2020 Server Status Project Contributors and COPYRIGHT_TEXT
 //Stop editing
 require("classes/locale-negotiator.php");
 
