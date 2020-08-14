@@ -1,7 +1,26 @@
 <?php
-//This is config file, please be careful
+/**************************************************************************************/
+//                      SERVER STATUS CONFIG FILE TEMPLATE
+//                THIS FILE IS FOR CREATING YOUR CONFIG MANUALLY
+//                     !!!!!!!IMPORTANT NOTE!!!!!!!!!
+// You will need to create your htaccess or web.config file yourself if you use this template
+//           Please head to http(s)://yourdomain.com/create-server-config.php
+//		        Wait until script finishes.
+//               Then delete it from your document root.
+// If you don't want to allow php to access your root directory or if you have permission
+//                issues please follow the steps below.
+// --------------------------
+// FOR IIS:
+// Rename IISWebConfig to web.config
+// FOR Apache and Nginx
+// Rename ApacheHtaccess to .htaccess
+// --------------------------
+//   Contributors:
+//   Vojtěch Sajdl - Yigit Kerem Oktay - Thomas Nilsen - jhuesser
+/**************************************************************************************/
+
 session_start();
-//You can change these:
+//Start editing here
 define("NAME", "##name##"); //Website name
 define("TITLE", "##title##");
 define("WEB_URL", "##url##"); //Used for links 
@@ -13,10 +32,14 @@ define("POLICY_MAIL", "##policy_mail##"); //contact email in policy
 define("POLICY_PHONE", "##policy_phone##");
 define("WHO_WE_ARE","##who_we_are##");
 define("POLICY_URL","##policy_url##");
-define("COPYRIGHT_TEXT","");
+define("COPYRIGHT_TEXT",""); // Leave this empty if you don't want your copyright displayed
+// Without COPYRIGHT_TEXT Set
+// 2020 Server Status Project Contributors
+// With COPYRIGHT_TEXT Set
+// 2020 Server Status Project Contributors and COPYRIGHT_TEXT
 define("INSTALL_OVERRIDE", false);
 define("DEFAULT_LANGUAGE", "en_GB");
-
+//Stop editing
 require("classes/locale-negotiator.php");
 
 $negotiator = new LocaleNegotiator(DEFAULT_LANGUAGE);
