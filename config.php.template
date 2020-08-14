@@ -13,6 +13,7 @@ define("POLICY_MAIL", "##policy_mail##"); //contact email in policy
 define("POLICY_PHONE", "##policy_phone##");
 define("WHO_WE_ARE","##who_we_are##");
 define("POLICY_URL","##policy_url##");
+define("COPYRIGHT_TEXT","");
 define("INSTALL_OVERRIDE", false);
 define("DEFAULT_LANGUAGE", "en_GB");
 
