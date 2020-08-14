@@ -1,4 +1,4 @@
-<?php 
+<?php
 //This should later be translatable, maybe find a better solution?
 //This is here for better generation of POT files :)
 $statuses = array(_("Major outage"), _("Minor outage"), _("Planned maintenance"), _("Operational") );
@@ -55,7 +55,7 @@ class Template{
         <div class="navbar navbar-default" role="navigation">
           <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand" href="<?php echo WEB_URL;?>"><img src="<?php echo WEB_URL;?>/img/logo_white.png" alt="logo" class="menu-logo" width="50" height="50"></a>
+              <a class="navbar-brand" href="<?php echo WEB_URL;?>"><a class="navbar-brand" href="<?php echo WEB_URL;?>/admin"><img src="<?php if(strlen(CUSTOM_LOGO_URL)>1){ echo CUSTOM_LOGO_URL; } else { echo WEB_URL."/img/logo_white.png"; } ?>" alt="logo" class="menu-logo" style="height:50px;"></a>
             </div>
             <div class="navbar-left hidden-xs">
               <ul class="nav navbar-nav">
@@ -66,7 +66,7 @@ class Template{
           </div>
         </div>
         <div id="wrapper" class="center">
-    <?php 
+    <?php
       }else{
         global $user;
         ?>
@@ -121,7 +121,7 @@ class Template{
           </div>
         </div>
         <div id="wrapper" class="center admin">
-      <?php 
+      <?php
     }
   }
 
@@ -147,7 +147,7 @@ class Template{
                 <span class="sr-only"><?php echo _("Toggle Dropdown");?></span>
               </button>
               <div class="dropdown-menu">
-                <?php 
+                <?php
                 foreach ($lang_names as $key => $value) {
                   echo '<a href="?lang='.$key.'"><img src="'.WEB_URL.'/locale/'.$key.'/flag.png" alt="'.$value.'">'.$value.'</a>';
                 }
