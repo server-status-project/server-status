@@ -38,6 +38,14 @@ And many more!
 
 ## FAQ
 
+### My Translations are not working. What to do?
+1. Open your shell
+2. Type this command 'sudo nano /etc/locale.gen'
+3. Uncomment all the languages you want.
+4. Save with 'Ctrl+X'
+5. Run 'sudo locale-gen'
+6. Restart apache 'sudo service apache2 restart'
+7. Enjoy!
 ### Do you have a demo page?
 Yes we have! Head over to https://demo.status.sajdl.com/admin and try the admin interface for yourself.
 Login details:
