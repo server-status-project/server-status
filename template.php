@@ -129,7 +129,7 @@ class Template{
   * Renders footer
   * @param Boolean $admin decides whether to load admin scripts
   */
-  public static function render_footer($admin = false)
+  public static function render_footer($admin = false,$additional_copyright = "")
   {
     global $negotiator;
     $lang_names = $negotiator->get_accepted_langs();
@@ -138,7 +138,7 @@ class Template{
     <div id="footerwrap">
       <div class="container">
         <div class="row centered">
-          <div class="col-md-4 text-left"><a href="https://github.com/Pryx/server-status/" target="_blank"><i class="fab fa-github" aria-hidden="true"></i>&nbsp;</a>Copyright © <?php echo date("Y");?> Vojtěch Sajdl</div>
+          <div class="col-md-4 text-left"><a href="https://github.com/Pryx/server-status/graphs/contributors" target="_blank">Copyright © <?php echo date("Y");?> Server Status Project Contributors <?php if($additional_copyright != ""){ echo " and ".$additional_copyright; } ?></a></div>
           <div class="col-md-4 text-center">
             <div class="btn-group dropup">
               <button type="button" class="btn btn-primary"><?php echo '<img src="'.WEB_URL.'/locale/'.$_SESSION['locale'].'/flag.png" alt="'.$lang_names[$_SESSION['locale']].'">'.$lang_names[$_SESSION['locale']];?></button>
