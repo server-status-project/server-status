@@ -3,14 +3,20 @@
 //                      SERVER STATUS CONFIG FILE TEMPLATE
 //                THIS FILE IS FOR CREATING YOUR CONFIG MANUALLY
 //                     !!!!!!!IMPORTANT NOTE!!!!!!!!!
-//         You will need to create your htaccess or web.config file yourself.
+// You will need to create your htaccess or web.config file yourself if you use this template
 //           Please head to http(s)://yourdomain.com/create-server-config.php
 //		        Wait until script finishes.
 //               Then delete it from your document root.
-//   We are sorry for this inconvinience and we will be automating this process soon.
-//   ------------------------
+// If you don't want to allow php to access your root directory or if you have permission
+//                issues please follow the steps below.
+// --------------------------
+// FOR IIS:
+// Rename IISWebConfig to web.config
+// FOR Apache and Nginx
+// Rename ApacheHtaccess to .htaccess
+// --------------------------
 //   Contributors:
-//  Vojtěch Sajdl - Yigit Kerem Oktay - Thomas Nilsen - jhuesser
+//   Vojtěch Sajdl - Yigit Kerem Oktay - Thomas Nilsen - jhuesser
 /**************************************************************************************/
 
 session_start();
