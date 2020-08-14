@@ -47,6 +47,6 @@ Template::render_header("Status");
       </div>
 <?php } 
 
-Template::render_footer(false,COPYRIGHT_TEXT);
+Template::render_footer();
   
 }
