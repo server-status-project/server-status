@@ -19,6 +19,11 @@
 //   Vojtěch Sajdl - Yigit Kerem Oktay - Thomas Nilsen - jhuesser
 /**************************************************************************************/
 
+
+/****************************/
+// These settings will be stored	
+// in the database soon.
+/****************************/
 session_start();
 //Start editing here
 define("NAME", "##name##"); //Website name
