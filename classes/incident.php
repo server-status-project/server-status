@@ -194,7 +194,7 @@ class Incident implements JsonSerializable
           <small>
               <?php echo _("Impacted service(s): ");
               foreach ( $this->service_name as $key => $value ) {
-                echo '<span class="label label-default" style="display:inline-block;">'.$value . '</span>&nbsp;';
+                echo '<span class="label label-default">'.$value . '</span>&nbsp;';
               }
 
           if (isset($this->end_date)){?> 
