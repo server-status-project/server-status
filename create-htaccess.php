@@ -7,6 +7,7 @@
 // This is needed because some hosts do not either unzip hidden files
 // or neither GitHub puts that file inside the zips.
 /********************************************************************/
+if(strpos($_SERVER['SERVER_SOFTWARE'],'apache')!== false){
 $f = fopen(".htaccess", "a+");
 fwrite($f, "ErrorDocument 404 /404.php
 
@@ -126,4 +127,27 @@ FileETag None
     ExpiresByType text/x-cross-domain-policy            "access plus 1 week"
 </IfModule>");
 fclose($f);
+} else {
+$f = fopen("web.config", "a+");
+fwrite($f, "<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<system.webServer>
+		<rewrite>
+			<rules>
+				<rule name="Imported Rule 1" stopProcessing="true">
+					<match url="^(.*)$" ignoreCase="false" />
+					<conditions>
+						<add input="{HTTPS}" pattern="off" ignoreCase="false" />
+					</conditions>
+					<action type="Redirect" redirectType="Permanent" url="https://{HTTP_HOST}{URL}" />
+				</rule>
+			</rules>
+		</rewrite>
+		<staticContent>
+			<clientCache cacheControlCustom="public" cacheControlMode="UseMaxAge" cacheControlMaxAge="30.00:00:00" />
+		</staticContent>
+	</system.webServer>
+</configuration>");
+fclose($f);
+}
 ?>
