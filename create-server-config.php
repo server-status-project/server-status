@@ -7,7 +7,7 @@
 // This is needed because some hosts do not either unzip hidden files
 // or neither GitHub puts that file inside the zips.
 /********************************************************************/
-if(strpos($_SERVER['SERVER_SOFTWARE'],'apache')!== false){
+if(stripos($_SERVER['SERVER_SOFTWARE'],'apache')!== false){
 $f = fopen(".htaccess", "a+");
 fwrite($f, "ErrorDocument 404 /404.php
 
