@@ -616,3 +616,7 @@ label.form-name
 {
 	line-height: 20px
 }
+.panel .panel-footer .label
+{
+    display: inline-block;
+}
