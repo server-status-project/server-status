@@ -4,9 +4,9 @@
 ![screenshot](https://status.trucksbook.eu/img/screenshot.png)
 
 # Fully Customisable
-![screenshot](https://skyfallenhosted.ml/img/thumb/externalcontent/ss1.png)
-![screenshot](https://skyfallenhosted.ml/img/thumb/externalcontent/ss2.png)
-![screenshot](https://skyfallenhosted.ml/img/thumb/externalcontent/ss3.png)
+![screenshot](https://skyfallenhosted.ml/img/thumb/externalcontent/ss1.PNG)
+![screenshot](https://skyfallenhosted.ml/img/thumb/externalcontent/ss2.PNG)
+![screenshot](https://skyfallenhosted.ml/img/thumb/externalcontent/ss3.PNG)
 
 Very simple server status page written in PHP that can run on **PHP 5.4+** - even on **shared webhosting** even without shell access. Because why waste your money on another server (or host on a server that you might want to do maintenance on), when you can use cheap webhosting? And as a cherry on top - it works even without javascript!
 
