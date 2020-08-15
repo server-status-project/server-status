@@ -3,6 +3,10 @@
 
 ![screenshot](https://status.trucksbook.eu/img/screenshot.png)
 
+# Download
+## Source Code might not always be stable so we've packed and archived all stable fetures into this packet.
+https://skyfallenhosted.ml/dl/server-status-103.zip
+
 # Fully Customisable
 ![screenshot](https://skyfallenhosted.ml/img/thumb/externalcontent/ss1.PNG)
 ![screenshot](https://skyfallenhosted.ml/img/thumb/externalcontent/ss2.PNG)
