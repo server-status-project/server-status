@@ -4,6 +4,8 @@ define("WEB_URL", "."); //Website name
 define("NAME", _('Status page')); //Website name
 define("MINIMUM_PHP_VERSION", "5.4.0");
 define("POLICY_URL", "policy.php"); //Default policy URL
+define("CUSTOM_LOGO_URL","");
+define("COPYRIGHT_TEXT","");
 require_once("classes/locale-negotiator.php");
 
 $negotiator = new LocaleNegotiator("en_GB");
