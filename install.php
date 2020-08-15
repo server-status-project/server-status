@@ -130,10 +130,12 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##who_we_are##", htmlspecialchars($_POST['who_we_are'], ENT_QUOTES), $config);
 		$policy_url_conf = ( ! empty($_POST['policy_url']) ) ? htmlspecialchars($_POST['policy_url'], ENT_QUOTES) : $_POST['url']."/policy.php";
 		$config = str_replace("##policy_url##", $policy_url_conf, $config);
+		$config = str_replace("##tg_bot_token##", $_POST['tgtoken'], $config);
+		$config = str_replace("##tg_bot_username##", $_POST['tgbot'], $config);
+		$policy = str_replace("##name##", $fullname, $policy);
 		file_put_contents("config.php", $config);
+		file_put_contents("policy.php", $policy);
 		
-		include_once "create-server-config.php";
-		unlink("create-server-config.php");
 		unlink("config.php.template");
 		unlink("install.sql");
 		unlink(__FILE__);
@@ -232,8 +234,18 @@ if (!empty($message))
 		</div>
 	</section>
 	<section class="install-section clearfix">
+		<h2><?php echo _("Telegram");?></h2>
+		<summary><?php echo _("You can provide a subscription feature through telegram.");?></summary>
+
+		<div class="form-group clearfix">
+			<div class="col-sm-6"><label for="tgtoken"><?php echo _("Telegram bot API Token");?>: </label><input type="text" name="tgtoken" value="<?php echo ((isset($_POST['tgtoken']))?htmlspecialchars($_POST['tgtoken'], ENT_QUOTES):'');?>" id="tgtoken" placeholder="<?php echo _("Telegram Bot API Token");?>" class="form-control" required></div>
+			<div class="col-sm-6"><label for="tgbot"><?php echo _("Telegram Bot Username");?>: </label><input type="text" name="tgbot" value="<?php echo ((isset($_POST['tgbot']))?htmlspecialchars($_POST['tgbot'], ENT_QUOTES):'');?>" id="tgbot" placeholder="<?php echo _("Telegram Bot Username");?>" class="form-control" required></div>
+		</div>
+	</section>
+
+    <section class="install-section clearfix">
 		<h2><?php echo _("Privacy Policy");?></h2>
-		<summary><?php echo _("Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below.");?></summary>
+		<summary><?php echo _("Since you are collection personal information, the GDPR forces you to have a privacy policy. Enter the details below.");?></summary>
 
 		<div class="form-group clearfix">
 			<div class="col-sm-6"><label for="policy_name"><?php echo _("Name");?>: </label><input type="text" name="policy_name" value="<?php echo ((isset($_POST['policy_name']))?htmlspecialchars($_POST['policy_name'], ENT_QUOTES):'');?>" id="policy_name" placeholder="<?php echo _("Company name");?>" class="form-control" required></div>
