@@ -93,7 +93,6 @@ class Queue
         }
         $sql = "INSERT INTO queue_notify (task_id, status, subscriber_id, retries) VALUES ". $query;
 
-        syslog(1,$sql);
         $mysqli->query($sql);
 
         $this->set_task_status($this->all_status['ready']); // Make task available for release
@@ -127,8 +126,7 @@ class Queue
           $tmp = $stmt2->get_result();
           $result2 = $tmp->fetch_assoc();
           $typeID = $result2['type_id'];
-          syslog(1, $typeID . " " . $result['task_id'] . " " . $result['userID']);
-
+          
           // Handle telegram
           if ($typeID == 1) {
               $msg = str_replace("#s", $result['firstname'], $result2['template_data2']);
