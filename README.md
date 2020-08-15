@@ -1,4 +1,5 @@
-# Server status page
+# Server Status Beta (Official)
+## This is the official beta fork of Server Status by the contributors.
 ![License](https://img.shields.io/github/license/Pryx/server-status.svg) ![Current release](https://img.shields.io/github/release/Pryx/server-status.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b82d62fa6d8b41119f68fd9eca3c3a08)](https://www.codacy.com/app/sajdl.vojtech/server-status?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Pryx/server-status&amp;utm_campaign=Badge_Grade) [![Discord](https://img.shields.io/discord/742703112590065745?logo=discord)](https://discord.gg/Wgxnxz4)
 
 ![screenshot](https://status.trucksbook.eu/img/screenshot.png)
