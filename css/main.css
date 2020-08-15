@@ -57,7 +57,7 @@ a:focus {
 }
 .navbar-collapse
 {
-    background: #2f60a3;
+    background: gray;
 }
 .navbar-default {
 	z-index: 200;
