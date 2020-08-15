@@ -50,7 +50,7 @@ class Service implements JsonSerializable
   }
 
   /**
-   * Processes submitted form and adds service unless problem is encountered, 
+   * Processes submitted form and adds service unless problem is encountered,
    * calling this is possible only for admin or higher rank. Also checks requirements
    * for char limits.
    * @return void
@@ -71,7 +71,7 @@ class Service implements JsonSerializable
     {
       global $mysqli;
       $name = $_POST['service'];
-      $stmt = $mysqli->prepare("INSERT INTO services VALUES(NULL,?)");
+      $stmt = $mysqli->prepare("INSERT INTO services ( name ) VALUES ( ? )");
       $stmt->bind_param("s", $name);
       $stmt->execute();
       $stmt->get_result();
@@ -143,12 +143,12 @@ class Service implements JsonSerializable
     }
 
     echo '<div id="status-big" class="status '.$classes[$worst].'">';
-      
+
     if ($statuses[$worst] == count($array))
     {
-      echo _($all[$worst]);
+      echo $all[$worst];
     }else{
-      echo _($some[$worst]);
+      echo $some[$worst];
     }
     echo '</div>';
   }

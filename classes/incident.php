@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . "/notification.php");
+
 /**
 * Class for creating and rendering an incident
 */
@@ -81,6 +83,9 @@ class Incident implements JsonSerializable
   public static function add()
   {
     global $mysqli, $message;
+    //Sould be a better way to get this array...
+    $statuses = array(_("Major outage"), _("Minor outage"), _("Planned maintenance"), _("Operational") );
+
     $user_id = $_SESSION['user'];
     $type = $_POST['type'];
     $title = strip_tags($_POST['title']);
@@ -160,10 +165,22 @@ class Incident implements JsonSerializable
         $stmt->execute();
         $query = $stmt->get_result();
       }
-      header("Location: ".WEB_URL."/admin");
+      
+      // Perform notification to subscribers
+      $notify = new Notification();
+      $notify->populate_impacted_services($status_id);
+
+      $notify->type = $type;
+      $notify->time = $time;      
+      $notify->title = $title;
+      $notify->text = $text;
+      $notify->status = $statuses[$type];
+      
+      $notify->notify_subscribers();
+      
+      header("Location: ".WEB_URL."/admin?sent=true");
     }
   }
-
 
   /**
    * Renders incident
@@ -174,7 +191,7 @@ class Incident implements JsonSerializable
     global $icons;
     global $classes, $user;
     $admin = $admin && (($user->get_rank()<=1) || ($user->get_username() == $this->username));
-
+    $Parsedown = new Parsedown();
     ?>
      <article class="panel panel-<?php echo $classes[$this->type];?>">
         <div class="panel-heading icon">
@@ -188,12 +205,12 @@ class Incident implements JsonSerializable
           <time class="pull-right timeago" datetime="<?php echo $this->date; ?>"><?php echo $this->date; ?></time>
         </div>
         <div class="panel-body">
-          <?php echo $this->text; ?>
+          <?php echo $Parsedown->setBreaksEnabled(true)->text($this->text); ?>
         </div>
         <div class="panel-footer clearfix">
           <small>
               <?php echo _("Impacted service(s): ");
-              foreach ( $this->service_name as $key => $value ) {
+              foreach ( $this->service_name as $value ) {
                 echo '<span class="label label-default">'.$value . '</span>&nbsp;';
               }
 

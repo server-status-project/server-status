@@ -65,7 +65,6 @@ a:focus {
 	border-color: transparent;
 	border-radius: 0px 0px 30px 30px;
 	height: 77px;
-    overflow: hidden;
     position: fixed;
     top: 0;
     width: 100%;
