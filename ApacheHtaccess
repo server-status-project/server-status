@@ -1,12 +1,10 @@
 ErrorDocument 404 /404.php
-
 <IfModule mod_headers.c>
     Header set X-UA-Compatible "IE=edge"
     <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|woff2?|xloc|xml|xpi)$">
         Header unset X-UA-Compatible
     </FilesMatch>
 </IfModule>
-
 <IfModule mod_rewrite.c>
 	#DELETE THIS IF YOU DON'T HAVE HTTPS! 
 	RewriteEngine On
@@ -14,21 +12,16 @@ ErrorDocument 404 /404.php
 	RewriteCond %{HTTPS} off
 	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
-
-
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
 </IfModule>
-
 <IfModule mod_deflate.c>
-
 <IfModule mod_setenvif.c>
     <IfModule mod_headers.c>
         SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
         RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
     </IfModule>
 </IfModule>
-
 <IfModule mod_filter.c>
     AddOutputFilterByType DEFLATE "application/atom+xml" \
                                   "application/javascript" \
@@ -63,17 +56,13 @@ ErrorDocument 404 /404.php
                                   "text/x-cross-domain-policy" \
                                   "text/xml"
 </IfModule>
-
 <IfModule mod_mime.c>
     AddEncoding gzip              svgz
 </IfModule>
-
 <IfModule mod_headers.c>
     Header unset ETag
 </IfModule>
-
 FileETag None
-
 <IfModule mod_expires.c>
     ExpiresActive on
     ExpiresDefault                                      "access plus 1 month"

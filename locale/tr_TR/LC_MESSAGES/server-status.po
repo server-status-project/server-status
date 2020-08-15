@@ -17,7 +17,7 @@ msgstr "Üzgünüz, ama görmek istediğiniz sayfa mevcut değil."
 
 #: admin/dashboard.php:22 admin/dashboard.php:26 template.php:115
 msgid "Dashboard"
-msgstr "Panel"
+msgstr "Başlangıç"
 
 #: admin/dashboard.php:27
 msgid "Welcome"
@@ -25,7 +25,7 @@ msgstr "Hoşgeldiniz"
 
 #: admin/dashboard.php:39
 msgid "New incident"
-msgstr "Yeni durum"
+msgstr "Yeni durum güncellemesi"
 
 #: admin/dashboard.php:72 install.php:48 install.php:163
 msgid "Title"
@@ -37,19 +37,19 @@ msgstr "Zaman"
 
 #: admin/dashboard.php:77
 msgid "Here goes your text..."
-msgstr "Buraya yazınız gelecek..."
+msgstr "Yazdığınız yazı burada görünecek"
 
 #: admin/dashboard.php:80 classes/incident.php:183
 msgid "Posted by"
-msgstr "Tarafından"
+msgstr "Tarafından Paylaşıldı"
 
 #: admin/dashboard.php:80 classes/incident.php:185
 msgid "Ending"
-msgstr "Sonlanma"
+msgstr "Bitiş"
 
 #: admin/dashboard.php:80
 msgid "End time"
-msgstr "Sonlanma zamanı"
+msgstr "Bitiş Saati"
 
 #: admin/dashboard.php:99 admin/new-user.php:53
 msgid "Submit"
@@ -67,24 +67,24 @@ msgstr "Lütfen devam etmek için giriş yapınız."
 #: admin/lost-password.php:48 admin/new-user.php:24 admin/settings.php:72
 #: classes/user.php:120 classes/user.php:404 install.php:169 install.php:210
 msgid "Email"
-msgstr "E-posta"
+msgstr "Elektronik Posta"
 
 #: admin/login-form.php:19 admin/login-form.php:20 admin/new-user.php:27
 #: classes/user.php:123 classes/user.php:417 install.php:182 install.php:213
 msgid "Password"
-msgstr "Parola"
+msgstr "Şifre"
 
 #: admin/login-form.php:22
 msgid "Forgotten password?"
-msgstr "Parolanızı mı unuttunuz?"
+msgstr "Unutulan Şifreyi Geri Getirme"
 
 #: admin/login-form.php:23
 msgid "Remember me"
-msgstr "Beni hatırla"
+msgstr "Giriş Bilgilerini Hatırla"
 
 #: admin/lost-password.php:2 admin/lost-password.php:5
 msgid "Lost password"
-msgstr "Kayıp Parola"
+msgstr "Unutulan Şifre"
 
 #: admin/lost-password.php:16
 msgid "Go back"
@@ -104,7 +104,7 @@ msgstr "Başa dön"
 
 #: admin/lost-password.php:34
 msgid "Email with password reset link has been sent!"
-msgstr "Parola sıfırlama linkini içeren e-posta gönderildi!"
+msgstr "Şifre sıfırlama linkini içeren e-posta gönderildi!"
 
 #: admin/lost-password.php:50
 msgid "Submit request"
@@ -117,16 +117,16 @@ msgstr "%s (%s) için parolayı sıfırla"
 #: admin/lost-password.php:60 admin/lost-password.php:61 classes/user.php:421
 #: classes/user.php:422
 msgid "New password"
-msgstr "Yeni parola"
+msgstr "Yeni şifre"
 
 #: admin/lost-password.php:62 admin/lost-password.php:63 classes/user.php:423
 #: classes/user.php:424
 msgid "Repeat password"
-msgstr "Parolayı tekrarla"
+msgstr "Şifreyi tekrarla"
 
 #: admin/lost-password.php:64 classes/user.php:425
 msgid "Change password"
-msgstr "Parolayı değiştir"
+msgstr "Şifreyi değiştir"
 
 #: admin/new-user.php:7
 msgid "New user"
@@ -168,7 +168,7 @@ msgstr "Servis ekle"
 
 #: admin/settings.php:38 admin/settings.php:72
 msgid "ID"
-msgstr "ID"
+msgstr "Kimlik Tanımlayıcı"
 
 #: admin/settings.php:42
 msgid "Delete"
@@ -196,7 +196,7 @@ msgstr "Kullanıcı ayarları"
 
 #: classes/constellation.php:36 template.php:4
 msgid "Planned maintenance"
-msgstr "Planlı bakım"
+msgstr "Önceden Planlanmış Bakım Çalışması"
 
 #: classes/constellation.php:42
 msgid "Back"
@@ -204,15 +204,15 @@ msgstr "Geri"
 
 #: classes/constellation.php:44
 msgid "Past incidents"
-msgstr "Geçmiş durumlar"
+msgstr "Geçmiş durum güncellemeleri"
 
 #: classes/constellation.php:48
 msgid "No incidents"
-msgstr "Durum yok"
+msgstr "Ufukta herhangi bir olay yok."
 
 #: classes/constellation.php:61
 msgid "Load more"
-msgstr "Daha fazla"
+msgstr "Daha fazla Yükle"
 
 #: classes/constellation.php:101
 msgid "No services"
@@ -224,7 +224,7 @@ msgstr "Lütfen başlık girin"
 
 #: classes/incident.php:90
 msgid "Title too long! Character limit is 50"
-msgstr "Başlık çok uzun! Limit 50 karakterdir"
+msgstr "Başlık çok uzun! Lütfen karakter limiti olan 50'yi geçmeyin"
 
 #: classes/incident.php:96
 msgid "Please enter text"
@@ -232,7 +232,7 @@ msgstr "Lütfen metin girin"
 
 #: classes/incident.php:102
 msgid "Please set start and end time! Use ISO 8601 format."
-msgstr "Lütfen başlama ve sonlanma zamanı girin! ISO 8601 formatı kullanın."
+msgstr "Lütfen başlangıç ve bitiş zamanı girin! ISO 8601 formatı kullanın."
 
 #: classes/incident.php:107
 msgid "Please select at least one service"
@@ -240,23 +240,23 @@ msgstr "Lütfen en az 1 servis seçin"
 
 #: classes/incident.php:127
 msgid "Start date format is not recognized. Please use ISO 8601 format."
-msgstr "Başlama tarihi formatı uyumsuz. Lütfen ISO 8601 formatı kullanın."
+msgstr "Başlangıç tarihi formatı ISO 8601 standartına uygun değil. Lütfen ISO 8601 formatı kullanın."
 
 #: classes/incident.php:133
 msgid "End date format is not recognized. Please use ISO 8601 format."
-msgstr "Sonlanma tarihi formatı uyumsuz. Lütfen ISO 8601 formatı kullanın."
+msgstr "Bitiş tarihi formatı ISO 8601 standartına uygun değil. Lütfen ISO 8601 formatı kullanın."
 
 #: classes/incident.php:185
 msgid "Ended"
-msgstr "Sonlandı"
+msgstr "Bitti."
 
 #: classes/service.php:63
 msgid "Service name is too long! Character limit is 50"
-msgstr "Servis adı çok uzun! Limit 50 karakterdir."
+msgstr "Servis adı çok uzun! Lütfen karakter limiti olan 50'yi geçmeyin."
 
 #: classes/service.php:66
 msgid "Please enter name!"
-msgstr "Lütfen isim girin!"
+msgstr "Lütfen bir isim girin!"
 
 #: classes/service.php:81 classes/service.php:123 classes/user.php:97
 #: classes/user.php:199
@@ -265,7 +265,7 @@ msgstr "Bunu yapmaya yetkiniz yok!"
 
 #: classes/user.php:164
 msgid "Please mind the following character limits: "
-msgstr "Lütfen dikkat, kalan karakter limiti: "
+msgstr "Kalan karakter limiti: "
 
 #: classes/user.php:185
 msgid "User account created"
@@ -273,7 +273,7 @@ msgstr "Kullanıcı hesabı oluşturuldu"
 
 #: classes/user.php:186
 msgid "Hi %s!<br>Your account has been created. You can login with your email address at <a href=\"%s\">%s</a> with password %s - please change it as soon as possible."
-msgstr "Merhaba %s!<br>Hesabınız oluşturuldu. <a href=\"%s\">%s</a> adresinden e-posta adresiniz ve %s parolanızla giriş yapabilirsiniz - lütfen en yakın zamanda parolanızı değiştirin."
+msgstr "Merhaba %s!<br>Hesabınız oluşturuldu. <a href=\"%s\">%s</a> adresinden e-posta adresiniz ve %s şifrenizle giriş yapabilirsiniz - lütfen en yakın zamanda şifrenizi değiştirin."
 
 #: classes/user.php:180
 msgid "Username or email already used"
@@ -285,11 +285,11 @@ msgstr "Hesabınız etkin değil. Lütfen yöneticiyle iletişime geçin."
 
 #: classes/user.php:233 classes/user.php:256
 msgid "Wrong email or password"
-msgstr "Hatalı e-posta veya parola"
+msgstr "Şifre veya elektronik posta adresi hatalı."
 
 #: classes/user.php:299
 msgid "Invalid token detected, please login again!"
-msgstr "Geçersiz anahtar tespit edildi, lütfen tekrar giriş yapın!"
+msgstr "Oturum anahtarı geçersiz, lütfen tekrar giriş yapın!"
 
 #: classes/user.php:314
 msgid "Profile picture"
@@ -301,35 +301,34 @@ msgstr "Rol değiştir"
 
 #: classes/user.php:394
 msgid "Change email"
-msgstr "Parola değiştir"
+msgstr "E-Posta adresini güncelle"
 
 #: classes/user.php:419 classes/user.php:420
 msgid "Old password"
-msgstr "Eski parola"
+msgstr "Eski Şifre"
 
 #: classes/user.php:526
 msgid "Passwords do not match!"
-msgstr "Parolalar eşleşmiyor!"
+msgstr "Şifreler eşleşmiyor!"
 
 #: classes/user.php:534
 msgid "Cannot change password of other users!"
-msgstr "Diğer kullanıcıların parolası değiştirilemez!"
+msgstr "Sadece kendi şifrenizi değiştirebilirsiniz."
 
 #: classes/user.php:567
 msgid "Wrong password!"
-msgstr "Parola yanlış!"
+msgstr "Yanlış şifre!"
 
 #: classes/user.php:595 classes/user.php:695
 msgid "Invalid token detected, please retry your request from start!"
-msgstr "Geçersiz anahtar tespit edildi, lütfen isteğinizi baştan deneyin!"
-
+msgstr "Oturum anahtarı geçersiz, lütfen isteğinizi tekrar deneyin"
 #: classes/user.php:623
 msgid "Reset password"
-msgstr "Parola Sıfırla"
+msgstr "Şifre Sıfırlama"
 
 #: classes/user.php:659
 msgid "Email change"
-msgstr "E-posta değiştir"
+msgstr "E-Posta adresini değiştir"
 
 #: classes/incident.php:54 classes/user.php:736
 msgid "You don't have permission to do that!"
@@ -337,47 +336,47 @@ msgstr "Bunu yapmaya yetkiniz yok!"
 
 #: template.php:4
 msgid "Major outage"
-msgstr "Önemli aksaklık"
+msgstr "Kapsamlı Arıza"
 
 #: template.php:4
 msgid "Minor outage"
-msgstr "Küçük aksaklık"
+msgstr "Ufak Arıza"
 
 #: template.php:4
 msgid "Operational"
-msgstr "Çalışıyor"
+msgstr "Çalışır Durumda"
 
 #: template.php:7
 msgid "Some systems are experiencing major outages"
-msgstr "Bazı sistemler ciddi aksaklıklar yaşıyor"
+msgstr "Bazı sistemlerde ciddi arızalar var."
 
 #: template.php:7
 msgid "Some systems are experiencing minor outages"
-msgstr "Bazı sistemler küçük aksaklıklar yaşıyor"
+msgstr "Bazı sistemlerde ufak arızalar var."
 
 #: template.php:7
 msgid "Some systems are under maintenance"
-msgstr "Bazı sistemler bakımda"
+msgstr "Bazı sistemlerde bakım çalışması yürütülüyor."
 
 #: template.php:8
 msgid "Our systems are experiencing major outages."
-msgstr "Sistemlerimiz ciddi aksaklıklar yaşıyor"
+msgstr "Sistemlerimizde ciddi arızalar yaşanıyor."
 
 #: template.php:8
 msgid "Our systems are experiencing minor outages"
-msgstr "Sistemlerimiz küçük aksaklıklar yaşıyor"
+msgstr "Sistemlerimizde küçük arızalar var."
 
 #: template.php:8
 msgid "Our systems are under maintenance"
-msgstr "Sistemlerimiz bakımda"
+msgstr "Sistemlerimizde bakım çalışması yürütülüyor."
 
 #: template.php:8
 msgid "All systems operational"
-msgstr "Tüm sistemler çalışıyor"
+msgstr "Tüm sistemler çalışır halde."
 
 #: template.php:9
 msgid "Super admin"
-msgstr "Süper Yönetici"
+msgstr "Sistem Yöneticisi"
 
 #: template.php:9
 msgid "Admin"
@@ -385,11 +384,11 @@ msgstr "Yönetici"
 
 #: template.php:53
 msgid "Service Status"
-msgstr "Servis Durumu"
+msgstr "Sistem Durumu"
 
 #: template.php:106
 msgid "Toggle navigation"
-msgstr "Menü Aç / Kapat"
+msgstr "Menüyi Görüntüle / Gizle"
 
 #: template.php:116
 msgid "User (%s)"
@@ -401,7 +400,7 @@ msgstr "Çıkış"
 
 #: index.php:27
 msgid "Current status"
-msgstr "Şu anki durum"
+msgstr "Güncel Durum"
 
 #: install.php:4
 msgid "Status page"
@@ -422,11 +421,11 @@ msgstr "Bağlantı başarısız oldu: %s"
 
 #: install.php:31
 msgid "Please set valid url!"
-msgstr "Lütfen geçerli URL girin!"
+msgstr "Lütfen geçerli bir URL girin!"
 
 #: install.php:98
 msgid "Error while creating database. Please check permission for your account or MYSQL version.<br>Error: %s"
-msgstr "Veritabanı oluştururken hata oluştu. Lütfen yetkinizi veya MYSQL sürümünüzü kontrol edin.<br>Hata: %s"
+msgstr "Veritabanı oluştururken hata oluştu. Lütfen hesabınızın veritabanı yetkilerini ve MYSQL sürümünüzü kontrol edin.<br>Hata: %s"
 
 #: install.php:154
 msgid "Website details"
@@ -438,7 +437,7 @@ msgstr "URL"
 
 #: install.php:166
 msgid "Also an email address for mailer would be nice :)"
-msgstr "Ayrıca e-postalar için bir e-posta adresi güzel olur :)"
+msgstr "Ayrıca e-postalar için bir e-posta adresi güzel olabilir :)"
 
 #: install.php:173
 msgid "Database connection"
@@ -446,7 +445,7 @@ msgstr "Veritabanı bağlantısı"
 
 #: install.php:174
 msgid "We need database connection to be able to create tables. Please check that your account has the permission needed to do that."
-msgstr "Tabloları oluşturabilmek için veritabanı bağlantısına ihtiyaç var. Lütfen hesabınızın bunu yapmaya yetkili olduğunu kontrol edin."
+msgstr "Tabloları oluşturabilmek için veritabanı bağlantısına ihtiyacımız var. Lütfen hesabınızın bunu yapmaya yetkili olup olmadığını kontrol edin."
 
 #: install.php:177
 msgid "Server"
@@ -458,7 +457,7 @@ msgstr "Veritabanı"
 
 #: install.php:203
 msgid "And finally, we need info to create a new user. You don't have to provide it, but then... No status page admin..."
-msgstr "Ve nihayet, yeni bir kullanıcı oluşturmak için bilgiye ihtiyacımız var. Bunu sağlamak zorunda değilsiniz, ancak yapmazsanız... Durum sayfasının yöneticisi olmaz..."
+msgstr "Ve nihayet, yeni bir kullanıcı oluşturmak için bazı bilgilere ihtiyacımız var. Bunu sağlamak zorunda değilsiniz, ancak yapmazsanız... Durum sayfasının yöneticisi olmaz..."
 
 #: install.php:216
 msgid "Run install!"
@@ -470,15 +469,15 @@ msgstr "Seviye"
 
 #: classes/user.php:624
 msgid "Hi %s!<br>Below you will find link to change your password. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">RESET PASSWORD</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
-msgstr "Merhaba %s!<br>Parolanızı sıfırlamanız için gereken link aşağıdadır. Link 24 saat boyunca geçerlidir. Eğer bunu siz istemediyseniz görmezden gelebilirsiniz. <br><br><a href=\"%s\">PAROLAYI SIFIRLA</a><br><br>Link çalışmazsa, linki kopyalayıp tarayıcınıza yapıştırabilirsiniz: <br>%s"
+msgstr "Merhaba %s!<br>Şifrenizi sıfırlamanız için gereken link aşağıda. Link 24 saat boyunca geçerlidir. Eğer bunu siz talep etmediyseniz görmezden gelebilirsiniz. <br><br><a href=\"%s\">ŞİFRENİZİ SIFIRLAYIN</a><br><br>Link çalışmazsa, linki kopyalayıp tarayıcınıza yapıştırabilirsiniz: <br>%s"
 
 #: classes/user.php:660
 msgid "Hi %s!<br>Below you will find link to change your email. The link is valid for 24hrs. If you didn't request this, feel free to ignore it. <br><br><a href=\"%s\">CHANGE EMAIL</a><br><br>If the link doesn't work, copy &amp; paste it into your browser: <br>%s"
-msgstr "Merhaba %s!<br>E-posta adresinizi değiştirmek için gereken link aşağıdadır. Link 24 saat boyunca geçerlidir. Eğer bunu siz istemediyseniz görmezden gelebilirsiniz. <br><br><a href=\"%s\">E-POSTA ADRESİNİ DEĞİŞTİR</a><br><br>Link çalışmazsa, linki kopyalayıp tarayıcınıza yapıştırabilirsiniz: <br>%s"
+msgstr "Merhaba %s!<br>E-posta adresinizi güncellemek için link aşağıda. Link 24 saat boyunca geçerlidir. Eğer bunu siz talep etmediyseniz görmezden gelebilirsiniz. <br><br><a href=\"%s\">E-POSTA ADRESİNİZİ DEĞİŞTİRİN</a><br><br>Link çalışmazsa, linki kopyalayıp tarayıcınıza yapıştırabilirsiniz: <br>%s"
 
 #: template.php:9
 msgid "Editor"
-msgstr "Editör"
+msgstr "Düzenleyici"
 
 #: install.php:36
 msgid "Server name"
@@ -486,11 +485,11 @@ msgstr "Sunucu adı"
 
 #: install.php:44
 msgid "Mailer name"
-msgstr "E-posta gönderici adı"
+msgstr "E-Posta Sistemi için Gönderici Adı"
 
 #: install.php:52
 msgid "Mailer email"
-msgstr "Gönderici e-posta  adresi"
+msgstr "E-Posta Sistemi için Gönderici Adresi"
 
 #: install.php:56
 msgid "Database server"
@@ -506,15 +505,15 @@ msgstr "Veritabanı kullanıcı adı"
 
 #: install.php:69
 msgid "Database password"
-msgstr "Veritabanı parolası"
+msgstr "Veritabanı şifresi"
 
 #: template.php:147
 msgid "Toggle Dropdown"
-msgstr "Açılır menü arasında geçiş yap"
+msgstr "Açılır Kapanır Menü"
 
 #: template.php:156
 msgid "Help with translation!"
-msgstr "Çeviriye yardım et!"
+msgstr "Çeviren Yiğit Kerem Oktay"
 
 #: classes/user.php:439
 msgid "Deactivate user"
@@ -530,11 +529,11 @@ msgstr "Lütfen girin"
 
 #: install.php:150
 msgid "We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file."
-msgstr "Siteniz hakkında siz birkaç basit soru soracağız. Ayarların çoğu daha sonra config.php dosyasından düzenlenebilir."
+msgstr "Siteniz hakkında siz birkaç basit soru soracağız. Ayarların çoğu kurulumdan sonra da config.php dosyasından düzenlenebilir."
 
 #: install.php:155
 msgid "We need a name for your status page (shown behind page title after the dash) and a url of your server status installation (i.e. <a href='#'>https://example.com/status</a> - without the trailing slash), so we can mail users link for forgotten password etc..."
-msgstr "Durum sayfası için bir isime (sayfa başlığının altında görünür) ve sunucu durumu kurulumunuzun web adresine ihtiyacımız var. (örn: <a href='#'>https://example.com/status</a> - adresin sonuna yatay çizgi koymayın), parolamı unuttum vb mailler için."
+msgstr "Durum sayfası için bir başlığa ve kurulumunuzun web adresine ihtiyacımız var. (örn: <a href='theskyfallen.com'>https://status.theskyfallen.com</a> (adresin sonuna yatay çizgi koymayın)"
 
 #: install.php:161
 msgid "A title that you want to be shown on the top of the page."
@@ -546,7 +545,7 @@ msgstr "Servis mevcut değil!"
 
 #: classes/user.php:220
 msgid "Please fill in your email and password!"
-msgstr "Lütfen eposta ve parola giriniz!"
+msgstr "Lütfen E-Posta ve şifrenizi girin!"
 
 #: classes/user.php:336
 msgid "Change name"
@@ -562,11 +561,11 @@ msgstr "Bu kullanıcı adı alınmış"
 
 #: classes/user.php:470
 msgid "Cannot change username of other users!"
-msgstr "Diğer kullanıcıların kullanıcı adı değiştirilemez"
+msgstr "Sadece kendi kullanıcı adınızı değiştirebilirsiniz."
 
 #: classes/user.php:504
 msgid "Cannot change names of other users!"
-msgstr "Diğer kullanıcıların adları değiştirilemez"
+msgstr "Sadece kendi adınızı güncelleyebilirsiniz."
 
 #: classes/user.php:667
 msgid "Confirmation email sent!"
@@ -574,7 +573,7 @@ msgstr "Doğrulama e-postası gönderildi!"
 
 #: install.php:186 policy.php:6
 msgid "Privacy Policy"
-msgstr "Gizlilik sözleşmesi"
+msgstr "Gizlilik Politikasını Görüntüleyin"
 
 #: install.php:190
 msgid "Company name"
@@ -647,7 +646,7 @@ msgid "This site uses cookies – small text files that are placed on your machi
 "\tAs a rule, cookies will make your browsing experience better. However, you may prefer to disable cookies on this site and on others. \n"
 "\tThe most effective way to do this is to disable cookies in your browser. We suggest consulting the Help section of your browser \n"
 "\tor taking a look at the About Cookies website which offers guidance for all modern browsers"
-msgstr "Bu site, daha iyi bir kullanıcı deneyimi sunmasına yardımcı olmak için bilgisayarınıza yerleştirilen küçük metin dosyaları olan tanımlama bilgilerini kullanır.\n"
+msgstr "Bu site, daha iyi bir kullanıcı deneyimi sunulmasına yardımcı olmak için bilgisayarınıza yerleştirilen küçük metin dosyalarına benzetebileceğimiz çerezlerikullanır.\n"
 "\n"
 "Genel olarak, çerezler kullanıcı tercihlerini saklamak, alışveriş sepeti gibi şeyler için bilgi depolamak ve Google Analytics gibi üçüncü taraf uygulamalara anonimleştirilmiş izleme verileri sağlamak için kullanılır.\n"
 "\n"
@@ -657,7 +656,7 @@ msgstr "Bu site, daha iyi bir kullanıcı deneyimi sunmasına yardımcı olmak i
 
 #: install.php:187
 msgid "Since you are collecting personal information, the GDPR needs you to have a privacy policy. Enter the details below."
-msgstr "Kişisel bilgileri topladığınızdan beri, GSYİH'nın bir gizlilik politikasına sahip olmanız gerekir. Aşağıdaki bilgileri girin."
+msgstr "Kişisel bilgileri topladığınızdan beri, KVKK'ya uygun bir gizlilik politikasına sahip olmanız gerekir. Aşağıdaki bilgileri girin."
 
 #: install.php:198
 msgid "Some info about yourself"

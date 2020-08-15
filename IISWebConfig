@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<system.webServer>
+		<rewrite>
+			<rules>
+				<rule name="Imported Rule 1" stopProcessing="true">
+					<match url="^(.*)$" ignoreCase="false" />
+					<conditions>
+						<add input="{HTTPS}" pattern="off" ignoreCase="false" />
+					</conditions>
+					<action type="Redirect" redirectType="Permanent" url="https://{HTTP_HOST}{URL}" />
+				</rule>
+			</rules>
+		</rewrite>
+		<staticContent>
+			<clientCache cacheControlCustom="public" cacheControlMode="UseMaxAge" cacheControlMaxAge="30.00:00:00" />
+		</staticContent>
+	</system.webServer>
+</configuration>
