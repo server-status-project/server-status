@@ -75,7 +75,7 @@ class Incident implements JsonSerializable
   }
 
   /**
-   * Processes submitted form and adds incident unless problem is encountered, 
+   * Processes submitted form and adds incident unless problem is encountered,
    * calling this is possible only for admin or higher rank. Also checks requirements
    * for char limits.
    * @return void
@@ -129,7 +129,7 @@ class Incident implements JsonSerializable
       if (!empty($_POST['time']) && $type == 2){
         $input_time = (!empty($_POST['time_js'])?$_POST['time_js']: $_POST['time']);
         $input_end_time = (!empty($_POST['end_time_js'])?$_POST['end_time_js']: $_POST['end_time']);
-        $time = strtotime($input_time);  
+        $time = strtotime($input_time);
         $end_time = strtotime($input_end_time);
         if (!$time)
         {
@@ -152,7 +152,7 @@ class Incident implements JsonSerializable
         $time = time();
         $end_time = '';
       }
-      
+
       $stmt = $mysqli->prepare("INSERT INTO status VALUES (NULL,?, ?, ?, ?, ?, ?)");
       $stmt->bind_param("issiii", $type, $title, $text, $time ,$end_time ,$user_id);
       $stmt->execute();
@@ -160,24 +160,24 @@ class Incident implements JsonSerializable
       $status_id = $mysqli->insert_id;
 
       foreach ($services as $service) {
-        $stmt = $mysqli->prepare("INSERT INTO services_status VALUES (NULL,?, ?)"); 
+        $stmt = $mysqli->prepare("INSERT INTO services_status VALUES (NULL,?, ?)");
         $stmt->bind_param("ii", $service, $status_id);
         $stmt->execute();
         $query = $stmt->get_result();
       }
-      
+
       // Perform notification to subscribers
       $notify = new Notification();
       $notify->populate_impacted_services($status_id);
 
       $notify->type = $type;
-      $notify->time = $time;      
+      $notify->time = $time;
       $notify->title = $title;
       $notify->text = $text;
       $notify->status = $statuses[$type];
-      
+
       $notify->notify_subscribers();
-      
+
       header("Location: ".WEB_URL."/admin?sent=true");
     }
   }
@@ -214,7 +214,7 @@ class Incident implements JsonSerializable
                 echo '<span class="label label-default">'.$value . '</span>&nbsp;';
               }
 
-          if (isset($this->end_date)){?> 
+          if (isset($this->end_date)){?>
             <span class="pull-right"><?php echo strtotime($this->end_date)>time()?_("Ending"):_("Ended");?>:&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
             <?php } ?>
           </small>
@@ -234,4 +234,4 @@ class Incident implements JsonSerializable
       "username" => $this->username
     ];
   }
-}          
+}
