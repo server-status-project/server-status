@@ -1,3 +1,7 @@
+CREATE TABLE `settings` (
+  `setting` varchar(255) NOT NULL UNIQUE,
+  `value` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 CREATE TABLE `services` (
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8_czech_ci NOT NULL
