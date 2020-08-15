@@ -9,6 +9,7 @@ define("COPYRIGHT_TEXT","");
 define('SUBSCRIBE_EMAIL', false);
 define('SUBSCRIBE_TELEGRAM', false);
 require_once("classes/locale-negotiator.php");
+include("classes/db-class.php");
 
 $negotiator = new LocaleNegotiator("en_GB");
 $message = "";
