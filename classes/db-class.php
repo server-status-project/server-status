@@ -8,22 +8,19 @@ class SSDB
         return true;
         } else {
         return $conn->error;
-    }
-
-    $conn->close();
+        }
     }
     function getSetting($conn,$setting){
-        $sql = "SELECT value FROM settings WHERE setting='".$setting."';
+        $sql = "SELECT value FROM settings WHERE setting='".$setting."'";
         $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
+        if ($result->num_rows == 1) {
             while($row = $result->fetch_assoc()) {
                 return $row["value"];
             }
         } else {
             return "null";
         }
-        $conn->close();
     }
     function setSetting($conn,$settingname,$settingvalue){
         $sql = "INSERT INTO settings (setting,value) VALUES ('".$settingname."','".$settingvalue."');";
@@ -33,7 +30,6 @@ class SSDB
                 return $conn->error;
             }
 
-        $conn->close();
     }
     function deleteSetting($conn,$settingname){
         $sql = "DELETE FROM settings WHERE setting=\"".$settingname."\";";
@@ -43,6 +39,5 @@ class SSDB
                 return $conn->error;
             }
 
-        $conn->close();
     }
 }
