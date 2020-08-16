@@ -119,16 +119,22 @@ if(isset($_POST['server']) && empty($message))
 	{
 		//Create config
 		$config = file_get_contents("config.php.template");
-		$config = str_replace("##name##", htmlspecialchars($_POST['servername'], ENT_QUOTES), $config);
-		$config = str_replace("##title##", htmlspecialchars($_POST['title'], ENT_QUOTES), $config);
-		$config = str_replace("##url##", $_POST['url'], $config);
-		$config = str_replace("##mailer##", htmlspecialchars($_POST['mailer'], ENT_QUOTES), $config);
-		$config = str_replace("##mailer_email##", htmlspecialchars($_POST['mailer_email'], ENT_QUOTES), $config);
-		$config = str_replace("##server##", htmlspecialchars($_POST['server'], ENT_QUOTES), $config);
+		//$config = str_replace("##name##", htmlspecialchars($_POST['servername'], ENT_QUOTES), $config);
+		$db->setSetting($mysqli,"name",htmlspecialchars($_POST['servername'], ENT_QUOTES));
+		//$config = str_replace("##title##", htmlspecialchars($_POST['title'], ENT_QUOTES), $config);
+		$db->setSetting($mysqli,"title",htmlspecialchars($_POST['title'], ENT_QUOTES));
+		//$config = str_replace("##url##", $_POST['url'], $config);
+		$db->setSetting($mysqli,"url",$_POST['url']);
+		//$config = str_replace("##mailer##", htmlspecialchars($_POST['mailer'], ENT_QUOTES), $config);
+		$db->setSetting($mysqli,"mailer",htmlspecialchars($_POST['mailer'], ENT_QUOTES));
+		//$config = str_replace("##mailer_email##", htmlspecialchars($_POST['mailer_email'], ENT_QUOTES), $config);
+		$db->setSetting($mysqli,"mailer_email",htmlspecialchars($_POST['mailer_email'], ENT_QUOTES));
+		//$config = str_replace("##server##", htmlspecialchars($_POST['server'], ENT_QUOTES), $config);
+		$db->setSetting($mysqli,"server",htmlspecialchars($_POST['server'], ENT_QUOTES));
 		$config = str_replace("##database##", htmlspecialchars($_POST['database'], ENT_QUOTES), $config);
 		$config = str_replace("##user##", htmlspecialchars($_POST['dbuser'], ENT_QUOTES), $config);
 		$config = str_replace("##password##", htmlspecialchars($_POST['dbpassword'], ENT_QUOTES), $config);
-		$config = str_replace("##name##", htmlspecialchars($_POST['servername'], ENT_QUOTES), $config);
+		// Duplicate of lines 122-123 //$config = str_replace("##name##", htmlspecialchars($_POST['servername'], ENT_QUOTES), $config);
 		$config = str_replace("##policy_name##", htmlspecialchars($_POST['policy_name'], ENT_QUOTES), $config);
 		$config = str_replace("##address##", htmlspecialchars($_POST['address'], ENT_QUOTES), $config);
 		$config = str_replace("##policy_mail##", htmlspecialchars($_POST['policy_mail'], ENT_QUOTES), $config);
