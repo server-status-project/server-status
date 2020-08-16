@@ -3,40 +3,46 @@
 
 class SSDB
 {
-    function execute($link,$sql){
-        if ($result = mysqli_query($link, $sql)) {
-            return true;
+    function execute($conn,$sql){
+        if ($conn->query($sql) === TRUE) {
+        return true;
         } else {
-            die("SQL Failure.Traceback:" . $sql . " Detailed info:" . mysqli_error($link));
-        }
+        return $conn->error;
     }
-    function getSetting($link,$setting){
-        $sql = "SELECT value FROM settings WHERE setting=\"".$setting."\";";
-        if($result = mysqli_query($link, $sql)){
-            if(mysqli_num_rows($result) == 1){
-                while($row = mysqli_fetch_array($result)){
-                    return $row['value'];
-                }
-            }
-            else{
-                return "none";
-            }
-        }
+
+    $conn->close();
     }
-    function setSetting($link,$settingname,$settingvalue){
+    function getSetting($conn,$setting){
+        $sql = "SELECT value FROM settings WHERE setting='".$setting."';
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                return $row["value"];
+            }
+        } else {
+            return "null";
+        }
+        $conn->close();
+    }
+    function setSetting($conn,$settingname,$settingvalue){
         $sql = "INSERT INTO settings (setting,value) VALUES ('".$settingname."','".$settingvalue."');";
-        if ($result = mysqli_query($link, $sql)) {
-            return true;
-        } else {
-            die("SQL Failure.Traceback:" . $sql . " Detailed info:" . mysqli_error($link));
-        }
+            if ($conn->query($sql) === TRUE) {
+                return true;
+            } else {
+                return $conn->error;
+            }
+
+        $conn->close();
     }
-    function deleteSetting($link,$settingname){
+    function deleteSetting($conn,$settingname){
         $sql = "DELETE FROM settings WHERE setting=\"".$settingname."\";";
-        if ($result = mysqli_query($link, $sql)) {
-            return true;
-        } else {
-            die("SQL Failure.Traceback:" . $sql . " Detailed info:" . mysqli_error($link));
-        }
+        if ($conn->query($sql) === TRUE) {
+                return true;
+            } else {
+                return $conn->error;
+            }
+
+        $conn->close();
     }
 }
