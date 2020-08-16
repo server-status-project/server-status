@@ -18,7 +18,6 @@
 //   Contributors:
 //   Vojtěch Sajdl - Yigit Kerem Oktay - Thomas Nilsen - jhuesser
 /**************************************************************************************/
-include "classes/db-class.php";
 session_start();
 //Start editing here
 define("NAME", "##name##"); //Website name
