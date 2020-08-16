@@ -20,11 +20,11 @@
 /**************************************************************************************/
 session_start();
 //Start editing here
-define("NAME", "##name##"); //Website name
-define("TITLE", "##title##");
-define("WEB_URL", "##url##"); //Used for links
-define("MAILER_NAME", "##mailer##"); //Mailer name
-define("MAILER_ADDRESS", "##mailer_email##"); //Mailer address
+//define("NAME", "##name##"); //Website name
+//define("TITLE", "##title##");
+//define("WEB_URL", "##url##"); //Used for links
+//define("MAILER_NAME", "##mailer##"); //Mailer name
+//define("MAILER_ADDRESS", "##mailer_email##"); //Mailer address
 define("POLICY_NAME", "##policy_name##"); //name for contact in policy
 define("ADDRESS", "##address##");
 define("POLICY_MAIL", "##policy_mail##"); //contact email in policy
