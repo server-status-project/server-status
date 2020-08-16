@@ -33,6 +33,7 @@ if (!file_exists("config.php"))
 require_once("config.php");
 require_once("template.php");
 require_once("classes/constellation.php");
+require_once("classes/db-class.php");
 
 $offset = 0;
 
@@ -54,13 +55,14 @@ if (isset($_GET['subscriber_logout'])){
   unset($_SESSION['subscriber_id']);
   header('Location: index.php');
 }
-$db = SSDB();
+$db = new SSDB();
 $versionfile = fopen("versionfile", "r") or die("Unable to open version file!");
 $appversion = fread($versionfile,filesize("versionfile"));
 fclose($versionfile);
-if($db->getSetting($mysqli,"dbConfigVersion") != $appversion){
+/*if($db->getSetting($mysqli,"dbConfigVersion") != $appversion){
   die("Database needs to be updated. Please update the database and try again.");
-}
+}*/
+die($appversion);
 Template::render_header("Status");
 ?>
     <div class="text-center">
