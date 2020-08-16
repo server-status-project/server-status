@@ -54,7 +54,13 @@ if (isset($_GET['subscriber_logout'])){
   unset($_SESSION['subscriber_id']);
   header('Location: index.php');
 }
-
+$db = SSDB();
+$versionfile = fopen("versionfile", "r") or die("Unable to open version file!");
+$appversion = fread($versionfile,filesize("versionfile"));
+fclose($versionfile);
+if($db->getSetting($mysqli,"dbConfigVersion") != $appversion){
+  die("Database needs to be updated. Please update the database and try again.");
+}
 Template::render_header("Status");
 ?>
     <div class="text-center">
