@@ -9,10 +9,11 @@ define("COPYRIGHT_TEXT","");
 define('SUBSCRIBE_EMAIL', false);
 define('SUBSCRIBE_TELEGRAM', false);
 require_once("classes/locale-negotiator.php");
-include("classes/db-class.php");
+require_once("classes/db-class.php");
 
 $negotiator = new LocaleNegotiator("en_GB");
 $message = "";
+$db = new SSDB();
 if (!isset($_SESSION['locale'])||isset($_GET['lang']))
 {
 	$override = ((isset($_GET['lang']))?$_GET['lang']:null);
@@ -138,6 +139,7 @@ if(isset($_POST['server']) && empty($message))
 		file_put_contents("config.php", $config);
 		
 		include_once "create-server-config.php";
+		$db->setSetting($mysqli,"dbConfigVersion","Version2Beta3");
 		unlink("create-server-config.php");
 		unlink("config.php.template");
 		unlink("install.sql");
