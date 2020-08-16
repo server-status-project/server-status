@@ -5,7 +5,7 @@
 ![Stability](https://img.shields.io/badge/stability-unstable-red)
 ![Build](https://img.shields.io/badge/build-failing-red)
 
-## What does ** contributor beta ** mean?
+## What does **contributor beta** mean?
 It means the beta that is heavily unstable that is meant for contributors to make changes and use as a recovery point.
 ### Other Beta Type
 #### Development Beta
