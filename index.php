@@ -77,7 +77,7 @@ if(trim($useed) == "beta"){
 $remoteversion = file_get_contents("https://skyfallenhosted.ml/serverstatus/versionauthority/beta/version");
 $remotedl = file_get_contents("https://skyfallenhosted.ml/serverstatus/versionauthority/beta/dl");
 }
-if($db->getSetting($mysqli,"notifyUpdate") == "yes"){
+if($db->getSetting($mysqli,"notifyUpdates") == "yes"){
   if(trim($remoteversion) != trim($appversion)){
     die("Your installation is not upp to date! Download the new update from: '".$remotedl."' Your version is:'".$appversion."' Remote Authority Version is:'".$remoteversion."'");
   }
