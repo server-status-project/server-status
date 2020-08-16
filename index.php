@@ -63,22 +63,22 @@ if (isset($_GET['subscriber_logout'])){
 $versionfile = fopen("versionfile", "r") or die("Unable to open version file!");
 $appversion = fread($versionfile,filesize("versionfile"));
 fclose($versionfile);
-if($db->getSetting($mysqli,"dbConfigVersion") != $appversion){
+if($db->getSetting($mysqli,"dbConfigVersion") != trim($appversion)){
   die("Database needs to be updated. Please update the database and try again. App Version: '".$appversion."' DB Settings Version: '".$db->getSetting($mysqli,"dbConfigVersion")."'.");
 }
 $useedf = fopen("updateseed", "r") or die("Unable to open updateseed file!");
 $useed = fread($versionfile,filesize("updateseed"));
 fclose($useedf);
-if($useed == "stable"){
+if(trim($useed) == "stable"){
 $remoteversion = file_get_contents("https://skkyfallenhosted.ml/serverstatus/versionauthority/stable/version");
 $remotedl = file_get_contents("https://skkyfallenhosted.ml/serverstatus/versionauthority/stable/dl");
 }
-if($useed == "beta"){
+if(trim($useed) == "beta"){
 $remoteversion = file_get_contents("https://skkyfallenhosted.ml/serverstatus/versionauthority/beta/version");
 $remotedl = file_get_contents("https://skkyfallenhosted.ml/serverstatus/versionauthority/beta/dl");
 }
 if($db->getSetting($mysqli,"notifyUpdate") == "yes"){
-  if($remoteversion != $appversion){
+  if(trim($remoteversion) != trim($appversion)){
     die("Your installation is not upp to date! Download the new update from: '".$remotedl."' Your version is:'".$appversion."' Remote Authority Version is:'".$remoteversion."'");
   }
 }
