@@ -67,7 +67,7 @@ if($db->getSetting($mysqli,"dbConfigVersion") != trim($appversion)){
   die("Database needs to be updated. Please update the database and try again. App Version: '".$appversion."' DB Settings Version: '".$db->getSetting($mysqli,"dbConfigVersion")."'.");
 }
 $useedf = fopen("updateseed", "r") or die("Unable to open updateseed file!");
-$useed = fread($versionfile,filesize("updateseed"));
+$useed = fread($useedf,filesize("updateseed"));
 fclose($useedf);
 if(trim($useed) == "stable"){
 $remoteversion = file_get_contents("https://skkyfallenhosted.ml/serverstatus/versionauthority/stable/version");
