@@ -1,10 +1,17 @@
 # Server Status Beta (Official)
 ## This is the official beta fork of Server Status by the contributors.
 ![License](https://img.shields.io/github/license/Pryx/server-status.svg) ![Current release](https://img.shields.io/badge/version-2-blue) 
-![Beta-Build](https://img.shields.io/badge/latest_beta-Beta4-red)
+![Beta-Build](https://img.shields.io/badge/latest_beta-Contributor_Beta_4-gray)
 ![Stability](https://img.shields.io/badge/stability-unstable-red)
 ![Build](https://img.shields.io/badge/build-failing-red)
 
+## What does ** contributor beta ** mean?
+It means the beta that is heavily unstable that is meant for contributors to make changes and use as a recovery point.
+### Other Beta Type
+#### Development Beta
+##### This beta has some bugs that are noticeable and is sometimes unstable. Best for new contributors
+#### Public Beta
+##### This beta has some bugs that are not really noticeable and mostly exist as bugs. Best for trying the new features before updating!
 Very simple server status page written in PHP that can run on **PHP 5.4+** - even on **shared webhosting** even without shell access. Because why waste your money on another server (or host on a server that you might want to do maintenance on), when you can use cheap webhosting? And as a cherry on top - it works even without javascript!
 
 ## How do I install this thing?
