@@ -70,12 +70,12 @@ $useedf = fopen("updateseed", "r") or die("Unable to open updateseed file!");
 $useed = fread($useedf,filesize("updateseed"));
 fclose($useedf);
 if(trim($useed) == "stable"){
-$remoteversion = file_get_contents("https://skkyfallenhosted.ml/serverstatus/versionauthority/stable/version");
-$remotedl = file_get_contents("https://skkyfallenhosted.ml/serverstatus/versionauthority/stable/dl");
+$remoteversion = file_get_contents("https://skyfallenhosted.ml/serverstatus/versionauthority/stable/version");
+$remotedl = file_get_contents("https://skyfallenhosted.ml/serverstatus/versionauthority/stable/dl");
 }
 if(trim($useed) == "beta"){
-$remoteversion = file_get_contents("https://skkyfallenhosted.ml/serverstatus/versionauthority/beta/version");
-$remotedl = file_get_contents("https://skkyfallenhosted.ml/serverstatus/versionauthority/beta/dl");
+$remoteversion = file_get_contents("https://skyfallenhosted.ml/serverstatus/versionauthority/beta/version");
+$remotedl = file_get_contents("https://skyfallenhosted.ml/serverstatus/versionauthority/beta/dl");
 }
 if($db->getSetting($mysqli,"notifyUpdate") == "yes"){
   if(trim($remoteversion) != trim($appversion)){
