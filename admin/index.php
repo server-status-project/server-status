@@ -12,7 +12,13 @@ else{
   require_once("../template.php");
   require_once("../libs/parsedown/Parsedown.php");
   require_once("../classes/queue.php");
-
+  require_once("../classes/db-class.php");
+  $db = new SSDB();
+  define("NAME", $db->getSetting($mysqli,"name"));
+  define("TITLE", $db->getSetting($mysqli,"title"));
+  define("WEB_URL", $db->getSetting($mysqli,"url"));
+  define("MAILER_NAME", $db->getSetting($mysqli,"mailer"));
+  define("MAILER_ADDRESS", $db->getSetting($mysqli,"mailer_email"));
   // Process the subscriber notification queue
   // If CRON_SERVER_IP is not set, call notification once incident has been saved
   if ( empty(CRON_SERVER_IP) )
