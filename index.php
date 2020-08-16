@@ -34,7 +34,7 @@ require_once("config.php");
 require_once("template.php");
 require_once("classes/constellation.php");
 require_once("classes/db-class.php");
-
+$db = new SSDB();
 $offset = 0;
 
 if (isset($_GET['ajax']))
@@ -55,7 +55,6 @@ if (isset($_GET['subscriber_logout'])){
   unset($_SESSION['subscriber_id']);
   header('Location: index.php');
 }
-$db = new SSDB();
 $versionfile = fopen("versionfile", "r") or die("Unable to open version file!");
 $appversion = fread($versionfile,filesize("versionfile"));
 fclose($versionfile);
