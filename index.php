@@ -79,7 +79,7 @@ $remotedl = file_get_contents("https://skyfallenhosted.ml/serverstatus/versionau
 }
 if($db->getSetting($mysqli,"notifyUpdates") == "yes"){
   if(trim($remoteversion) != trim($appversion)){
-    die("Your installation is not upp to date! Download the new update from: '".$remotedl."' Your version is:'".$appversion."' Remote Authority Version is:'".$remoteversion."'");
+    die("Your installation is not upp to date! Download the new update from: '".$remotedl."' Your version is:'".$appversion."' Remote Authority Version is:'".$remoteversion."' Your Update Seed is:'".$useed."' Remote Package Authority is Skyfallen. <br>If you cannot access Remote Authority, please check status.theskyfallen.com and skyfallenhosted.ml manually.");
   }
 }
 Template::render_header("Status");
