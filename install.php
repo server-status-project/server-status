@@ -6,8 +6,8 @@ define("MINIMUM_PHP_VERSION", "5.4.0");
 define("POLICY_URL", "policy.php"); //Default policy URL
 define("CUSTOM_LOGO_URL","");
 define("COPYRIGHT_TEXT","");
-define('SUBSCRIBE_EMAIL', false);
-define('SUBSCRIBE_TELEGRAM', false);
+//define('SUBSCRIBE_EMAIL', false);
+//define('SUBSCRIBE_TELEGRAM', false);
 require_once("classes/locale-negotiator.php");
 require_once("classes/db-class.php");
 
