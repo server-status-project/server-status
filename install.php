@@ -129,8 +129,7 @@ if(isset($_POST['server']) && empty($message))
 		$db->setSetting($mysqli,"mailer",htmlspecialchars($_POST['mailer'], ENT_QUOTES));
 		//$config = str_replace("##mailer_email##", htmlspecialchars($_POST['mailer_email'], ENT_QUOTES), $config);
 		$db->setSetting($mysqli,"mailer_email",htmlspecialchars($_POST['mailer_email'], ENT_QUOTES));
-		//$config = str_replace("##server##", htmlspecialchars($_POST['server'], ENT_QUOTES), $config);
-		$db->setSetting($mysqli,"server",htmlspecialchars($_POST['server'], ENT_QUOTES));
+		$config = str_replace("##server##", htmlspecialchars($_POST['server'], ENT_QUOTES), $config);
 		$config = str_replace("##database##", htmlspecialchars($_POST['database'], ENT_QUOTES), $config);
 		$config = str_replace("##user##", htmlspecialchars($_POST['dbuser'], ENT_QUOTES), $config);
 		$config = str_replace("##password##", htmlspecialchars($_POST['dbpassword'], ENT_QUOTES), $config);
