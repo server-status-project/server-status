@@ -79,7 +79,7 @@ $remotedl = file_get_contents("https://skkyfallenhosted.ml/serverstatus/versiona
 }
 if($db->getSetting($mysqli,"notifyUpdate") == "yes"){
   if($remoteversion != $appversion){
-    die("Your installation is not upp to date! Download the new update from: '".$remotedl."'");
+    die("Your installation is not upp to date! Download the new update from: '".$remotedl."' Your version is:'".$appversion."' Remote Authority Version is:'".$remoteversion."'");
   }
 }
 Template::render_header("Status");
