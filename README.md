@@ -1,8 +1,9 @@
 # Server Status Beta (Official)
 ## This is the official beta fork of Server Status by the contributors.
-![License](https://img.shields.io/github/license/Pryx/server-status.svg) ![Current release](https://img.shields.io/github/release/Pryx/server-status.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b82d62fa6d8b41119f68fd9eca3c3a08)](https://www.codacy.com/app/sajdl.vojtech/server-status?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Pryx/server-status&amp;utm_campaign=Badge_Grade) [![Discord](https://img.shields.io/discord/742703112590065745?logo=discord)](https://discord.gg/Wgxnxz4)
-
-![screenshot](https://status.trucksbook.eu/img/screenshot.png)
+![License](https://img.shields.io/github/license/Pryx/server-status.svg) ![Current release](https://img.shields.io/badge/version-2-blue) 
+![Beta-Build](https://img.shields.io/badge/build-failing-redhttps://img.shields.io/badge/latest beta-Beta 4-gray)
+![Stability](https://img.shields.io/badge/stability-unstable-red)
+![Build](https://img.shields.io/badge/build-failing-red)
 
 Very simple server status page written in PHP that can run on **PHP 5.4+** - even on **shared webhosting** even without shell access. Because why waste your money on another server (or host on a server that you might want to do maintenance on), when you can use cheap webhosting? And as a cherry on top - it works even without javascript!
 
