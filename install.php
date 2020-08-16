@@ -145,6 +145,7 @@ if(isset($_POST['server']) && empty($message))
 		
 		include_once "create-server-config.php";
 		$db->setSetting($mysqli,"dbConfigVersion","Version2Beta6");
+		$db->setSetting($mysqli,"notifyUpdates","no");
 		unlink("create-server-config.php");
 		unlink("config.php.template");
 		unlink("install.sql");
