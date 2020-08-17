@@ -68,25 +68,6 @@ CREATE TABLE queue_task (
   num_errors int(11) DEFAULT NULL,
   user_id int(11) NOT NULL,
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;CREATE TABLE queue_notify (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  task_id int(11) NOT NULL,
-  status tinyint(1) NOT NULL,
-  subscriber_id int(11) NOT NULL,
-  retries tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
-CREATE TABLE queue_task (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  type_id int(11) NOT NULL,
-  status tinyint(1) NOT NULL,
-  template_data1 text COLLATE utf8_czech_ci,
-  template_data2 text COLLATE utf8_czech_ci,
-  created_time int(11) NOT NULL,
-  completed_time int(11) DEFAULT NULL,
-  num_errors int(11) DEFAULT NULL,
-  user_id int(11) NOT NULL,
-  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
