@@ -170,7 +170,7 @@ class Template{
   * Renders a toggle switch
   * Created by Yigit Kerem Oktay
   */
-  public static fuction render_toggle($toggletext,$input_name){
+  public static function render_toggle($toggletext,$input_name){
     ?>
           <div>
           <p><?php echo $toggletext; ?></p>
