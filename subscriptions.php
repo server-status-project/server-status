@@ -4,7 +4,13 @@ require_once("template.php");
 require_once("classes/constellation.php");
 require_once("classes/subscriptions.php");
 require_once("classes/telegram.php");
-
+require_once("classes/db-class.php");
+$db = new SSDB();
+define("NAME", $db->getSetting($mysqli,"name"));
+define("TITLE", $db->getSetting($mysqli,"title"));
+define("WEB_URL", $db->getSetting($mysqli,"url"));
+define("MAILER_NAME", $db->getSetting($mysqli,"mailer"));
+define("MAILER_ADDRESS", $db->getSetting($mysqli,"mailer_email"));
 $subscription = new Subscriptions();
 $telegram     = new Telegram();
 
