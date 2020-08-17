@@ -24,3 +24,4 @@ else{
 <div class="text-center">
 	<h2>Server Status Options</h2>
 </div>
+<?php Template::render_toggle("Toggle Title","togglename");
