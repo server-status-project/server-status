@@ -95,7 +95,11 @@ else{
       case 'logout':
         User::logout();
         break;
-
+       
+      case 'options':
+        require_once("options.php");
+        break;
+      
     	default:
     		require_once("dashboard.php");
     		break;
