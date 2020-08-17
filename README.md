@@ -1,9 +1,9 @@
 # Server Status Beta (Official)
 ## This is the official beta fork of Server Status by the contributors.
 ![License](https://img.shields.io/github/license/Pryx/server-status.svg) ![Current release](https://img.shields.io/badge/version-2-blue) 
-![Beta-Build](https://img.shields.io/badge/latest_beta-Developmet_Beta_6-gray)
+![Beta-Build](https://img.shields.io/badge/latest_beta-Developmet_Beta_6-black)
 ![Beta-Stability](https://img.shields.io/badge/Beta_Stability-Unusable-red)
-![Stability](https://img.shields.io/badge/master_stability-Stable-red)
+![Stability](https://img.shields.io/badge/master_stability-Unstable-green)
 ![Build](https://img.shields.io/badge/build-success-green)
 
 ## What does **contributor beta** mean?
