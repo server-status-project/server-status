@@ -13,6 +13,7 @@ else{
   require_once("../libs/parsedown/Parsedown.php");
   require_once("../classes/queue.php");
   require_once("../classes/db-class.php");
+}
   $db = new SSDB();
   define("NAME", $db->getSetting($mysqli,"name"));
   define("TITLE", $db->getSetting($mysqli,"title"));
