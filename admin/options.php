@@ -20,9 +20,17 @@ else{
   define("WEB_URL", $db->getSetting($mysqli,"url"));
   define("MAILER_NAME", $db->getSetting($mysqli,"mailer"));
   define("MAILER_ADDRESS", $db->getSetting($mysqli,"mailer_email"));
+  $set_post = false;
+  if(isset($_POST)){
+	 
+	$set_post = true;	  
+  }
   Template::render_header(_("Options"), true);
 ?>
 <div class="text-center">
-	<h2>Server Status Options</h2>
+	<h2><?php if($set_post){ "Settings Saved"; } else { echo "Server Status Options"; } ?></h2>
 </div>
+<form method="post">
 <?php Template::render_toggle("Toggle Title","togglename"); ?>
+	<button class="btn btn-primary pull-right" type="submit">Save Settings</button>
+</form>
