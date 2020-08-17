@@ -173,7 +173,7 @@ class Template{
   public static function render_toggle($toggletext,$input_name,$checked=false){
     ?>
           <div>
-          <p><?php echo $toggletext; ?></p>
+          <h3><?php echo $toggletext; ?></h3>
           <label class="switch">
               <input type="checkbox" name="<?php echo $input_name; ?>" <?php if($checked){ echo $checked; } ?> >
               <span class="slider round"></span>
