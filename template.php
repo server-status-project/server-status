@@ -166,7 +166,20 @@ class Template{
       <?php
     }
   }
-
+  /**
+  * Renders a toggle switch
+  * Created by Yigit Kerem Oktay
+  */
+  public static fuction render_toggle($toggletext,$input_name){
+    ?>
+          <div>
+          <p><?php echo $toggletext; ?></p>
+          <label class="switch">
+              <input type="checkbox" name="<?php echo $input_name; ?>" >
+              <span class="slider round"></span>
+          </label>
+          </div>
+  }
   /**
   * Renders footer
   * @param Boolean $admin decides whether to load admin scripts
