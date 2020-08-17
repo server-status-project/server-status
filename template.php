@@ -179,6 +179,7 @@ class Template{
               <span class="slider round"></span>
           </label>
           </div>
+  <?php
   }
   /**
   * Renders footer
