@@ -6,7 +6,13 @@ require_once("classes/subscriber.php");
 require_once("classes/subscriptions.php");
 require_once("classes/mailer.php");
 //require_once("libs/php_idn/idna.php");
-
+require_once("classes/db-class.php");
+$db = new SSDB();
+define("NAME", $db->getSetting($mysqli,"name"));
+define("TITLE", $db->getSetting($mysqli,"title"));
+define("WEB_URL", $db->getSetting($mysqli,"url"));
+define("MAILER_NAME", $db->getSetting($mysqli,"mailer"));
+define("MAILER_ADDRESS", $db->getSetting($mysqli,"mailer_email"));
 $mailer       = new Mailer();
 $subscriber   = new Subscriber();
 $subscription =  new Subscriptions();
