@@ -92,12 +92,12 @@ else{
     		require_once("new-user.php");
     		break;
 
-      case 'logout':
-        User::logout();
-        break;
-       
       case 'options':
         require_once("options.php");
+        break;
+        
+      case 'logout':
+        User::logout();
         break;
       
     	default:
