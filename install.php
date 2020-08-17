@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once("template.php");
 define("WEB_URL", "."); //Website name
 define("NAME", _('Status page')); //Website name
@@ -22,7 +22,7 @@ if (!isset($_SESSION['locale'])||isset($_GET['lang']))
 	setlocale(LC_ALL, $_SESSION['locale'].".UTF-8");
 
 	bindtextdomain("server-status", __DIR__ . "/locale/");
-	bind_textdomain_codeset($_SESSION['locale'], "utf-8"); 
+	bind_textdomain_codeset($_SESSION['locale'], "utf-8");
 	textdomain("server-status");
 }
 
@@ -39,38 +39,38 @@ if (isset($_POST['server']))
 		$message .= _("Please set valid url!");
 	}
 
-	//Ostatní má checky existence ve funkci pro pridani 
+	//OstatnÃ­ mÃ¡ checky existence ve funkci pro pridani
 	if (0 == strlen(trim($_POST['servername']))){
 		$messages[] = _("Server name");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['url']))){
 		$messages[] = _("Url");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['mailer']))){
 		$messages[] = _("Mailer name");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['title']))){
 		$messages[] = _("Title");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['mailer_email']))){
 		$messages[] = _("Mailer email");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['server']))){
 		$messages[] = _("Database server");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['database']))){
 		$messages[] = _("Database name");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['dbuser']))){
 		$messages[] = _("Database user");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['dbpassword'])))
 	{
@@ -84,7 +84,7 @@ if (isset($_POST['server']))
 }
 
 if(isset($_POST['server']) && empty($message))
-{	
+{
 	define("MAILER_NAME", $_POST['mailer']);
 	define("MAILER_ADDRESS", $_POST['mailer_email']);
 	define("INSTALL_OVERRIDE", true);
@@ -93,7 +93,7 @@ if(isset($_POST['server']) && empty($message))
 	//There may be better way to do this...
 	$sql = file_get_contents("install.sql");
 	$array = explode(";", $sql);
-	
+
 	foreach ($array as $value) {
 		$val = trim($value);
 		if (empty($val))
@@ -141,8 +141,11 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##who_we_are##", htmlspecialchars($_POST['who_we_are'], ENT_QUOTES), $config);
 		$policy_url_conf = ( ! empty($_POST['policy_url']) ) ? htmlspecialchars($_POST['policy_url'], ENT_QUOTES) : $_POST['url']."/policy.php";
 		$config = str_replace("##policy_url##", $policy_url_conf, $config);
+		$config = str_replace("##tg_bot_token##", htmlspecialchars($_POST['tgtoken'], ENT_QUOTES), $config);
+		$config = str_replace("##tg_bot_username##", htmlspecialchars($_POST['tgbot'], ENT_QUOTES), $config);
+
 		file_put_contents("config.php", $config);
-		
+
 		include_once "create-server-config.php";
 		$db->setSetting($mysqli,"dbConfigVersion","Version2Beta7");
 		$db->setSetting($mysqli,"notifyUpdates","yes");
@@ -172,8 +175,8 @@ Template::render_header(_("Install"));
 	// Check if PHP version if > MINIMUM_PHP_VERSION
 	if (strnatcmp(phpversion(), MINIMUM_PHP_VERSION) >= 0) { $preq_phpver = $preq_ok; }
 
-	// Test for mysqlnd precense.  The mysqlnd driver provides some extra functions that is not available 
-	// if the plain mysql package is installed, and mysqli_get_client_stats is one of them. This is documented 
+	// Test for mysqlnd precense.  The mysqlnd driver provides some extra functions that is not available
+	// if the plain mysql package is installed, and mysqli_get_client_stats is one of them. This is documented
 	// on the PHP site at http://www.php.net/manual/en/mysqlnd.stats.php
 	// This test is also discussed at https://stackoverflow.com/questions/1475701/how-to-know-if-mysqlnd-is-the-active-driver
 	if ( function_exists('mysqli_get_client_stats') ) { $preq_mysqlnd = $preq_ok; }
@@ -206,8 +209,8 @@ if (!empty($message))
 {
 	?>
 	<p class="alert alert-danger"><?php echo $message; ?></p>
-	<?php 
-} 
+	<?php
+}
 ?>
 <summary><?php echo _("We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file.");?></summary>
 
@@ -242,6 +245,15 @@ if (!empty($message))
 		<div class="form-group clearfix">
 			<div class="col-sm-6"><label for="dbuser"><?php echo _("User");?>: </label><input type="text" name="dbuser" value="<?php echo ((isset($_POST['dbuser']))?htmlspecialchars($_POST['dbuser'], ENT_QUOTES):'');?>" id="dbuser" placeholder="<?php echo _("User");?>" class="form-control" required></div>
 			<div class="col-sm-6"><label for="dbpassword"><?php echo _("Password");?>: </label><input type="password" name="dbpassword" value="<?php echo ((isset($_POST['dbpassword']))?htmlspecialchars($_POST['dbpassword'], ENT_QUOTES):'');?>" id="dbpassword" placeholder="<?php echo _("Password");?>" class="form-control" required></div>
+		</div>
+	</section>
+	<section class="install-section clearfix">
+		<h2><?php echo _("Telegram");?></h2>
+		<summary><?php echo _("You can provide a subscription feature through telegram.");?></summary>
+
+		<div class="form-group clearfix">
+			<div class="col-sm-6"><label for="tgtoken"><?php echo _("Telegram bot API Token");?>: </label><input type="text" name="tgtoken" value="<?php echo ((isset($_POST['tgtoken']))?htmlspecialchars($_POST['tgtoken'], ENT_QUOTES):'');?>" id="tgtoken" placeholder="<?php echo _("Telegram Bot API Token");?>" class="form-control"></div>
+			<div class="col-sm-6"><label for="tgbot"><?php echo _("Telegram Bot Username");?>: </label><input type="text" name="tgbot" value="<?php echo ((isset($_POST['tgbot']))?htmlspecialchars($_POST['tgbot'], ENT_QUOTES):'');?>" id="tgbot" placeholder="<?php echo _("Telegram Bot Username");?>" class="form-control"></div>
 		</div>
 	</section>
 	<section class="install-section clearfix">
