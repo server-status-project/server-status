@@ -155,7 +155,7 @@ class Template{
               <ul class="nav navbar-nav">
                 <li><a href="<?php echo WEB_URL;?>/admin/"><?php echo _("Dashboard");?></a></li>
                 <li><a href="<?php echo WEB_URL;?>/admin/?do=user"><?php printf(_("User (%s)"), $user->get_username());?></a></li>
-                <li><a href="<?php echo WEB_URL;?>/admin/?do=settings"><?php echo _("Settings");?></a></li>
+                <li><a href="<?php echo WEB_URL;?>/admin/?do=settings"><?php echo _("Services & Users");?></a></li>
                 <li><a href="<?php echo WEB_URL;?>/admin/?do=logout"><?php echo _("Logout");?></a></li>
               </ul>
             </div><!--/.nav-collapse -->
