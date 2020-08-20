@@ -19,6 +19,24 @@ else{
   define("WEB_URL", $db->getSetting($mysqli,"url"));
   define("MAILER_NAME", $db->getSetting($mysqli,"mailer"));
   define("MAILER_ADDRESS", $db->getSetting($mysqli,"mailer_email"));
+
+  define("GOOGLE_RECAPTCHA", $db->getBooleanSetting($mysqli, "google_recaptcha"));
+  define("GOOGLE_RECAPTCHA_SECRET", $db->getSetting($mysqli, "google_recaptcha_secret"));
+  define("GOOGLE_RECAPTCHA_SITEKEY", $db->getSetting($mysqli, "google_recaptcha_sitekey"));
+  define("SUBSCRIBE_EMAIL", $db->getBooleanSetting($mysqli, "subscribe_email"));
+  define("SUBSCRIBE_TELEGRAM", $db->getBooleanSetting($mysqli, "subscribe_telegram"));
+  define("TG_BOT_USERNAME", $db->getSetting($mysqli, "tg_bot_username"));
+  define("TG_BOT_API_TOKEN", $db->getSetting($mysqli, "tg_bot_api_token"));
+  define("PHP_MAILER", $db->getBooleanSetting($mysqli, "php_mailer"));
+  define("PHP_MAILER_SMTP", $db->getBooleanSetting($mysqli, "php_mailer_smtp"));
+  define("PHP_MAILER_PATH", $db->getSetting($mysqli, "php_mailer_path"));
+  define("PHP_MAILER_HOST", $db->getSetting($mysqli, "php_mailer_host"));
+  define("PHP_MAILER_PORT", $db->getSetting($mysqli, "php_mailer_port"));
+  define("PHP_MAILER_SECURE", $db->getBooleanSetting($mysqli, "php_mailer_secure"));
+  define("PHP_MAILER_USER", $db->getSetting($mysqli, "php_mailer_user"));
+  define("PHP_MAILER_PASS", $db->getSetting($mysqli, "php_mailer_pass"));
+  define("CRON_SERVER_IP", $db->getSetting($mysqli, "cron_server_ip"));
+  
   // Process the subscriber notification queue
   // If CRON_SERVER_IP is not set, call notification once incident has been saved
   if ( empty(CRON_SERVER_IP) )
@@ -95,11 +113,11 @@ else{
       case 'options':
         require_once("options.php");
         break;
-        
+
       case 'logout':
         User::logout();
         break;
-      
+
     	default:
     		require_once("dashboard.php");
     		break;
