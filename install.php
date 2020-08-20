@@ -139,12 +139,28 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##who_we_are##", htmlspecialchars($_POST['who_we_are'], ENT_QUOTES), $config);
 		$policy_url_conf = ( ! empty($_POST['policy_url']) ) ? htmlspecialchars($_POST['policy_url'], ENT_QUOTES) : $_POST['url']."/policy.php";
 		$config = str_replace("##policy_url##", $policy_url_conf, $config);
-		
+
 		file_put_contents("config.php", $config);
 
 		include_once "create-server-config.php";
 		$db->setSetting($mysqli,"dbConfigVersion","Version2Beta7");
 		$db->setSetting($mysqli,"notifyUpdates","yes");
+		$db->setSetting($mysqli,"subscribe_email","no");
+		$db->setSetting($mysqli,"subscribe_telegram","no");
+		$db->setSetting($mysqli,"tg_bot_api_token","");
+		$db->setSetting($mysqli,"tg_bot_username","");
+		$db->setSetting($mysqli,"php_mailer","no");
+		$db->setSetting($mysqli,"php_mailer_host","");
+		$db->setSetting($mysqli,"php_mailer_smtp","no");
+		$db->setSetting($mysqli,"php_mailer_path","");
+		$db->setSetting($mysqli,"php_mailer_port","");
+		$db->setSetting($mysqli,"php_mailer_secure","no");
+		$db->setSetting($mysqli,"php_mailer_user","");
+		$db->setSetting($mysqli,"php_mailer_pass","");
+		$db->setSetting($mysqli,"google_recaptcha","no");
+		$db->setSetting($mysqli,"google_recaptcha_secret","");
+		$db->setSetting($mysqli,"google_recaptcha_sitekey","");
+		$db->setSetting($mysqli,"cron_server_ip","");
 		unlink("create-server-config.php");
 		unlink("config.php.template");
 		unlink("install.sql");
