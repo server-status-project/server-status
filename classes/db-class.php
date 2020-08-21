@@ -40,4 +40,16 @@ class SSDB
             }
 
     }
+    function updateSetting($conn, $settingname, $settingvalue){
+        $this->deleteSetting($conn, $settingname);
+        $this->setSetting($conn, $settingname, $settingvalue);
+        return true;
+    }
+
+    function getBooleanSetting($conn, $setting) {
+      if (trim($this->getSetting($conn, $setting)) == "yes"){
+        return true;
+      }
+      return false;
+    }
 }

@@ -13,6 +13,23 @@ define("TITLE", $db->getSetting($mysqli,"title"));
 define("WEB_URL", $db->getSetting($mysqli,"url"));
 define("MAILER_NAME", $db->getSetting($mysqli,"mailer"));
 define("MAILER_ADDRESS", $db->getSetting($mysqli,"mailer_email"));
+define("GOOGLE_RECAPTCHA", $db->getBooleanSetting($mysqli, "google_recaptcha"));
+//define("", $db->getSettings($mysqli, ""));
+define("GOOGLE_RECAPTCHA_SECRET", $db->getSetting($mysqli, "google_recaptcha_secret"));
+define("GOOGLE_RECAPTCHA_SITEKEY", $db->getSetting($mysqli, "google_recaptcha_sitekey"));
+define("SUBSCRIBE_EMAIL", $db->getBooleanSetting($mysqli, "subscribe_email"));
+define("SUBSCRIBE_TELEGRAM", $db->getBooleanSetting($mysqli, "subscribe_telegram"));
+define("TG_BOT_USERNAME", $db->getSetting($mysqli, "tg_bot_username"));
+define("TG_BOT_API_TOKEN", $db->getSetting($mysqli, "tg_bot_api_token"));
+define("PHP_MAILER", $db->getBooleanSetting($mysqli, "php_mailer"));
+define("PHP_MAILER_SMTP", $db->getBooleanSetting($mysqli, "php_mailer_smtp"));
+define("PHP_MAILER_PATH", $db->getSetting($mysqli, "php_mailer_path"));
+define("PHP_MAILER_HOST", $db->getSetting($mysqli, "php_mailer_host"));
+define("PHP_MAILER_PORT", $db->getSetting($mysqli, "php_mailer_port"));
+define("PHP_MAILER_SECURE", $db->getBooleanSetting($mysqli, "php_mailer_secure"));
+define("PHP_MAILER_USER", $db->getSetting($mysqli, "php_mailer_user"));
+define("PHP_MAILER_PASS", $db->getSetting($mysqli, "php_mailer_pass"));
+
 $mailer       = new Mailer();
 $subscriber   = new Subscriber();
 $subscription =  new Subscriptions();
@@ -25,18 +42,18 @@ if ( isset($_GET['new']) ) {
     // Form validation for subscribers signing up
     $message = "";
     Template :: render_header(_("Email Subscription"));
-    
+
     if (isset($_POST['emailaddress'])) {
-        
+
         if (0 == strlen(trim($_POST['emailaddress']))){
             $messages[] = _("Email address");
         }
-        
+
         // Perform DNS domain validation on
         if ( ! $mailer->verify_domain($_POST['emailaddress']) ) {
             $messages[] = _("Domain does not apper to be a valid email domain. (Check MX record)");
         }
-        
+
         if (GOOGLE_RECAPTCHA) {
             // Validate recaptcha
             $response = $_POST["g-recaptcha-response"];
@@ -70,7 +87,7 @@ if ( isset($_GET['new']) ) {
     if(isset($_POST['emailaddress']) && empty($message))
     {
 
-        // Check if email is already registered        
+        // Check if email is already registered
         $boolUserExist = false;
         $subscriber->userID = $_POST['emailaddress'];
         $subscriber->typeID = 2; // Email
@@ -82,17 +99,17 @@ if ( isset($_GET['new']) ) {
             // Create a new subscriber as it does not exist
             $subscriber->add($subscriber->typeID, $_POST['emailaddress']);
             $url = WEB_URL."/index.php?do=manage&token=".$subscriber->token;    // Needed again after adding subscriber since token did not exist before add
-            $msg = sprintf(_("Thank you for registering to receive status updates via email.</br></br> Click on the following link to confirm and manage your subcription: <a href=\"%s\">%s</a>. New subscriptions must be confirmed within 2 hours"), $url, NAME .' - ' . _("Validate subscription"));            
-  
+            $msg = sprintf(_("Thank you for registering to receive status updates via email.</br></br> Click on the following link to confirm and manage your subcription: <a href=\"%s\">%s</a>. New subscriptions must be confirmed within 2 hours"), $url, NAME .' - ' . _("Validate subscription"));
+
         } else {
             if ( ! $subscriber->active ) {
                 // Subscriber is registered, but has not been activated yet...
                 $msg = sprintf(_("Thank you for registering to receive status updates via email.</br></br> Click on the following link to confirm and manage your subcription: <a href=\"%s\">%s</a>. New subscriptions must be confirmed within 2 hours"), $url, NAME .' - ' . _("Validate subscription"));
                 $subscriber->activate($subscriber->id);
-                
+
             } else {
                 // subscriber is registered and active
-                $msg = sprintf(_("Click on the following link to update your existing subscription:  <a href=\"%s\">%s</a>"), $url, NAME .' - ' . _("Manage subscription"));                
+                $msg = sprintf(_("Click on the following link to update your existing subscription:  <a href=\"%s\">%s</a>"), $url, NAME .' - ' . _("Manage subscription"));
                 $subscriber->update($subscriber->id);
             }
         }
@@ -101,10 +118,10 @@ if ( isset($_GET['new']) ) {
         $message = _("You will receive an email shortly with an activation link. Please click on the link to activate and/or manage your subscription.");
         $constellation->render_success($header, $message, true, WEB_URL, _('Go back'));
 
-        // Send email about new registration   
+        // Send email about new registration
         $subject = _('Email subscription registered').' - '.NAME;
         $mailer->send_mail($_POST['emailaddress'], $subject, $msg);
-        
+
         $boolRegistered = true;
     }
 
@@ -116,8 +133,8 @@ if ( isset($_GET['new']) ) {
         }
         $strPostedEmail = (isset($_POST['emailaddress']))  ?  $_POST['emailaddress'] : "";
     ?>
-    
-    
+
+
     <form method="post" action="index.php?do=email_subscription&new=1" class="clearfix" enctype="multipart/form-data" >
         <h3><?php echo _('Subscribe to get email notifications on status updates');?></h3>
         <div class="form-group clearfix">
@@ -154,7 +171,7 @@ if ( isset($_GET['new']) ) {
     // check if userid/token combo is valid, active or expired
     $subscriber->typeID = 2; //EMAIL
     if ( $subscriber->is_active_subscriber($_GET['token']) ) {
-        // forward user to subscriber list....       
+        // forward user to subscriber list....
         $subscriber->set_logged_in();
         header('Location: subscriptions.php');
         exit;
@@ -165,38 +182,38 @@ if ( isset($_GET['new']) ) {
         $message = _("If you have recently subscribed, please make sure you activate the account within two hours of doing so. You are welcome to try and re-subscribe.");
         $constellation->render_warning($header, $message, true, WEB_URL, _('Go back'));
     }
-        
-    
+
+
 } else if (isset($_GET['do']) && $_GET['do'] == 'unsubscribe') {
     // Handle unsubscriptions
     // TODO This function is universal and should probably live elsewhere??
     if (isset($_GET['token'])) {
-        $subscriber->typeID = (int) $_GET['type']; 
-                
+        $subscriber->typeID = (int) $_GET['type'];
+
         if ( $subscriber->get_subscriber_by_token($_GET['token'])) {
             $subscriber->delete($subscriber->id);
             $subscriber->set_logged_off();
             Template :: render_header(_("Email Subscription"));
-            
+
             $header  = _("You have been unsubscribed from our system");
             $message = _("We are sorry to see you go. If you want to subscribe again at a later date please feel free to re-subscribe.");
-			$constellation->render_success($header, $message, true, WEB_URL, _('Go back'));          
-                       
+			$constellation->render_success($header, $message, true, WEB_URL, _('Go back'));
+
         } else {
             // TODO Log token for troubleshooting ?
             // Cannot find subscriber - show alert
             Template :: render_header(_("Email Subscription"));
             $header = _("We are unable to find any valid subscriber detail matching your submitted data!");
-            $message = _("If you believe this to be an error, please contact the system admininistrator.");            
+            $message = _("If you believe this to be an error, please contact the system admininistrator.");
             $constellation->render_warning($header, $message, true, WEB_URL, _('Go back'));
-            
-            //            
+
+            //
         }
     } else {
         // TODO Log $_GET[] for troubleshooting ?
         $header = _("We are unable to find any valid subscriber detail matching your submitted data!");
-        $message = _("If you believe this to be an error, please contact the system admininistrator.");        
-        $constellation->render_warning($header, $message, true, WEB_URL, _('Go back'));        
-    }    
+        $message = _("If you believe this to be an error, please contact the system admininistrator.");
+        $constellation->render_warning($header, $message, true, WEB_URL, _('Go back'));
+    }
 }
 Template :: render_footer();

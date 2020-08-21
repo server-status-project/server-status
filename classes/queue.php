@@ -98,7 +98,7 @@ class Queue
         $this->set_task_status($this->all_status['ready']); // Make task available for release
     }
 
-    public function update_notfication_retries($task_id, $subscriber_id) {
+    public function update_notification_retries($task_id, $subscriber_id) {
         global $mysqli;
         $stmt = $mysqli->prepare("UPDATE queue_notify SET retries = retries+1 WHERE task_id = ? AND subscriber_id = ?");
         $stmt->bind_param("ii", $task_id, $subscriber_id);
@@ -126,12 +126,12 @@ class Queue
           $tmp = $stmt2->get_result();
           $result2 = $tmp->fetch_assoc();
           $typeID = $result2['type_id'];
-          
+
           // Handle telegram
           if ($typeID == 1) {
               $msg = str_replace("#s", $result['firstname'], $result2['template_data2']);
               if ( ! Notification::submit_queue_telegram($result['userID'], $result['firstname'], $msg) ) {
-                Queue::update_notfication_retries($result['task_id'], $result['subscriber_id']); // Sent
+                Queue::update_notification_retries($result['task_id'], $result['subscriber_id']); // Sent
               } else {
                 Queue::delete_notification($result['task_id'], $result['subscriber_id']); // Failed
               }

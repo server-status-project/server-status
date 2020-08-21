@@ -6,8 +6,6 @@ define("MINIMUM_PHP_VERSION", "5.4.0");
 define("POLICY_URL", "policy.php"); //Default policy URL
 define("CUSTOM_LOGO_URL","");
 define("COPYRIGHT_TEXT","");
-define('SUBSCRIBE_EMAIL', false);
-define('SUBSCRIBE_TELEGRAM', false);
 require_once("classes/locale-negotiator.php");
 require_once("classes/db-class.php");
 
@@ -141,14 +139,28 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##who_we_are##", htmlspecialchars($_POST['who_we_are'], ENT_QUOTES), $config);
 		$policy_url_conf = ( ! empty($_POST['policy_url']) ) ? htmlspecialchars($_POST['policy_url'], ENT_QUOTES) : $_POST['url']."/policy.php";
 		$config = str_replace("##policy_url##", $policy_url_conf, $config);
-		$config = str_replace("##tg_bot_token##", htmlspecialchars($_POST['tgtoken'], ENT_QUOTES), $config);
-		$config = str_replace("##tg_bot_username##", htmlspecialchars($_POST['tgbot'], ENT_QUOTES), $config);
 
 		file_put_contents("config.php", $config);
 
 		include_once "create-server-config.php";
 		$db->setSetting($mysqli,"dbConfigVersion","Version2Beta7");
 		$db->setSetting($mysqli,"notifyUpdates","yes");
+		$db->setSetting($mysqli,"subscribe_email","no");
+		$db->setSetting($mysqli,"subscribe_telegram","no");
+		$db->setSetting($mysqli,"tg_bot_api_token","");
+		$db->setSetting($mysqli,"tg_bot_username","");
+		$db->setSetting($mysqli,"php_mailer","no");
+		$db->setSetting($mysqli,"php_mailer_host","");
+		$db->setSetting($mysqli,"php_mailer_smtp","no");
+		$db->setSetting($mysqli,"php_mailer_path","");
+		$db->setSetting($mysqli,"php_mailer_port","");
+		$db->setSetting($mysqli,"php_mailer_secure","no");
+		$db->setSetting($mysqli,"php_mailer_user","");
+		$db->setSetting($mysqli,"php_mailer_pass","");
+		$db->setSetting($mysqli,"google_recaptcha","no");
+		$db->setSetting($mysqli,"google_recaptcha_secret","");
+		$db->setSetting($mysqli,"google_recaptcha_sitekey","");
+		$db->setSetting($mysqli,"cron_server_ip","");
 		unlink("create-server-config.php");
 		unlink("config.php.template");
 		unlink("install.sql");
@@ -245,15 +257,6 @@ if (!empty($message))
 		<div class="form-group clearfix">
 			<div class="col-sm-6"><label for="dbuser"><?php echo _("User");?>: </label><input type="text" name="dbuser" value="<?php echo ((isset($_POST['dbuser']))?htmlspecialchars($_POST['dbuser'], ENT_QUOTES):'');?>" id="dbuser" placeholder="<?php echo _("User");?>" class="form-control" required></div>
 			<div class="col-sm-6"><label for="dbpassword"><?php echo _("Password");?>: </label><input type="password" name="dbpassword" value="<?php echo ((isset($_POST['dbpassword']))?htmlspecialchars($_POST['dbpassword'], ENT_QUOTES):'');?>" id="dbpassword" placeholder="<?php echo _("Password");?>" class="form-control" required></div>
-		</div>
-	</section>
-	<section class="install-section clearfix">
-		<h2><?php echo _("Telegram");?></h2>
-		<summary><?php echo _("You can provide a subscription feature through telegram.");?></summary>
-
-		<div class="form-group clearfix">
-			<div class="col-sm-6"><label for="tgtoken"><?php echo _("Telegram bot API Token");?>: </label><input type="text" name="tgtoken" value="<?php echo ((isset($_POST['tgtoken']))?htmlspecialchars($_POST['tgtoken'], ENT_QUOTES):'');?>" id="tgtoken" placeholder="<?php echo _("Telegram Bot API Token");?>" class="form-control"></div>
-			<div class="col-sm-6"><label for="tgbot"><?php echo _("Telegram Bot Username");?>: </label><input type="text" name="tgbot" value="<?php echo ((isset($_POST['tgbot']))?htmlspecialchars($_POST['tgbot'], ENT_QUOTES):'');?>" id="tgbot" placeholder="<?php echo _("Telegram Bot Username");?>" class="form-control"></div>
 		</div>
 	</section>
 	<section class="install-section clearfix">

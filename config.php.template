@@ -31,26 +31,10 @@ define("POLICY_MAIL", "##policy_mail##"); //contact email in policy
 define("POLICY_PHONE", "##policy_phone##");
 define("WHO_WE_ARE","##who_we_are##");
 define("POLICY_URL","##policy_url##");
-define('SUBSCRIBE_EMAIL', true);
-define('SUBSCRIBE_TELEGRAM', false);
-define("TG_BOT_API_TOKEN", "##tg_bot_token##"); //Telegram Bot Token
-define("TG_BOT_USERNAME", "##tg_bot_username##"); //Telegram Bot username
 define("INSTALL_OVERRIDE", false);
 define("DEFAULT_LANGUAGE", "en_GB");
-define("GOOGLE_RECAPTCHA", false);
-define("GOOGLE_RECAPTCHA_SITEKEY", "##google_site_key##");
-define("GOOGLE_RECAPTCHA_SECRET", "##google_secret##");
-define("PHP_MAILER", false);  // Enable if we are to use extenral PHPMailer() library
-define("PHP_MAILER_PATH", "##phpmailer_path##"); // Path to src folder of PHPMailer() library - without ending /
-define("PHP_MAILER_SMTP", false); // Set to true if we are to use SMTP
-define("PHP_MAILER_HOST", "##phpmailer_host##");  // SMTP host
-define("PHP_MAILER_PORT", "##phpmailer_port##");  // SMTP Port
-define("PHP_MAILER_SECURE", ""); // Set to TLS or SSL or leave blank for plaintext
-define("PHP_MAILER_USER", "##phpmailer_user##");  // SMTP Authentication user
-define("PHP_MAILER_PASS", "##phpmailer_pass##");  // SMTP authenticatin password
 define("CUSTOM_LOGO_URL",""); // This will use the default logo if left empty
 define("COPYRIGHT_TEXT",""); // Leave this empty if you don't want your copyright displayed
-define("CRON_SERVER_IP",""); // IP Address that will be used to call cron task. Leave empty if not used!
 // Without COPYRIGHT_TEXT Set
 // 2020 Server Status Project Contributors
 // With COPYRIGHT_TEXT Set
