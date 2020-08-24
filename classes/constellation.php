@@ -156,6 +156,40 @@ class Constellation
       "incidents" => $array
     ];
   }
-}          
+  
+  
+  function render_warning($header, $message, $show_link = false, $url = null, $link_text = null)
+  {
+    $this->render_alert('alert-warning', $header, $message, $show_link, $url, $link_text);  
+  }
+  function render_success($header, $message, $show_link = false, $url = null, $link_text = null)
+  {
+    $this->render_alert('alert-success', $header, $message, $show_link, $url, $link_text);
+  }
+  
+  /**
+   * Renders an alert on screen with an optional button to return to a given URL
+   * @param string alert_type - Type of warning to render alert-danger, alert-warning, alert-success etc
+   * @param string header - Title of warning
+   * @param string message - Message to display
+   * @param boolean show_link - True if button is to be displayed
+   * @param string url - URL for button
+   * @param string link_txt - Text for button
+   * @return void
+   */
+  function render_alert($alert_type, $header, $message, $show_link = false, $url = null, $link_text = null)
+  {
+    echo '<div><h1></h1>
+         <div class="alert '.$alert_type.'" role="alert">
+         <h4 class="alert-heading">'.$header.'</h4>
+         <hr>
+         <p class="mb-0">'.$message.'</p>
+         </div></div>';
+    if ( $show_link ) {
+      echo '<div class="clearfix"><a href="'.$url.'" class="btn btn-success" role="button">'.$link_text.'</a></div>';
+    }
+      
+  }
+}
 
 $constellation = new Constellation();

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:v="urn:schemas-microsoft-com:vml"
+	xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+}
+.button1 {border-radius: 12px;}
+</style>
+</head>
+<body>
+<h2 style="text-align: center;">%service_status_update_from% %name%</h2>
+<hr />
+<table style="height: 240px; width: 624px; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr style="height: 11px;">
+<td style="width: 232.383px; height: 11px; text-align: right;"><strong>%services_impacted%:</strong></td>
+<td style="width: 375.617px; height: 11px;">%service%</td>
+</tr>
+<tr style="height: 11px;">
+<td style="width: 232.383px; height: 11px; text-align: right;"><strong>%status_label%:</strong></td>
+<td style="width: 375.617px; height: 11px;">%status%</td>
+</tr>
+<tr style="height: 14.7667px;">
+<td style="width: 232.383px; height: 14.7667px; text-align: right;"><strong>%time_label%:</strong></td>
+<td style="width: 375.617px; height: 14.7667px;">%time%</td>
+</tr>
+<tr style="height: 53px;">
+<td style="width: 232.383px; height: 53px;">&nbsp;</td>
+<td style="width: 375.617px; height: 53px; text-align: left;">%comment%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table style="height: 27px; margin-left: auto; margin-right: auto;" width="192">
+<tbody>
+<tr>
+<td style="text-align: center;"><a href="%url%/?do=manage&amp;token=%token%"><button class="button button1">%manage_subscription%</button></a></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: center;"><a href="%url%/?do=unsubscribe&amp;token=%token%"><sub><sup>%unsubscribe%</sup></sub></a></p>
+<p style="text-align: center;"><a href="%url%"><img src="%url%/favicon/apple-icon-57x57.png" alt="" />&nbsp;%powered_by%&nbsp;Server-Status</a></p>

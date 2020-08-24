@@ -1,13 +1,17 @@
-<?php 
+<?php
 require_once("template.php");
 define("WEB_URL", "."); //Website name
 define("NAME", _('Status page')); //Website name
 define("MINIMUM_PHP_VERSION", "5.4.0");
 define("POLICY_URL", "policy.php"); //Default policy URL
+define("CUSTOM_LOGO_URL","");
+define("COPYRIGHT_TEXT","");
 require_once("classes/locale-negotiator.php");
+require_once("classes/db-class.php");
 
 $negotiator = new LocaleNegotiator("en_GB");
 $message = "";
+$db = new SSDB();
 if (!isset($_SESSION['locale'])||isset($_GET['lang']))
 {
 	$override = ((isset($_GET['lang']))?$_GET['lang']:null);
@@ -16,7 +20,7 @@ if (!isset($_SESSION['locale'])||isset($_GET['lang']))
 	setlocale(LC_ALL, $_SESSION['locale'].".UTF-8");
 
 	bindtextdomain("server-status", __DIR__ . "/locale/");
-	bind_textdomain_codeset($_SESSION['locale'], "utf-8"); 
+	bind_textdomain_codeset($_SESSION['locale'], "utf-8");
 	textdomain("server-status");
 }
 
@@ -33,38 +37,38 @@ if (isset($_POST['server']))
 		$message .= _("Please set valid url!");
 	}
 
-	//Ostatní má checky existence ve funkci pro pridani 
+	//OstatnÃ­ mÃ¡ checky existence ve funkci pro pridani
 	if (0 == strlen(trim($_POST['servername']))){
 		$messages[] = _("Server name");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['url']))){
 		$messages[] = _("Url");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['mailer']))){
 		$messages[] = _("Mailer name");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['title']))){
 		$messages[] = _("Title");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['mailer_email']))){
 		$messages[] = _("Mailer email");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['server']))){
 		$messages[] = _("Database server");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['database']))){
 		$messages[] = _("Database name");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['dbuser']))){
 		$messages[] = _("Database user");
-	} 
+	}
 
 	if (0 == strlen(trim($_POST['dbpassword'])))
 	{
@@ -78,7 +82,7 @@ if (isset($_POST['server']))
 }
 
 if(isset($_POST['server']) && empty($message))
-{	
+{
 	define("MAILER_NAME", $_POST['mailer']);
 	define("MAILER_ADDRESS", $_POST['mailer_email']);
 	define("INSTALL_OVERRIDE", true);
@@ -87,7 +91,7 @@ if(isset($_POST['server']) && empty($message))
 	//There may be better way to do this...
 	$sql = file_get_contents("install.sql");
 	$array = explode(";", $sql);
-	
+
 	foreach ($array as $value) {
 		$val = trim($value);
 		if (empty($val))
@@ -113,16 +117,21 @@ if(isset($_POST['server']) && empty($message))
 	{
 		//Create config
 		$config = file_get_contents("config.php.template");
-		$config = str_replace("##name##", htmlspecialchars($_POST['servername'], ENT_QUOTES), $config);
-		$config = str_replace("##title##", htmlspecialchars($_POST['title'], ENT_QUOTES), $config);
-		$config = str_replace("##url##", $_POST['url'], $config);
-		$config = str_replace("##mailer##", htmlspecialchars($_POST['mailer'], ENT_QUOTES), $config);
-		$config = str_replace("##mailer_email##", htmlspecialchars($_POST['mailer_email'], ENT_QUOTES), $config);
+		//$config = str_replace("##name##", htmlspecialchars($_POST['servername'], ENT_QUOTES), $config);
+		$db->setSetting($mysqli,"name",htmlspecialchars($_POST['servername'], ENT_QUOTES));
+		//$config = str_replace("##title##", htmlspecialchars($_POST['title'], ENT_QUOTES), $config);
+		$db->setSetting($mysqli,"title",htmlspecialchars($_POST['title'], ENT_QUOTES));
+		//$config = str_replace("##url##", $_POST['url'], $config);
+		$db->setSetting($mysqli,"url",$_POST['url']);
+		//$config = str_replace("##mailer##", htmlspecialchars($_POST['mailer'], ENT_QUOTES), $config);
+		$db->setSetting($mysqli,"mailer",htmlspecialchars($_POST['mailer'], ENT_QUOTES));
+		//$config = str_replace("##mailer_email##", htmlspecialchars($_POST['mailer_email'], ENT_QUOTES), $config);
+		$db->setSetting($mysqli,"mailer_email",htmlspecialchars($_POST['mailer_email'], ENT_QUOTES));
 		$config = str_replace("##server##", htmlspecialchars($_POST['server'], ENT_QUOTES), $config);
 		$config = str_replace("##database##", htmlspecialchars($_POST['database'], ENT_QUOTES), $config);
 		$config = str_replace("##user##", htmlspecialchars($_POST['dbuser'], ENT_QUOTES), $config);
 		$config = str_replace("##password##", htmlspecialchars($_POST['dbpassword'], ENT_QUOTES), $config);
-		$config = str_replace("##name##", htmlspecialchars($_POST['servername'], ENT_QUOTES), $config);
+		// Duplicate of lines 122-123 //$config = str_replace("##name##", htmlspecialchars($_POST['servername'], ENT_QUOTES), $config);
 		$config = str_replace("##policy_name##", htmlspecialchars($_POST['policy_name'], ENT_QUOTES), $config);
 		$config = str_replace("##address##", htmlspecialchars($_POST['address'], ENT_QUOTES), $config);
 		$config = str_replace("##policy_mail##", htmlspecialchars($_POST['policy_mail'], ENT_QUOTES), $config);
@@ -130,9 +139,28 @@ if(isset($_POST['server']) && empty($message))
 		$config = str_replace("##who_we_are##", htmlspecialchars($_POST['who_we_are'], ENT_QUOTES), $config);
 		$policy_url_conf = ( ! empty($_POST['policy_url']) ) ? htmlspecialchars($_POST['policy_url'], ENT_QUOTES) : $_POST['url']."/policy.php";
 		$config = str_replace("##policy_url##", $policy_url_conf, $config);
+
 		file_put_contents("config.php", $config);
-		
+
 		include_once "create-server-config.php";
+		$db->setSetting($mysqli,"dbConfigVersion","Version2Beta7");
+		$db->setSetting($mysqli,"notifyUpdates","yes");
+		$db->setSetting($mysqli,"subscribe_email","no");
+		$db->setSetting($mysqli,"subscribe_telegram","no");
+		$db->setSetting($mysqli,"tg_bot_api_token","");
+		$db->setSetting($mysqli,"tg_bot_username","");
+		$db->setSetting($mysqli,"php_mailer","no");
+		$db->setSetting($mysqli,"php_mailer_host","");
+		$db->setSetting($mysqli,"php_mailer_smtp","no");
+		$db->setSetting($mysqli,"php_mailer_path","");
+		$db->setSetting($mysqli,"php_mailer_port","");
+		$db->setSetting($mysqli,"php_mailer_secure","no");
+		$db->setSetting($mysqli,"php_mailer_user","");
+		$db->setSetting($mysqli,"php_mailer_pass","");
+		$db->setSetting($mysqli,"google_recaptcha","no");
+		$db->setSetting($mysqli,"google_recaptcha_secret","");
+		$db->setSetting($mysqli,"google_recaptcha_sitekey","");
+		$db->setSetting($mysqli,"cron_server_ip","");
 		unlink("create-server-config.php");
 		unlink("config.php.template");
 		unlink("install.sql");
@@ -159,8 +187,8 @@ Template::render_header(_("Install"));
 	// Check if PHP version if > MINIMUM_PHP_VERSION
 	if (strnatcmp(phpversion(), MINIMUM_PHP_VERSION) >= 0) { $preq_phpver = $preq_ok; }
 
-	// Test for mysqlnd precense.  The mysqlnd driver provides some extra functions that is not available 
-	// if the plain mysql package is installed, and mysqli_get_client_stats is one of them. This is documented 
+	// Test for mysqlnd precense.  The mysqlnd driver provides some extra functions that is not available
+	// if the plain mysql package is installed, and mysqli_get_client_stats is one of them. This is documented
 	// on the PHP site at http://www.php.net/manual/en/mysqlnd.stats.php
 	// This test is also discussed at https://stackoverflow.com/questions/1475701/how-to-know-if-mysqlnd-is-the-active-driver
 	if ( function_exists('mysqli_get_client_stats') ) { $preq_mysqlnd = $preq_ok; }
@@ -193,8 +221,8 @@ if (!empty($message))
 {
 	?>
 	<p class="alert alert-danger"><?php echo $message; ?></p>
-	<?php 
-} 
+	<?php
+}
 ?>
 <summary><?php echo _("We will ask you some basic questions about your website. Most of the settings can be later edited in the config.php file.");?></summary>
 
