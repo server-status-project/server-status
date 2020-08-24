@@ -12,11 +12,12 @@ As this **does not** run installation scripts you need to head to your install d
 If you don't want to allow php to access your files or you have permission issues, use the following instructions.
 ### FOR IIS:
 // Rename IISWebConfig to web.config
-### FOR Apache and Nginx
+### FOR Apache
 // Rename ApacheHtaccess to .htaccess
+### FOR Nginx
+// You can run with php-fpm no additional modifications required.
 
-
-You can find more info on [our wiki page](https://github.com/Pryx/server-status/wiki)
+You can find more info on [our wiki page](https://github.com/server-status-project/server-status/wiki)
 
 ## Contributing
 Anyone is welcome to make pull request with new features or security patches / bug fixes.
@@ -26,7 +27,7 @@ You may create a pull request anytime or you can join our discord here(https://d
 ### Translations
 Any help with translations is much welcome! You can join us at https://poeditor.com/join/project/37SpmJtyOm. You can even add your own language. Just let me know when you're done and I'm going to include the language in the next release.
 
-[List of contributors](https://github.com/Pryx/server-status/wiki/contributors)
+[List of contributors](https://github.com/server-status-project/server-status/wiki/contributors)
 
 ### Does it actually run somewhere?
 Yes it does! 
