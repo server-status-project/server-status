@@ -10,12 +10,10 @@ Simply put the files on your server and access it from your browser. There will 
 If you prefer you can install manually by filling the info in config.php.template and renaming it to config.php.
 As this **does not** run installation scripts you need to head to your install directory and run create-server-config.php and then delete it.
 If you don't want to allow php to access your files or you have permission issues, use the following instructions.
-### FOR IIS:
-// Rename IISWebConfig to web.config
-### FOR Apache
-// Rename ApacheHtaccess to .htaccess
-### FOR Nginx
-// You can run with php-fpm no additional modifications required.
+### Creating server config:
+* **IIS**: Rename IISWebConfig to web.config
+* **Apache**: Rename ApacheHtaccess to .htaccess
+* **Nginx**: You can run with php-fpm no additional modifications required.
 
 You can find more info on [our wiki page](https://github.com/server-status-project/server-status/wiki)
 
@@ -27,7 +25,7 @@ You may create a pull request anytime or you can join our discord here(https://d
 ### Translations
 Any help with translations is much welcome! You can join us at https://poeditor.com/join/project/37SpmJtyOm. You can even add your own language. Just let me know when you're done and I'm going to include the language in the next release.
 
-[List of contributors](https://github.com/server-status-project/server-status/wiki/contributors)
+[List of contributors](https://github.com/server-status-project/server-status/graphs/contributors)
 
 ### Does it actually run somewhere?
 Yes it does! 
@@ -59,10 +57,8 @@ Please note that changes are reverted every hour.
 ### I noticed there is a new release. How do I update?
 Updating server status is fairly straightforward. Download your config.php from the server. Delete all files. Upload the new release with config.php you downloaded earlier. You need to manually run install scripts. For that head to your domain and run create-server-config.php deleting it afterwards.
 If you don't want to allow php to access your files or you have permission issues, use the following instructions.
-#### FOR IIS:
-// Rename IISWebConfig to web.config
-#### FOR Apache and Nginx
-// Rename ApacheHtaccess to .htaccess
+#### Updating server config
+Follow the instructions for installation without giving the app write access. Keep in mind that you will need to re-apply any modifications you made.
 
 ### Is there any way to do this automatically?
 We are working on it but it is not yet included. Stay tuned!
