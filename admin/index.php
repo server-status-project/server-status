@@ -36,7 +36,7 @@ else{
   define("PHP_MAILER_USER", $db->getSetting($mysqli, "php_mailer_user"));
   define("PHP_MAILER_PASS", $db->getSetting($mysqli, "php_mailer_pass"));
   define("CRON_SERVER_IP", $db->getSetting($mysqli, "cron_server_ip"));
-  
+
   // Process the subscriber notification queue
   // If CRON_SERVER_IP is not set, call notification once incident has been saved
   if ( empty(CRON_SERVER_IP) )
@@ -109,6 +109,16 @@ else{
     	case 'new-user':
     		require_once("new-user.php");
     		break;
+
+      case 'new-service':
+      case 'edit-service':
+        require_once('service.php');
+        break;
+
+      case 'new-service-group':
+      case 'edit-service-group':
+        require_once('service-group.php');
+        break;
 
       case 'options':
         require_once("options.php");

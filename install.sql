@@ -57,6 +57,14 @@ CREATE TABLE queue_notify (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
+CREATE TABLE services_groups (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(50) NOT NULL,
+  description varchar(50) DEFAULT NULL,
+  visibility tinyint(4) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE queue_task (
   id int(11) NOT NULL AUTO_INCREMENT,
   type_id int(11) NOT NULL,
@@ -127,4 +135,8 @@ ALTER TABLE `subscribers` ADD COLUMN create_time int(11) DEFAULT NULL;
 ALTER TABLE `subscribers` ADD COLUMN update_time int(11) DEFAULT NULL;
 ALTER TABLE `subscribers` DROP INDEX telegramID; # was UNIQUE (telegramID)
 ALTER TABLE `subscribers` ADD UNIQUE userID (userID);
+COMMIT;
+
+ALTER TABLE services ADD COLUMN description varchar(200) COLLATE utf8_czech_ci NOT NULL;
+ALTER TABLE services ADD COLUMN group_id int(11) DEFAULT NULL;
 COMMIT;

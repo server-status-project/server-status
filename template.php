@@ -7,6 +7,7 @@ $icons = array("fa fa-times", "fa fa-exclamation", "fa fa-info", "fa fa-check" )
 $some = array(_("Some systems are experiencing major outages"), _("Some systems are experiencing minor outages"), _("Some systems are under maintenance"));
 $all = array(_("Our systems are experiencing major outages."), _("Our systems are experiencing minor outages"), _("Our systems are under maintenance"), _("All systems operational"));
 $permissions = array(_("Super admin"), _("Admin"), _("Editor"));
+$visibility = array(_("Collapsed"), _("Expanded"), _("Expand on events"));
 
 /**
 * Class that encapsulates methods to render header and footer
@@ -56,7 +57,7 @@ class Template{
       <!doctype html>
       <html lang="en">
       <head>
-       <?php 
+       <?php
         $headfile = fopen("head.txt", "r") or die("Unable to open head.txt!");
         $head_additionalcode = fread($versionfile,filesize("head.txt"));
         fclose($headfile); ?>

@@ -70,9 +70,11 @@ class Service implements JsonSerializable
     if ($user->get_rank()<=1)
     {
       global $mysqli;
-      $name = $_POST['service'];
-      $stmt = $mysqli->prepare("INSERT INTO services ( name ) VALUES ( ? )");
-      $stmt->bind_param("s", $name);
+      $name = htmlspecialchars($_POST['service']);
+      $description = htmlspecialchars($_POST['description']);
+      $group_id = $_POST['group_id'];
+      $stmt = $mysqli->prepare("INSERT INTO services ( name, description, group_id ) VALUES ( ?, ?, ? )");
+      $stmt->bind_param("ssi", $name, $description, $group_id);
       $stmt->execute();
       $stmt->get_result();
       header("Location: ".WEB_URL."/admin/?do=settings");
@@ -81,6 +83,41 @@ class Service implements JsonSerializable
       $message = _("You don't have the permission to do that!");
     }
   }
+  /**
+     * Processes submitted form and adds service unless problem is encountered,
+     * calling this is possible only for admin or higher rank. Also checks requirements
+     * for char limits.
+     * @return void
+     */
+    public static function edit()
+    {
+      global $user, $message;
+      if (strlen($_POST['service'])>50)
+      {
+        $message = _("Service name is too long! Character limit is 50");
+        return;
+      }else if (strlen(trim($_POST['service']))==0){
+        $message = _("Please enter name!");
+        return;
+      }
+
+      if ($user->get_rank()<=1)
+      {
+        global $mysqli;
+        $service_id = $_POST["id"];
+        $name = htmlspecialchars($_POST['service']);
+        $description = htmlspecialchars($_POST["description"]);
+        $group_id = $_POST["group_id"];
+        $stmt = $mysqli->prepare("UPDATE services SET name=?, description=?, group_id=? WHERE id = ?");
+        $stmt->bind_param("ssii", $name, $description, $group_id, $service_id);
+        $stmt->execute();
+        $stmt->get_result();
+        header("Location: ".WEB_URL."/admin/?do=settings");
+      }else
+      {
+        $message = _("You don't have the permission to do that!");
+      }
+    }
 
   /**
    * Deletes this service - first checks if user has permission to do that.
@@ -139,7 +176,7 @@ class Service implements JsonSerializable
       {
         $worst = $service->get_status();
       }
-      $statuses[$service->get_status()]++; 
+      $statuses[$service->get_status()]++;
     }
 
     echo '<div id="status-big" class="status '.$classes[$worst].'">';
