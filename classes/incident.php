@@ -78,13 +78,9 @@ class Incident implements JsonSerializable
    * for char limits.
    * @return void
    */
-  public static function add()
+  public static function add($user_id = $_SESSION['user'],$type = $_POST['type'],$title = strip_tags($_POST['title']),$text = strip_tags($_POST['text'], '<br>'))
   {
     global $mysqli, $message;
-    $user_id = $_SESSION['user'];
-    $type = $_POST['type'];
-    $title = strip_tags($_POST['title']);
-    $text = strip_tags($_POST['text'], '<br>');
 
     if (strlen($title)==0)
     {
