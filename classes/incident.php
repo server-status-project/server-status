@@ -84,7 +84,7 @@ class Incident implements JsonSerializable
     $user_id = $_SESSION['user'];
     $type = $_POST['type'];
     $title = strip_tags($_POST['title']);
-    $text = strip_tags($_POST['text'], '<br>')
+    $text = strip_tags($_POST['text'], '<br>');
 
     if (strlen($title)==0)
     {
