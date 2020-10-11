@@ -68,3 +68,12 @@ if ($mysqli->connect_errno) {
 }
 
 $mysqli->set_charset("utf8");
+
+include "SkyfallenCodeLib/UpdatesConsoleConnector.php";
+
+define("UPDATES_PROVIDER_URL","https://swupdate.theskyfallen.com");
+define("UPDATES_PROVIDER_APP_ID","6d84a0d1b6cc05e071c0199a8d8894c4");
+define("UPDATE_SEED","STABLE");
+
+include_once "updater.php";
+include "thisversion.php";
