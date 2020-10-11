@@ -55,8 +55,7 @@ password: Ss123456
 Please note that changes are reverted every hour.
 
 ### I noticed there is a new release. How do I update?
-Updating server status is fairly straightforward. Download your config.php from the server. Delete all files. Upload the new release with config.php you downloaded earlier. You need to manually run install scripts. For that head to your domain and run create-server-config.php deleting it afterwards.
-If you don't want to allow php to access your files or you have permission issues, use the following instructions.
+In the admin panel, check for updates. If a version is available you can click to update.
 #### Updating server config
 Follow the instructions for installation without giving the app write access. Keep in mind that you will need to re-apply any modifications you made.
 
