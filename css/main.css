@@ -27,6 +27,10 @@ a:focus {
   color:#f5f4f4;
 }
 
+a.desc-tool-tip, a.desc-tool-tip:hover, a.desc-tool-tip:visited {
+    color: grey;
+}
+
 .centered {
     text-align: center
 }
@@ -136,7 +140,6 @@ body a h1{
 .status{
 	float: right;
 	box-sizing: border-box;
-	padding: 15px 35px;
 	text-align: right;
 	font-size: 1.05em;
 	font-family: 'Fira Sans', sans-serif;
@@ -686,4 +689,3 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-

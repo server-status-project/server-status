@@ -6,19 +6,24 @@ class Service implements JsonSerializable
 {
   private $id;
   private $name;
+  private $description;
+  private $group_name;
   private $status;
 
   /**
    * Constructs service from its data.
    * @param int $id service ID
    * @param String $name service name
+   * @param String $descriotion service description for tooltip
    * @param int $status current service status
    */
-  function __construct($id, $name, $status=3)
+  function __construct($id, $name, $description=null, $group_name='', $status=3)
   {
     //TODO: Maybe get data from ID?
     $this->id = $id;
     $this->name = $name;
+    $this->description = $description;
+    $this->group_name = $group_name;
     $this->status = $status;
   }
 
@@ -47,6 +52,15 @@ class Service implements JsonSerializable
   public function get_name()
   {
     return $this->name;
+  }
+
+  /**
+   * Returns description of this service
+   * @return String description
+   */
+  public function get_description()
+  {
+    return $this->description;
   }
 
   /**
@@ -192,17 +206,56 @@ class Service implements JsonSerializable
 
   /**
    * Renders this service.
+   * @param $boolGroup set to true if the groups name is to be rendered
    * @return void
    */
   public function render(){
     global $statuses;
     global $classes;
-    ?>
-      <div class="item clearfix">
-        <div class="service"><?php echo $this->name; ?></div>
-        <?php if ($this->status!=-1){?><div class="status <?php echo $classes[$this->status];?>"><?php echo _($statuses[$this->status]);?></div><?php }?>
-      </div>
-  <?php
+    static $arrCompletedGroups = array();
+    //static $boolClosed;
+    static $boolOpened;
+
+    // Check if previous ul has been opened, and if a empty/new group is being
+    // render_header, close the UL first.
+    if ( $boolOpened ) {
+      if ( empty($this->group_name) || !in_array($this->group_name, $arrCompletedGroups) ) {
+        echo '</ul>';
+        $boolOpened = false;
+      }
+    }
+
+    // If no group exist or group is new, start a new UL
+    if ( !empty($this->group_name) && !in_array($this->group_name, $arrCompletedGroups)) {
+      echo '<ul class="list-group components">';
+      //echo '<ul class="platforms list-group mb-2">';
+      // Render the group status if it exists
+      echo '<li class="list-group-item list-group-item-success group-name"><span><i class="glyphicon glyphicon-plus"></i></span>&nbsp;' . $this->group_name .'<div class="status '. $classes[$this->status] .'">'. _($statuses[$this->status]).'</div></li>';
+      //echo '<li class="cist-group-item d-flex flex-row justify-content-between platform list-group-item-action py-0 expanded" role="button">' . $this->group_name .'<div class="status '. $classes[$this->status] .'"'. _($statuses[$this->status]).'</div></li>';
+      $arrCompletedGroups[] = $this->group_name;
+      $boolOpened = true;
+    }
+
+    if ( empty($this->group_name)) {
+      echo '<ul class="list-group components">';
+
+//      echo '<ul class="platforms list-group mb-2">';
+      $boolFinish = true;
+    }
+
+    // Render the service status
+    echo '<li class="list-group-item sub-component"><strong>' . $this->name .'</strong>';
+    //echo '<li class="list-group-item d-flex flex-columns justify-content-between><span>+</span><h3 class="py-2 my-0 flex-fill expanded">' . $this->name . '</h3>';
+    if(!empty($this->description)) {
+      echo '<a class="desc-tool-tip" data-toggle="tooltip" data-placement="top" title="'.$this->description.'"> <span><i class="glyphicon glyphicon-question-sign"></i></span></a>';
+    }
+    if ($this->status!=-1){?><div class="status pull-right <?php echo $classes[$this->status];?>"><?php echo _($statuses[$this->status]);?></div>
+    <?php
+    }
+    echo '</li>';
+    if ( isset($boolFinish) && $boolFinish) {
+      echo '</ul>';
+    }
   }
 
   public function jsonSerialize() {
@@ -210,6 +263,7 @@ class Service implements JsonSerializable
     return [
       "id" => $this->id,
       "name" => $this->name,
+      "description" => $this->description,
       "status" => $this->status,
       "status_string" => $statuses[$this->status]
     ];

@@ -72,7 +72,8 @@ class Constellation
   public function render_status($admin = false, $heading = true){
     global $mysqli;
 
-    $query = $mysqli->query("SELECT id, name  FROM services");
+    //$query = $mysqli->query("SELECT id, name, description FROM services");
+    $query = $mysqli->query("SELECT services.id, services.name, services.description, services_groups.name as group_name FROM services LEFT JOIN services_groups ON services.group_id=services_groups.id ORDER BY services_groups.name ");
     $array = array();
     if ($query->num_rows){
       $timestamp = time();
@@ -87,10 +88,10 @@ class Constellation
         $tmp = $sql->get_result();
         if ($tmp->num_rows)
         {
-          $array[] = new Service($result['id'], $result['name'], $tmp->fetch_assoc()['type']);
+          $array[] = new Service($result['id'], $result['name'], $result['description'], $result['group_name'], $tmp->fetch_assoc()['type']);
         }
         else{
-          $array[] = new Service($result['id'], $result['name']);
+          $array[] = new Service($result['id'], $result['name'], $result['description'], $result['group_name']);
         }
       }
       if ($heading)
@@ -103,11 +104,27 @@ class Constellation
     }
     if (!$admin)
     {
-      echo '<div id="status-container" class="clearfix">';
+      ?>
+      <script>
+      $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+      </script>
+      <?php
+      //echo '<div id="status-container" class="clearfix">';
+      //$arrCompletedGroups = array();
       foreach($array as $service){
+        //print_r($service);
+        //if ( !empty($service->group_name) && !in_array($service->group_name, $arrCompletedGroups)) {
+//print $service->name;
+        //  $arrCompletedGroups[] = $service['group_name'];
+        //  $service->render(true);
+        //} else {
         $service->render();
+        //}
       }
-      echo '</div>';
+      echo '</ul>';
+      //echo '</div>';
     }
     else{
       return $array;
