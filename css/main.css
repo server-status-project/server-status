@@ -27,6 +27,10 @@ a:focus {
   color:#f5f4f4;
 }
 
+a.desc-tool-tip, a.desc-tool-tip:hover, a.desc-tool-tip:visited {
+    color: grey;
+}
+
 .centered {
     text-align: center
 }
@@ -686,4 +690,3 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-
