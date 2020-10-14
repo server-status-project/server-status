@@ -140,7 +140,6 @@ body a h1{
 .status{
 	float: right;
 	box-sizing: border-box;
-	padding: 15px 35px;
 	text-align: right;
 	font-size: 1.05em;
 	font-family: 'Fira Sans', sans-serif;
