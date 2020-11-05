@@ -2,7 +2,6 @@
 //DIR Because of include problems
 require_once(__DIR__ . "/incident.php");
 require_once(__DIR__ . "/service.php");
-require_once(__DIR__ . "/service-group.php");
 require_once(__DIR__ . "/user.php");
 require_once(__DIR__ . "/token.php");
 /**
@@ -21,7 +20,7 @@ class Constellation
   public function render_incidents($future=false, $offset=0, $limit = 5, $admin = 0){
     if ($offset<0)
     {
-      $offset = 0;
+      $offset = 0; 
     }
 
     $limit = (isset($_GET['limit'])?$_GET['limit']:5);
@@ -38,7 +37,7 @@ class Constellation
     }
     else if (count($incidents["incidents"]) &&!$ajax)
     {
-      if ($offset)
+      if ($offset) 
       {
         echo '<noscript><div class="centered"><a href="'.WEB_URL.'/?offset='.($offset-$limit).'&timestamp='.$timestamp.'" class="btn btn-default">'._("Back").'</a></div></noscript>';
       }
@@ -67,13 +66,12 @@ class Constellation
   /**
    * Renders service status - in admin page it returns array so it can be processed further.
    * @param boolean $admin
-   * @return array of services
+   * @return array of services 
    */
   public function render_status($admin = false, $heading = true){
     global $mysqli;
-
-    //$query = $mysqli->query("SELECT id, name, description FROM services");
-    $query = $mysqli->query("SELECT services.id, services.name, services.description, services_groups.name as group_name FROM services LEFT JOIN services_groups ON services.group_id=services_groups.id ORDER BY services_groups.name ");
+    
+    $query = $mysqli->query("SELECT id, name  FROM services");
     $array = array();
     if ($query->num_rows){
       $timestamp = time();
@@ -88,12 +86,12 @@ class Constellation
         $tmp = $sql->get_result();
         if ($tmp->num_rows)
         {
-          $array[] = new Service($result['id'], $result['name'], $result['description'], $result['group_name'], $tmp->fetch_assoc()['type']);
+          $array[] = new Service($result['id'], $result['name'], $tmp->fetch_assoc()['type']);
         }
         else{
-          $array[] = new Service($result['id'], $result['name'], $result['description'], $result['group_name']);
+          $array[] = new Service($result['id'], $result['name']);
         }
-      }
+      }      
       if ($heading)
       {
         echo Service::current_status($array);
@@ -104,27 +102,11 @@ class Constellation
     }
     if (!$admin)
     {
-      ?>
-      <script>
-      $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-      });
-      </script>
-      <?php
-      //echo '<div id="status-container" class="clearfix">';
-      //$arrCompletedGroups = array();
+      echo '<div id="status-container" class="clearfix">';
       foreach($array as $service){
-        //print_r($service);
-        //if ( !empty($service->group_name) && !in_array($service->group_name, $arrCompletedGroups)) {
-//print $service->name;
-        //  $arrCompletedGroups[] = $service['group_name'];
-        //  $service->render(true);
-        //} else {
         $service->render();
-        //}
       }
-      echo '</ul>';
-      //echo '</div>';
+      echo '</div>';
     }
     else{
       return $array;
@@ -149,14 +131,14 @@ class Constellation
     $limit--;
     $more = false;
     if ($query->num_rows>$limit){
-      $more = true;
+      $more = true; 
     }
     if ($query->num_rows){
       while(($result = $query->fetch_assoc()) && $limit-- > 0)
       {
         // Add service id and service names to an array in the Incident class
-        $stmt_service = $mysqli->prepare("SELECT services.id,services.name FROM services
-                                                 INNER JOIN services_status ON services.id = services_status.service_id
+        $stmt_service = $mysqli->prepare("SELECT services.id,services.name FROM services 
+                                                 INNER JOIN services_status ON services.id = services_status.service_id 
                                                  WHERE services_status.status_id = ?");
         $stmt_service->bind_param("i", $result['status_id']);
         $stmt_service->execute();
@@ -174,40 +156,6 @@ class Constellation
       "incidents" => $array
     ];
   }
-
-
-  function render_warning($header, $message, $show_link = false, $url = null, $link_text = null)
-  {
-    $this->render_alert('alert-warning', $header, $message, $show_link, $url, $link_text);
-  }
-  function render_success($header, $message, $show_link = false, $url = null, $link_text = null)
-  {
-    $this->render_alert('alert-success', $header, $message, $show_link, $url, $link_text);
-  }
-
-  /**
-   * Renders an alert on screen with an optional button to return to a given URL
-   * @param string alert_type - Type of warning to render alert-danger, alert-warning, alert-success etc
-   * @param string header - Title of warning
-   * @param string message - Message to display
-   * @param boolean show_link - True if button is to be displayed
-   * @param string url - URL for button
-   * @param string link_txt - Text for button
-   * @return void
-   */
-  function render_alert($alert_type, $header, $message, $show_link = false, $url = null, $link_text = null)
-  {
-    echo '<div><h1></h1>
-         <div class="alert '.$alert_type.'" role="alert">
-         <h4 class="alert-heading">'.$header.'</h4>
-         <hr>
-         <p class="mb-0">'.$message.'</p>
-         </div></div>';
-    if ( $show_link ) {
-      echo '<div class="clearfix"><a href="'.$url.'" class="btn btn-success" role="button">'.$link_text.'</a></div>';
-    }
-
-  }
-}
+}          
 
 $constellation = new Constellation();

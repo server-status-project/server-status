@@ -1,6 +1,4 @@
 <?php
-require_once(__DIR__ . "/notification.php");
-
 /**
 * Class for creating and rendering an incident
 */
@@ -75,7 +73,7 @@ class Incident implements JsonSerializable
   }
 
   /**
-   * Processes submitted form and adds incident unless problem is encountered,
+   * Processes submitted form and adds incident unless problem is encountered, 
    * calling this is possible only for admin or higher rank. Also checks requirements
    * for char limits.
    * @return void
@@ -83,9 +81,6 @@ class Incident implements JsonSerializable
   public static function add()
   {
     global $mysqli, $message;
-    //Sould be a better way to get this array...
-    $statuses = array(_("Major outage"), _("Minor outage"), _("Planned maintenance"), _("Operational") );
-
     $user_id = $_SESSION['user'];
     $type = $_POST['type'];
     $title = strip_tags($_POST['title']);
@@ -129,7 +124,7 @@ class Incident implements JsonSerializable
       if (!empty($_POST['time']) && $type == 2){
         $input_time = (!empty($_POST['time_js'])?$_POST['time_js']: $_POST['time']);
         $input_end_time = (!empty($_POST['end_time_js'])?$_POST['end_time_js']: $_POST['end_time']);
-        $time = strtotime($input_time);
+        $time = strtotime($input_time);  
         $end_time = strtotime($input_end_time);
         if (!$time)
         {
@@ -152,7 +147,7 @@ class Incident implements JsonSerializable
         $time = time();
         $end_time = '';
       }
-
+      
       $stmt = $mysqli->prepare("INSERT INTO status VALUES (NULL,?, ?, ?, ?, ?, ?)");
       $stmt->bind_param("issiii", $type, $title, $text, $time ,$end_time ,$user_id);
       $stmt->execute();
@@ -160,27 +155,15 @@ class Incident implements JsonSerializable
       $status_id = $mysqli->insert_id;
 
       foreach ($services as $service) {
-        $stmt = $mysqli->prepare("INSERT INTO services_status VALUES (NULL,?, ?)");
+        $stmt = $mysqli->prepare("INSERT INTO services_status VALUES (NULL,?, ?)"); 
         $stmt->bind_param("ii", $service, $status_id);
         $stmt->execute();
         $query = $stmt->get_result();
       }
-
-      // Perform notification to subscribers
-      $notify = new Notification();
-      $notify->populate_impacted_services($status_id);
-
-      $notify->type = $type;
-      $notify->time = $time;
-      $notify->title = $title;
-      $notify->text = $text;
-      $notify->status = $statuses[$type];
-
-      $notify->notify_subscribers();
-
-      header("Location: ".WEB_URL."/admin?sent=true");
+      header("Location: ".WEB_URL."/admin");
     }
   }
+
 
   /**
    * Renders incident
@@ -191,7 +174,7 @@ class Incident implements JsonSerializable
     global $icons;
     global $classes, $user;
     $admin = $admin && (($user->get_rank()<=1) || ($user->get_username() == $this->username));
-    $Parsedown = new Parsedown();
+
     ?>
      <article class="panel panel-<?php echo $classes[$this->type];?>">
         <div class="panel-heading icon">
@@ -205,16 +188,16 @@ class Incident implements JsonSerializable
           <time class="pull-right timeago" datetime="<?php echo $this->date; ?>"><?php echo $this->date; ?></time>
         </div>
         <div class="panel-body">
-          <?php echo $Parsedown->setBreaksEnabled(true)->text($this->text); ?>
+          <?php echo $this->text; ?>
         </div>
         <div class="panel-footer clearfix">
           <small>
               <?php echo _("Impacted service(s): ");
-              foreach ( $this->service_name as $value ) {
+              foreach ( $this->service_name as $key => $value ) {
                 echo '<span class="label label-default">'.$value . '</span>&nbsp;';
               }
 
-          if (isset($this->end_date)){?>
+          if (isset($this->end_date)){?> 
             <span class="pull-right"><?php echo strtotime($this->end_date)>time()?_("Ending"):_("Ended");?>:&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
             <?php } ?>
           </small>
@@ -234,4 +217,4 @@ class Incident implements JsonSerializable
       "username" => $this->username
     ];
   }
-}
+}          

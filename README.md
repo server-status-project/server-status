@@ -1,18 +1,8 @@
-# Server Status Beta (Official)
-## This is the official beta fork of Server Status by the contributors.
-![License](https://img.shields.io/github/license/Pryx/server-status.svg) ![Current release](https://img.shields.io/badge/version-2-blue) 
-![Beta-Build](https://img.shields.io/badge/latest_beta-Developmet_Beta_7-black)
-![Beta-Stability](https://img.shields.io/badge/Beta_Stability-Fully_Stable_with_Visual_Imperfections-red)
-![Stability](https://img.shields.io/badge/master_stability-Stable-red)
-![Build](https://img.shields.io/badge/build-success-green)
+# Server status page
+![License](https://img.shields.io/github/license/Pryx/server-status.svg) ![Current release](https://img.shields.io/github/release/Pryx/server-status.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b82d62fa6d8b41119f68fd9eca3c3a08)](https://www.codacy.com/app/sajdl.vojtech/server-status?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Pryx/server-status&amp;utm_campaign=Badge_Grade) [![Discord](https://img.shields.io/discord/742703112590065745?logo=discord)](https://discord.gg/Wgxnxz4)
 
-## What does **contributor beta** mean?
-It means the beta that is heavily unstable that is meant for contributors to make changes and use as a recovery point.
-### Other Beta Type
-#### Development Beta
-##### This beta has some bugs that are noticeable and is sometimes unstable. Best for new contributors
-#### Public Beta
-##### This beta has some bugs that are not really noticeable and mostly exist as bugs. Best for trying the new features before updating!
+![screenshot](https://status.trucksbook.eu/img/screenshot.png)
+
 Very simple server status page written in PHP that can run on **PHP 5.4+** - even on **shared webhosting** even without shell access. Because why waste your money on another server (or host on a server that you might want to do maintenance on), when you can use cheap webhosting? And as a cherry on top - it works even without javascript!
 
 ## How do I install this thing?
@@ -20,13 +10,12 @@ Simply put the files on your server and access it from your browser. There will 
 If you prefer you can install manually by filling the info in config.php.template and renaming it to config.php.
 As this **does not** run installation scripts you need to head to your install directory and run create-server-config.php and then delete it.
 If you don't want to allow php to access your files or you have permission issues, use the following instructions.
-### FOR IIS:
-// Rename IISWebConfig to web.config
-### FOR Apache and Nginx
-// Rename ApacheHtaccess to .htaccess
+### Creating server config:
+* **IIS**: Rename IISWebConfig to web.config
+* **Apache**: Rename ApacheHtaccess to .htaccess
+* **Nginx**: You can run with php-fpm no additional modifications required.
 
-
-You can find more info on [our wiki page](https://github.com/Pryx/server-status/wiki)
+You can find more info on [our wiki page](https://github.com/server-status-project/server-status/wiki)
 
 ## Contributing
 Anyone is welcome to make pull request with new features or security patches / bug fixes.
@@ -36,7 +25,7 @@ You may create a pull request anytime or you can join our discord here(https://d
 ### Translations
 Any help with translations is much welcome! You can join us at https://poeditor.com/join/project/37SpmJtyOm. You can even add your own language. Just let me know when you're done and I'm going to include the language in the next release.
 
-[List of contributors](https://github.com/Pryx/server-status/wiki/contributors)
+[List of contributors](https://github.com/server-status-project/server-status/graphs/contributors)
 
 ### Does it actually run somewhere?
 Yes it does! 
@@ -68,10 +57,8 @@ Please note that changes are reverted every hour.
 ### I noticed there is a new release. How do I update?
 Updating server status is fairly straightforward. Download your config.php from the server. Delete all files. Upload the new release with config.php you downloaded earlier. You need to manually run install scripts. For that head to your domain and run create-server-config.php deleting it afterwards.
 If you don't want to allow php to access your files or you have permission issues, use the following instructions.
-#### FOR IIS:
-// Rename IISWebConfig to web.config
-#### FOR Apache and Nginx
-// Rename ApacheHtaccess to .htaccess
+#### Updating server config
+Follow the instructions for installation without giving the app write access. Keep in mind that you will need to re-apply any modifications you made.
 
 ### Is there any way to do this automatically?
 We are working on it but it is not yet included. Stay tuned!
