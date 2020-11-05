@@ -18,13 +18,14 @@
 //   Contributors:
 //   Vojtěch Sajdl - Yigit Kerem Oktay - Thomas Nilsen - jhuesser
 /**************************************************************************************/
+
 session_start();
 //Start editing here
-//define("NAME", "##name##"); //Website name
-//define("TITLE", "##title##");
-//define("WEB_URL", "##url##"); //Used for links
-//define("MAILER_NAME", "##mailer##"); //Mailer name
-//define("MAILER_ADDRESS", "##mailer_email##"); //Mailer address
+define("NAME", "##name##"); //Website name
+define("TITLE", "##title##");
+define("WEB_URL", "##url##"); //Used for links 
+define("MAILER_NAME", "##mailer##"); //Mailer name
+define("MAILER_ADDRESS", "##mailer_email##"); //Mailer address
 define("POLICY_NAME", "##policy_name##"); //name for contact in policy
 define("ADDRESS", "##address##");
 define("POLICY_MAIL", "##policy_mail##"); //contact email in policy
@@ -55,7 +56,7 @@ putenv('LANGUAGE='.$_SESSION['locale'].'.UTF-8');
 setlocale(LC_ALL, $_SESSION['locale'].".UTF-8");
 setlocale(LC_MESSAGES, $_SESSION['locale'].".UTF-8");
 bindtextdomain("server-status", __DIR__ . "/locale/");
-bind_textdomain_codeset("server-status", "utf-8");
+bind_textdomain_codeset("server-status", "utf-8"); 
 textdomain("server-status");
 
 //Database connection

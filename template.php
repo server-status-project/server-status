@@ -7,7 +7,6 @@ $icons = array("fa fa-times", "fa fa-exclamation", "fa fa-info", "fa fa-check" )
 $some = array(_("Some systems are experiencing major outages"), _("Some systems are experiencing minor outages"), _("Some systems are under maintenance"));
 $all = array(_("Our systems are experiencing major outages."), _("Our systems are experiencing minor outages"), _("Our systems are under maintenance"), _("All systems operational"));
 $permissions = array(_("Super admin"), _("Admin"), _("Editor"));
-$visibility = array(_("Collapsed"), _("Expanded"), _("Expand on events"));
 
 /**
 * Class that encapsulates methods to render header and footer
@@ -21,38 +20,6 @@ class Template{
   public static function render_header($page_name, $admin = false){
     if (!$admin)
     {
-       // Create subscriber menu sections for later inclusion
-       // Check if we are on admin menu, if so do not display
-       $arr_url = explode("/", $_SERVER['PHP_SELF']);
-       $str_url = strtolower($arr_url[count($arr_url)-2]);
-       if ( 'admin' == $str_url ) {
-           $strSubsMenu = '';
-       } else {
-           if (SUBSCRIBE_EMAIL || SUBSCRIBE_TELEGRAM ) {
-               // Subscriber menu is to be shown...
-               $strSubsMenu = '<ul class="nav navbar-nav mr-auto">';
-               // If subscriber is not logged on, display subscriber menus
-               if ( (!isset($_SESSION['subscriber_valid'])) || false == $_SESSION['subscriber_valid'] ) {
-                   $strSubsMenu .= '<li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#"><span class="glyphicon glyphicon-th"></span>&nbsp;'. _('Subscribe').'</a>
-                                    <ul class="dropdown-menu ">';
-
-                   if ( SUBSCRIBE_EMAIL ) {
-                       $strSubsMenu .= '<li><a href="?do=email_subscription&amp;new=1"><span class="glyphicon glyphicon-envelope"></span>&nbsp;'._('Subscribe via email').'</a></li>';
-                   }
-                   if ( SUBSCRIBE_TELEGRAM ) {
-                       $strSubsMenu .= '<li><a href="#"><script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="'.TG_BOT_USERNAME.'" data-size="small" data-userpic="false" data-auth-url="'.WEB_URL.'/telegram_check.php" data-request-access="write"></script></a></li>';
-                   }
-                   $strSubsMenu .=  '</ul>';
-                }
-           }
-           // If subscriber is logged on, display unsub and logoff menu points
-           if ( (isset($_SESSION['subscriber_valid'])) &&  $_SESSION['subscriber_valid'] ) {
-               $strSubsMenu .= '<li><a href="?do=subscriptions">'._('Subscriptions').'</a></li>';
-               $strSubsMenu .= '<li><a href="'.WEB_URL.'/index.php?subscriber_logout=1">'._('Logout').'</a></li>';
-           }
-           $strSubsMenu .=  '</ul>';
-       }
       ?>
       <!doctype html>
       <html lang="en">
@@ -90,21 +57,12 @@ class Template{
         <div class="navbar navbar-default" role="navigation">
           <div class="container">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only"><?php echo _("Toggle navigation");?></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
               <a class="navbar-brand" href="<?php echo WEB_URL;?>"><a class="navbar-brand" href="<?php echo WEB_URL;?>/admin"><img src="<?php if(strlen(CUSTOM_LOGO_URL)>1){ echo CUSTOM_LOGO_URL; } else { echo WEB_URL."/img/logo_white.png"; } ?>" alt="logo" class="menu-logo" style="height:50px;"></a>
             </div>
             <div class="navbar-left hidden-xs">
               <ul class="nav navbar-nav">
                 <li><a href="<?php echo WEB_URL;?>/"><h1><?php echo _((defined('TITLE')?TITLE:"Service Status"));?></h1></a></li>
               </ul>
-            </div>
-            <div class="navbar-collapse collapse navbar-right navbar-admin">
-              <?php echo $strSubsMenu; ?>
             </div><!--/.nav-collapse -->
 
           </div>
@@ -158,8 +116,7 @@ class Template{
               <ul class="nav navbar-nav">
                 <li><a href="<?php echo WEB_URL;?>/admin/"><?php echo _("Dashboard");?></a></li>
                 <li><a href="<?php echo WEB_URL;?>/admin/?do=user"><?php printf(_("User (%s)"), $user->get_username());?></a></li>
-                <li><a href="<?php echo WEB_URL;?>/admin/?do=settings"><?php echo _("Services & Users");?></a></li>
-                <li><a href="<?php echo WEB_URL;?>/admin/?do=options"><?php echo _("Options");?></a></li>
+                <li><a href="<?php echo WEB_URL;?>/admin/?do=settings"><?php echo _("Settings");?></a></li>
                 <li><a href="<?php echo WEB_URL;?>/admin/?do=logout"><?php echo _("Logout");?></a></li>
               </ul>
             </div><!--/.nav-collapse -->
@@ -169,21 +126,7 @@ class Template{
       <?php
     }
   }
-  /**
-  * Renders a toggle switch
-  * Created by Yigit Kerem Oktay
-  */
-  public static function render_toggle($toggletext,$input_name,$checked){
-    ?>
-          <div>
-          <h3><?php echo $toggletext; ?></h3>
-          <label class="switch">
-              <input type="checkbox" name="<?php echo $input_name; ?>" <?php if($checked){ echo "checked"; } ?> >
-              <span class="slider round"></span>
-          </label>
-          </div>
-  <?php
-  }
+
   /**
   * Renders footer
   * @param Boolean $admin decides whether to load admin scripts
@@ -230,7 +173,6 @@ class Template{
     <?php }?>
     <script src="<?php echo WEB_URL;?>/js/vendor/bootstrap.min.js"></script>
     <script src="<?php echo WEB_URL;?>/js/main.js"></script>
-    <?php if ( GOOGLE_RECAPTCHA ) { ?><script src='https://www.google.com/recaptcha/api.js'></script><?php }?>
   </body>
   </html>
 <?php
