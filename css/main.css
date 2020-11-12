@@ -73,13 +73,6 @@ a.desc-tool-tip, a.desc-tool-tip:hover, a.desc-tool-tip:visited {
     top: 0;
     width: 100%;
 }
-
-
-body {
-	min-height: 100vh;
-	height: 100vh;
-}
-
 .admins_color h4 {
 	color: #3a72bd;
 	font-weight: bold;
