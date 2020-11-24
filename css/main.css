@@ -64,9 +64,9 @@ a.desc-tool-tip, a.desc-tool-tip:hover, a.desc-tool-tip:visited {
     background: gray;
 }
 .navbar-default {
-	z-index: 200;
-	background-color: gray;
-	border-color: transparent;
+    z-index: 200;
+    background-color: gray;
+    border-color: transparent;
 	border-radius: 0px 0px 30px 30px;
 	height: 77px;
     position: fixed;
@@ -133,7 +133,7 @@ body a h1{
 .status{
 	float: right;
 	box-sizing: border-box;
-	padding: 15px 35px;
+	padding: 0px 35px;
 	text-align: right;
 	font-size: 1.05em;
 	font-family: 'Fira Sans', sans-serif;
