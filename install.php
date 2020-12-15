@@ -9,6 +9,14 @@ define("COPYRIGHT_TEXT","");
 require_once("classes/locale-negotiator.php");
 require_once("classes/db-class.php");
 
+$isDeveleoperEnvironement = false;
+if(isset($_GET["isDev"])){
+    if($_GET["isDev"] == "devMode"){
+        $isDeveleoperEnvironement = true;
+    }
+}
+
+
 $negotiator = new LocaleNegotiator("en_GB");
 $message = "";
 $db = new SSDB();
@@ -161,11 +169,12 @@ if(isset($_POST['server']) && empty($message))
 		$db->setSetting($mysqli,"google_recaptcha_secret","");
 		$db->setSetting($mysqli,"google_recaptcha_sitekey","");
 		$db->setSetting($mysqli,"cron_server_ip","");
-		unlink("create-server-config.php");
-		unlink("config.php.template");
-		unlink("install.sql");
-		unlink(__FILE__);
-
+		if(!$isDeveleoperEnvironement) {
+            unlink("create-server-config.php");
+            unlink("config.php.template");
+            unlink("install.sql");
+            unlink(__FILE__);
+        }
 		header("Location: ".WEB_URL);
 	}
 }

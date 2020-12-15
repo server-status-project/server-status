@@ -1,6 +1,4 @@
 <?php
-//This should later be translatable, maybe find a better solution?
-//This is here for better generation of POT files :)
 $statuses = array(_("Major outage"), _("Minor outage"), _("Planned maintenance"), _("Operational") );
 $classes = array("danger", "warning", "primary", "success" );
 $icons = array("fa fa-times", "fa fa-exclamation", "fa fa-info", "fa fa-check" );
