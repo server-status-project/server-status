@@ -1,4 +1,4 @@
-<?php 
+<?php
 $offset = 0;
 if (isset($_GET['ajax']))
 {
@@ -18,8 +18,11 @@ if (isset($_GET['delete']))
 {
   Incident::delete($_GET['delete']);
 }
+if (isset($_GET['tasks'])) {
+  Queue::process_queue();  
+}
 
-Template::render_header(_("Dashboard"), true); 
+Template::render_header(_("Dashboard"), true);
 ?>
 
   <div class="text-center">
@@ -45,7 +48,7 @@ Template::render_header(_("Dashboard"), true);
           <?php
           } ?>
           <div id="status-container" class="clearfix">
-          <?php 
+          <?php
           if (isset($_POST['services']) && !is_array($_POST['services']))
           {
             $post_services = array($_POST['services']);
@@ -82,7 +85,7 @@ Template::render_header(_("Dashboard"), true);
             </div>
           </div>
           <select class="form-control pull-left" id="type" name="type">
-            <?php 
+            <?php
             if (isset($_POST['type']))
             {
               $selected_status = $_POST['type'];
