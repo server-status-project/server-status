@@ -15,26 +15,24 @@ else{
 	  $array = $constellation->render_status(true, false);
 	  echo json_encode($array);
   }else{
-  	$query = $mysqli->prepare("SELECT name FROM services WHERE id=?");
-  	$query->bind_param("i", $_GET['id']);
-  	$query->execute();
-    $result = $query->get_result()->fetch_assoc();
+    $queryId = $mysqli->prepare("SELECT id as 'id' from services where id = ?;");
+    $queryId->bind_param("i", $_GET['id']);
+    $queryId->execute();
+    $result = $queryId->get_result()->fetch_assoc();
     if (!count($result))
     {
     	die(json_encode(["error" => _("Service does not exist!")]));
     }
 
-  	$sql = $mysqli->prepare("SELECT type FROM services_status INNER JOIN status ON services_status.status_id = status.id WHERE service_id = ? AND `time` <= ? AND (`end_time` >= ? OR `end_time`=0) ORDER BY `time` DESC LIMIT 1");
+  	$query = $mysqli->prepare("select services.id, name, description, status.type from services inner join status on status.id = services.id where services.id = ?;");
+  	$query->bind_param("i", $_GET['id']);
+  	$query->execute();
+    $result = $query->get_result()->fetch_assoc();
 
-    $sql->bind_param("iii", $id, $timestamp, $timestamp);
-    $sql->execute();
-    $tmp = $sql->get_result();
-    if ($tmp->num_rows)
-    {
-      $service = new Service($_GET['id'], $result['name'], $tmp->fetch_assoc()['type']);
-    }
-    else{
-      $service = new Service($_GET['id'], $result['name']);
+    if (is_numeric($result["type"])) {
+      $service = new Service($_GET["id"], $result["name"], $result["description"], '', $result["type"]);
+    } else {
+      $service = new Service($_GET["id"], $result["name"], $result["description"]);
     }
 
     echo json_encode($service);
