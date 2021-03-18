@@ -208,7 +208,7 @@ class Template{
           <div class="col-md-4 text-left"><a href="https://github.com/server-status-project/server-status/graphs/contributors" target="_blank">Copyright © <?php echo date("Y");?> Server Status Project Contributors </a><?php if(strlen(COPYRIGHT_TEXT)>1){ echo " and ".COPYRIGHT_TEXT; } ?></div>
           <div class="col-md-4 text-center">
             <div class="btn-group dropup">
-              <button type="button" class="btn btn-primary"><?php echo '<img src="'.WEB_URL.'/locale/'.$_SESSION['locale'].'/flag.png" alt="'.$lang_names[$_SESSION['locale']].'">'.$lang_names[$_SESSION['locale']];?></button>
+              <button type="button" class="btn btn-primary"><?php echo '<img src="'.$WEB_URL.'/locale/'.$_SESSION['locale'].'/flag.png" alt="'.$lang_names[$_SESSION['locale']].'">'.$lang_names[$_SESSION['locale']];?></button>
               <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="caret"></span>
                 <span class="sr-only"><?php echo _("Toggle Dropdown");?></span>
@@ -216,7 +216,7 @@ class Template{
               <div class="dropdown-menu">
                 <?php
                 foreach ($lang_names as $key => $value) {
-                  echo '<a href="?lang='.$key.'"><img src="'.WEB_URL.'/locale/'.$key.'/flag.png" alt="'.$value.'">'.$value.'</a>';
+                  echo '<a href="?lang='.$key.'"><img src="'.$WEB_URL.'/locale/'.$key.'/flag.png" alt="'.$value.'">'.$value.'</a>';
                 }
                 ?>
                 <hr role="separator" class="divider">
