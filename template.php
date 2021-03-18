@@ -56,9 +56,9 @@ class Template{
       <html lang="en">
       <head>
        <?php
-       if(!admin){
+       if(!$admin){
         $headfile = fopen("head.txt", "r") or die("Unable to open head.txt!");
-        $head_additionalcode = fread($versionfile,filesize("head.txt"));
+        $head_additionalcode = fread($headfile,filesize("head.txt"));
         fclose($headfile);
         echo $head_additionalcode;
         }
