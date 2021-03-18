@@ -84,5 +84,5 @@ if (!$boolEdit) {
 		echo '<input type="hidden" id="id" name="id" value="' . $group_id . '">';
 	}
 	?>
-	<button type="submit" class="btn btn-primary pull-right"><?php echo _("Submit"); ?></button>
+	<button type="submit" class="btn btn-primary float-end"><?php echo _("Submit"); ?></button>
 </form>

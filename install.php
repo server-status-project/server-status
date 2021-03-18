@@ -300,7 +300,7 @@ if (!empty($message)) {
 			<div class="col-sm-6"><label for="password"><?php echo _("Password"); ?>:</label><input type="password" name="password" value="<?php echo ((isset($_POST['password'])) ? htmlspecialchars($_POST['password'], ENT_QUOTES) : ''); ?>" id="password" placeholder="<?php echo _("Password"); ?>" class="form-control" required></div>
 			<div class="col-sm-6">
 				<input type="hidden" value="0" name="permission">
-				<button type="submit" class="btn btn-success pull-right"><?php echo _("Run install!"); ?></button>
+				<button type="submit" class="btn btn-success float-end"><?php echo _("Run install!"); ?></button>
 			</div>
 		</div>
 	</section>

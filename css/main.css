@@ -222,7 +222,7 @@ article.card textarea {
 }
 
 .new-service {
-  width: 40%;
+  width: 100%;
   min-width: 250px;
 }
 
@@ -283,6 +283,14 @@ body h1,
 body h2,
 body h3 {
   margin-top: 18px;
+}
+
+.settings-header {
+  padding-top: 20px;
+}
+
+.settings-header .float-start h3 {
+  margin: 0;
 }
 
 .row.user .input-group {

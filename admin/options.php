@@ -182,5 +182,5 @@ Template::render_header(_("Options"), true);
 
 
 
-  <button class="btn btn-primary pull-right" type="submit">Save Settings</button>
+  <button class="btn btn-primary float-end" type="submit">Save Settings</button>
 </form>

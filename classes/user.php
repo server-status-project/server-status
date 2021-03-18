@@ -311,7 +311,7 @@ class User
               </div>
             </div>
             <div class="input-group">
-              <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change name"); ?></button>
+              <button type="submit" class="btn btn-primary float-end"><?php echo _("Change name"); ?></button>
             </div>
           </form>
         <?php
@@ -331,16 +331,16 @@ class User
             <div class="input-group">
               <input type="text" class="form-control" name="username" required value="<?php echo htmlspecialchars($this->username, ENT_QUOTES); ?>">
               <span class="input-group-btn">
-                <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change username"); ?></button>
+                <button type="submit" class="btn btn-primary float-end"><?php echo _("Change username"); ?></button>
               </span>
             </div>
             <?php
           } else { ?><?php echo $this->username . " ";
-                  if ($user->get_rank() >= 1) {
-                    echo "<i class='fa fa-" . ($this->active ? "check success" : "times danger") . "'></i>";
-                  }
-                }
-                  ?>
+                      if ($user->get_rank() >= 1) {
+                        echo "<i class='fa fa-" . ($this->active ? "check success" : "times danger") . "'></i>";
+                      }
+                    }
+                      ?>
         </div>
       </div>
     </form>
@@ -354,7 +354,7 @@ class User
                                   echo "<option value='$key' " . ($key == $this->rank ? "selected" : "") . ">$value</option>";
                                 } ?>
               </select><span class="input-group-btn">
-                <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change role"); ?></button>
+                <button type="submit" class="btn btn-primary float-end"><?php echo _("Change role"); ?></button>
               </span>
             </div><?php } else {
                                 echo $permissions[$this->rank];
@@ -371,7 +371,7 @@ class User
             <div class="input-group">
               <input type="email" class="form-control" name="email" value="<?php echo $this->email; ?>">
               <span class="input-group-btn">
-                <button type="submit" class="btn btn-primary pull-right"><?php echo _("Change email"); ?></button>
+                <button type="submit" class="btn btn-primary float-end"><?php echo _("Change email"); ?></button>
               </span>
             </div>
           </div>
@@ -401,7 +401,7 @@ class User
             <input id="new_password" placeholder="<?php echo _("New password"); ?>" type="password" class="form-control" name="password">
             <label for="new_password_check"><?php echo _("Repeat password"); ?></label>
             <input id="new_password_check" placeholder="<?php echo _("Repeat password"); ?>" type="password" class="form-control" name="password_repeat">
-            <button type="submit" class="btn btn-primary pull-right margin-top"><?php echo _("Change password"); ?></button>
+            <button type="submit" class="btn btn-primary float-end margin-top"><?php echo _("Change password"); ?></button>
           </div>
         </div>
       </form>

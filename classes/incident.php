@@ -186,12 +186,12 @@ class Incident implements JsonSerializable
       <div class="card-colore icon bg-<?php echo $classes[$this->type]; ?>"><i class="<?php echo $icons[$this->type]; ?>"></i></div>
       <div class="card-header bg-<?php echo $classes[$this->type]; ?> border-<?php echo $classes[$this->type]; ?>">
         <?php echo $this->title; ?>
-        <time class="pull-right timeago" datetime="<?php echo $this->date; ?>"><?php echo $this->date; ?></time>
         <div class="float-end">
           <?php if ($admin) {
-            echo '<a href="' . WEB_URL . '/admin/?delete=' . $this->id . '" class="pull-right delete"><i class="fa fa-trash"></i></a>';
+            echo '<a href="' . WEB_URL . '/admin/?delete=' . $this->id . '" class="delete"><i class="fa fa-trash"></i></a>';
           } ?>
         </div>
+        <time class="float-end timeago" datetime="<?php echo $this->date; ?>"><?php echo $this->date; ?></time>
       </div>
       <div class="card-body">
         <?php echo $Parsedown->setBreaksEnabled(true)->text($this->text); ?>
@@ -199,10 +199,10 @@ class Incident implements JsonSerializable
       <div class="card-footer bg-transparent border-<?php echo $classes[$this->type]; ?>">
         <?php echo _("Impacted service(s): ");
         foreach ($this->service_name as $value) {
-          echo '<span class="label label-default">' . $value . '</span>&nbsp;';
+          echo '<br><span class="badge bg-secondary">' . $value . '</span>&nbsp;';
         }
         if (isset($this->end_date)) { ?>
-          <span class="pull-right"><?php echo strtotime($this->end_date) > time() ? _("Ending") : _("Ended"); ?>:&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
+          <span class="float-end"><?php echo strtotime($this->end_date) > time() ? _("Ending") : _("Ended"); ?>:&nbsp;<time class="timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
         <?php } ?>
       </div>
     </article>

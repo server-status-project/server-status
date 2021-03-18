@@ -38,10 +38,10 @@ Template::render_header(_("Lost password"));
     <form action="<?php echo WEB_URL; ?>/admin/?do=lost-password" method="post">
       <?php if (!isset($_GET['id']) || !isset($_GET['token'])) { ?>
         <label for="email"><?php echo _("Email"); ?>:</label>
-        <div class="input-group pull-right">
+        <div class="input-group float-end">
           <input class="form-control" name="email" id="email" placeholder="<?php echo _("Email"); ?>" type="email" required>
           <span class="input-group-btn">
-            <button type="submit" class="btn btn-success pull-right"><?php echo _("Submit request"); ?></button>
+            <button type="submit" class="btn btn-success float-end"><?php echo _("Submit request"); ?></button>
           </span>
         </div>
       <?php } else {
@@ -54,7 +54,7 @@ Template::render_header(_("Lost password"));
         <input id="new_password" placeholder="<?php echo _("New password"); ?>" type="password" class="form-control" name="password">
         <label for="new_password_check"><?php echo _("Repeat password"); ?></label>
         <input id="new_password_check" placeholder="<?php echo _("Repeat password"); ?>" type="password" class="form-control" name="password_repeat">
-        <button type="submit" class="btn btn-primary pull-right margin-top"><?php echo _("Change password"); ?></button>
+        <button type="submit" class="btn btn-primary float-end margin-top"><?php echo _("Change password"); ?></button>
       <?php
       }
       ?>

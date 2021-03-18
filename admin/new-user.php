@@ -43,5 +43,5 @@ Template::render_header(_("New user"), true); ?>
 			</select>
 		</div>
 	</div>
-	<button type="submit" class="btn btn-primary pull-right"><?php echo _("Submit"); ?></button>
+	<button type="submit" class="btn btn-primary float-end"><?php echo _("Submit"); ?></button>
 </form>
