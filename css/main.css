@@ -182,7 +182,13 @@ a:focus {
   opacity: 1;
 }
 
-.card-body textarea {
+article.card input {
+background: transparent;
+border: none;
+border-bottom: 1px white outset;
+}
+
+article.card textarea {
   width: 100%;
   background: transparent;
   border: none;
