@@ -37,7 +37,7 @@ Template::render_header(_("Dashboard"), true);
       <div class="line text-muted"></div>
       <h3><?php echo _("New incident"); ?></h3>
       <form id="new-incident" action="<?php echo WEB_URL; ?>/admin/?new=incident" method="POST">
-        <div class="card">
+        <div class="servicelist">
           <?php if (isset($message)) { ?>
             <p class="alert alert-danger"><?php echo $message ?></p>
           <?php
