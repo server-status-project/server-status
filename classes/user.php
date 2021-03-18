@@ -310,9 +310,7 @@ class User
                 </div>
               </div>
             </div>
-            <div class="input-group">
-              <button type="submit" class="btn btn-primary float-end"><?php echo _("Change name"); ?></button>
-            </div>
+            <button type="submit" class="btn btn-primary float-end"><?php echo _("Change name"); ?></button>
           </form>
         <?php
         } else {
