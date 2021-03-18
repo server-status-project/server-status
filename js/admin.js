@@ -16,17 +16,17 @@
     },
   });
 
-  var bgcolore = ["bg-danger", "bg-warning", "bg-primary", "bg-success"];
-  var bordercolore = ["border-danger", "border-warning", "border-primary", "border-success"];
+  var colore = ["danger", "warning", "primary", "success"];
   var icons = ["fa fa-times", "fa fa-exclamation", "fa fa-info", "fa fa-check"];
 
   $("body").on("change", "#new-incident select", function () {
     var val = parseInt($(this).val()); //this should make exploitation harder
 
     $("#new-incident .card.new .card-colore i").get(0).className = icons[val];
-    $("#new-incident .card.new .icon").get(0).className = "card-colore icon " + bgcolore[val];
-    $("#new-incident .card.new").get(0).className = "card " + bordercolore[val] + " new";
-    $("#new-incident .card.new .card-header").get(0).className = "card-colore card-header " + bgcolore[val] + " " + bordercolore[val];
+    $("#new-incident .card.new .icon").get(0).className = "card-colore icon bg-" + colore[val];
+    $("#new-incident .card.new").get(0).className = "card border-" + colore[val] + " new";
+    $("#new-incident .card.new .card-header").get(0).className = "card-colore card-header bg-" + colore[val] + " border-" + colore[val];
+    $("#new-incident .card-colore.btn").get(0).className = "card-colore btn btn-" + colore[val];
     $("#time_input").val("");
     $("#end_time").val("");
   });

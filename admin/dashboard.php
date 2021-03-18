@@ -102,7 +102,7 @@ Template::render_header(_("Dashboard"), true);
             }
             ?>
           </select>
-          <button class="btn btn-outline-secondary" type="submit"><?php echo _("Submit"); ?></button>
+          <button class="card-colore btn btn-secondary" type="submit"><?php echo _("Submit"); ?></button>
         </div>
       </form>
       <?php
