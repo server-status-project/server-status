@@ -102,8 +102,8 @@ class Template
     </head>
 
     <body>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-        <div class="container">
+      <header class="navbar fixed-top navbar-expand-lg navbar-dark">
+        <nav class="container">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -144,17 +144,17 @@ class Template
               ?>
             </ul>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
       <?php
       if (!$admin) {
       ?>
-        <div id="wrapper" class="">
+        <main id="wrapper" class="container">
         <?php
       } else {
         global $user;
         ?>
-          <div id="wrapper" class="admin">
+          <main id="wrapper" class="container admin">
           <?php
         }
           ?>
@@ -190,8 +190,8 @@ class Template
         global $negotiator;
         $lang_names = $negotiator->get_accepted_langs();
         ?>
-          </div>
-          <div id="footerwrap">
+          </main>
+          <footer id="footerwrap" class="sticky-bottom">
             <div class="container">
               <div class="row centered">
                 <div class="col-md-4 text-left"><a class="link-light" href="https://github.com/server-status-project/server-status/graphs/contributors" target="_blank">Copyright © <?php echo date("Y"); ?> Server Status Project Contributors </a><?php if (strlen(COPYRIGHT_TEXT) > 1) {
@@ -221,7 +221,7 @@ class Template
               <!--/row -->
             </div>
             <!--/container -->
-          </div>
+          </footer>
           <script src="<?php echo WEB_URL; ?>/js/vendor/jquery-3.5.1.min.js"></script>
           <script src="<?php echo WEB_URL; ?>/js/vendor/jquery.timeago.js"></script>
           <script src="<?php echo WEB_URL; ?>/locale/<?php echo $_SESSION['locale']; ?>/jquery.timeago.js"></script>
