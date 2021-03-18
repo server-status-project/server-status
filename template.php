@@ -57,8 +57,9 @@ class Template{
       <head>
        <?php
        if(!$admin){
-        $headfile = fopen("head.txt", "r") or die("Unable to open head.txt!");
-        $head_additionalcode = fread($headfile,filesize("head.txt"));
+        $headpath = $_SERVER['DOCUMENT_ROOT'] . "/head.txt";
+        $headfile = fopen("$headpath", "r") or die("Unable to open head.txt!");
+        $head_additionalcode = fread($headfile,filesize($headpath));
         fclose($headfile);
         echo $head_additionalcode;
         }
