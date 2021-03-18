@@ -183,9 +183,9 @@ a:focus {
 }
 
 article.card input {
-background: transparent;
-border: none;
-border-bottom: 1px white outset;
+  background: transparent;
+  border: none;
+  border-bottom: 1px white outset;
 }
 
 article.card textarea {

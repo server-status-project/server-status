@@ -1,7 +1,8 @@
 <?php
+
 /**
-* Class for managing services
-*/
+ * Class for managing services
+ */
 class ServiceGroup
 {
   private $id;
@@ -63,17 +64,15 @@ class ServiceGroup
   public static function add()
   {
     global $user, $message;
-    if (strlen($_POST['group'])>50)
-    {
+    if (strlen($_POST['group']) > 50) {
       $message = _("Service group name is too long! Character limit is 50");
       return;
-    }else if (strlen(trim($_POST['group']))==0){
+    } else if (strlen(trim($_POST['group'])) == 0) {
       $message = _("Please enter name!");
       return;
     }
 
-    if ($user->get_rank()<=1)
-    {
+    if ($user->get_rank() <= 1) {
       global $mysqli;
       $name = $_POST["group"];
       $description = $_POST["description"];
@@ -82,9 +81,8 @@ class ServiceGroup
       $stmt->bind_param("ssi", $name, $description, $visibility_id);
       $stmt->execute();
       $stmt->get_result();
-      header("Location: ".WEB_URL."/admin/?do=settings");
-    }else
-    {
+      header("Location: " . WEB_URL . "/admin/?do=settings");
+    } else {
       $message = _("You don't have the permission to do that!");
     }
   }
@@ -92,17 +90,15 @@ class ServiceGroup
   public static function edit()
   {
     global $user, $message;
-    if (strlen($_POST['group'])>50)
-    {
+    if (strlen($_POST['group']) > 50) {
       $message = _("Service group name is too long! Character limit is 50");
       return;
-    }else if (strlen(trim($_POST['group']))==0){
+    } else if (strlen(trim($_POST['group'])) == 0) {
       $message = _("Please enter name!");
       return;
     }
 
-    if ($user->get_rank()<=1)
-    {
+    if ($user->get_rank() <= 1) {
       global $mysqli;
       $name          = $_POST["group"];
       $description   = $_POST["description"];
@@ -112,9 +108,8 @@ class ServiceGroup
       $stmt->bind_param("ssii", $name, $description, $visibility_id, $group_id);
       $stmt->execute();
       $stmt->get_result();
-      header("Location: ".WEB_URL."/admin/?do=settings");
-    }else
-    {
+      header("Location: " . WEB_URL . "/admin/?do=settings");
+    } else {
       $message = _("You don't have the permission to do that!");
     }
   }
@@ -125,8 +120,7 @@ class ServiceGroup
   public static function delete()
   {
     global $user, $message;
-    if ($user->get_rank()<=1)
-    {
+    if ($user->get_rank() <= 1) {
       global $mysqli;
       $id = $_GET['delete'];
 
@@ -140,10 +134,8 @@ class ServiceGroup
       $stmt->execute();
       $query = $stmt->get_result();
 
-      header("Location: ".WEB_URL."/admin/?do=settings");
-    }
-    else
-    {
+      header("Location: " . WEB_URL . "/admin/?do=settings");
+    } else {
       $message = _("You don't have the permission to do that!");
     }
   }
@@ -153,7 +145,8 @@ class ServiceGroup
    * Get list of services groups.
    * @return array $groups
    */
-  public function get_groups() {
+  public function get_groups()
+  {
     global $mysqli;
     $stmt = $mysqli->query("SELECT id, name FROM services_groups ORDER by name ASC");
 

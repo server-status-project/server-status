@@ -1,7 +1,8 @@
 <?php
+
 /**
-* Class for creating and deleting tokens
-*/
+ * Class for creating and deleting tokens
+ */
 class Token
 {
   /**
@@ -15,7 +16,7 @@ class Token
   {
     global $mysqli;
     $salt = uniqid(mt_rand(), true);
-    $token = hash('sha256', $id.$salt);
+    $token = hash('sha256', $id . $salt);
     $stmt = $mysqli->prepare("INSERT INTO tokens VALUES(?, ?, ?, ?)");
     $stmt->bind_param("siis", $token, $id, $expire, $data);
     $stmt->execute();
@@ -67,8 +68,8 @@ class Token
     global $mysqli;
     $time = time();
     $stmt = $mysqli->prepare("DELETE FROM tokens WHERE token = ? OR expire<?");
-    $stmt->bind_param("sd", $token,$time);
+    $stmt->bind_param("sd", $token, $time);
     $stmt->execute();
     $stmt->get_result();
   }
-}          
+}
