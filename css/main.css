@@ -133,9 +133,9 @@ body a h1{
 .status{
 	float: right;
 	box-sizing: border-box;
-	padding: 0px 35px;
+	padding: 15px 35px;
 	text-align: right;
-	font-size: 1.05em;
+	font-size: 1.1em;
 	font-family: 'Fira Sans', sans-serif;
 }
 
