@@ -193,31 +193,28 @@ class Incident implements JsonSerializable
     $admin = $admin && (($user->get_rank()<=1) || ($user->get_username() == $this->username));
     $Parsedown = new Parsedown();
     ?>
-     <article class="panel panel-<?php echo $classes[$this->type];?>">
-        <div class="panel-heading icon">
-          <i class="<?php echo $icons[$this->type];?>"></i>
-        </div>
-        <div class="panel-heading clearfix">
-          <h2 class="panel-title"><?php echo $this->title; ?></h2>
-          <?php if ($admin){
-            echo '<a href="'.WEB_URL.'/admin/?delete='.$this->id.'" class="pull-right delete"><i class="fa fa-trash"></i></a>';
-          }?>
+      <article class="card border-<?php echo $classes[$this->type];?> mb-3">
+        <div class="card-colore icon bg-<?php echo $classes[$this->type];?>"><i class="<?php echo $icons[$this->type];?>"></i></div>
+        <div class="card-header bg-<?php echo $classes[$this->type];?> border-<?php echo $classes[$this->type];?>">
+          <?php echo $this->title; ?>
           <time class="pull-right timeago" datetime="<?php echo $this->date; ?>"><?php echo $this->date; ?></time>
-        </div>
-        <div class="panel-body">
+          <div class="float-end">
+            <?php if ($admin){
+              echo '<a href="'.WEB_URL.'/admin/?delete='.$this->id.'" class="pull-right delete"><i class="fa fa-trash"></i></a>';
+            }?>
+          </div>
+      </div>
+        <div class="card-body">
           <?php echo $Parsedown->setBreaksEnabled(true)->text($this->text); ?>
         </div>
-        <div class="panel-footer clearfix">
-          <small>
-              <?php echo _("Impacted service(s): ");
-              foreach ( $this->service_name as $value ) {
-                echo '<span class="label label-default">'.$value . '</span>&nbsp;';
-              }
-
+        <div class="card-footer bg-transparent border-<?php echo $classes[$this->type];?>">
+          <?php echo _("Impacted service(s): ");
+            foreach ( $this->service_name as $value ) {
+            echo '<span class="label label-default">'.$value . '</span>&nbsp;';
+          }
           if (isset($this->end_date)){?>
             <span class="pull-right"><?php echo strtotime($this->end_date)>time()?_("Ending"):_("Ended");?>:&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
-            <?php } ?>
-          </small>
+          <?php } ?>
         </div>
       </article>
       <?php

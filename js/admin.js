@@ -7,14 +7,17 @@
 	}});
 
 
-	var classes = ["panel panel-danger", "panel panel-warning", "panel panel-primary", "panel panel-success"];
+	var bgcolore = ["bg-danger", "bg-warning", "bg-primary", "bg-success"];
+	var bordercolore = ["border-danger", "border-warning", "border-primary", "border-success"];
 	var icons = ["fa fa-times", "fa fa-exclamation", "fa fa-info", "fa fa-check"];
 
 	$("body").on("change","#new-incident select", function(){
 		var val = parseInt($(this).val()); //this should make exploitation harder
 
-		$("#new-incident .panel.new .panel-heading i").get(0).className = icons[val];
-		$("#new-incident .panel.new").get(0).className = classes[val] + " new";
+		$("#new-incident .card.new .card-colore i").get(0).className = icons[val];
+		$("#new-incident .card.new .icon").get(0).className = "card-colore icon " + bgcolore[val];
+		$("#new-incident .card.new").get(0).className = "card " + bordercolore[val] + " new";
+		$("#new-incident .card.new .card-header").get(0).className = "card-colore card-header "  + bgcolore[val] + " " + bordercolore[val] ;
 		$("#time_input").val("");
 		$("#end_time").val("");
 	});

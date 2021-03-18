@@ -83,7 +83,7 @@ Class Subscriptions
         echo '<div class="list-group">';
         if ($query->num_rows){           
             while($result = $query->fetch_assoc()){
-                echo '<a href="'.WEB_URL.'/subscriptions.php?add=' . $result['id'] . '" class="list-group-item list-group-item-action"><span class="glyphicon glyphicon-plus  text-success"></span>&nbsp;' . $result['name'] . '</a>';
+                echo '<a href="'.WEB_URL.'/subscriptions.php?add=' . $result['id'] . '" class="list-group-item list-group-item-action"><span class="fas fa-plus  text-success"></span>&nbsp;' . $result['name'] . '</a>';
             }
         } else {
             echo '<div class="container"><summary>'._("No further services available for subscriptions.").'</summary></div>';
