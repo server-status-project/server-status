@@ -51,7 +51,7 @@ if (isset($message)) {
 					echo "<td>" . $result['group_name'] . "</td>";
 
 					if ($user->get_rank() <= 1) {
-						echo '<td><a href="' . WEB_URL . '/admin/?do=settings&type=service&delete=' . $result['id'] . '" class="pull-right delete-service"><i class="fa fa-trash"></i></a></td>';
+						echo '<td class="text-center"><a href="' . WEB_URL . '/admin/?do=settings&type=service&delete=' . $result['id'] . '" class="pull-right delete-service"><i class="fa fa-trash"></i></a></td>';
 					}
 					echo "</tr>";
 				} ?>
@@ -80,7 +80,7 @@ if (isset($message)) {
 					<th scope="col"><?php echo _("Description"); ?></th>
 					<th scope="col"><?php echo _("Visibility"); ?></th>
 					<?php if ($user->get_rank() <= 1) { ?>
-						<th scope="col"><?php echo _("Delete"); ?></th>
+						<th scope="col" class="text-center"><?php echo _("Delete"); ?></th>
 					<?php } ?>
 				</tr>
 			</thead>
@@ -96,7 +96,7 @@ if (isset($message)) {
 					echo "<td>" . $visibility[$result['visibility']] . "</td>";
 
 					if ($user->get_rank() <= 1) {
-						echo '<td><a href="' . WEB_URL . '/admin/?do=settings&type=groups&delete=' . $result['id'] . '" class="pull-right delete-service"><i class="fa fa-trash"></i></a></td>';
+						echo '<td class="text-center"><a href="' . WEB_URL . '/admin/?do=settings&type=groups&delete=' . $result['id'] . '" class="pull-right delete-service"><i class="fa fa-trash"></i></a></td>';
 					}
 					echo "</tr>";
 				} ?>
@@ -120,7 +120,7 @@ if (isset($message)) {
 					<th scope="col"><?php echo _("Surname"); ?></th>
 					<th scope="col"><?php echo _("Email"); ?></th>
 					<th scope="col"><?php echo _("Role"); ?></th>
-					<th scope="col">Active</th>
+					<th scope="col" class="text-center">Active</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -133,9 +133,8 @@ if (isset($message)) {
 					echo "<td>" . $result['name'] . "</td>";
 					echo "<td>" . $result['surname'] . "</td>";
 					echo "<td><a href=\"mailto:" . $result['email'] . "\">" . $result['email'] . "</a></td>";
-					echo "<td>" . $permissions[$result['permission']] . "</td><td>";
-					echo "<i class='fa fa-" . ($result['active'] ? "check success" : "times danger") . "'></i>";
-					echo "</td>";
+					echo "<td>" . $permissions[$result['permission']] . "</td>";
+					echo "<td class=\"text-center\"><i class='fa fa-" . ($result['active'] ? "check success" : "times danger") . "'></i></td>";
 					echo "</tr>";
 				} ?>
 			</tbody>
