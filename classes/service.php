@@ -244,18 +244,20 @@ class Service implements JsonSerializable
     }
 
     // Render the service status
+    echo '<div>';
     echo '<li class="list-group-item sub-component"><strong>' . $this->name .'</strong>';
     //echo '<li class="list-group-item d-flex flex-columns justify-content-between><span>+</span><h3 class="py-2 my-0 flex-fill expanded">' . $this->name . '</h3>';
     if(!empty($this->description)) {
       echo '<a class="desc-tool-tip" data-toggle="tooltip" data-placement="top" title="'.$this->description.'"> <span><i class="glyphicon glyphicon-question-sign"></i></span></a>';
     }
-    if ($this->status!=-1){?><div class="status pull-right <?php echo $classes[$this->status];?>"><?php echo _($statuses[$this->status]);?></div>
+    if ($this->status!=-1){?><div class="status <?php echo $classes[$this->status];?>"><?php echo _($statuses[$this->status]);?></div>
     <?php
     }
     echo '</li>';
     if ( isset($boolFinish) && $boolFinish) {
       echo '</ul>';
     }
+    echo '</div>';
   }
 
   public function jsonSerialize() {
