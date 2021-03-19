@@ -53,7 +53,7 @@ if (isset($message)) {
 					echo "<td>" . $result['group_name'] . "</td>";
 
 					if ($user->get_rank() <= 1) {
-						echo '<td class="text-center"><a href="' . WEB_URL . '/admin/?do=settings&type=service&delete=' . $result['id'] . '" class="delete-service"><i class="fa fa-trash"></i></a></td>';
+						echo '<td class="text-center"><a href="' . WEB_URL . '/admin/?do=settings&type=service&delete=' . $result['id'] . '" class="link-danger"><i class="fa fa-trash"></i></a></td>';
 					}
 					echo "</tr>";
 				} ?>
@@ -102,7 +102,7 @@ if (isset($message)) {
 						echo "<td>" . $visibility[$result['visibility']] . "</td>";
 
 						if ($user->get_rank() <= 1) {
-							echo '<td class="text-center"><a href="' . WEB_URL . '/admin/?do=settings&type=groups&delete=' . $result['id'] . '" class=" delete-service"><i class="fa fa-trash"></i></a></td>';
+							echo '<td class="text-center"><a href="' . WEB_URL . '/admin/?do=settings&type=groups&delete=' . $result['id'] . '" class=" link-danger"><i class="fa fa-trash"></i></a></td>';
 						}
 						echo "</tr>";
 					} ?>

@@ -237,15 +237,6 @@ article.card textarea {
   min-width: 250px;
 }
 
-.delete-service {
-  color: red;
-  font-size: 1em;
-}
-
-.delete-service:hover {
-  color: darkred;
-}
-
 .service label {
   margin-bottom: 0;
 }
