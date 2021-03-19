@@ -41,7 +41,7 @@ if (isset($_GET['new'])) {
 
     // Form validation for subscribers signing up
     $message = "";
-    Template::render_header(_("Email Subscription"));
+    Template::render_header(_("Email Subscription"), "subsmail");
 
     if (isset($_POST['emailaddress'])) {
 
@@ -172,7 +172,7 @@ if (isset($_GET['new'])) {
         header('Location: subscriptions.php');
         exit;
     } else {
-        Template::render_header(_("Email Subscription"));
+        Template::render_header(_("Email Subscription"), "subsmail");
 
         $header  = _("We cannot find a valid subscriber account matching those details");
         $message = _("If you have recently subscribed, please make sure you activate the account within two hours of doing so. You are welcome to try and re-subscribe.");
@@ -187,7 +187,7 @@ if (isset($_GET['new'])) {
         if ($subscriber->get_subscriber_by_token($_GET['token'])) {
             $subscriber->delete($subscriber->id);
             $subscriber->set_logged_off();
-            Template::render_header(_("Email Subscription"));
+            Template::render_header(_("Email Subscription"), "subsmail");
 
             $header  = _("You have been unsubscribed from our system");
             $message = _("We are sorry to see you go. If you want to subscribe again at a later date please feel free to re-subscribe.");
@@ -195,7 +195,7 @@ if (isset($_GET['new'])) {
         } else {
             // TODO Log token for troubleshooting ?
             // Cannot find subscriber - show alert
-            Template::render_header(_("Email Subscription"));
+            Template::render_header(_("Email Subscription"), "subsmail");
             $header = _("We are unable to find any valid subscriber detail matching your submitted data!");
             $message = _("If you believe this to be an error, please contact the system admininistrator.");
             $constellation->render_warning($header, $message, true, WEB_URL, _('Go back'));

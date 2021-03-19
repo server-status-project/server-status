@@ -22,7 +22,7 @@ define("TG_BOT_USERNAME", $db->getSetting($mysqli, "tg_bot_username"));
 $subscription = new Subscriptions();
 $telegram     = new Telegram();
 
-Template::render_header("Subscriptions");
+Template::render_header("Subscriptions", "subscripe");
 
 if (SUBSCRIBE_TELEGRAM && $_SESSION['subscriber_typeid'] == 2) {
     $tg_user = $telegram->getTelegramUserData();    // TODO: Do we need this any longer?

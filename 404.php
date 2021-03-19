@@ -5,7 +5,7 @@ if (!file_exists("config.php")) {
 } else {
   require_once("config.php");
 
-  Template::render_header("Page not found");
+  Template::render_header("Page not found", "notfound");
 ?>
   <div class="text-center">
     <h1><?php echo _("Page Not Found"); ?></h1>

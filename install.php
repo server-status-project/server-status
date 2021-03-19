@@ -168,7 +168,7 @@ if (isset($_POST['server']) && empty($message)) {
 		header("Location: " . WEB_URL);
 	}
 }
-Template::render_header(_("Install"));
+Template::render_header(_("Install"), "install");
 
 $php_version_req = sprintf(_("Minimum PHP version %s"), MINIMUM_PHP_VERSION);
 $preq_fail = array("times", "danger");
@@ -197,7 +197,7 @@ if (is_writable(__DIR__)) {
 }
 
 ?>
-<div id="install">
+<div>
 	<div class="card">
 		<div class="card-header text-center">
 			<?php echo _("Prerequisite"); ?>
@@ -223,7 +223,7 @@ if (is_writable(__DIR__)) {
 		</div>
 	</div>
 
-	<div class="install">
+	<div class="settings">
 		<h1 class="text-center"><?php echo _("Installation"); ?></h1>
 		<?php
 		if (!empty($message)) {

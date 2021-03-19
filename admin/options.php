@@ -92,7 +92,7 @@ if (!empty($_POST)) {
     define("CRON_SERVER_IP", $db->getSetting($mysqli,"cron_server_ip"));
     */
 }
-Template::render_header(_("Options"), true);
+Template::render_header(_("Options"), "options", true);
 ?>
 <div class="text-center">
   <h2><?php if ($set_post) {

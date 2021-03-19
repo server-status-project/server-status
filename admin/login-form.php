@@ -1,10 +1,10 @@
 <?php
-Template::render_header(_("Login"));
+Template::render_header(_("Login"), "login");
 ?>
 <div class="text-center">
   <h1><?php echo _("Login"); ?></h1>
 </div>
-<div id="login-form" class="center">
+<div class="wrapper">
   <?php if (isset($message)) { ?>
     <p class="alert alert-danger"><?php echo $message ?></p>
   <?php } else { ?>

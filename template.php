@@ -17,7 +17,7 @@ class Template
    * @param String $page_name name of the page to be displayed as title
    * @param Boolean $admin decides whether to show admin menu
    */
-  public static function render_header($page_name, $admin = false)
+  public static function render_header($page_name, $page_id, $admin = false)
   {
     if (!$admin) {
       // Create subscriber menu sections for later inclusion
@@ -145,7 +145,7 @@ class Template
           </div>
         </nav>
       </header>
-      <main class="container <?php if ($admin) { ?>admin<?php } ?>">
+      <main id="<?php echo $page_id; ?>" class="container <?php if ($admin) { ?>admin<?php } ?>">
         <?php if ($admin) {
           global $user;
         }

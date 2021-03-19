@@ -18,7 +18,7 @@ if (isset($_GET['tasks'])) {
   Queue::process_queue();
 }
 
-Template::render_header(_("Dashboard"), true);
+Template::render_header(_("Dashboard"), "dashboard", true);
 ?>
 
 <div class="text-center">

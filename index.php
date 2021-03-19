@@ -88,7 +88,7 @@ if($db->getSetting($mysqli,"notifyUpdates") == "yes"){
   }
 }
 */
-  Template::render_header("Status");
+  Template::render_header("Status", "status");
 ?>
   <div class="text-center">
     <h2><?php echo _("Current status"); ?></h2>

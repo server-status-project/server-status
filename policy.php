@@ -6,7 +6,7 @@ require_once("classes/db-class.php");
 $db = new SSDB();
 define("WEB_URL", $db->getSetting($mysqli, "url"));
 
-Template::render_header("Privacy Policy");
+Template::render_header("Privacy Policy", "privacy");
 
 echo "<h1>" . _("Privacy Policy") . "</h1>";
 echo "<h2>" . _("Who we are") . "</h2>";
