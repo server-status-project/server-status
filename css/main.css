@@ -242,6 +242,10 @@ article.card textarea {
   font-size: 1em;
 }
 
+.delete-service:hover {
+  color: darkred;
+}
+
 .service label {
   margin-bottom: 0;
 }
