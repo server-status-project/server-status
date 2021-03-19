@@ -101,86 +101,109 @@ Template::render_header(_("Options"), true);
         echo "Server Status Options";
       } ?></h2>
 </div>
-<form method="post">
-  <?php Template::render_toggle("Notify Updates", "nu_toggle", $notifyUpdates_status); ?>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Site Name</span>
+<form id="options" method="post">
+  <div class="card">
+    <div class="card-header">
+      <?php Template::render_toggle("Notify Updates", "nu_toggle", $notifyUpdates_status); ?>
     </div>
-    <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" name="sitename" value="<?php echo NAME; ?>">
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Site Name</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" name="sitename" value="<?php echo NAME; ?>">
+      </div>
+    </div>
   </div>
 
-  <?php Template::render_toggle("Enable Email Subscription", "email_subscription_toggle", $emailSubscription_status); ?>
-  <?php Template::render_toggle("Enable Telegram Subscription", "telegram_subscription_toggle", $telegramSubscription_status); ?>
-
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Telegram BOT API Token</span>
+  <div class="card mt-3">
+    <div class="card-header">
+      <?php Template::render_toggle("Enable Email Subscription", "email_subscription_toggle", $emailSubscription_status); ?>
     </div>
-    <input type="text" class="form-control" placeholder="" aria-label="telegram_bot_api_token" aria-describedby="basic-addon1" name="tg_bot_api_token" value="<?php echo $tg_bot_api_token; ?>">
-  </div>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Telegram BOT Username</span>
+    <div class="card-body">
+      <?php Template::render_toggle("Use PHPMailer for notifications", "php_mailer_toggle", $php_mailer_status); ?>
+      <?php Template::render_toggle("Use SMTP with PHPMailer", "php_mailer_smtp_toggle", $php_mailer_smtp_status); ?>
+      <?php Template::render_toggle("Use Secure SMTP with PHPMailer", "php_mailer_secure_toggle", $php_mailer_secure_status); ?>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">PHPMailer Path</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="phpmailer_path" aria-describedby="basic-addon1" name="php_mailer_path" value="<?php echo $php_mailer_path; ?>">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">PHPMailer SMTP Host</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="php_mailer_host" aria-describedby="basic-addon1" name="php_mailer_host" value="<?php echo $php_mailer_host; ?>">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">PHPMailer SMTP Port</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="php_mailer_port" aria-describedby="basic-addon1" name="php_mailer_port" value="<?php echo $php_mailer_port; ?>">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">PHPMailer Username</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="php_mailer_username" aria-describedby="basic-addon1" name="php_mailer_user" value="<?php echo $php_mailer_user; ?>">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">PHPMailer Password</span>
+        </div>
+        <input type="password" class="form-control" placeholder="" aria-label="php_mailer_password" aria-describedby="basic-addon1" name="php_mailer_pass" value="<?php echo $php_mailer_pass; ?>">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Cron Server IP</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="cron_server_ip" aria-describedby="basic-addon1" name="cron_server_ip" value="<?php echo $cron_server_ip; ?>">
+      </div>
     </div>
-    <input type="text" class="form-control" placeholder="" aria-label="telegram_bot_username" aria-describedby="basic-addon1" name="tg_bot_username" value="<?php echo $tg_bot_username; ?>">
-  </div>
-
-  <?php Template::render_toggle("Use PHPMailer for notifications", "php_mailer_toggle", $php_mailer_status); ?>
-  <?php Template::render_toggle("Use SMTP with PHPMailer", "php_mailer_smtp_toggle", $php_mailer_smtp_status); ?>
-  <?php Template::render_toggle("Use Secure SMTP with PHPMailer", "php_mailer_secure_toggle", $php_mailer_secure_status); ?>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">PHPMailer Path</span>
-    </div>
-    <input type="text" class="form-control" placeholder="" aria-label="phpmailer_path" aria-describedby="basic-addon1" name="php_mailer_path" value="<?php echo $php_mailer_path; ?>">
-  </div>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">PHPMailer SMTP Host</span>
-    </div>
-    <input type="text" class="form-control" placeholder="" aria-label="php_mailer_host" aria-describedby="basic-addon1" name="php_mailer_host" value="<?php echo $php_mailer_host; ?>">
-  </div>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">PHPMailer SMTP Port</span>
-    </div>
-    <input type="text" class="form-control" placeholder="" aria-label="php_mailer_port" aria-describedby="basic-addon1" name="php_mailer_port" value="<?php echo $php_mailer_port; ?>">
-  </div>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">PHPMailer Username</span>
-    </div>
-    <input type="text" class="form-control" placeholder="" aria-label="php_mailer_username" aria-describedby="basic-addon1" name="php_mailer_user" value="<?php echo $php_mailer_user; ?>">
-  </div>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">PHPMailer Password</span>
-    </div>
-    <input type="password" class="form-control" placeholder="" aria-label="php_mailer_password" aria-describedby="basic-addon1" name="php_mailer_pass" value="<?php echo $php_mailer_pass; ?>">
-  </div>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Cron Server IP</span>
-    </div>
-    <input type="text" class="form-control" placeholder="" aria-label="cron_server_ip" aria-describedby="basic-addon1" name="cron_server_ip" value="<?php echo $cron_server_ip; ?>">
   </div>
 
-  <?php Template::render_toggle("Use Google reChaptcha for subscriber signup", "google_rechaptcha_toggle", $google_rechaptcha_status); ?>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Google reChaptcha Sitekey</span>
+  <div class="card mt-3">
+    <div class="card-header">
+      <?php Template::render_toggle("Enable Telegram Subscription", "telegram_subscription_toggle", $telegramSubscription_status); ?>
     </div>
-    <input type="text" class="form-control" placeholder="" aria-label="google_sitekey" aria-describedby="basic-addon1" name="google_recaptcha_sitekey" value="<?php echo $google_recaptcha_sitekey; ?>">
-  </div>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Google reChaptcha Secret</span>
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Telegram BOT API Token</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="telegram_bot_api_token" aria-describedby="basic-addon1" name="tg_bot_api_token" value="<?php echo $tg_bot_api_token; ?>">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Telegram BOT Username</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="telegram_bot_username" aria-describedby="basic-addon1" name="tg_bot_username" value="<?php echo $tg_bot_username; ?>">
+      </div>
     </div>
-    <input type="text" class="form-control" placeholder="" aria-label="google_secret" aria-describedby="basic-addon1" name="google_recaptcha_secret" value="<?php echo $google_recaptcha_secret; ?>">
   </div>
 
+  <div class="card mt-3">
+    <div class="card-header">
+      <?php Template::render_toggle("Use Google reChaptcha for subscriber signup", "google_rechaptcha_toggle", $google_rechaptcha_status); ?>
+    </div>
+    <div class="card-body">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Google reChaptcha Sitekey</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="google_sitekey" aria-describedby="basic-addon1" name="google_recaptcha_sitekey" value="<?php echo $google_recaptcha_sitekey; ?>">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Google reChaptcha Secret</span>
+        </div>
+        <input type="text" class="form-control" placeholder="" aria-label="google_secret" aria-describedby="basic-addon1" name="google_recaptcha_secret" value="<?php echo $google_recaptcha_secret; ?>">
+      </div>
+    </div>
+  </div>
 
-
-  <button class="btn btn-primary float-end" type="submit">Save Settings</button>
+  <div class="card mt-3 mb-3" style="border: none;">
+    <button class="btn btn-primary float-end" type="submit">Save Settings</button>
+  </div>
 </form>

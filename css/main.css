@@ -317,6 +317,16 @@ label.form-name {
   display: inline-block;
 }
 /* The switch - the box around the slider */
+#switch {
+  height: auto;
+  line-height: 34px;
+  font-size: 25px;
+}
+
+#switch {
+  margin-bottom: 5px;
+}
+
 .switch {
   position: relative;
   display: inline-block;
