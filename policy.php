@@ -1,6 +1,11 @@
 <?php
-require_once("template.php");
 require_once("config.php");
+require_once("template.php");
+require_once("classes/constellation.php");
+require_once("classes/db-class.php");
+$db = new SSDB();
+define("WEB_URL", $db->getSetting($mysqli, "url"));
+
 Template::render_header("Privacy Policy");
 
 echo "<h1>" . _("Privacy Policy") . "</h1>";
