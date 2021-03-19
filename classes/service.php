@@ -218,7 +218,7 @@ class Service implements JsonSerializable
 
     // If no group exist or group is new, start a new UL
     if (!empty($this->group_name) && !in_array($this->group_name, $arrCompletedGroups)) {
-      echo '<ul class="list-group components">';
+      echo '<ul class="list-group components mt-3">';
       //echo '<ul class="platforms list-group mb-2">';
       // Render the group status if it exists
       echo '<li class="list-group-item list-group-item-success group-name"><span><i class="fas fa-folder-open"></i></span>&nbsp;' . $this->group_name . '<div class="status text-' . $classes[$this->status] . '">' . _($statuses[$this->status]) . '</div></li>';
