@@ -52,7 +52,7 @@ Template::render_header(_("Dashboard"), true);
 
             foreach ($services as $service) {
             ?>
-              <div class="input-group mb-3">
+              <div class="input-group mb-2">
                 <?php if ($service->get_status() != -1) { ?>
                   <div class="input-group-text service">
                     <input type="checkbox" name="services[]" value="<?php echo $service->get_id(); ?>" <?php echo (in_array($service->get_id(), $post_services)) ? "checked" : ''; ?> id="service-<?php echo $service->get_id(); ?>">
