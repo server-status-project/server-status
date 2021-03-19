@@ -45,6 +45,11 @@ a:focus {
   margin-right: auto;
 }
 
+#install .install,
+#install form .card:not(:first-child) {
+  margin-top: 30px;
+}
+
 #status-container .input-group:last-child {
   margin-bottom: 0px !important;
 }
@@ -243,10 +248,6 @@ article.card textarea {
 
 .install {
   padding-bottom: 25px;
-}
-
-.install .btn {
-  margin-top: 30px;
 }
 
 #footerwrap .dropdown-menu {
