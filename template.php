@@ -138,9 +138,6 @@ class Template
                 <li class="nav-item">
                   <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=logout"><?php echo _("Logout"); ?></a>
                 </li>
-                <li class="nav-item ml-md-auto">
-                  <a href="#" class="btn btn-primary switch">Switch Light/Dark</a>
-                </li>
               <?php
               }
               ?>
