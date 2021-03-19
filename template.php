@@ -83,7 +83,7 @@ class Template
       <meta name="msapplication-TileColor" content="#ffffff">
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
       <meta name="theme-color" content="#ffffff">
-      <link href="https://use.fontawesome.com/releases/v5.12.2/css/all.css" rel="stylesheet">
+      <link href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" rel="stylesheet">
       <?php
       if (!$admin) {
         $headpath = $_SERVER['DOCUMENT_ROOT'] . "/head.txt";
@@ -221,8 +221,9 @@ class Template
             </div>
             <!--/container -->
           </footer>
+          <script src="<?php echo WEB_URL; ?>/vendor/jquerry/jquery-3.6.0.min.js"></script>
+          <script src="<?php echo WEB_URL; ?>/vendor/jquerry/jquery.timeago.js"></script>
           <?php if ($admin) { ?>
-            <script src="<?php echo WEB_URL; ?>/vendor/jquerry/jquery-3.6.0.min.js"></script>
             <script src="<?php echo WEB_URL; ?>/vendor/flatpickr/flatpickr.min.js"></script>
             <script src="<?php echo WEB_URL; ?>/js/admin.js"></script>
           <?php } ?>
