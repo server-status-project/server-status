@@ -63,7 +63,7 @@ class Template
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Current service status for <?php echo NAME; ?> can be found here as well as incident history.">
       <link rel="shortcut icon" href="<?php echo WEB_URL; ?>/favicon.ico" type="image/png">
-      <link rel="stylesheet" href="<?php echo WEB_URL; ?>/css/vendor/bootstrap/bootstrap.min.css">
+      <link rel="stylesheet" href="<?php echo WEB_URL; ?>/vendor/bootstrap/css/bootstrap.min.css">
       <link rel="stylesheet" href="<?php echo WEB_URL; ?>/css/main.css" media="screen">
       <link rel="stylesheet" href="<?php echo WEB_URL; ?>/css/print.css" media="print">
       <link rel="apple-touch-icon" sizes="57x57" href="<?php echo WEB_URL; ?>/favicon/apple-icon-57x57.png">
@@ -83,7 +83,7 @@ class Template
       <meta name="msapplication-TileColor" content="#ffffff">
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
       <meta name="theme-color" content="#ffffff">
-      <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+      <link href="https://use.fontawesome.com/releases/v5.12.2/css/all.css" rel="stylesheet">
       <?php
       if (!$admin) {
         $headpath = $_SERVER['DOCUMENT_ROOT'] . "/head.txt";
@@ -94,8 +94,7 @@ class Template
       } else {
         global $user;
       ?>
-        <link href="<?php echo WEB_URL; ?>/css/jquery.growl.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <link rel="stylesheet" href="<?php echo WEB_URL; ?>/vendor/flatpickr/flatpickr.min.css">
       <?php
       }
       ?>
@@ -222,15 +221,12 @@ class Template
             </div>
             <!--/container -->
           </footer>
-          <script src="<?php echo WEB_URL; ?>/js/vendor/jquery-3.5.1.min.js"></script>
-          <script src="<?php echo WEB_URL; ?>/js/vendor/jquery.timeago.js"></script>
-          <script src="<?php echo WEB_URL; ?>/locale/<?php echo $_SESSION['locale']; ?>/jquery.timeago.js"></script>
           <?php if ($admin) { ?>
-            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+            <script src="<?php echo WEB_URL; ?>/vendor/jquerry/jquery-3.6.0.min.js"></script>
+            <script src="<?php echo WEB_URL; ?>/vendor/flatpickr/flatpickr.min.js"></script>
             <script src="<?php echo WEB_URL; ?>/js/admin.js"></script>
-            <script src="<?php echo WEB_URL; ?>/js/vendor/jquery.growl.js"></script>
           <?php } ?>
-          <script src="<?php echo WEB_URL; ?>/js/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+          <script src="<?php echo WEB_URL; ?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
           <script src="<?php echo WEB_URL; ?>/js/main.js"></script>
           <?php if ($GOOGLE_RECAPTCHA) { ?><script src='https://www.google.com/recaptcha/api.js'></script><?php } ?>
     </body>
