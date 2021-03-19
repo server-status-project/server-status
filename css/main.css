@@ -1,6 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese");
-@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,700&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese");
-
 body {
   background: #ffffff;
   margin: 0;
@@ -36,7 +33,7 @@ a:focus {
   border-radius: 0px 0px 30px 30px;
 }
 
-#wrapper {
+main.container {
   max-width: 1024px;
   min-height: calc(100vh - 157px);
   padding-right: 15px;
@@ -210,7 +207,7 @@ article.card textarea {
   margin-left: 70px;
 }
 
-#wrapper.admin #timeline .service input[type="checkbox"] {
+main.container.admin #timeline .service input[type="checkbox"] {
   margin-right: 4px;
   margin-top: 0;
   vertical-align: middle;
@@ -254,8 +251,6 @@ article.card textarea {
   width: 100%;
   padding: 2px 5px;
   display: block;
-  transition: 125ms ease-in-out background-color;
-  background-color: gray;
 }
 
 #footerwrap .dropdown-menu a:hover {

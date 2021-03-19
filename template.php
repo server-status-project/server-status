@@ -145,19 +145,10 @@ class Template
           </div>
         </nav>
       </header>
-      <?php
-      if (!$admin) {
-      ?>
-        <main id="wrapper" class="container">
-        <?php
-      } else {
-        global $user;
-        ?>
-          <main id="wrapper" class="container admin">
-          <?php
+      <main class="container <?php if ($admin) { ?>admin<?php } ?>">
+        <?php if ($admin) {
+          global $user;
         }
-          ?>
-        <?php
       }
       /**
        * Renders a toggle switch
@@ -169,16 +160,16 @@ class Template
       public static function render_toggle($toggletext, $input_name, $checked)
       {
         ?>
-          <div id="switch">
-            <label class="switch">
-              <input type="checkbox" name="<?php echo $input_name; ?>" <?php if ($checked) {
-                                                                          echo "checked";
-                                                                        } ?>>
-              <span class="slider round"></span>
-            </label>
-            <?php echo $toggletext; ?>
-          </div>
-        <?php
+        <div id="switch">
+          <label class="switch">
+            <input type="checkbox" name="<?php echo $input_name; ?>" <?php if ($checked) {
+                                                                        echo "checked";
+                                                                      } ?>>
+            <span class="slider round"></span>
+          </label>
+          <?php echo $toggletext; ?>
+        </div>
+      <?php
       }
       /**
        * Renders footer
@@ -188,48 +179,48 @@ class Template
       {
         global $negotiator;
         $lang_names = $negotiator->get_accepted_langs();
-        ?>
-          </main>
-          <footer id="footerwrap" class="sticky-bottom">
-            <div class="container">
-              <div class="row centered">
-                <div class="col-md-4 text-left"><a class="link-light" href="https://github.com/server-status-project/server-status/graphs/contributors" target="_blank">Copyright © <?php echo date("Y"); ?> Server Status Project Contributors </a><?php if (strlen(COPYRIGHT_TEXT) > 1) {
-                                                                                                                                                                                                                                                      echo " and " . COPYRIGHT_TEXT;
-                                                                                                                                                                                                                                                    } ?></div>
-                <div class="col-md-4 text-center">
-                  <div class="input-group dropup mb-3">
-                    <button type="button" class="btn btn-primary" disabled><?php echo '<img src="' . $WEB_URL . '/locale/' . $_SESSION['locale'] . '/flag.png" alt="' . $lang_names[$_SESSION['locale']] . '">' . $lang_names[$_SESSION['locale']]; ?></button>
-                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                      <span class="visually-hidden"><?php echo _("Toggle Dropdown"); ?></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                      <?php
-                      foreach ($lang_names as $key => $value) {
-                        echo '<a href="?lang=' . $key . '"><img src="' . $WEB_URL . '/locale/' . $key . '/flag.png" alt="' . $value . '">' . $value . '</a>';
-                      }
-                      ?>
-                      <li>
-                        <hr class="dropdown-divider">
-                      </li>
-                      <li><a href="https://poeditor.com/join/project/37SpmJtyOm"><?php echo _("Help with translation!"); ?></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-md-4 text-right"><a class="link-light" href="<?php echo POLICY_URL; ?>"><?php echo _("Imprint & Privacy Policy"); ?></a></div>
+      ?>
+      </main>
+      <footer id="footerwrap" class="sticky-bottom">
+        <div class="container">
+          <div class="row centered">
+            <div class="col-md-4 text-left"><a class="link-light" href="https://github.com/server-status-project/server-status/graphs/contributors" target="_blank">Copyright © <?php echo date("Y"); ?> Server Status Project Contributors </a><?php if (strlen(COPYRIGHT_TEXT) > 1) {
+                                                                                                                                                                                                                                                  echo " and " . COPYRIGHT_TEXT;
+                                                                                                                                                                                                                                                } ?></div>
+            <div class="col-md-4 text-center">
+              <div class="input-group dropup mb-3">
+                <button type="button" class="btn btn-primary" disabled><?php echo '<img src="' . $WEB_URL . '/locale/' . $_SESSION['locale'] . '/flag.png" alt="' . $lang_names[$_SESSION['locale']] . '">' . $lang_names[$_SESSION['locale']]; ?></button>
+                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="visually-hidden"><?php echo _("Toggle Dropdown"); ?></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <?php
+                  foreach ($lang_names as $key => $value) {
+                    echo '<a href="?lang=' . $key . '"><img src="' . $WEB_URL . '/locale/' . $key . '/flag.png" alt="' . $value . '">' . $value . '</a>';
+                  }
+                  ?>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a href="https://poeditor.com/join/project/37SpmJtyOm"><?php echo _("Help with translation!"); ?></a></li>
+                </ul>
               </div>
-              <!--/row -->
             </div>
-            <!--/container -->
-          </footer>
-          <script src="<?php echo WEB_URL; ?>/vendor/jquerry/jquery-3.6.0.min.js"></script>
-          <script src="<?php echo WEB_URL; ?>/vendor/jquerry/jquery.timeago.js"></script>
-          <?php if ($admin) { ?>
-            <script src="<?php echo WEB_URL; ?>/vendor/flatpickr/flatpickr.min.js"></script>
-            <script src="<?php echo WEB_URL; ?>/js/admin.js"></script>
-          <?php } ?>
-          <script src="<?php echo WEB_URL; ?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-          <script src="<?php echo WEB_URL; ?>/js/main.js"></script>
-          <?php if ($GOOGLE_RECAPTCHA) { ?><script src='https://www.google.com/recaptcha/api.js'></script><?php } ?>
+            <div class="col-md-4 text-right"><a class="link-light" href="<?php echo POLICY_URL; ?>"><?php echo _("Imprint & Privacy Policy"); ?></a></div>
+          </div>
+          <!--/row -->
+        </div>
+        <!--/container -->
+      </footer>
+      <script src="<?php echo WEB_URL; ?>/vendor/jquerry/jquery-3.6.0.min.js"></script>
+      <script src="<?php echo WEB_URL; ?>/vendor/jquerry/jquery.timeago.js"></script>
+      <script src="<?php echo WEB_URL; ?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="<?php echo WEB_URL; ?>/js/main.js"></script>
+      <?php if ($admin) { ?>
+        <script src="<?php echo WEB_URL; ?>/vendor/flatpickr/flatpickr.min.js"></script>
+        <script src="<?php echo WEB_URL; ?>/js/admin.js"></script>
+      <?php } ?>
+      <?php if ($GOOGLE_RECAPTCHA) { ?><script src='https://www.google.com/recaptcha/api.js'></script><?php } ?>
     </body>
 
     </html>
