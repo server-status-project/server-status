@@ -292,12 +292,8 @@ body h3 {
   margin-top: 18px;
 }
 
-.settings-header {
-  padding-top: 20px;
-}
-
-.settings-header .float-start h3 {
-  margin: 0;
+#options .input-group-text {
+  width: 230px;
 }
 
 .row.user .input-group {
