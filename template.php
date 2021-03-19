@@ -124,19 +124,22 @@ class Template
                 global $user;
               ?>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo WEB_URL; ?>/admin/"><?php echo _("Dashboard"); ?></a>
+                  <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/"><?php echo _("Dashboard"); ?></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo WEB_URL; ?>/admin/?do=user"><?php printf(_("User (%s)"), $user->get_username()); ?></a>
+                  <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=user"><?php printf(_("User (%s)"), $user->get_username()); ?></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo WEB_URL; ?>/admin/?do=settings"><?php echo _("Services & Users"); ?></a>
+                  <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=settings"><?php echo _("Services & Users"); ?></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo WEB_URL; ?>/admin/?do=options"><?php echo _("Options"); ?></a>
+                  <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=options"><?php echo _("Options"); ?></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo WEB_URL; ?>/admin/?do=logout"><?php echo _("Logout"); ?></a>
+                  <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=logout"><?php echo _("Logout"); ?></a>
+                </li>
+                <li class="nav-item ml-md-auto">
+                  <a href="#" class="btn btn-primary switch">Switch Light/Dark</a>
                 </li>
               <?php
               }
