@@ -197,13 +197,17 @@ class Incident implements JsonSerializable
         <?php echo $Parsedown->setBreaksEnabled(true)->text($this->text); ?>
       </div>
       <div class="card-footer bg-transparent border-<?php echo $classes[$this->type]; ?>">
-        <?php echo _("Impacted service(s): ");
-        foreach ($this->service_name as $value) {
-          echo '<br><span class="badge bg-secondary">' . $value . '</span>&nbsp;';
-        }
-        if (isset($this->end_date)) { ?>
-          <span class="float-end"><?php echo strtotime($this->end_date) > time() ? _("Ending") : _("Ended"); ?>:&nbsp;<time class="timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
-        <?php } ?>
+        <p class="card-title">
+          <?php echo _("Impacted service(s): "); ?>
+          <?php if (isset($this->end_date)) { ?>
+            <span class="float-end"><?php echo strtotime($this->end_date) > time() ? _("Ending") : _("Ended"); ?>:&nbsp;<time class="timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
+          <?php } ?>
+        </p>
+        <p class="card-badge">
+          <?php foreach ($this->service_name as $value) {
+            echo '<span class="badge bg-secondary">' . $value . '</span>&nbsp;';
+          } ?>
+        </p>
       </div>
     </article>
 <?php
