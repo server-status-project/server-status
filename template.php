@@ -101,8 +101,8 @@ class Template
     </head>
 
     <body>
-      <header class="navbar fixed-top navbar-expand-lg navbar-dark">
-        <nav class="container">
+      <header class="fixed-top">
+        <nav class="container navbar navbar-expand-lg navbar-dark">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -116,6 +116,10 @@ class Template
               <?php
               if (!$admin) {
               ?>
+                <li class="nav-item">
+                  <input type="checkbox" class="custom-control-input" id="darkSwitch" hidden>
+                  <label class="nav-link" for="darkSwitch"><i class="fas fa-moon"></i></label>
+                </li>
                 <li class="nav-item">
                   <?php echo $strSubsMenu; ?>
                 </li>
@@ -137,6 +141,10 @@ class Template
                 </li>
                 <li class="nav-item">
                   <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=logout"><?php echo _("Logout"); ?></a>
+                </li>
+                <li class="nav-item">
+                  <input type="checkbox" class="custom-control-input" id="darkSwitch" hidden>
+                  <label class="nav-link" for="darkSwitch"><i class="fas fa-moon"></i></label>
                 </li>
               <?php
               }

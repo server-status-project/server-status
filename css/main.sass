@@ -1,5 +1,12 @@
+$bg_light: #fff
+$text_light: #111
+$bg_dark: #111
+$text_dark: #fff
+$border_dark: rgba(255,255,255,.125)
+  
 body
-  background: #ffffff
+  background-color: $bg_light
+  color: $text_light
   margin: 0
   margin-top: 80px
   height: 100%
@@ -80,7 +87,7 @@ a
     &:checked + .slider:before
       transform: translateX(26px)
 
-header.navbar
+header
     background-color: gray
     border-radius: 0px 0px 30px 30px
 
@@ -275,3 +282,27 @@ footer#footerwrap
       max-width: 25px
       margin-right: 5px
       vertical-align: middle
+
+body[data-theme="dark"]
+  background-color: $bg_dark
+
+  main
+    color: $text_dark
+  
+  .fa-moon::before
+    content: "\f185"
+  
+  .list-group-item
+    border-color: $border_dark
+    
+    &.sub-component
+      background-color: $bg_dark
+      color: $text_dark
+
+  .card
+    background-color: $bg_dark
+    color: $text_dark
+    border-color: $border_dark
+
+  .table
+    color: $text_dark
