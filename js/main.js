@@ -53,3 +53,10 @@ function resetTheme() {
     localStorage.removeItem("darkSwitch");
   }
 }
+
+if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  document.body.setAttribute("data-theme", "dark");
+}
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+  const newColorScheme = e.matches ? document.body.setAttribute("data-theme", "dark") : document.body.removeAttribute("data-theme");
+});
