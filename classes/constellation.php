@@ -92,13 +92,6 @@ class Constellation
       $array[] = new Service(0, _("No services"), -1);
     }
     if (!$admin) {
-?>
-      <script>
-        $(document).ready(function() {
-          $('[data-toggle="tooltip"]').tooltip();
-        });
-      </script>
-<?php
       //echo '<div id="status-container" class="clearfix">';
       //$arrCompletedGroups = array();
       foreach ($array as $service) {
