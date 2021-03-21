@@ -102,56 +102,60 @@ class Template
 
     <body>
       <header class="fixed-top">
-        <nav class="container navbar navbar-expand-lg navbar-dark">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggler">
-            <a class="navbar-brand" href="<?php echo WEB_URL; ?>/admin"><img src="<?php if (strlen(CUSTOM_LOGO_URL) > 1) {
-                                                                                    echo CUSTOM_LOGO_URL;
-                                                                                  } else {
-                                                                                    echo WEB_URL . "/img/logo_white.png";
-                                                                                  } ?>" alt="logo" class="menu-logo" width="50" height="50"></a>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <?php
-              if (!$admin) {
-              ?>
-                <li class="nav-item">
-                  <input type="checkbox" class="custom-control-input" id="darkSwitch" hidden>
-                  <label class="nav-link" for="darkSwitch"><i class="fas fa-moon"></i></label>
-                </li>
-                <li class="nav-item">
-                  <?php echo $strSubsMenu; ?>
-                </li>
-              <?php
-              } else {
-                global $user;
-              ?>
-                <li class="nav-item">
-                  <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/"><?php echo _("Dashboard"); ?></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=user"><?php printf(_("User (%s)"), $user->get_username()); ?></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=settings"><?php echo _("Services & Users"); ?></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=options"><?php echo _("Options"); ?></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=logout"><?php echo _("Logout"); ?></a>
-                </li>
-                <li class="nav-item">
-                  <input type="checkbox" class="custom-control-input" id="darkSwitch" hidden>
-                  <label class="nav-link" for="darkSwitch"><i class="fas fa-moon"></i></label>
-                </li>
-              <?php
-              }
-              ?>
-            </ul>
-          </div>
-        </nav>
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="<?php echo WEB_URL; ?>/admin"><img src="<?php if (strlen(CUSTOM_LOGO_URL) > 1) {
+                                                                                      echo CUSTOM_LOGO_URL;
+                                                                                    } else {
+                                                                                      echo WEB_URL . "/img/logo_white.png";
+                                                                                    } ?>" alt="logo" class="menu-logo" width="50" height="50"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <?php
+                  if (!$admin) {
+                  ?>
+                    <li class="d-flex">
+                      <input type=" checkbox" class="custom-control-input" id="darkSwitch" hidden>
+                      <label class="nav-link" for="darkSwitch"><i class="fas fa-moon"></i></label>
+                    </li>
+                    <li class="nav-item">
+                      <?php echo $strSubsMenu; ?>
+                    </li>
+                  <?php
+                  } else {
+                    global $user;
+                  ?>
+                    <li class="nav-item">
+                      <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/"><?php echo _("Dashboard"); ?></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=user"><?php printf(_("User (%s)"), $user->get_username()); ?></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=settings"><?php echo _("Services & Users"); ?></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=options"><?php echo _("Options"); ?></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=logout"><?php echo _("Logout"); ?></a>
+                    </li>
+                    <li class="d-flex">
+                      <input type="checkbox" class="custom-control-input" id="darkSwitch" hidden>
+                      <label class="nav-link" for="darkSwitch"><i class="fas fa-moon"></i></label>
+                    </li>
+                  <?php
+                  }
+                  ?>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
       </header>
       <main id="<?php echo $page_id; ?>" class="container <?php if ($admin) { ?>admin<?php } ?>">
         <?php if ($admin) {
