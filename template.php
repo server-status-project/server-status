@@ -122,7 +122,7 @@ class Template
                       <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/"><?php echo _("Admin"); ?></a>
                     </li>
                     <li class="d-flex">
-                      <input type=" checkbox" class="custom-control-input" id="darkSwitch" hidden>
+                      <input type="checkbox" class="custom-control-input" id="darkSwitch" hidden>
                       <label class="nav-link" for="darkSwitch"><i class="fas fa-moon"></i></label>
                     </li>
                     <li class="nav-item">
