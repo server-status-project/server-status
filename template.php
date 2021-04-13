@@ -105,7 +105,7 @@ class Template
         <div class="container">
           <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="<?php echo WEB_URL; ?>/admin"><img src="<?php if (strlen(CUSTOM_LOGO_URL) > 1) {
+              <a class="navbar-brand" href="<?php echo WEB_URL; ?>/"><img src="<?php if (strlen(CUSTOM_LOGO_URL) > 1) {
                                                                                       echo CUSTOM_LOGO_URL;
                                                                                     } else {
                                                                                       echo WEB_URL . "/img/logo_white.png";
@@ -118,6 +118,9 @@ class Template
                   <?php
                   if (!$admin) {
                   ?>
+                    <li class="nav-item">
+                      <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/"><?php echo _("Admin"); ?></a>
+                    </li>
                     <li class="d-flex">
                       <input type=" checkbox" class="custom-control-input" id="darkSwitch" hidden>
                       <label class="nav-link" for="darkSwitch"><i class="fas fa-moon"></i></label>
