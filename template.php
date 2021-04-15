@@ -221,7 +221,7 @@ class Template
                 </ul>
               </div>
             </div>
-            <div class="col-md-4 text-right"><a class="link-light" href="<?php echo POLICY_URL; ?>"><?php echo _("Imprint & Privacy Policy"); ?></a></div>
+            <div class="col-md-4 text-right"><a class="link-light" href="<?php echo IMPRINT_URL; ?>"><?php echo _("Imprint"); ?></a><a class="link-light" href="<?php echo POLICY_URL; ?>"><?php echo _("Privacy Policy"); ?></a></div>
           </div>
           <!--/row -->
         </div>
