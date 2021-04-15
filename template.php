@@ -199,9 +199,9 @@ class Template
       <footer id="footerwrap" class="sticky-bottom">
         <div class="container">
           <div class="row centered">
-            <div class="col-md-4 text-left"><a class="link-light" href="https://github.com/server-status-project/server-status/graphs/contributors" target="_blank">Copyright © <?php echo date("Y"); ?> Server Status Project Contributors </a><?php if (strlen(COPYRIGHT_TEXT) > 1) {
-                                                                                                                                                                                                                                                  echo " and " . COPYRIGHT_TEXT;
-                                                                                                                                                                                                                                                } ?></div>
+            <div class="col-md-4 text-left"><a class="link-light" href="https://github.com/server-status-project/server-status/graphs/contributors" target=”_blank” rel=”noopener noreferrer”>Copyright © <?php echo date("Y"); ?> Server Status Project Contributors </a><?php if (strlen(COPYRIGHT_TEXT) > 1) {
+                                                                                                                                                                                                                                                                            echo " and " . COPYRIGHT_TEXT;
+                                                                                                                                                                                                                                                                          } ?></div>
             <div class="col-md-4 text-center">
               <div class="input-group dropup mb-3">
                 <button type="button" class="btn btn-primary" disabled><?php echo '<img src="' . $WEB_URL . '/locale/' . $_SESSION['locale'] . '/flag.png" alt="' . $lang_names[$_SESSION['locale']] . '">' . $lang_names[$_SESSION['locale']]; ?></button>
@@ -217,7 +217,7 @@ class Template
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a href="https://poeditor.com/join/project/37SpmJtyOm"><?php echo _("Help with translation!"); ?></a></li>
+                  <li><a href="https://poeditor.com/join/project/37SpmJtyOm" target=”_blank” rel=”noopener noreferrer”><?php echo _("Help with translation!"); ?></a></li>
                 </ul>
               </div>
             </div>
