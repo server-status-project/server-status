@@ -1,10 +1,8 @@
 <?php
 
-if (!file_exists("../config.php"))
-{
+if (!file_exists("../config.php")) {
   header("Location: ../");
-}
-else{
+} else {
   require_once("../config.php");
   require_once("../classes/constellation.php");
   require_once("../classes/mailer.php");
@@ -14,11 +12,11 @@ else{
   require_once("../classes/queue.php");
   require_once("../classes/db-class.php");
   $db = new SSDB();
-  define("NAME", $db->getSetting($mysqli,"name"));
-  define("TITLE", $db->getSetting($mysqli,"title"));
-  define("WEB_URL", $db->getSetting($mysqli,"url"));
-  define("MAILER_NAME", $db->getSetting($mysqli,"mailer"));
-  define("MAILER_ADDRESS", $db->getSetting($mysqli,"mailer_email"));
+  define("NAME", $db->getSetting($mysqli, "name"));
+  define("TITLE", $db->getSetting($mysqli, "title"));
+  define("WEB_URL", $db->getSetting($mysqli, "url"));
+  define("MAILER_NAME", $db->getSetting($mysqli, "mailer"));
+  define("MAILER_ADDRESS", $db->getSetting($mysqli, "mailer_email"));
 
   define("GOOGLE_RECAPTCHA", $db->getBooleanSetting($mysqli, "google_recaptcha"));
   define("GOOGLE_RECAPTCHA_SECRET", $db->getSetting($mysqli, "google_recaptcha_secret"));
@@ -39,58 +37,45 @@ else{
 
   // Process the subscriber notification queue
   // If CRON_SERVER_IP is not set, call notification once incident has been saved
-  if ( empty(CRON_SERVER_IP) )
-  {
-    if ( isset($_GET['sent']) && $_GET['sent'] == true )
-    {
+  if (empty(CRON_SERVER_IP)) {
+    if (isset($_GET['sent']) && $_GET['sent'] == true) {
       Queue::process_queue();
     }
-  }
-  else if ( isset($_GET['task']) && $_GET['task'] == 'cron' )
-  {
+  } else if (isset($_GET['task']) && $_GET['task'] == 'cron') {
     // Else, base it on call to /admin?task=cron being called from IP defined by CRON_SERVER_IP
-    if (! empty(CRON_SERVER_IP) && $_SERVER['REMOTE_ADDR'] == CRON_SERVER_IP )
-    {
-        Queue::process_queue();
-        syslog(1, "CRON server processed");
-    }
-    else {
-        syslog(1, "CRON called from unauthorised server");
+    if (!empty(CRON_SERVER_IP) && $_SERVER['REMOTE_ADDR'] == CRON_SERVER_IP) {
+      Queue::process_queue();
+      syslog(1, "CRON server processed");
+    } else {
+      syslog(1, "CRON called from unauthorised server");
     }
   }
 
 
-  if(isset($_COOKIE['user'])&&!isset($_SESSION['user']))
-  {
+  if (isset($_COOKIE['user']) && !isset($_SESSION['user'])) {
     User::restore_session();
   }
 
-  if (!isset($_SESSION['user']))
-  {
-    if (isset($_GET['do']) && $_GET['do']=="lost-password")
-    {
+  if (!isset($_SESSION['user'])) {
+    if (isset($_GET['do']) && $_GET['do'] == "lost-password") {
       require_once("lost-password.php");
-    }else if (isset($_GET['do']) && $_GET['do']=="change-email"){
+    } else if (isset($_GET['do']) && $_GET['do'] == "change-email") {
       $user_pwd = new User($_GET['id']);
       $user_pwd->change_email();
       require_once("login-form.php");
-    }
-    else{
+    } else {
       User::login();
       require_once("login-form.php");
     }
-  }
-  else
-  {
+  } else {
     $user = new User($_SESSION['user']);
-    if (!$user->is_active())
-    {
+    if (!$user->is_active()) {
       User::logout();
     }
 
-    if (!isset($_GET['do'])){
+    if (!isset($_GET['do'])) {
       $do = "";
-    }else{
+    } else {
       $do = $_GET['do'];
     }
 
@@ -98,17 +83,17 @@ else{
       case 'change-email':
         $user = new User($_GET['id']);
         $user->change_email();
-    	case 'user':
-    		require_once("user.php");
-    		break;
+      case 'user':
+        require_once("user.php");
+        break;
 
-    	case 'settings':
-    		require_once("settings.php");
-    		break;
+      case 'settings':
+        require_once("settings.php");
+        break;
 
-    	case 'new-user':
-    		require_once("new-user.php");
-    		break;
+      case 'new-user':
+        require_once("new-user.php");
+        break;
 
       case 'new-service':
       case 'edit-service':
@@ -128,9 +113,9 @@ else{
         User::logout();
         break;
 
-    	default:
-    		require_once("dashboard.php");
-    		break;
+      default:
+        require_once("dashboard.php");
+        break;
     }
 
     Template::render_footer(true);

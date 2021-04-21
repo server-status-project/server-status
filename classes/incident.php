@@ -2,8 +2,8 @@
 require_once(__DIR__ . "/notification.php");
 
 /**
-* Class for creating and rendering an incident
-*/
+ * Class for creating and rendering an incident
+ */
 class Incident implements JsonSerializable
 {
   private $id;
@@ -24,14 +24,14 @@ class Incident implements JsonSerializable
    */
   function __construct($data)
   {
-  	//TODO: Maybe get data from id?
+    //TODO: Maybe get data from id?
     $this->id = $data['status_id'];
     $this->timestamp = $data['time'];
     $this->end_timestamp = $data['end_time'];
-    $this->date = new DateTime("@".$data['time']);
+    $this->date = new DateTime("@" . $data['time']);
     $this->date = $this->date->format('Y-m-d H:i:sP');
-    if ($data['end_time']>0){
-      $this->end_date = new DateTime("@".$data['end_time']);
+    if ($data['end_time'] > 0) {
+      $this->end_date = new DateTime("@" . $data['end_time']);
       $this->end_date = $this->end_date->format('Y-m-d H:i:sP');
     }
     $this->type = $data['type'];
@@ -46,17 +46,16 @@ class Incident implements JsonSerializable
    * Deletes incident by ID.
    * @param int ID
    */
-  public static function delete($id){
+  public static function delete($id)
+  {
     global $mysqli, $message, $user;
 
-    if ($user->get_rank() > 1)
-    {
+    if ($user->get_rank() > 1) {
       $stmt = $mysqli->prepare("SELECT count(*) as count FROM status WHERE id= ? AND user_id = ?");
       $stmt->bind_param("ii", $id, $_SESSION['user']);
       $stmt->execute();
       $query = $stmt->get_result();
-      if (!$query->fetch_assoc()['count'])
-      {
+      if (!$query->fetch_assoc()['count']) {
         $message = _("You don't have permission to do that!");
         return;
       }
@@ -71,7 +70,7 @@ class Incident implements JsonSerializable
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $query = $stmt->get_result();
-    header("Location: ".WEB_URL."/admin");
+    header("Location: " . WEB_URL . "/admin");
   }
 
   /**
@@ -84,77 +83,66 @@ class Incident implements JsonSerializable
   {
     global $mysqli, $message;
     //Sould be a better way to get this array...
-    $statuses = array(_("Major outage"), _("Minor outage"), _("Planned maintenance"), _("Operational") );
+    $statuses = array(_("Major outage"), _("Minor outage"), _("Planned maintenance"), _("Operational"));
 
     $user_id = $_SESSION['user'];
     $type = $_POST['type'];
     $title = strip_tags($_POST['title']);
     $text = strip_tags($_POST['text'], '<br>');
 
-    if (strlen($title)==0)
-    {
+    if (strlen($title) == 0) {
       $message = _("Please enter title");
       return;
-    }else if(strlen($title)>50){
+    } else if (strlen($title) > 50) {
       $message = _("Title too long! Character limit is 50");
       return;
     }
 
-    if (strlen($title)==0)
-    {
+    if (strlen($title) == 0) {
       $message = _("Please enter text");
       return;
     }
 
-    if ($type == 2 && (!strlen(trim($_POST['time'])) || !strlen(trim($_POST['end_time']))))
-    {
+    if ($type == 2 && (!strlen(trim($_POST['time'])) || !strlen(trim($_POST['end_time'])))) {
       $message = _("Please set start and end time! Use ISO 8601 format.");
       return;
     }
 
-    if (empty($_POST['services'])){
+    if (empty($_POST['services'])) {
       $message = _("Please select at least one service");
-    }
-    else
-    {
-      if (!is_array($_POST['services']))
-      {
+    } else {
+      if (!is_array($_POST['services'])) {
         $services = array($_POST['services']);
-      }
-      else
-      {
+      } else {
         $services = $_POST['services'];
       }
 
-      if (!empty($_POST['time']) && $type == 2){
-        $input_time = (!empty($_POST['time_js'])?$_POST['time_js']: $_POST['time']);
-        $input_end_time = (!empty($_POST['end_time_js'])?$_POST['end_time_js']: $_POST['end_time']);
+      if (!empty($_POST['time']) && $type == 2) {
+        $input_time = (!empty($_POST['time_js']) ? $_POST['time_js'] : $_POST['time']);
+        $input_end_time = (!empty($_POST['end_time_js']) ? $_POST['end_time_js'] : $_POST['end_time']);
         $time = strtotime($input_time);
         $end_time = strtotime($input_end_time);
-        if (!$time)
-        {
+        if (!$time) {
           $message = _("Start date format is not recognized. Please use ISO 8601 format.");
           return;
         }
 
-        if (!$end_time)
-        {
+        if (!$end_time) {
           $message = _("End date format is not recognized. Please use ISO 8601 format.");
           return;
         }
 
-        if ($time >= $end_time)
-        {
+        if ($time >= $end_time) {
           $message = _("End time is either the same or earlier than start time!");
           return;
         }
-      }else{
+      } else {
         $time = time();
         $end_time = '';
       }
 
       $stmt = $mysqli->prepare("INSERT INTO status VALUES (NULL,?, ?, ?, ?, ?, ?)");
-      $stmt->bind_param("issiii", $type, $title, $text, $time ,$end_time ,$user_id);
+      $stmt->bind_param("issiii", $type, $title, $text, $time, $end_time, $user_id);
       $stmt->execute();
       $query = $stmt->get_result();
       $status_id = $mysqli->insert_id;
@@ -178,7 +166,7 @@ class Incident implements JsonSerializable
 
       $notify->notify_subscribers();
 
-      header("Location: ".WEB_URL."/admin?sent=true");
+      header("Location: " . WEB_URL . "/admin?sent=true");
     }
   }
 
@@ -187,43 +175,46 @@ class Incident implements JsonSerializable
    * @param Boolean $admin - decides whether admin controls should be rendered
    * @return void
    */
-  public function render($admin=0){
+  public function render($admin = 0)
+  {
     global $icons;
     global $classes, $user;
-    $admin = $admin && (($user->get_rank()<=1) || ($user->get_username() == $this->username));
+    $admin = $admin && (($user->get_rank() <= 1) || ($user->get_username() == $this->username));
     $Parsedown = new Parsedown();
-    ?>
-     <article class="panel panel-<?php echo $classes[$this->type];?>">
-        <div class="panel-heading icon">
-          <i class="<?php echo $icons[$this->type];?>"></i>
+?>
+    <article class="card border-<?php echo $classes[$this->type]; ?> mb-3">
+      <div class="card-colore icon bg-<?php echo $classes[$this->type]; ?>"><i class="<?php echo $icons[$this->type]; ?>"></i></div>
+      <div class="card-header bg-<?php echo $classes[$this->type]; ?> border-<?php echo $classes[$this->type]; ?>">
+        <?php echo $this->title; ?>
+        <div class="float-end">
+          <?php if ($admin) {
+            echo '<a href="' . WEB_URL . '/admin/?delete=' . $this->id . '" class="delete"><i class="fa fa-trash"></i></a>';
+          } ?>
         </div>
-        <div class="panel-heading clearfix">
-          <h2 class="panel-title"><?php echo $this->title; ?></h2>
-          <?php if ($admin){
-            echo '<a href="'.WEB_URL.'/admin/?delete='.$this->id.'" class="pull-right delete"><i class="fa fa-trash"></i></a>';
-          }?>
-          <time class="pull-right timeago" datetime="<?php echo $this->date; ?>"><?php echo $this->date; ?></time>
-        </div>
-        <div class="panel-body">
-          <?php echo $Parsedown->setBreaksEnabled(true)->text($this->text); ?>
-        </div>
-        <div class="panel-footer clearfix">
-          <small>
-              <?php echo _("Impacted service(s): ");
-              foreach ( $this->service_name as $value ) {
-                echo '<span class="label label-default">'.$value . '</span>&nbsp;';
-              }
-
-          if (isset($this->end_date)){?>
-            <span class="pull-right"><?php echo strtotime($this->end_date)>time()?_("Ending"):_("Ended");?>:&nbsp;<time class="pull-right timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
-            <?php } ?>
-          </small>
-        </div>
-      </article>
-      <?php
+        <time class="float-end timeago" datetime="<?php echo $this->date; ?>"><?php echo $this->date; ?></time>
+      </div>
+      <div class="card-body">
+        <?php echo $Parsedown->setBreaksEnabled(true)->text($this->text); ?>
+      </div>
+      <div class="card-footer bg-transparent border-<?php echo $classes[$this->type]; ?>">
+        <p class="card-title">
+          <?php echo _("Impacted service(s): "); ?>
+          <?php if (isset($this->end_date)) { ?>
+            <span class="float-end"><?php echo strtotime($this->end_date) > time() ? _("Ending") : _("Ended"); ?>:&nbsp;<time class="timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
+          <?php } ?>
+        </p>
+        <p class="card-badge">
+          <?php foreach ($this->service_name as $value) {
+            echo '<span class="badge bg-secondary">' . $value . '</span>&nbsp;';
+          } ?>
+        </p>
+      </div>
+    </article>
+<?php
   }
 
-  public function jsonSerialize() {
+  public function jsonSerialize()
+  {
     return [
       "id" => $this->id,
       "date" => $this->timestamp,

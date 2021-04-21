@@ -1,7 +1,8 @@
 <?php
+
 /**
-* Class for managing services
-*/
+ * Class for managing services
+ */
 class Service implements JsonSerializable
 {
   private $id;
@@ -17,7 +18,7 @@ class Service implements JsonSerializable
    * @param String $descriotion service description for tooltip
    * @param int $status current service status
    */
-  function __construct($id, $name, $description=null, $group_name='', $status=3)
+  function __construct($id, $name, $description = null, $group_name = '', $status = 3)
   {
     //TODO: Maybe get data from ID?
     $this->id = $id;
@@ -72,17 +73,15 @@ class Service implements JsonSerializable
   public static function add()
   {
     global $user, $message;
-    if (strlen($_POST['service'])>50)
-    {
+    if (strlen($_POST['service']) > 50) {
       $message = _("Service name is too long! Character limit is 50");
       return;
-    }else if (strlen(trim($_POST['service']))==0){
+    } else if (strlen(trim($_POST['service'])) == 0) {
       $message = _("Please enter name!");
       return;
     }
 
-    if ($user->get_rank()<=1)
-    {
+    if ($user->get_rank() <= 1) {
       global $mysqli;
       $name = htmlspecialchars($_POST['service']);
       $description = htmlspecialchars($_POST['description']);
@@ -91,47 +90,43 @@ class Service implements JsonSerializable
       $stmt->bind_param("ssi", $name, $description, $group_id);
       $stmt->execute();
       $stmt->get_result();
-      header("Location: ".WEB_URL."/admin/?do=settings");
-    }else
-    {
+      header("Location: " . WEB_URL . "/admin/?do=settings");
+    } else {
       $message = _("You don't have the permission to do that!");
     }
   }
   /**
-     * Processes submitted form and adds service unless problem is encountered,
-     * calling this is possible only for admin or higher rank. Also checks requirements
-     * for char limits.
-     * @return void
-     */
-    public static function edit()
-    {
-      global $user, $message;
-      if (strlen($_POST['service'])>50)
-      {
-        $message = _("Service name is too long! Character limit is 50");
-        return;
-      }else if (strlen(trim($_POST['service']))==0){
-        $message = _("Please enter name!");
-        return;
-      }
-
-      if ($user->get_rank()<=1)
-      {
-        global $mysqli;
-        $service_id = $_POST["id"];
-        $name = htmlspecialchars($_POST['service']);
-        $description = htmlspecialchars($_POST["description"]);
-        $group_id = $_POST["group_id"];
-        $stmt = $mysqli->prepare("UPDATE services SET name=?, description=?, group_id=? WHERE id = ?");
-        $stmt->bind_param("ssii", $name, $description, $group_id, $service_id);
-        $stmt->execute();
-        $stmt->get_result();
-        header("Location: ".WEB_URL."/admin/?do=settings");
-      }else
-      {
-        $message = _("You don't have the permission to do that!");
-      }
+   * Processes submitted form and adds service unless problem is encountered,
+   * calling this is possible only for admin or higher rank. Also checks requirements
+   * for char limits.
+   * @return void
+   */
+  public static function edit()
+  {
+    global $user, $message;
+    if (strlen($_POST['service']) > 50) {
+      $message = _("Service name is too long! Character limit is 50");
+      return;
+    } else if (strlen(trim($_POST['service'])) == 0) {
+      $message = _("Please enter name!");
+      return;
     }
+
+    if ($user->get_rank() <= 1) {
+      global $mysqli;
+      $service_id = $_POST["id"];
+      $name = htmlspecialchars($_POST['service']);
+      $description = htmlspecialchars($_POST["description"]);
+      $group_id = $_POST["group_id"];
+      $stmt = $mysqli->prepare("UPDATE services SET name=?, description=?, group_id=? WHERE id = ?");
+      $stmt->bind_param("ssii", $name, $description, $group_id, $service_id);
+      $stmt->execute();
+      $stmt->get_result();
+      header("Location: " . WEB_URL . "/admin/?do=settings");
+    } else {
+      $message = _("You don't have the permission to do that!");
+    }
+  }
 
   /**
    * Deletes this service - first checks if user has permission to do that.
@@ -140,8 +135,7 @@ class Service implements JsonSerializable
   public static function delete()
   {
     global $user, $message;
-    if ($user->get_rank()<=1)
-    {
+    if ($user->get_rank() <= 1) {
       global $mysqli;
       $id = $_GET['delete'];
 
@@ -151,8 +145,7 @@ class Service implements JsonSerializable
       $query = $stmt->get_result();
 
       while ($res = $query->fetch_assoc()) {
-        if ($res['count']==1)
-        {
+        if ($res['count'] == 1) {
           Incident::delete($res['status']);
         }
       }
@@ -167,10 +160,8 @@ class Service implements JsonSerializable
       $stmt->execute();
       $query = $stmt->get_result();
 
-      header("Location: ".WEB_URL."/admin/?do=settings");
-    }
-    else
-    {
+      header("Location: " . WEB_URL . "/admin/?do=settings");
+    } else {
       $message = _("You don't have the permission to do that!");
     }
   }
@@ -180,25 +171,24 @@ class Service implements JsonSerializable
    * @param Service[] $array array of services
    * @return void
    */
-  public static function current_status($array){
+  public static function current_status($array)
+  {
     global $all, $some, $classes;
-    $statuses = array(0,0,0,0);
+    $statuses = array(0, 0, 0, 0);
     $worst = 5;
 
     foreach ($array as $service) {
-      if ($service->status<$worst)
-      {
+      if ($service->status < $worst) {
         $worst = $service->get_status();
       }
       $statuses[$service->get_status()]++;
     }
 
-    echo '<div id="status-big" class="status '.$classes[$worst].'">';
+    echo '<div id="status-big" class="alert-' . $classes[$worst] . '">';
 
-    if ($statuses[$worst] == count($array))
-    {
+    if ($statuses[$worst] == count($array)) {
       echo $all[$worst];
-    }else{
+    } else {
       echo $some[$worst];
     }
     echo '</div>';
@@ -209,7 +199,8 @@ class Service implements JsonSerializable
    * @param $boolGroup set to true if the groups name is to be rendered
    * @return void
    */
-  public function render(){
+  public function render()
+  {
     global $statuses;
     global $classes;
     static $arrCompletedGroups = array();
@@ -218,47 +209,50 @@ class Service implements JsonSerializable
 
     // Check if previous ul has been opened, and if a empty/new group is being
     // render_header, close the UL first.
-    if ( $boolOpened ) {
-      if ( empty($this->group_name) || !in_array($this->group_name, $arrCompletedGroups) ) {
+    if ($boolOpened) {
+      if (empty($this->group_name) || !in_array($this->group_name, $arrCompletedGroups)) {
         echo '</ul>';
         $boolOpened = false;
       }
     }
 
     // If no group exist or group is new, start a new UL
-    if ( !empty($this->group_name) && !in_array($this->group_name, $arrCompletedGroups)) {
-      echo '<ul class="list-group components">';
+    if (!empty($this->group_name) && !in_array($this->group_name, $arrCompletedGroups)) {
+      echo '<ul class="list-group components mt-3">';
       //echo '<ul class="platforms list-group mb-2">';
       // Render the group status if it exists
-      echo '<li class="list-group-item list-group-item-success group-name"><span><i class="glyphicon glyphicon-plus"></i></span>&nbsp;' . $this->group_name .'<div class="status '. $classes[$this->status] .'">'. _($statuses[$this->status]).'</div></li>';
+      echo '<li class="list-group-item list-group-item-' . $classes[$this->status] . ' group-name"><span><i class="fas fa-folder-open"></i></span>&nbsp;' . $this->group_name . '<div class="status text-' . $classes[$this->status] . ' float-end">' . _($statuses[$this->status]) . '</div></li>';
       //echo '<li class="cist-group-item d-flex flex-row justify-content-between platform list-group-item-action py-0 expanded" role="button">' . $this->group_name .'<div class="status '. $classes[$this->status] .'"'. _($statuses[$this->status]).'</div></li>';
       $arrCompletedGroups[] = $this->group_name;
       $boolOpened = true;
     }
 
-    if ( empty($this->group_name)) {
+    if (empty($this->group_name)) {
       echo '<ul class="list-group components">';
 
-//      echo '<ul class="platforms list-group mb-2">';
+      //      echo '<ul class="platforms list-group mb-2">';
       $boolFinish = true;
     }
 
     // Render the service status
-    echo '<li class="list-group-item sub-component"><strong>' . $this->name .'</strong>';
+    echo '<div>';
+    echo '<li class="list-group-item sub-component"><strong>' . $this->name . '</strong>';
     //echo '<li class="list-group-item d-flex flex-columns justify-content-between><span>+</span><h3 class="py-2 my-0 flex-fill expanded">' . $this->name . '</h3>';
-    if(!empty($this->description)) {
-      echo '<a class="desc-tool-tip" data-toggle="tooltip" data-placement="top" title="'.$this->description.'"> <span><i class="glyphicon glyphicon-question-sign"></i></span></a>';
+    if (!empty($this->description)) {
+      echo '<a class="desc-tool-tip" data-toggle="tooltip" data-placement="top" title="' . $this->description . '"> <span><i class="fas fa-question"></i></span></a>';
     }
-    if ($this->status!=-1){?><div class="status pull-right <?php echo $classes[$this->status];?>"><?php echo _($statuses[$this->status]);?></div>
-    <?php
+    if ($this->status != -1) { ?><div class="float-end text-<?php echo $classes[$this->status]; ?>"><?php echo _($statuses[$this->status]); ?></div>
+<?php
     }
     echo '</li>';
-    if ( isset($boolFinish) && $boolFinish) {
+    if (isset($boolFinish) && $boolFinish) {
       echo '</ul>';
     }
+    echo '</div>';
   }
 
-  public function jsonSerialize() {
+  public function jsonSerialize()
+  {
     global $statuses;
     return [
       "id" => $this->id,
@@ -268,5 +262,4 @@ class Service implements JsonSerializable
       "status_string" => $statuses[$this->status]
     ];
   }
-
 }

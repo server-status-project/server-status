@@ -1,0 +1,319 @@
+$bg_light: #fff
+$text_light: #111
+$bg_dark: #111
+$text_dark: #fff
+$border_dark: rgba(255,255,255,.125)
+  
+body
+  background-color: $bg_light
+  color: $text_light
+  margin: 0
+  margin-top: 80px
+  height: 100%
+  line-height: 24px
+
+  .h1, .h2, .h3, h1, h2, h3
+    margin-top: 18px
+
+img
+  height: auto
+  max-width: 100%
+
+a
+  padding: 0
+  margin: 0
+  text-decoration: none
+
+  &:hover, &:focus
+    text-decoration: none
+    color: #f5f4f4
+
+.centered
+  text-align: center
+
+#switch
+  height: auto
+  line-height: 34px
+  font-size: 25px
+  margin-bottom: 5px
+
+  .switch
+    position: relative
+    display: inline-block
+    width: 60px
+    height: 34px
+
+    input
+      opacity: 0
+      width: 0
+      height: 0
+    
+    .slider
+      position: absolute
+      cursor: pointer
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background-color: #ccc
+      -webkit-transition: 0.4s
+      transition: 0.4s
+
+      &:before
+        position: absolute
+        content: ""
+        height: 26px
+        width: 26px
+        left: 4px
+        bottom: 4px
+        background-color: white
+        -webkit-transition: 0.4s
+        transition: 0.4s
+      
+      &.round
+        border-radius: 34px
+
+        &:before
+          border-radius: 50%
+
+  input
+    &:checked + .slider
+      background-color: #2196f3
+
+    &:focus + .slider
+      box-shadow: 0 0 1px #2196f3
+
+    &:checked + .slider:before
+      transform: translateX(26px)
+
+header
+    background-color: gray
+    border-radius: 0px 0px 30px 30px
+
+main.container
+  max-width: 1024px
+  min-height: calc(100vh - 157px)
+  padding-right: 15px
+  padding-left: 15px
+  margin-left: auto
+  margin-right: auto
+
+  &#install
+
+    .settings
+      padding-bottom: 25px
+
+    .settings,
+    form .card:not(:first-child)
+      margin-top: 30px
+    
+  &#status,
+  &#dashboard
+
+    #status-big
+      margin-bottom: 20px
+      padding: 15px
+      border-radius: 5px
+      font-size: 1.3em
+
+    .timeline
+      position: relative
+      padding: 0 0px 10px
+      margin-top: 4px
+
+      h3
+        margin-top: 40px
+        padding-left: 70px
+
+      .line
+        position: absolute
+        width: 2px
+        display: block
+        background: #c2c2c2
+        top: 0px
+        bottom: 0px
+        margin-left: 31px
+
+        &::before
+          top: -4px
+          left: -4px
+          content: ""
+          position: absolute
+          width: 10px
+          height: 10px
+          border-radius: 50%
+          background: #c2c2c2
+
+      .servicelist
+        position: relative
+        margin: 10px 0px 21px 70px
+        clear: both
+
+      .card
+        margin: 10px 0px 21px 70px
+
+        &::before
+          position: absolute
+          top: 8px
+          left: -24px
+          content: ""
+          border: inherit
+          border-width: 12px
+          border-top-color: transparent
+          border-bottom-color: transparent
+          border-left-color: transparent
+
+        .card-colore.icon
+          position: absolute
+          left: -59px
+          width: 40px
+          height: 40px
+          border-radius: 50%
+          text-align: center
+
+          i
+            font-size: 20px
+            line-height: 40px
+
+        .card-footer
+
+          p
+            margin: 0
+
+          .card-title
+            font-size: .9em
+
+          .card-badge
+            font-size: .75em
+
+  &#status
+    font-size: 1.05em
+
+  &#notfound
+
+  &#privacy
+
+  &#subscripe
+
+  &#subsmail
+
+  &#dashboard
+
+    #status
+      width: 230px
+      display: block
+      text-align: right
+    
+    .card-header.bg-primary input#title
+        width: 70%
+
+    .card-header:not(.border-primary)
+
+      input#title
+        width: 100%
+
+      #time,
+      #end_time_wrapper
+        display: none
+    
+    article.card
+
+      input
+        background: transparent
+        border: none
+        border-bottom: 1px white outset
+
+      textarea
+        width: 100%
+        background: transparent
+        border: none
+        resize: vertical
+        min-height: 100px
+
+      .delete
+        margin-left: 5px
+        font-size: 1.2em
+        color: white
+        line-height: 25px
+
+        &:hover, &:focus
+          color: #eee
+
+    #type
+      margin-left: 70px
+
+    #status-container.error input
+      box-shadow: 0px 0 2px 1px rgba(255, 0, 0, 1)
+
+  &#login
+    
+    .wrapper
+      padding-top: 20px
+
+  &#lostpw
+
+  &#newuser
+
+  &#servicegroup
+
+  &#service
+
+  &#settings
+
+    .input-group-text
+      width: 230px
+
+  #user
+
+
+footer#footerwrap
+  border-radius: 30px 30px 0px 0px
+  min-height: 60px
+  padding-top: 15px
+  padding-bottom: 10px
+  background: gray
+
+  .dropdown-menu
+    background: gray
+
+    a
+      color: white
+      width: 100%
+      padding: 2px 5px
+      display: block
+
+      &:hover
+        background-color: #2f8ad8
+
+  .input-group.dropup.mb-3
+    display: block
+
+    img
+      max-height: 20px
+      max-width: 25px
+      margin-right: 5px
+      vertical-align: middle
+
+body[data-theme="dark"]
+  background-color: $bg_dark
+
+  main
+    color: $text_dark
+  
+  .fa-moon::before
+    content: "\f185"
+  
+  .list-group-item
+    border-color: $border_dark
+    
+    &.sub-component
+      background-color: $bg_dark
+      color: $text_dark
+
+  .card
+    background-color: $bg_dark
+    color: $text_dark
+    border-color: $border_dark
+
+  .table
+    color: $text_dark

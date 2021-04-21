@@ -6,8 +6,8 @@ require_once(__DIR__ . "/service-group.php");
 require_once(__DIR__ . "/user.php");
 require_once(__DIR__ . "/token.php");
 /**
-* Facade class
-*/
+ * Facade class
+ */
 class Constellation
 {
 
@@ -18,48 +18,41 @@ class Constellation
    * @param int $limit - limits the number of incidents rendered
    * @param Boolean $admin - specifies whether to render admin controls
    */
-  public function render_incidents($future=false, $offset=0, $limit = 5, $admin = 0){
-    if ($offset<0)
-    {
+  public function render_incidents($future = false, $offset = 0, $limit = 5, $admin = 0)
+  {
+    if ($offset < 0) {
       $offset = 0;
     }
 
-    $limit = (isset($_GET['limit'])?$_GET['limit']:5);
-    $offset = (isset($_GET['offset'])?$_GET['offset']:0);
-    $timestamp = (isset($_GET['timestamp']))?$_GET['timestamp']:time();
+    $limit = (isset($_GET['limit']) ? $_GET['limit'] : 5);
+    $offset = (isset($_GET['offset']) ? $_GET['offset'] : 0);
+    $timestamp = (isset($_GET['timestamp'])) ? $_GET['timestamp'] : time();
 
     $incidents = $this->get_incidents($future, $offset, $limit, $timestamp);
 
     $ajax = isset($_GET['ajax']);
 
-    if ($future && count($incidents["incidents"]) && !$ajax)
-    {
-      echo "<h3>"._("Planned maintenance")."</h3>";
-    }
-    else if (count($incidents["incidents"]) &&!$ajax)
-    {
-      if ($offset)
-      {
-        echo '<noscript><div class="centered"><a href="'.WEB_URL.'/?offset='.($offset-$limit).'&timestamp='.$timestamp.'" class="btn btn-default">'._("Back").'</a></div></noscript>';
+    if ($future && count($incidents["incidents"]) && !$ajax) {
+      echo "<h3>" . _("Planned maintenance") . "</h3>";
+    } else if (count($incidents["incidents"]) && !$ajax) {
+      if ($offset) {
+        echo '<noscript><div class="centered"><a href="' . WEB_URL . '/?offset=' . ($offset - $limit) . '&timestamp=' . $timestamp . '" class="btn btn-default">' . _("Back") . '</a></div></noscript>';
       }
-      echo "<h3>"._("Past incidents")."</h3>";
-    }
-    else if (!$future &&!$ajax)
-    {
-      echo "<h3>"._("No incidents")."</h3>";
+      echo "<h3>" . _("Past incidents") . "</h3>";
+    } else if (!$future && !$ajax) {
+      echo "<h3>" . _("No incidents") . "</h3>";
     }
     $show = !$future && $incidents["more"];
 
     $offset += $limit;
 
-    if (count($incidents["incidents"])){
+    if (count($incidents["incidents"])) {
       foreach ($incidents['incidents'] as $incident) {
         $incident->render($admin);
       }
 
-      if ($show)
-      {
-        echo '<div class="centered"><a href="'.WEB_URL.'/?offset='.($offset).'&timestamp='.$timestamp.'" id="loadmore" class="btn btn-default">'._("Load more").'</a></div>';
+      if ($show) {
+        echo '<div class="centered"><a href="' . WEB_URL . '/?offset=' . ($offset) . '&timestamp=' . $timestamp . '" id="loadmore" class="btn btn-default">' . _("Load more") . '</a></div>';
       }
     }
   }
@@ -69,54 +62,42 @@ class Constellation
    * @param boolean $admin
    * @return array of services
    */
-  public function render_status($admin = false, $heading = true){
+  public function render_status($admin = false, $heading = true)
+  {
     global $mysqli;
 
     //$query = $mysqli->query("SELECT id, name, description FROM services");
     $query = $mysqli->query("SELECT services.id, services.name, services.description, services_groups.name as group_name FROM services LEFT JOIN services_groups ON services.group_id=services_groups.id ORDER BY services_groups.name ");
     $array = array();
-    if ($query->num_rows){
+    if ($query->num_rows) {
       $timestamp = time();
 
-      while($result = $query->fetch_assoc())
-      {
+      while ($result = $query->fetch_assoc()) {
         $id = $result['id'];
         $sql = $mysqli->prepare("SELECT type FROM services_status INNER JOIN status ON services_status.status_id = status.id WHERE service_id = ? AND `time` <= ? AND (`end_time` >= ? OR `end_time`=0) ORDER BY `time` DESC LIMIT 1");
 
         $sql->bind_param("iii", $id, $timestamp, $timestamp);
         $sql->execute();
         $tmp = $sql->get_result();
-        if ($tmp->num_rows)
-        {
+        if ($tmp->num_rows) {
           $array[] = new Service($result['id'], $result['name'], $result['description'], $result['group_name'], $tmp->fetch_assoc()['type']);
-        }
-        else{
+        } else {
           $array[] = new Service($result['id'], $result['name'], $result['description'], $result['group_name']);
         }
       }
-      if ($heading)
-      {
+      if ($heading) {
         echo Service::current_status($array);
       }
-    }
-    else{
+    } else {
       $array[] = new Service(0, _("No services"), -1);
     }
-    if (!$admin)
-    {
-      ?>
-      <script>
-      $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-      });
-      </script>
-      <?php
+    if (!$admin) {
       //echo '<div id="status-container" class="clearfix">';
       //$arrCompletedGroups = array();
-      foreach($array as $service){
+      foreach ($array as $service) {
         //print_r($service);
         //if ( !empty($service->group_name) && !in_array($service->group_name, $arrCompletedGroups)) {
-//print $service->name;
+        //print $service->name;
         //  $arrCompletedGroups[] = $service['group_name'];
         //  $service->render(true);
         //} else {
@@ -125,35 +106,33 @@ class Constellation
       }
       echo '</ul>';
       //echo '</div>';
-    }
-    else{
+    } else {
       return $array;
     }
   }
 
 
-  function get_incidents($future = false, $offset = 0, $limit = 5, $timestamp = 0){
+  function get_incidents($future = false, $offset = 0, $limit = 5, $timestamp = 0)
+  {
     global $mysqli;
-    if ($timestamp == 0)
-    {
+    if ($timestamp == 0) {
       $timestamp = time();
     }
 
-    $operator = ($future)?">=":"<=";
+    $operator = ($future) ? ">=" : "<=";
     $limit++;
     $sql = $mysqli->prepare("SELECT users.id, status.type, status.title, status.text, status.time, status.end_time, users.username, status.id as status_id FROM status INNER JOIN users ON user_id=users.id WHERE `time` $operator ? AND `end_time` $operator ?  OR (`time`<=? AND `end_time` $operator ? ) ORDER BY `time` DESC LIMIT ? OFFSET ?");
-    $sql->bind_param("iiiiii",$timestamp, $timestamp, $timestamp, $timestamp, $limit, $offset);
+    $sql->bind_param("iiiiii", $timestamp, $timestamp, $timestamp, $timestamp, $limit, $offset);
     $sql->execute();
     $query = $sql->get_result();
     $array = [];
     $limit--;
     $more = false;
-    if ($query->num_rows>$limit){
+    if ($query->num_rows > $limit) {
       $more = true;
     }
-    if ($query->num_rows){
-      while(($result = $query->fetch_assoc()) && $limit-- > 0)
-      {
+    if ($query->num_rows) {
+      while (($result = $query->fetch_assoc()) && $limit-- > 0) {
         // Add service id and service names to an array in the Incident class
         $stmt_service = $mysqli->prepare("SELECT services.id,services.name FROM services
                                                  INNER JOIN services_status ON services.id = services_status.service_id
@@ -161,7 +140,7 @@ class Constellation
         $stmt_service->bind_param("i", $result['status_id']);
         $stmt_service->execute();
         $query_service = $stmt_service->get_result();
-        while($result_service = $query_service->fetch_assoc()) {
+        while ($result_service = $query_service->fetch_assoc()) {
           $result['service_id'][] = $result_service['id'];
           $result['service_name'][] = $result_service['name'];
         }
@@ -198,15 +177,14 @@ class Constellation
   function render_alert($alert_type, $header, $message, $show_link = false, $url = null, $link_text = null)
   {
     echo '<div><h1></h1>
-         <div class="alert '.$alert_type.'" role="alert">
-         <h4 class="alert-heading">'.$header.'</h4>
+         <div class="alert ' . $alert_type . '" role="alert">
+         <h4 class="alert-heading">' . $header . '</h4>
          <hr>
-         <p class="mb-0">'.$message.'</p>
+         <p class="mb-0">' . $message . '</p>
          </div></div>';
-    if ( $show_link ) {
-      echo '<div class="clearfix"><a href="'.$url.'" class="btn btn-success" role="button">'.$link_text.'</a></div>';
+    if ($show_link) {
+      echo '<div class="clearfix"><a href="' . $url . '" class="btn btn-success" role="button">' . $link_text . '</a></div>';
     }
-
   }
 }
 

@@ -20,4 +20,3 @@ fwrite($f, fread($f2, filesize("IISWebConfig")));
 fclose($f);
 fclose($f2);
 }
-?>

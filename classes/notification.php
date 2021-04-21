@@ -25,7 +25,7 @@ class Notification
     public function populate_impacted_services($status_id)
     {
         global $mysqli;
-        if (! empty($status_id)) {
+        if (!empty($status_id)) {
             // Fetch services names for use in email
             $stmt = $mysqli->prepare("SELECT services.id, services.name FROM services INNER JOIN services_status on services.id = services_status.service_id WHERE services_status.status_id = ?");
             $stmt->bind_param("i", $status_id);
@@ -66,7 +66,7 @@ class Notification
         $queue->user_id = $_SESSION['user'];
 
         $arr_data = array();
-        if ( SUBSCRIBE_EMAIL ) {
+        if (SUBSCRIBE_EMAIL) {
             $arr_data = $this->prepare_email(); // Make up the base message and subject for email
             $queue->type_id        = $queue->all_type_id['notify_email'];
             $queue->template_data1 = $arr_data['subject'];
@@ -75,7 +75,7 @@ class Notification
             //syslog(1, "queue email: ". $task_id_email);
             $arr_email = array();
         }
-        if ( SUBSCRIBE_TELEGRAM ) {
+        if (SUBSCRIBE_TELEGRAM) {
             $arr_data = $this->prepare_telegram();
             $queue->type_id        = $queue->all_type_id['notify_telegram'];
             $queue->template_data1 = null;
@@ -103,16 +103,14 @@ class Notification
                 if ($typeID == 2 && SUBSCRIBE_EMAIL) {
                     $arr_email[] = $subscriber['subscriberIDFK'];
                 }
-
             }
-
         }
 
-        if ( SUBSCRIBE_TELEGRAM) {
+        if (SUBSCRIBE_TELEGRAM) {
             $queue->task_id = $task_id_telegram;
             $queue->add_notification($arr_telegram);    // Add array of Telegram users to the notification queue list
         }
-        if ( SUBSCRIBE_EMAIL ) {
+        if (SUBSCRIBE_EMAIL) {
             $queue->task_id = $task_id_email;
             $queue->add_notification($arr_email);       // Add array of Email users to the notification queue list
         }
@@ -132,13 +130,12 @@ class Notification
         $msg = sprintf($msg, $firstname);
 
         $tg_message = array('text' => $msg, 'chat_id' => $userID, 'parse_mode' => 'HTML');
-        $json = @file_get_contents("https://api.telegram.org/bot" . TG_BOT_API_TOKEN . "/sendMessage?" . http_build_query($tg_message) );
+        $json = @file_get_contents("https://api.telegram.org/bot" . TG_BOT_API_TOKEN . "/sendMessage?" . http_build_query($tg_message));
 
         $response = json_decode($json, true);
 
-        if (!is_array($response) || ! array_key_exists("ok", $response) || $response['ok'] != 1 ) {
+        if (!is_array($response) || !array_key_exists("ok", $response) || $response['ok'] != 1) {
             return false;
-
         }
         return true;
     }
@@ -154,13 +151,14 @@ class Notification
     {
         // TODO Error handling
         $mailer = new Mailer();
-        if ( ! $mailer->send_mail($subscriber, $subject, $msg, true) ) {
-          return false;
+        if (!$mailer->send_mail($subscriber, $subject, $msg, true)) {
+            return false;
         }
         return true;
     }
 
-    public function prepare_email(){
+    public function prepare_email()
+    {
 
         $Parsedown = new Parsedown();
         $str_mail = file_get_contents("../libs/templates/email_status_update.html");
@@ -189,7 +187,8 @@ class Notification
         return $val;
     }
 
-    public function prepare_telegram(){
+    public function prepare_telegram()
+    {
         $msg = _("Hi #s!\nThere is a status update for service(s): %s\nThe new status is: %s\nTitle: %s\n\n%s\n\n<a href='%s'>View online</a>");
         $val['body'] = sprintf($msg, $this->servicenames, $this->status, $this->title, $this->text, WEB_URL);
         return $val;

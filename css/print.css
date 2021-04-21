@@ -1,140 +1,137 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,700);
 
-body { 
-	background: #ffffff; 
-	margin: 0; 
-	height: 100%; 
-	line-height: 24px;
-	font-family: 'Open Sans', sans-serif;
+body {
+  background: #ffffff;
+  margin: 0;
+  height: 100%;
+  line-height: 24px;
+  font-family: "Open Sans", sans-serif;
 }
 
-#status-container
-{
-	border-radius: 0;
-	border-top: 1px solid #e0e0e0;
-	border-bottom: 1px solid #e0e0e0;
+#status-container {
+  border-radius: 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-#status-container .item:last-child
-{
-	border: none;
+#status-container .item:last-child {
+  border: none;
 }
 
-#status-container .item{
-	border-bottom: 1px solid #e0e0e0;
+#status-container .item {
+  border-bottom: 1px solid #e0e0e0;
 }
 
-#status-big
-{
-	float: none;
-	width: 100%;
-	text-align: center;
-	font-family: 'Fira Sans', sans-serif;
-	font-size: 1.5em
+#status-big {
+  float: none;
+  width: 100%;
+  text-align: center;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.5em;
 }
 
-#wrapper{
-	padding-left: 20%;
-	padding-right: 20%;
+#wrapper {
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
-.service{
-	float: left;
-	box-sizing: border-box;
-	width:60%;
-	min-width: 200px;
-	padding: 15px 35px;
-	font-weight: bold;
-	font-size: 1em;
-	font-family: 'Fira Sans', sans-serif;
+.service {
+  float: left;
+  box-sizing: border-box;
+  width: 60%;
+  min-width: 200px;
+  padding: 15px 35px;
+  font-weight: bold;
+  font-size: 1em;
+  font-family: "Fira Sans", sans-serif;
 }
 
-.status{
-	float: left;
-	box-sizing: border-box;
-	width:40%;
-	min-width: 150px;
-	padding: 15px 35px;
-	text-align: right;
-	font-size: 0.8em;
-	font-family: 'Fira Sans', sans-serif;
+.status {
+  float: left;
+  box-sizing: border-box;
+  width: 40%;
+  min-width: 150px;
+  padding: 15px 35px;
+  text-align: right;
+  font-size: 0.8em;
+  font-family: "Fira Sans", sans-serif;
 }
 
-
-#status-container .status.success{
-	color:#2fcc66!important;
-	font-weight: bolder;
+#status-container .status.success {
+  color: #2fcc66 !important;
+  font-weight: bolder;
 }
 
-#status-container .status.warning{
-	color:#edaa16!important;
-	font-weight: bolder;
+#status-container .status.warning {
+  color: #edaa16 !important;
+  font-weight: bolder;
 }
 
-#status-container .status.danger{
-	color:#e74c3c!important;
-	font-weight: bolder;
+#status-container .status.danger {
+  color: #e74c3c !important;
+  font-weight: bolder;
 }
 
-#status-container .status.primary{
-	color:#3A72BD!important;
-	font-weight: bolder;
+#status-container .status.primary {
+  color: #3a72bd !important;
+  font-weight: bolder;
 }
 
-.panel-success{
-	border-color:#2fcc66;
+.panel-success {
+  border-color: #2fcc66;
 }
-#footerwrap{
-	display: none
+#footerwrap {
+  display: none;
 }
-.btn 
-{
-	display: none
-}
-
-h3{
-	text-align: center;
+.btn {
+  display: none;
 }
 
-.panel-heading.icon{
-	width: 50px;
-	float: left;
-	border: none;
+h3 {
+  text-align: center;
 }
 
-h2.panel-title{
-	float: left;
+.panel-heading.icon {
+  width: 50px;
+  float: left;
+  border: none;
 }
 
-.panel,.panel-heading,.panel-footer{
-	border-width: 3px
+h2.panel-title {
+  float: left;
+}
+
+.panel,
+.panel-heading,
+.panel-footer {
+  border-width: 3px;
 }
 
 body .panel-danger,
 .panel-danger > .panel-body,
 .panel-danger > .panel-heading,
-.panel-danger > .panel-footer{
-	border-color: #a94442
+.panel-danger > .panel-footer {
+  border-color: #a94442;
 }
 
 body .panel-success,
 .panel-success > .panel-body,
 .panel-success > .panel-heading,
-.panel-success > .panel-footer{
-	border-color: #2fcc66
+.panel-success > .panel-footer {
+  border-color: #2fcc66;
 }
 
 body .panel-warning,
 .panel-warning > .panel-body,
 .panel-warning > .panel-heading,
-.panel-warning > .panel-footer{
-	border-color: #edaa16
+.panel-warning > .panel-footer {
+  border-color: #edaa16;
 }
 
 body .panel-primary,
 .panel-primary > .panel-body,
 .panel-primary > .panel-heading,
-.panel-primary > .panel-footer{
-	border-color: #337ab7
+.panel-primary > .panel-footer {
+  border-color: #337ab7;
 }

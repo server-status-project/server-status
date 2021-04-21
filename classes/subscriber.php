@@ -4,7 +4,7 @@
  * Subscriber class
  *
  */
-Class Subscriber
+class Subscriber
 {
     public $id = null;
     public $firstname = null;
@@ -15,7 +15,8 @@ Class Subscriber
     public $typeID = null; // Holds subscription type ID
 
 
-    function __construct() {
+    function __construct()
+    {
         $this->firstname = null;
         $this->lastname = null;
         $this->userID = "";
@@ -44,7 +45,6 @@ Class Subscriber
             return $row['token'];
         }
         return false;
-
     }
     public function get_subscriber_by_token($token)
     {
@@ -66,7 +66,7 @@ Class Subscriber
     {
         global $mysqli;
         $stmt = $mysqli->prepare("SELECT subscriberID FROM subscribers WHERE userID LIKE ? AND typeID = ? LIMIT 1");
-        $stmt->bind_param("si", $this->userID, $this->typeID );
+        $stmt->bind_param("si", $this->userID, $this->typeID);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -77,7 +77,7 @@ Class Subscriber
             return $row['subscriberID'];
         } else {
             // User is not registered in DB, so add if $create = true
-            if ( $create ) {
+            if ($create) {
                 $subscriber_id = $this->add($this->typeID, $this->userID, $this->active, $this->firstname, $this->lastname);
                 return $subscriber_id;
             }
@@ -111,7 +111,7 @@ Class Subscriber
         $expireTime = strtotime("+2 hours");
         $updateTime = strtotime("now");
         $token = $this->generate_token();
-      
+
         $stmt = $mysqli->prepare("INSERT INTO subscribers (typeID, userID, firstname, lastname, token, active, expires, create_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("issssiii", $typeID, $userID, $firstname, $lastname, $token, $active, $expireTime, $updateTime);
         $stmt->execute();
@@ -135,7 +135,6 @@ Class Subscriber
         $stmt->bind_param("ii", $updateTime, $subscriberID);
         $stmt->execute();
         return true;
-
     }
 
     public function activate($subscriberID)
@@ -164,7 +163,6 @@ Class Subscriber
         $stmt->execute();
         //$query = $stmt->get_result();
         return true;
-
     }
 
     public function check_userid_exist()
@@ -177,7 +175,7 @@ Class Subscriber
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if($result->num_rows > 0) {
+        if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $this->id = $row['subscriberID'];
             $this->populate();
@@ -192,7 +190,7 @@ Class Subscriber
 
 
         $stmt = $mysqli->prepare("SELECT subscriberID, token, userID, active, expires FROM subscribers WHERE token LIKE ? LIMIT 1");
-        $stmt->bind_param("s", $token );
+        $stmt->bind_param("s", $token);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -205,14 +203,14 @@ Class Subscriber
 
         // If account is not already active, check if we are within timeframe of exipre +2h
         // and active if so, otherwise,delete account and return falsev
-        if ( $row['active'] <> 1 ) {
+        if ($row['active'] <> 1) {
 
             // Calculate time range for when subscription need to be validated
             $time_end   = $row['expires'];
-            $time_start = $time_end - (3600*2); // TODO - make this interval configurable via a config option
+            $time_start = $time_end - (3600 * 2); // TODO - make this interval configurable via a config option
             $time_now   = time();
 
-            if ( ($time_now > $time_start) && ($time_now < $time_end) ) {
+            if (($time_now > $time_start) && ($time_now < $time_end)) {
                 // Timefram is within range, active user..
                 $stmt2 = $mysqli->prepare("UPDATE subscribers SET active=1, expires=null WHERE subscriberID = ?");
                 $stmt2->bind_param("i", $row['subscriberID']);
@@ -223,7 +221,6 @@ Class Subscriber
                 $this->userID = $row['userID'];
                 $this->token  = $row['token'];
                 return true;
-
             } else {
                 // Timeframe outside of given scope -> delete account
                 $stmt2 = $mysqli->prepare("DELETE FROM subscribers WHERE subscriberID = ?");
@@ -251,7 +248,7 @@ Class Subscriber
     {
         global $mysqli;
 
-        if ( function_exists('openssl_random_pseudo_bytes') ) {
+        if (function_exists('openssl_random_pseudo_bytes')) {
             $token = openssl_random_pseudo_bytes(32);   //Generate a random string.
             $token = bin2hex($token);         //Convert the binary data into hexadecimal representation.
         } else {
@@ -265,7 +262,7 @@ Class Subscriber
         $stmt->bind_param("s", $token);
         $stmt->execute();
         $result = $stmt->get_result();
-        if ($result->num_rows > 0 ) {
+        if ($result->num_rows > 0) {
             // token already exists, call self again
             $token = $this->generate_token();
         }
@@ -285,18 +282,18 @@ Class Subscriber
         $key = '';
 
         // build range and shuffle range using ASCII table
-        for ($i=0; $i<=255; $i++) {
+        for ($i = 0; $i <= 255; $i++) {
             $range[] = chr($i);
         }
 
         // shuffle our range 3 times
-        for ($i=0; $i<=3; $i++) {
+        for ($i = 0; $i <= 3; $i++) {
             shuffle($range);
         }
 
         // loop for random number generation
         for ($i = 0; $i < mt_rand($min_length, $max_length); $i++) {
-            $key .= $range[mt_rand(0, count($range)-1)];
+            $key .= $range[mt_rand(0, count($range) - 1)];
         }
 
         $return = bin2hex($key);
@@ -325,5 +322,4 @@ Class Subscriber
         unset($_SESSION['subscriber_id']);
         unset($_SESSION['subscriber_token']);
     }
-
 }
