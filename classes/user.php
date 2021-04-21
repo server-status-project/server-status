@@ -294,20 +294,16 @@ class User
 ?>
     <div class="row user">
       <div class="col-md-2 col-md-offset-2"><img src="https://www.gravatar.com/avatar/<?php echo md5(strtolower(trim($this->email))); ?>?s=160" alt="<?php echo _("Profile picture"); ?>"></div>
-      <div class="col-md-6">
+      <div class="col-md-6 mb-3">
         <?php if ($this->id == $_SESSION['user'] || $user->get_rank() < 1) {
         ?>
           <form action="<?php echo WEB_URL; ?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
             <div class="input-group">
               <div class="col-md-12">
-                <div class="row">
-                  <label class="form-name" for="name"><?php echo _("Name"); ?></label>
-                  <label class="form-name" for="surname"><?php echo _("Surname"); ?></label>
-                </div>
-                <div class="row">
-                  <input type="text" name="name" placeholder="<?php echo _("Name"); ?>" title="<?php echo _("Name"); ?>" class="form-control form-name" value=<?php echo htmlspecialchars($this->name, ENT_QUOTES); ?>>
-                  <input type="text" name="surname" placeholder="<?php echo _("Surname"); ?>" title="<?php echo _("Surname"); ?>" class="form-control form-name" value=<?php echo htmlspecialchars($this->surname, ENT_QUOTES); ?>>
-                </div>
+                <label class="form-name" for="name"><?php echo _("Name"); ?></label>
+                <input type="text" name="name" placeholder="<?php echo _("Name"); ?>" title="<?php echo _("Name"); ?>" class="form-control form-name" value=<?php echo htmlspecialchars($this->name, ENT_QUOTES); ?>>
+                <label class="form-name" for="surname"><?php echo _("Surname"); ?></label>
+                <input type="text" name="surname" placeholder="<?php echo _("Surname"); ?>" title="<?php echo _("Surname"); ?>" class="form-control form-name" value=<?php echo htmlspecialchars($this->surname, ENT_QUOTES); ?>>
               </div>
             </div>
             <button type="submit" class="btn btn-primary float-end"><?php echo _("Change name"); ?></button>
@@ -321,7 +317,7 @@ class User
       </div>
     </div>
     <form action="<?php echo WEB_URL; ?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
-      <div class="row user">
+      <div class="row user mb-3">
         <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Username"); ?></strong></div>
         <div class="col-md-6">
           <?php
@@ -344,26 +340,30 @@ class User
     </form>
 
     <form action="<?php echo WEB_URL; ?>/admin/?do=user&id=<?php echo $this->id; ?>" method="POST">
-      <div class="row user">
+      <div class="row user mb-3">
         <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Role"); ?></strong></div>
-        <div class="col-md-6"><?php if ($user->get_rank() == 0 && $this->id != $_SESSION['user']) { ?>
+        <div class="col-md-6">
+          <?php if ($user->get_rank() == 0 && $this->id != $_SESSION['user']) { ?>
             <div class="input-group"><select class="form-control" name="permission">
                 <?php foreach ($permissions as $key => $value) {
-                                  echo "<option value='$key' " . ($key == $this->rank ? "selected" : "") . ">$value</option>";
-                                } ?>
+                  echo "<option value='$key' " . ($key == $this->rank ? "selected" : "") . ">$value</option>";
+                } ?>
               </select><span class="input-group-btn">
                 <button type="submit" class="btn btn-primary float-end"><?php echo _("Change role"); ?></button>
               </span>
-            </div><?php } else {
-                                echo $permissions[$this->rank];
-                              } ?>
+            </div>
+          <?php } else { ?>
+            <select class="form-control" name="permission" disabled>
+              <option> <?php echo $permissions[$this->rank]; ?></option>
+            </select>
+          <?php } ?>
         </div>
       </div>
     </form>
 
     <?php if ($this->id == $_SESSION['user'] || $user->get_rank() < 1) { ?>
       <form action="<?php echo WEB_URL; ?>/admin/?do=user&amp;id=<?php echo $this->id; ?>" method="POST">
-        <div class="row user">
+        <div class="row user mb-3">
           <div class="col-md-2 col-md-offset-2"><strong>Email</strong></div>
           <div class="col-md-6">
             <div class="input-group">
@@ -377,7 +377,7 @@ class User
       </form>
     <?php } else {
     ?>
-      <div class="row user">
+      <div class="row user mb-3">
         <div class="col-md-2 col-md-offset-2"><strong><?php echo _("Email"); ?></strong></div>
         <div class="col-md-6">
           <a href="mailto:<?php echo $this->email; ?>"><?php echo $this->email; ?></a>
