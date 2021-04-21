@@ -33,15 +33,16 @@ a
 
 #switch
   height: auto
-  line-height: 34px
   font-size: 25px
   margin-bottom: 5px
 
+  $switch_width: 50px
+  $switch_height: 25px
   .switch
     position: relative
     display: inline-block
-    width: 60px
-    height: 34px
+    width: $switch_width
+    height: $switch_height
 
     input
       opacity: 0
@@ -62,8 +63,8 @@ a
       &:before
         position: absolute
         content: ""
-        height: 26px
-        width: 26px
+        height: calc( #{$switch_height} - 8px )
+        width: calc( #{$switch_height} - 8px )
         left: 4px
         bottom: 4px
         background-color: white
