@@ -236,8 +236,7 @@ class Service implements JsonSerializable
 
     // Render the service status
     echo '<div>';
-    echo '<li class="list-group-item sub-component"><strong>' . $this->name . '</strong>';
-    //echo '<li class="list-group-item d-flex flex-columns justify-content-between><span>+</span><h3 class="py-2 my-0 flex-fill expanded">' . $this->name . '</h3>';
+    echo '<li class="list-group-item sub-component"><strong title="' . $this->description . '">' . $this->name . '</strong>';
     if (!empty($this->description)) {
       echo '<a class="desc-tool-tip" data-toggle="tooltip" data-placement="top" title="' . $this->description . '"> <span><i class="fas fa-question"></i></span></a>';
     }
