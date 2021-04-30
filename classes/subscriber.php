@@ -41,7 +41,6 @@ class Subscriber
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $this->token   = $row['token'];
-            //$this->get_subscriber_by_token($this->token);
             return $row['token'];
         }
         return false;
@@ -115,7 +114,6 @@ class Subscriber
         $stmt = $mysqli->prepare("INSERT INTO subscribers (typeID, userID, firstname, lastname, token, active, expires, create_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("issssiii", $typeID, $userID, $firstname, $lastname, $token, $active, $expireTime, $updateTime);
         $stmt->execute();
-        //$query = $stmt->get_result();
 
         $this->id        = $mysqli->insert_id;
         $this->typeID    = $typeID;
@@ -156,12 +154,10 @@ class Subscriber
         $stmt = $mysqli->prepare("DELETE FROM services_subscriber WHERE subscriberIDFK = ?");
         $stmt->bind_param("i", $subscriberID);
         $stmt->execute();
-        //$query = $stmt->get_result();
 
         $stmt = $mysqli->prepare("DELETE FROM subscribers WHERE subscriberID = ?");
         $stmt->bind_param("i", $subscriberID);
         $stmt->execute();
-        //$query = $stmt->get_result();
         return true;
     }
 

@@ -47,7 +47,6 @@ if (isset($message)) {
 				$query = $mysqli->query("SELECT services.*, services_groups.name AS group_name FROM `services` LEFT JOIN services_groups ON services.group_id = services_groups.id ORDER BY services.name ASC");
 				while ($result = $query->fetch_assoc()) {
 					echo "<tr>";
-					//echo "<td>".$result['id']."</td>";
 					echo '<td><a href="' . WEB_URL . '/admin?do=edit-service&id=' . $result['id'] . '">' . $result['name'] . '</a></th>';
 					echo "<td>" . $result['description'] . "</td>";
 					echo "<td>" . $result['group_name'] . "</td>";
@@ -95,7 +94,6 @@ if (isset($message)) {
 					$query = $mysqli->query("SELECT sg.* , (SELECT COUNT(*) FROM services WHERE services.group_id = sg.id) AS counter FROM services_groups AS sg ORDER BY sg.id ASC");
 					while ($result = $query->fetch_assoc()) {
 						echo "<tr>";
-						//echo "<td>".$result['id']."</td>";
 						echo '<td><a href="' . WEB_URL . '/admin?do=edit-service-group&id=' . $result['id'] . '">' . $result['name'] . '</a></th>';
 						echo '<td> <span class="badge badge-danger ml-2">' . $result['counter'] . '</span>';
 						echo "<td>" . $result['description'] . "</td>";

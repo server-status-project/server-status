@@ -32,10 +32,8 @@ class Queue
     global $mysqli;
     $stmt = $mysqli->prepare("INSERT INTO queue_task (type_id, status, template_data1, template_data2, created_time, user_id) VALUES (?,?,?,?,?,?)");
     if (false === $stmt) {
-      //die('prepare() failed: ' . htmlspecialchars($mysqli->error));
       echo $mysqli->errno();
     }
-    #if ( false === $stmt ) { syslog(1, "Error :". $mysqli->error); }
     $now = time();
     $res = $stmt->bind_param("iissii", $this->type_id, $this->status, $this->template_data1, $this->template_data2, $now, $this->user_id);
     if (false === $res) {

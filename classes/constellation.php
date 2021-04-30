@@ -92,20 +92,10 @@ class Constellation
       $array[] = new Service(0, _("No services"), -1);
     }
     if (!$admin) {
-      //echo '<div id="status-container" class="clearfix">';
-      //$arrCompletedGroups = array();
       foreach ($array as $service) {
-        //print_r($service);
-        //if ( !empty($service->group_name) && !in_array($service->group_name, $arrCompletedGroups)) {
-        //print $service->name;
-        //  $arrCompletedGroups[] = $service['group_name'];
-        //  $service->render(true);
-        //} else {
         $service->render();
-        //}
       }
       echo '</ul>';
-      //echo '</div>';
     } else {
       return $array;
     }

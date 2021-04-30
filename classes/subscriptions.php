@@ -13,7 +13,6 @@ class Subscriptions
         $stmt = $mysqli->prepare("INSERT INTO services_subscriber (subscriberIDFK, serviceIDFK) VALUES (?, ?)");
         $stmt->bind_param("ii", $userID, $service);
         $stmt->execute();
-        //$query = $stmt->get_result();
         return true;
     }
 
@@ -24,7 +23,6 @@ class Subscriptions
         $stmt = $mysqli->prepare("DELETE FROM services_subscriber WHERE subscriberIDFK = ? AND serviceIDFK = ?");
         $stmt->bind_param("ii", $userID, $service);
         $stmt->execute();
-        //$query = $stmt->get_result();
         return true;
     }
 
