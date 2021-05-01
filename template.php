@@ -204,14 +204,14 @@ class Template
                                                                                                                                                                                                                                                                           } ?></div>
             <div class="col-md-4 text-center">
               <div class="input-group dropup mb-3">
-                <button type="button" class="btn btn-primary" disabled><?php echo '<img src="' . $WEB_URL . '/locale/' . $_SESSION['locale'] . '/flag.png" alt="' . $lang_names[$_SESSION['locale']] . '">' . $lang_names[$_SESSION['locale']]; ?></button>
+                <button type="button" class="btn btn-primary" disabled><?php echo '<img src="' . WEB_URL . '/locale/' . $_SESSION['locale'] . '/flag.png" alt="' . $lang_names[$_SESSION['locale']] . '">' . $lang_names[$_SESSION['locale']]; ?></button>
                 <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                   <span class="visually-hidden"><?php echo _("Toggle Dropdown"); ?></span>
                 </button>
                 <ul class="dropdown-menu">
                   <?php
                   foreach ($lang_names as $key => $value) {
-                    echo '<a href="?lang=' . $key . '"><img src="' . $WEB_URL . '/locale/' . $key . '/flag.png" alt="' . $value . '">' . $value . '</a>';
+                    echo '<a href="?lang=' . $key . '"><img src="' . WEB_URL . '/locale/' . $key . '/flag.png" alt="' . $value . '">' . $value . '</a>';
                   }
                   ?>
                   <li>
@@ -235,7 +235,7 @@ class Template
         <script src="<?php echo WEB_URL; ?>/vendor/flatpickr/flatpickr.min.js"></script>
         <script src="<?php echo WEB_URL; ?>/js/admin.js"></script>
       <?php } ?>
-      <?php if ($GOOGLE_RECAPTCHA) { ?><script src='https://www.google.com/recaptcha/api.js'></script><?php } ?>
+      <?php if (GOOGLE_RECAPTCHA) { ?><script src='https://www.google.com/recaptcha/api.js'></script><?php } ?>
     </body>
 
     </html>
