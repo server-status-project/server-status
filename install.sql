@@ -149,4 +149,8 @@ ALTER TABLE services
 ADD COLUMN description varchar(200) COLLATE utf8_czech_ci NOT NULL;
 ALTER TABLE services
 ADD COLUMN group_id int(11) DEFAULT NULL;
+ALTER TABLE services
+ADD COLUMN url varchar(50) DEFAULT NULL;
+INSERT INTO `users` (`id`, `email`, `username`, `name`, `surname`, `password_hash`, `password_salt`, `permission`, `active`)
+VALUES ('1', '', 'Monitor', '', '', '', '', '2', '0');
 COMMIT;
