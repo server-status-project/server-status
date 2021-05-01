@@ -12,10 +12,11 @@ if (isset($_GET['edit'])) {
 	Service::delete();
 }*/
 
-$boolEdit 				 = false;
-$service_value 		 = isset($_POST['service']) ? $_POST['service'] : '';
-$description_value = isset($_POST['description']) ? $_POST['description'] : '';
-$group_id_value    = isset($_POST['group_id']) ? $_POST['group_id'] : '';
+$boolEdit						= false;
+$service_value			= isset($_POST['service']) ? $_POST['service'] : '';
+$description_value	= isset($_POST['description']) ? $_POST['description'] : '';
+$url_value 					= isset($_POST['url']) ? $_POST['url'] : '';
+$group_id_value			= isset($_POST['group_id']) ? $_POST['group_id'] : '';
 
 if (isset($_GET['id']) && !isset($_POST['id'])) {
 	$service_id = (int) $_GET['id'];
@@ -26,9 +27,10 @@ if (isset($_GET['id']) && !isset($_POST['id'])) {
 	$query = $stmt->get_result();
 	$data = $query->fetch_assoc();
 	//print_r($data);
-	$service_value     = $data['name'];
-	$description_value = $data['description'];
-	$group_id_value    = $data['group_id'];
+	$service_value			= $data['name'];
+	$description_value	= $data['description'];
+	$url_value					= $data['url'];
+	$group_id_value			= $data['group_id'];
 }
 
 
@@ -57,6 +59,7 @@ if (!$boolEdit) {
 	<div class="form-group">
 		<div class="col-sm-6"><label for="service"><?php echo _("Service"); ?>: </label><input type="text" maxlength="50" name="service" value="<?php echo ((isset($_POST['service'])) ? htmlspecialchars($_POST['service'], ENT_QUOTES) : $service_value); ?>" id="service" placeholder="<?php echo _("service"); ?>" class="form-control" required></div>
 		<div class="col-sm-6"><label for="description"><?php echo _("Description"); ?>: </label><input type="text" maxlength="200" name="description" value="<?php echo ((isset($_POST['description'])) ? htmlspecialchars($_POST['description'], ENT_QUOTES) : $description_value); ?>" id="description" placeholder="<?php echo _("Description"); ?>" class="form-control"></div>
+		<div class="col-sm-6"><label for="adress"><?php echo _("Adress"); ?>: </label><input type="text" maxlength="50" name="description" value="<?php echo ((isset($_POST['url'])) ? htmlspecialchars($_POST['url'], ENT_QUOTES) : $url_value); ?>" id="description" placeholder="<?php echo _("Adress"); ?>" class="form-control"></div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-6">
