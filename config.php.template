@@ -30,8 +30,8 @@ define("ADDRESS", "##address##");
 define("POLICY_MAIL", "##policy_mail##"); //contact email in policy
 define("POLICY_PHONE", "##policy_phone##");
 define("WHO_WE_ARE","##who_we_are##");
-define("POLICY_URL","##policy_url##");
 define("IMPRINT_URL","##imprint_url##");
+define("POLICY_URL","##policy_url##");
 define("INSTALL_OVERRIDE", false);
 define("DEFAULT_LANGUAGE", "en_GB");
 define("CUSTOM_LOGO_URL",""); // This will use the default logo if left empty
