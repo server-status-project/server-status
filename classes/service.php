@@ -234,9 +234,6 @@ class Service implements JsonSerializable
     // Render the service status
     echo '<div>';
     echo '<li class="list-group-item sub-component"><strong title="' . $this->description . '">' . $this->name . '</strong>';
-    if (!empty($this->description)) {
-      echo '<a class="desc-tool-tip" data-toggle="tooltip" data-placement="top" title="' . $this->description . '"> <span><i class="fas fa-question"></i></span></a>';
-    }
     if ($this->status != -1) { ?><div class="float-end text-<?php echo $classes[$this->status]; ?>"><?php echo _($statuses[$this->status]); ?></div>
 <?php
     }
