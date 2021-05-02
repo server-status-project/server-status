@@ -3,6 +3,7 @@ require_once("template.php");
 define("WEB_URL", "."); //Website name
 define("NAME", _('Status page')); //Website name
 define("MINIMUM_PHP_VERSION", "5.4.0");
+define("IMPRINT_URL", "policy.php"); //Default imprint URL
 define("POLICY_URL", "policy.php"); //Default policy URL
 define("CUSTOM_LOGO_URL", "");
 define("COPYRIGHT_TEXT", "");
@@ -135,6 +136,8 @@ if (isset($_POST['server']) && empty($message)) {
 		$config = str_replace("##policy_mail##", htmlspecialchars($_POST['policy_mail'], ENT_QUOTES), $config);
 		$config = str_replace("##policy_phone##", htmlspecialchars($_POST['policy_phone'], ENT_QUOTES), $config);
 		$config = str_replace("##who_we_are##", htmlspecialchars($_POST['who_we_are'], ENT_QUOTES), $config);
+		$imprint_url_conf = (!empty($_POST['imprint_url'])) ? htmlspecialchars($_POST['imprint_url'], ENT_QUOTES) : $_POST['url'] . "/imprint.php";
+		$config = str_replace("##imprint_url##", $imprint_url_conf, $config);
 		$policy_url_conf = (!empty($_POST['policy_url'])) ? htmlspecialchars($_POST['policy_url'], ENT_QUOTES) : $_POST['url'] . "/policy.php";
 		$config = str_replace("##policy_url##", $policy_url_conf, $config);
 
@@ -333,11 +336,16 @@ if (is_writable(__DIR__)) {
 					<div class="row mt-3">
 						<span><?php echo _("If you alredy have an existing Policy published, please provide the full Url to override the local policy definition. Leave blank to use the local definition"); ?></span>
 						<div class="col form-floating">
+							<input type="imprint_url" name="imprint_url" value="<?php echo ((isset($_POST['imprint_url'])) ? htmlspecialchars($_POST['imprint_url'], ENT_QUOTES) : ''); ?>" id="imprint_url" placeholder="<?php echo _("External Imprint Url"); ?>" class="form-control">
+							<label for="url"><?php echo _("External Imprint Url"); ?>: </label>
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col form-floating">
 							<input type="policy_url" name="policy_url" value="<?php echo ((isset($_POST['policy_url'])) ? htmlspecialchars($_POST['policy_url'], ENT_QUOTES) : ''); ?>" id="policy_url" placeholder="<?php echo _("External Policy Url"); ?>" class="form-control">
 							<label for="url"><?php echo _("External Policy Url"); ?>: </label>
 						</div>
 					</div>
-					</p>
 				</div>
 			</div>
 
