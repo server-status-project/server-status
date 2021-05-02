@@ -24,10 +24,10 @@ class Template
       // Check if we are on admin menu, if so do not display
       $arr_url = explode("/", $_SERVER['PHP_SELF']);
       $str_url = strtolower($arr_url[count($arr_url) - 2]);
+      $strSubsMenu = '';
       if ('admin' == $str_url) {
-        $strSubsMenu = '';
       } else {
-        if ($SUBSCRIBE_EMAIL || $SUBSCRIBE_TELEGRAM) {
+        if (SUBSCRIBE_EMAIL || SUBSCRIBE_TELEGRAM) {
           // Subscriber menu is to be shown...
           $strSubsMenu = '<ul class="nav navbar-nav mr-auto">';
           // If subscriber is not logged on, display subscriber menus
@@ -36,11 +36,11 @@ class Template
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#"><span class="glyphicon glyphicon-th"></span>&nbsp;' . _('Subscribe') . '</a>
                                     <ul class="dropdown-menu ">';
 
-            if ($SUBSCRIBE_EMAIL) {
+            if (SUBSCRIBE_EMAIL) {
               $strSubsMenu .= '<li><a href="?do=email_subscription&amp;new=1"><span class="glyphicon glyphicon-envelope"></span>&nbsp;' . _('Subscribe via email') . '</a></li>';
             }
-            if ($SUBSCRIBE_TELEGRAM) {
-              $strSubsMenu .= '<li><a href="#"><script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="' . $TG_BOT_USERNAME . '" data-size="small" data-userpic="false" data-auth-url="' . WEB_URL . '/telegram_check.php" data-request-access="write"></script></a></li>';
+            if (SUBSCRIBE_TELEGRAM) {
+              $strSubsMenu .= '<li><a href="#"><script async src="https://telegram.org/js/telegram-widget.js?4" data-telegram-login="' . TG_BOT_USERNAME . '" data-size="small" data-userpic="false" data-auth-url="' . WEB_URL . '/telegram_check.php" data-request-access="write"></script></a></li>';
             }
             $strSubsMenu .=  '</ul>';
           }
