@@ -83,7 +83,7 @@ class Template
       <meta name="msapplication-TileColor" content="#ffffff">
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
       <meta name="theme-color" content="#ffffff">
-      <link href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" rel="stylesheet">
+      <link href="/vendor/fontawesome/css/all.min.css" rel="stylesheet">
       <?php
       if (!$admin) {
         $headpath = $_SERVER['DOCUMENT_ROOT'] . "/head.txt";
@@ -106,10 +106,10 @@ class Template
           <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
               <a class="navbar-brand" href="<?php echo WEB_URL; ?>/"><img src="<?php if (strlen(CUSTOM_LOGO_URL) > 1) {
-                                                                                      echo CUSTOM_LOGO_URL;
-                                                                                    } else {
-                                                                                      echo WEB_URL . "/img/logo_white.png";
-                                                                                    } ?>" alt="logo" class="menu-logo" width="50" height="50"></a>
+                                                                                  echo CUSTOM_LOGO_URL;
+                                                                                } else {
+                                                                                  echo WEB_URL . "/img/logo_white.png";
+                                                                                } ?>" alt="logo" class="menu-logo" width="50" height="50"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
