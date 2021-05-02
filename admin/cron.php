@@ -39,7 +39,7 @@ if (!file_exists("../config.php")) {
       } else {
         $http_codes = parse_ini_file("http_codes.ini");
         $status_text = $http_code . " " . $http_codes[$http_code];
-        if (lastOffline($mysqli, $status_type_online, $id, $status_user_id)) {
+        if (!lastOffline($mysqli, $status_type_offline, $id, $status_user_id)) {
           echo " <span style='color:orange'>lastOffline true</span>";
         #  writeStatus($mysqli, $id, "$status_type_offline", "Online check", $status_text, time(), "0", $status_user_id);
         }
@@ -57,7 +57,7 @@ if (!file_exists("../config.php")) {
         echo "<p style='color:green'>" . $id . " " . $name . "<br>RESPONDE: " . $status_text . "</p>";
       } else {
         $status_text = "Can't reach the Server";
-        if (lastOffline($mysqli, $status_type_online, $id, $status_user_id)) {
+        if (!lastOffline($mysqli, $status_type_offline, $id, $status_user_id)) {
           echo " <span style='color:orange'>lastOffline true</span>";
         #  writeStatus($mysqli, $id, "$status_type_offline", "Online check", $status_text, time(), "0", $status_user_id);
         }
