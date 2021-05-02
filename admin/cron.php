@@ -16,7 +16,8 @@ if (!file_exists("../config.php")) {
   {
     $status_time = time();
     $status_user_id = "1";
-    $status_type = "0";
+    $status_type_offline = "0";
+    $status_type_online = "3";
     $ishttp = preg_match("/^http(s)?:/", $url);
     if ($ishttp) {
       $ch = curl_init();
@@ -30,15 +31,18 @@ if (!file_exists("../config.php")) {
       if (($http_code >= "200") && ($http_code < "300")) {
         $status_text = "Running without Problems";
         echo "<p style='color:green'>" . $id . " " . $name;
-        if (lastOffline($mysqli, $status_type, $id, $status_user_id)) {
+        if (lastOffline($mysqli, $status_type_offline, $id, $status_user_id)) {
           echo " <span style='color:orange'>lastOffline true</span>";
-          #  writeStatus($mysqli, $id, "3", "Online check", $status_text, time(), "0", $status_user_id);
+        #  writeStatus($mysqli, $id, "3", "Online check", $status_text, time(), "0", $status_user_id);
         }
         echo "<br>RESPONDE: " . $status_text . "</p>";
       } else {
         $http_codes = parse_ini_file("http_codes.ini");
         $status_text = $http_code . " " . $http_codes[$http_code];
-        # writeStatus($mysqli, $id, "$status_type", "Online check", $status_text, time(), "0", $status_user_id);
+        if (lastOffline($mysqli, $status_type_online, $id, $status_user_id)) {
+          echo " <span style='color:orange'>lastOffline true</span>";
+        #  writeStatus($mysqli, $id, "$status_type_offline", "Online check", $status_text, time(), "0", $status_user_id);
+        }
         echo "<p style='color:red'>" . $id . " " . $name . "<br>RESPONDE: " . $status_text . "</p>";
       }
       curl_close($ch);
@@ -46,14 +50,17 @@ if (!file_exists("../config.php")) {
       list($ip, $port) = preg_split("/:/", $url);
       if (fsockopen($ip, $port)) {
         $status_text = "Running without Problems";
-        if (lastOffline($mysqli, $status_type, $id, $status_user_id)) {
+        if (lastOffline($mysqli, $status_type_offline, $id, $status_user_id)) {
           echo " <span style='color:orange'>lastOffline true</span>";
-          #  writeStatus($mysqli, $id, "3", "Online check", $status_text, time(), "0", $status_user_id);
+        #  writeStatus($mysqli, $id, "3", "Online check", $status_text, time(), "0", $status_user_id);
         }
         echo "<p style='color:green'>" . $id . " " . $name . "<br>RESPONDE: " . $status_text . "</p>";
       } else {
         $status_text = "Can't reach the Server";
-        # writeStatus($mysqli, $id, "$status_type", "Online check", $status_text, time(), "0", $status_user_id);
+        if (lastOffline($mysqli, $status_type_online, $id, $status_user_id)) {
+          echo " <span style='color:orange'>lastOffline true</span>";
+        #  writeStatus($mysqli, $id, "$status_type_offline", "Online check", $status_text, time(), "0", $status_user_id);
+        }
         echo "<p style='color:red'>" . $id . " " . $name . "<br>RESPONDE: " . $status_text . "</p>";
       }
     }
@@ -114,4 +121,3 @@ if (!file_exists("../config.php")) {
   }
   $mysqli->close();
 }
-?>
