@@ -85,9 +85,10 @@ class Service implements JsonSerializable
       global $mysqli;
       $name = htmlspecialchars($_POST['service']);
       $description = htmlspecialchars($_POST['description']);
+      $url = htmlspecialchars($_POST['url']);
       $group_id = $_POST['group_id'];
-      $stmt = $mysqli->prepare("INSERT INTO services ( name, description, group_id ) VALUES ( ?, ?, ? )");
-      $stmt->bind_param("ssi", $name, $description, $group_id);
+      $stmt = $mysqli->prepare("INSERT INTO services ( name, description, url, group_id ) VALUES ( ?, ?, ?, ? )");
+      $stmt->bind_param("sssi", $name, $description, $url, $group_id);
       $stmt->execute();
       $stmt->get_result();
       header("Location: " . WEB_URL . "/admin/?do=settings");
@@ -117,9 +118,10 @@ class Service implements JsonSerializable
       $service_id = $_POST["id"];
       $name = htmlspecialchars($_POST['service']);
       $description = htmlspecialchars($_POST["description"]);
+      $url = htmlspecialchars($_POST["url"]);
       $group_id = $_POST["group_id"];
-      $stmt = $mysqli->prepare("UPDATE services SET name=?, description=?, group_id=? WHERE id = ?");
-      $stmt->bind_param("ssii", $name, $description, $group_id, $service_id);
+      $stmt = $mysqli->prepare("UPDATE services SET name=?, description=?, url=?, group_id=? WHERE id = ?");
+      $stmt->bind_param("sssii", $name, $description, $url, $group_id, $service_id);
       $stmt->execute();
       $stmt->get_result();
       header("Location: " . WEB_URL . "/admin/?do=settings");
