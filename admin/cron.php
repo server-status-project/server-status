@@ -33,7 +33,7 @@ if (!file_exists("../config.php")) {
         echo "<p style='color:green'>" . $id . " " . $name;
         if (lastOffline($mysqli, $status_type_offline, $id, $status_user_id)) {
           echo " <span style='color:orange'>lastOffline true</span>";
-        #  writeStatus($mysqli, $id, "3", "Online check", $status_text, time(), "0", $status_user_id);
+          writeStatus($mysqli, $id, "3", "Online check", $status_text, time(), "0", $status_user_id);
         }
         echo "<br>RESPONDE: " . $status_text . "</p>";
       } else {
@@ -41,7 +41,7 @@ if (!file_exists("../config.php")) {
         $status_text = $http_code . " " . $http_codes[$http_code];
         if (!lastOffline($mysqli, $status_type_offline, $id, $status_user_id)) {
           echo " <span style='color:orange'>lastOffline true</span>";
-        #  writeStatus($mysqli, $id, "$status_type_offline", "Online check", $status_text, time(), "0", $status_user_id);
+          writeStatus($mysqli, $id, "$status_type_offline", "Online check", $status_text, time(), "0", $status_user_id);
         }
         echo "<p style='color:red'>" . $id . " " . $name . "<br>RESPONDE: " . $status_text . "</p>";
       }
@@ -52,14 +52,14 @@ if (!file_exists("../config.php")) {
         $status_text = "Running without Problems";
         if (lastOffline($mysqli, $status_type_offline, $id, $status_user_id)) {
           echo " <span style='color:orange'>lastOffline true</span>";
-        #  writeStatus($mysqli, $id, "3", "Online check", $status_text, time(), "0", $status_user_id);
+          writeStatus($mysqli, $id, "3", "Online check", $status_text, time(), "0", $status_user_id);
         }
         echo "<p style='color:green'>" . $id . " " . $name . "<br>RESPONDE: " . $status_text . "</p>";
       } else {
         $status_text = "Can't reach the Server";
         if (!lastOffline($mysqli, $status_type_offline, $id, $status_user_id)) {
           echo " <span style='color:orange'>lastOffline true</span>";
-        #  writeStatus($mysqli, $id, "$status_type_offline", "Online check", $status_text, time(), "0", $status_user_id);
+          writeStatus($mysqli, $id, "$status_type_offline", "Online check", $status_text, time(), "0", $status_user_id);
         }
         echo "<p style='color:red'>" . $id . " " . $name . "<br>RESPONDE: " . $status_text . "</p>";
       }
