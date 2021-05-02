@@ -59,7 +59,7 @@ if (!$boolEdit) {
 	<div class="form-group">
 		<div class="col-sm-6"><label for="service"><?php echo _("Service"); ?>: </label><input type="text" maxlength="50" name="service" value="<?php echo ((isset($_POST['service'])) ? htmlspecialchars($_POST['service'], ENT_QUOTES) : $service_value); ?>" id="service" placeholder="<?php echo _("service"); ?>" class="form-control" required></div>
 		<div class="col-sm-6"><label for="description"><?php echo _("Description"); ?>: </label><input type="text" maxlength="200" name="description" value="<?php echo ((isset($_POST['description'])) ? htmlspecialchars($_POST['description'], ENT_QUOTES) : $description_value); ?>" id="description" placeholder="<?php echo _("Description"); ?>" class="form-control"></div>
-		<div class="col-sm-6"><label for="adress"><?php echo _("Adress"); ?>: </label><input type="text" maxlength="50" name="description" value="<?php echo ((isset($_POST['url'])) ? htmlspecialchars($_POST['url'], ENT_QUOTES) : $url_value); ?>" id="description" placeholder="<?php echo _("Adress"); ?>" class="form-control"></div>
+		<div class="col-sm-6"><label for="url"><?php echo _("Adress"); ?>: </label><input type="text" maxlength="50" name="url" value="<?php echo ((isset($_POST['url'])) ? htmlspecialchars($_POST['url'], ENT_QUOTES) : $url_value); ?>" id="url" placeholder="<?php echo _("Adress"); ?>" class="form-control"></div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-6">
