@@ -9,8 +9,10 @@ if (!file_exists("../config.php")) {
   /**
    * Check the status
    * @param String $url url or ip to check
+   * @param bool $repeat repeat of the test
+   * @return Array online true/false, url/ip, httpcode
    */
-  function check($url)
+  function check($url, $repeat)
   {
     $ishttp = preg_match("/^http(s)?:/", $url);
     if ($ishttp) {
@@ -23,17 +25,27 @@ if (!file_exists("../config.php")) {
       $http_respond = trim(strip_tags($http_respond));
       $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
       if (($http_code >= "200") && ($http_code < "300")) {
-        return array("url", true, $http_code);
+        return array(true, "url", $http_code);
       } else {
-        return array("url", false, $http_code);
+        if ($repeat) {
+          return false;
+        } else {
+          return array(false, "url", $http_code);
+        }
+        
       }
       curl_close($ch);
     } else {
       list($ip, $port) = preg_split("/:/", $url);
       if (fsockopen($ip, $port)) {
-        return array("ip", true, "");
+        return array(true, "ip", "");
       } else {
-        return array("ip", false, "");
+        if ($repeat) {
+          return false;
+        } else {
+          return array(false, "ip", "");
+        }
+        
       }
     }
   }
@@ -44,6 +56,7 @@ if (!file_exists("../config.php")) {
    * @param int $status_type Error type 0: Major outage 1: Minor outage 2: Planned maintenance 3: Operational
    * @param int $status_service_id id of the service currently being checked
    * @param int $status_user_id the User id
+   * @return bool true/false
    */
   function lastOffline($mysqli, $status_service_id, $status_user_id)
   {
@@ -63,6 +76,7 @@ if (!file_exists("../config.php")) {
    * @param Objekt $mysqli mysql connection info from config.php
    * @param int $status_service_id id of the service currently being checked
    * @param int $status_end_time time against which is checked (normally: current time)
+   * @return bool true/false
    */
   function maintenance($mysqli, $status_service_id, $status_end_time)
   {
@@ -108,7 +122,7 @@ if (!file_exists("../config.php")) {
     if ("$service[url]") {
       $status_id = "$service[id]";
       $status_name = "$service[name]";
-      list($adresstype, $isonline, $http_code) = check("$service[url]");
+      list($isonline, $adresstype, $http_code) = check("$service[url]", false);
 
       if ($isonline) {
         $status_text = "Running without Problems";
@@ -130,7 +144,10 @@ if (!file_exists("../config.php")) {
           echo " <span style='color:orange'>lastOffline true</span>";
           if (!maintenance($mysqli, $status_id, time())) {
             echo " <span style='color:orange'>maintenance true</span>";
-            writeStatus($mysqli, $status_id, "$status_type_offline", "Online check", $status_text, time(), "0", $status_user_id);
+            sleep(10);
+            if (check("$service[url]", true)) {
+              writeStatus($mysqli, $status_id, "0", "Online check", $status_text, time(), "0", $status_user_id);
+            }
           }
         }
         echo "<br>RESPONDE: " . $status_text . "</p>";
