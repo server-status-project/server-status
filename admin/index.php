@@ -39,12 +39,12 @@ if (!file_exists("../config.php")) {
   // If CRON_SERVER_IP is not set, call notification once incident has been saved
   if (empty(CRON_SERVER_IP)) {
     if (isset($_GET['sent']) && $_GET['sent'] == true) {
-      Queue::process_queue();
+      (new Queue)->process_queue();
     }
   } else if (isset($_GET['task']) && $_GET['task'] == 'cron') {
     // Else, base it on call to /admin?task=cron being called from IP defined by CRON_SERVER_IP
     if (!empty(CRON_SERVER_IP) && $_SERVER['REMOTE_ADDR'] == CRON_SERVER_IP) {
-      Queue::process_queue();
+      (new Queue)->process_queue();
       syslog(1, "CRON server processed");
     } else {
       syslog(1, "CRON called from unauthorised server");
