@@ -32,7 +32,6 @@ if (!file_exists("../config.php")) {
         } else {
           return array(false, "url", $http_code);
         }
-        
       }
       curl_close($ch);
     } else {
@@ -45,7 +44,6 @@ if (!file_exists("../config.php")) {
         } else {
           return array(false, "ip", "");
         }
-        
       }
     }
   }
@@ -60,14 +58,16 @@ if (!file_exists("../config.php")) {
    */
   function lastOffline($mysqli, $status_service_id, $status_user_id)
   {
-    $result = $mysqli->query("select status.type from status, services_status where services_status.service_id = '$status_service_id' AND status.id = services_status.status_id AND status.user_id = '$status_user_id' ORDER BY `status`.`id` DESC limit 1;");
-    $status_id_type = $result->fetch_row();
-    if (isset($status_id_type[0])) {
-      if ($status_id_type[0] == "0") {
+    $result = $mysqli->query("select * from status, services_status where services_status.service_id = '$status_service_id' AND status.id = services_status.status_id AND status.user_id = '$status_user_id' ORDER BY `status`.`id` DESC limit 1;");
+    $status_id_types = $result->fetch_row();
+    if (isset($status_id_types[0])) {
+      if ($status_id_types[1] == "0") {
         return true;
       } else {
         return false;
       }
+    } else {
+      return false;
     }
   }
 
@@ -80,11 +80,14 @@ if (!file_exists("../config.php")) {
    */
   function maintenance($mysqli, $status_service_id, $status_end_time)
   {
-    $result = $mysqli->query("select * from status, services_status where services_status.service_id = '$status_service_id' AND status.id = services_status.status_id AND status.end_time <= '$status_end_time' AND `end_time` != '0' ORDER BY `status`.`id` DESC limit 1;");
-    $status_row = $result->fetch_row();
-    echo $status_row;
-    if (isset($status_row[0])) {
-      return true;
+    $result = $mysqli->query("select * from status, services_status where services_status.service_id = '$status_service_id' AND status.id = services_status.status_id AND status.end_time >= '$status_end_time' AND `end_time` != '0' ORDER BY `status`.`id` DESC limit 1;");
+    $status_rows = $result->fetch_row();
+    if (isset($status_rows[0])) {
+      if ($status_rows[1] == "2") {
+        return true;
+      } else {
+        return false;
+      }
     } else {
       return false;
     }
@@ -128,8 +131,10 @@ if (!file_exists("../config.php")) {
         $status_text = "Running without Problems";
         echo "<p style='color:green'>" . $status_id . " " . $status_name;
         if (lastOffline($mysqli, $status_id, $status_user_id)) {
-          echo " <span style='color:orange'>lastOffline true</span>";
+          echo " <span style='color:orange'> - new online</span>";
           writeStatus($mysqli, $status_id, "3", "Online check", $status_text, time(), "0", $status_user_id);
+        } else {
+          echo " <span style='color:orange'> - old online</span>";
         }
         echo "<br>RESPONDE: " . $status_text . "</p>";
       } else {
@@ -141,14 +146,18 @@ if (!file_exists("../config.php")) {
         }
         echo "<p style='color:red'>" . $status_id . " " . $status_name;
         if (!lastOffline($mysqli, $status_id, $status_user_id)) {
-          echo " <span style='color:orange'>lastOffline true</span>";
+          echo "<span style='color:orange'> - new offline</span>";
           if (!maintenance($mysqli, $status_id, time())) {
-            echo " <span style='color:orange'>maintenance true</span>";
             sleep(10);
-            if (check("$service[url]", true)) {
+            if (!check("$service[url]", true)) {
+              echo "<span style='color:orange'>, still offline</span>";
               writeStatus($mysqli, $status_id, "0", "Online check", $status_text, time(), "0", $status_user_id);
             }
+          } else {
+            echo "<span style='color:orange'>, maintenance found</span>";
           }
+        } else {
+          echo "<span style='color:orange'> - old offline</span>";
         }
         echo "<br>RESPONDE: " . $status_text . "</p>";
       }
