@@ -3,3 +3,4 @@
 .code/
 *.log
 src/config.php
+node_modules
