@@ -1,0 +1,25 @@
+version: '2'
+services:
+    server-status-php:
+        container_name: server-status-php
+        build: docker/php
+        volumes:
+            - ./src/:/app
+            - /etc/localtime:/etc/localtime:ro
+        working_dir: /app
+        ports:
+            - "80:80"
+            - "443:443"
+        links:
+            - "server-status-mysql"
+        environment:
+            - DOCKER_DEVELOPMENT=1
+
+    server-status-mysql:
+        container_name: server-status-mysql
+        build: docker/mysql
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+        environment:
+            - MYSQL_DATABASE=server-status
+            - MYSQL_ROOT_PASSWORD=root

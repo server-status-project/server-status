@@ -1,0 +1,6 @@
+{
+    "require": {
+        "erusev/parsedown": "^1.7",
+        "true/punycode": "~2.0"
+    }
+}

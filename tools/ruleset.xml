@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="Custom">
+    <description>PSR2 with two spaces</description>
+    <arg name="tab-width" value="2"/>
+    <rule ref="PSR2" />
+    <rule ref="Generic.WhiteSpace.ScopeIndent">
+        <properties>
+            <property name="exact" value="true"/>
+            <property name="indent" value="2"/>
+            <property name="tabIndent" value="false"/>
+        </properties>
+    </rule>
+    <rule ref="Squiz.Functions.MultiLineFunctionDeclaration">
+        <properties>
+            <property name="indent" value="2" />
+        </properties>
+    </rule>
+    <rule ref="PSR2.Methods.FunctionCallSignature">
+        <properties>
+            <property name="indent" value="2" />
+        </properties>
+    </rule>
+</ruleset>

@@ -1,0 +1,49 @@
+function timeago()
+{
+    $("time.timeago").timeago();
+    $("time.timeago").each(
+        function () {
+            var date = new Date($(this).attr("datetime"));
+            $(this).attr("title",date.toLocaleString());
+        }
+    );
+}
+
+(function () {
+    jQuery.timeago.settings.allowFuture = true;
+
+    timeago();
+
+    $("body").on(
+        "click", ".navbar-toggle", function () {
+            $($(this).data("target")).toggleClass("collapse");
+        }
+    );
+
+    var incidents = $('.timeline');
+    $("body").on(
+        "click", "#loadmore", function (e) {
+            e.preventDefault();
+            var url = $("#loadmore").attr("href") + "&ajax=true";
+            $("#loadmore").remove();
+
+            $.get(
+                url,
+                function (data) {
+                    incidents.append(data);
+                    timeago();
+                }
+            );
+        }
+    );
+
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    $('body').on('click', '.group-parent', function(e) {
+      e.preventDefault();
+      $(e.target).closest('.group-parent').toggleClass('collapsed');
+    })
+})();
+

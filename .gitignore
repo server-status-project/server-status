@@ -1,4 +1,5 @@
-config.php
 .idea/
 .vscode/
 .code/
+*.log
+src/config.php
