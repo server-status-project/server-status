@@ -33,6 +33,7 @@ define("POLICY_MAIL", "sysadmin@example.com"); //contact email in policy
 define("POLICY_PHONE", "123456789");
 define("WHO_WE_ARE","Server Status DEV");
 define("POLICY_URL","http://server-status.localhost/policy.php");
+define("IMPRINT_URL","http://server-status.localhost/imprint.php");
 define("INSTALL_OVERRIDE", false);
 define("DEFAULT_LANGUAGE", "en_GB");
 define("CUSTOM_LOGO_URL",""); // This will use the default logo if left empty

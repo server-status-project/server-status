@@ -34,14 +34,14 @@ if (isset($_GET['id']) && !isset($_POST['id'])) {
 
 
 if (!$boolEdit) {
-  Template::render_header(_('New service'), true); ?>
+  Template::render_header(_('New service'), 'service', true); ?>
 <div class="text-center">
     <h2><?php echo _('Add new service'); ?></h2>
 </div>
   <?php
   $form_url = WEB_URL.'/admin/?do=new-service&amp;new=service';
 } else {
-  Template::render_header(_('New service'), true);
+  Template::render_header(_('New service'), 'service', true);
   ?>
     <div class="text-center">
         <h2><?php echo _('Add new service'); ?></h2>

@@ -35,7 +35,7 @@ if (isset($_GET['what']) && $_GET['what'] == 'toggle') {
   $displayed_user->toggle();
 }
 
-Template::render_header(_("User"), true);
+Template::render_header(_("User"), 'user', true);
 
 ?>
 <div class="text-center">

@@ -7,7 +7,7 @@ if (isset($_GET['delete']) && isset($_GET['type'])) {
   }
 }
 
-Template::render_header(_('Settings'), true);
+Template::render_header(_('Settings'), 'settings', true);
 ?>
 <div class="text-center">
     <h2>Settings</h2>

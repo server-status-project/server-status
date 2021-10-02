@@ -3,7 +3,7 @@ if (isset($_GET['new'])) {
   User::add();
 }
 
-Template::render_header(_('New user'), true); ?>
+Template::render_header(_('New user'), 'new-user', true); ?>
 <div class="text-center">
     <h2>Add new user</h2>
 </div>

@@ -70,7 +70,7 @@ class Constellation
     global $mysqli;
 
       //$query = $mysqli->query("SELECT id, name, description FROM services");
-    $query = $mysqli->query("SELECT services.id, services.name, services.description, services_groups.name as group_name FROM services LEFT JOIN services_groups ON services.group_id=services_groups.id ORDER BY services_groups.name ");
+    $query = $mysqli->query("SELECT services.id, services.name, services.description, services_groups.name as group_name FROM services LEFT JOIN services_groups ON services.group_id=services_groups.id ORDER BY services_groups.name ASC, services.id ASC ");
     $array = array();
     $groups = array();
     if ($query->num_rows) {
@@ -122,14 +122,13 @@ class Constellation
 
       foreach ($groups as $key => $group) {
         if (!empty($key)) {
-
           $visibility_class = 'collapsed';
 
           $status = Service::group_status($group);
 
           if ($visibility[$key] == 1 || ($visibility[$key] == 2 && $status != 5)) {
             $visibility_class = '';
-          } 
+          }
 
           echo '<ul class="list-group components mt-3">';
             // echo '<ul class="platforms list-group mb-2">';
@@ -147,7 +146,6 @@ class Constellation
         }
         echo '</ul>';
       }
-      echo '</ul>';
     } else {
       return $array;
     }

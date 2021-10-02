@@ -1,5 +1,5 @@
 <?php
-Template::render_header(_("Lost password"));
+Template::render_header(_("Lost password"), 'lost-password');
 ?>
   <div class="text-center">
     <h1><?php echo _("Lost password");?></h1>

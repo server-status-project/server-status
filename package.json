@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "sass": "^1.42.1"
+  },
+  "scripts": {
+    "sass": "sass src/css/main.scss --style compressed --no-source-map > src/css/main.css",
+    "convert": "sass-convert src/css/main.sass src/css/main2.scss"
+  }
+}

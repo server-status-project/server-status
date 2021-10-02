@@ -96,7 +96,7 @@ if (!empty($_POST)) {
     */
 }//end if
 
-Template::render_header(_('Options'), true);
+Template::render_header(_('Options'), 'options', true);
 ?>
 <div class="text-center">
     <h2>

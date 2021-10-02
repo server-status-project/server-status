@@ -1,5 +1,5 @@
 <?php
-Template::render_header(_('Login'));
+Template::render_header(_('Login'), 'login');
 ?>
   <div class="text-center">
     <h1><?php echo _('Login'); ?></h1>
