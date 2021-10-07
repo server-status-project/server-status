@@ -118,8 +118,7 @@ class Template {
               if (!$admin) {
               ?>
                 <li class="d-flex">
-                  <input type="checkbox" class="custom-control-input" id="darkSwitch" hidden>
-                  <label class="nav-link" for="darkSwitch"><i class="fas fa-moon"></i></label>
+                  <button class="nav-link" id="theme-toggle" accesskey="t" title="(Alt + T)" onclick="themeToggle()"></button>
                 </li>
                 <li class="nav-item">
                 </li>
@@ -143,8 +142,7 @@ class Template {
                   <a class="nav-link link-light" href="<?php echo WEB_URL; ?>/admin/?do=logout"><?php echo _("Logout"); ?></a>
                 </li>
                 <li class="d-flex">
-                  <input type="checkbox" class="custom-control-input" id="darkSwitch" hidden>
-                  <label class="nav-link" for="darkSwitch"><i class="fas fa-moon"></i></label>
+                  <button class="nav-link" id="theme-toggle" accesskey="t" title="(Alt + T)" onclick="themeToggle()"></button>
                 </li>
               <?php
               }

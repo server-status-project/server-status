@@ -9,29 +9,6 @@ function timeago()
     );
 }
 
-function initTheme() {
-  var darkThemeSelected = localStorage.getItem("darkSwitch") !== null && localStorage.getItem("darkSwitch") === "dark";
-  darkSwitch.checked = darkThemeSelected;
-  darkThemeSelected ? document.body.setAttribute("data-theme", "dark") : document.body.removeAttribute("data-theme");
-}
-
-function resetTheme() {
-  if (darkSwitch.checked) {
-    document.body.setAttribute("data-theme", "dark");
-    localStorage.setItem("darkSwitch", "dark");
-  } else {
-    document.body.removeAttribute("data-theme");
-    localStorage.removeItem("darkSwitch");
-  }
-}
-
-if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-  document.body.setAttribute("data-theme", "dark");
-}
-window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-  const newColorScheme = e.matches ? document.body.setAttribute("data-theme", "dark") : document.body.removeAttribute("data-theme");
-});
-
 (function () {
     jQuery.timeago.settings.allowFuture = true;
 
@@ -69,12 +46,4 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e)
       $(e.target).closest('.group-parent').toggleClass('collapsed');
     })
 
-    var darkSwitch = document.getElementById("darkSwitch");
-
-    if (darkSwitch) {
-      initTheme();
-      darkSwitch.addEventListener("change", function () {
-        resetTheme();
-      });
-    }
 })();

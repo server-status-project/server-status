@@ -41,12 +41,31 @@ a {
   &:hover,
   &:focus {
     text-decoration: none;
-    color: #f5f4f4;
+    color: $text_light;
   }
 }
 
 .centered {
   text-align: center;
+}
+
+#theme-toggle {
+  display: inline-block;
+  background: 0 0;
+  border: 0;
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body:not(.dark) {
+    
+  #theme-toggle::before {
+    content: "\f186";
+  }
 }
 
 #switch {
@@ -396,8 +415,13 @@ footer#footerwrap {
 }
 
 // Dark theme
-body[data-theme='dark'] {
+body.dark {
   background-color: $bg_dark;
+
+  #theme-toggle::before {
+    content: "\f185";
+    color: $text_dark;
+  }
 
   header,
   .navbar-default {
@@ -441,12 +465,12 @@ body[data-theme='dark'] {
 
 // OLD
 .navbar-default .navbar-nav > li > a {
-  color: #f5f4f4;
+  color: $text_light;
   font-size: 1rem;
 }
 
 .navbar-default h1 {
-  color: #f5f4f4;
+  color: $text_light;
   font-size: 1.15rem;
   display: inline-block;
 }
@@ -466,7 +490,7 @@ body[data-theme='dark'] {
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #f5f4f4;
+  color: $text_light;
   background-color: transparent;
 }
 
