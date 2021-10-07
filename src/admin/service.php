@@ -56,13 +56,18 @@ if (!$boolEdit) {
   <?php
   } ?>
   <div class="form-group">
-    <div class="col-sm-6"><label for="service"><?php echo _("Service"); ?>: </label><input type="text" maxlength="50" name="service" value="<?php echo ((isset($_POST['service'])) ? htmlspecialchars($_POST['service'], ENT_QUOTES) : $service_value); ?>" id="service" placeholder="<?php echo _("service"); ?>" class="form-control" required></div>
-    <div class="col-sm-6"><label for="description"><?php echo _("Description"); ?>: </label><input type="text" maxlength="200" name="description" value="<?php echo ((isset($_POST['description'])) ? htmlspecialchars($_POST['description'], ENT_QUOTES) : $description_value); ?>" id="description" placeholder="<?php echo _("Description"); ?>" class="form-control"></div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-6">
-      <label for="group_id"><?php echo _("Service Group"); ?>: </label>
-      <select name="group_id" id="group_id" class="form-control">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="service"><?php echo _("Service"); ?></span>
+      <input type="text" class="form-control" maxlength="50" name="service" value="<?php echo ((isset($_POST['service'])) ? htmlspecialchars($_POST['service'], ENT_QUOTES) : $service_value); ?>" id="service" class="form-control" aria-describedby="service" required>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="description"><?php echo _("Description"); ?></span>
+      <input type="text" class="form-control" maxlength="50" name="description" value="<?php echo ((isset($_POST['description'])) ? htmlspecialchars($_POST['description'], ENT_QUOTES) : $description_value); ?>" id="description" class="form-control" aria-describedby="description">
+    </div>
+
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="group_id"><?php echo _("Service Group"); ?></label>
+      <select class="form-select" name="group_id" id="group_id">
         <?php
         if (!empty($group_id_value)) {
           $group_id = $group_id_value;
@@ -79,6 +84,7 @@ if (!$boolEdit) {
         }
         ?>
       </select>
+      <button class="btn btn-outline-primary" type="submit"><?php echo _("Submit"); ?></button>
     </div>
   </div>
   <?php
@@ -86,5 +92,4 @@ if (!$boolEdit) {
     echo '<input type="hidden" id="id" name="id" value="' . $service_id . '">';
   }
   ?>
-  <button type="submit" class="btn btn-primary float-end"><?php echo _("Submit"); ?></button>
 </form>

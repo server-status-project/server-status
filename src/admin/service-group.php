@@ -54,13 +54,18 @@ if (!$boolEdit) {
   <?php
   } ?>
   <div class="form-group">
-    <div class="col-sm-6"><label for="group"><?php echo _("Service Group Name"); ?>: </label><input type="text" maxlength="50" name="group" value="<?php echo ((isset($_POST['group'])) ? htmlspecialchars($_POST['group'], ENT_QUOTES) : $group_value); ?>" id="group" placeholder="<?php echo _("service group name"); ?>" class="form-control" required></div>
-    <div class="col-sm-6"><label for="description"><?php echo _("Description"); ?>: </label><input type="text" maxlength="100" name="description" value="<?php echo ((isset($_POST['description'])) ? htmlspecialchars($description_value, ENT_QUOTES) : $description_value); ?>" id="description" placeholder="<?php echo _("Description"); ?>" class="form-control"></div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-6">
-      <label for="visibility_id"><?php echo _("Visibility"); ?>: </label>
-      <select name="visibility_id" id="visibility_id" class="form-control">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="group"><?php echo _("Service Group Name"); ?></span>
+      <input type="text" class="form-control" maxlength="50" name="group" value="<?php echo ((isset($_POST['group'])) ? htmlspecialchars($_POST['group'], ENT_QUOTES) : $group_value); ?>" id="group" class="form-control" aria-describedby="group" required>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="description"><?php echo _("Description"); ?></span>
+      <input type="text" class="form-control" maxlength="50" name="description" value="<?php echo ((isset($_POST['description'])) ? htmlspecialchars($_POST['description'], ENT_QUOTES) : $description_value); ?>" id="description" class="form-control" aria-describedby="description">
+    </div>
+
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="group_id"><?php echo _("Service Group"); ?></label>
+      <select class="form-select" name="group_id" id="group_id">
         <?php
         if (!empty($visibility_id_value)) {
           $visibility_id = $visibility_id_value;
@@ -77,6 +82,7 @@ if (!$boolEdit) {
         }
         ?>
       </select>
+      <button class="btn btn-outline-primary" type="submit"><?php echo _("Submit"); ?></button>
     </div>
   </div>
   <?php
@@ -84,5 +90,4 @@ if (!$boolEdit) {
     echo '<input type="hidden" id="id" name="id" value="' . $group_id . '">';
   }
   ?>
-  <button type="submit" class="btn btn-primary float-end"><?php echo _("Submit"); ?></button>
 </form>
