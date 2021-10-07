@@ -30,34 +30,26 @@ if (isset($message)) {
     <div class="clearfix"></div>
   </div>
   <div>
-    <table class="table">
-      <thead>
-        <tr>
-          <!--<th scope="col"><?php echo _("ID"); ?></th>-->
-          <th scope="col"><?php echo _("Name"); ?></th>
-          <th scope="col"><?php echo _("Description"); ?></th>
-          <th scope="col"><?php echo _("Group"); ?></th>
-          <?php if ($user->get_rank() <= 1) { ?>
-            <th scope="col"><?php echo _("Delete"); ?></th>
-          <?php } ?>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        $query = $mysqli->query("SELECT services.*, services_groups.name AS group_name FROM `services` LEFT JOIN services_groups ON services.group_id = services_groups.id ORDER BY services.name ASC");
-        while ($result = $query->fetch_assoc()) {
-          echo "<tr>";
-          echo '<td><a href="' . WEB_URL . '/admin?do=edit-service&id=' . $result['id'] . '">' . $result['name'] . '</a></th>';
-          echo "<td>" . $result['description'] . "</td>";
-          echo "<td>" . $result['group_name'] . "</td>";
-
-          if ($user->get_rank() <= 1) {
-            echo '<td class="text-center"><a href="' . WEB_URL . '/admin/?do=settings&type=service&delete=' . $result['id'] . '" class="link-danger"><i class="fa fa-trash"></i></a></td>';
-          }
-          echo "</tr>";
+    <div class="tables services">
+      <div><?php echo _("Name"); ?></div>
+      <div><?php echo _("Description"); ?></div>
+      <div><?php echo _("Group"); ?></div>
+      <div>
+        <?php if ($user->get_rank() <= 1) {
+          echo _("Delete");
         } ?>
-      </tbody>
-    </table>
+      </div>
+      <?php
+      $query = $mysqli->query("SELECT services.*, services_groups.name AS group_name FROM `services` LEFT JOIN services_groups ON services.group_id = services_groups.id ORDER BY services.name ASC");
+      while ($result = $query->fetch_assoc()) {
+        echo '<div><a href="' . WEB_URL . '/admin?do=edit-service&id=' . $result['id'] . '">' . $result['name'] . '</a></div>';
+        echo "<div>" . $result['description'] . "</div>";
+        echo "<div>" . $result['group_name'] . "</div>";
+        if ($user->get_rank() <= 1) {
+          echo '<div class="centered"><a href="' . WEB_URL . '/admin/?do=settings&type=service&delete=' . $result['id'] . '" class="link-danger"><i class="fa fa-trash"></i></a></div>';
+        }
+      } ?>
+    </div>
   </div>
 </section>
 
@@ -75,37 +67,28 @@ if (isset($message)) {
   </div>
   <div>
     <div>
-      <table class="table">
-
-        <thead>
-          <tr>
-            <!--<th scope="col"><?php echo _("ID"); ?></th>-->
-            <th scope="col"><?php echo _("Group Name"); ?></th>
-            <th scope="col"><?php echo _("In use by"); ?></th>
-            <th scope="col"><?php echo _("Description"); ?></th>
-            <th scope="col"><?php echo _("Visibility"); ?></th>
-            <?php if ($user->get_rank() <= 1) { ?>
-              <th scope="col" class="text-center"><?php echo _("Delete"); ?></th>
-            <?php } ?>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          $query = $mysqli->query("SELECT sg.* , (SELECT COUNT(*) FROM services WHERE services.group_id = sg.id) AS counter FROM services_groups AS sg ORDER BY sg.id ASC");
-          while ($result = $query->fetch_assoc()) {
-            echo "<tr>";
-            echo '<td><a href="' . WEB_URL . '/admin?do=edit-service-group&id=' . $result['id'] . '">' . $result['name'] . '</a></th>';
-            echo '<td> <span class="badge badge-danger ml-2">' . $result['counter'] . '</span>';
-            echo "<td>" . $result['description'] . "</td>";
-            echo "<td>" . $visibility[$result['visibility']] . "</td>";
-
-            if ($user->get_rank() <= 1) {
-              echo '<td class="text-center"><a href="' . WEB_URL . '/admin/?do=settings&type=groups&delete=' . $result['id'] . '" class=" link-danger"><i class="fa fa-trash"></i></a></td>';
-            }
-            echo "</tr>";
+      <div class="tables servicesgroups">
+        <div><?php echo _("Group Name"); ?></div>
+        <div class="centered"><?php echo _("In use by"); ?></div>
+        <div><?php echo _("Description"); ?></div>
+        <div><?php echo _("Visibility"); ?></div>
+        <div>
+          <?php if ($user->get_rank() <= 1) {
+            echo _("Delete");
           } ?>
-        </tbody>
-      </table>
+        </div>
+        <?php
+        $query = $mysqli->query("SELECT sg.* , (SELECT COUNT(*) FROM services WHERE services.group_id = sg.id) AS counter FROM services_groups AS sg ORDER BY sg.id ASC");
+        while ($result = $query->fetch_assoc()) {
+          echo '<div><a href="' . WEB_URL . '/admin?do=edit-service-group&id=' . $result['id'] . '">' . $result['name'] . '</a></div>';
+          echo '<div class="centered">' . $result['counter'] . '</div>';
+          echo "<div>" . $result['description'] . "</div>";
+          echo "<div>" . $visibility[$result['visibility']] . "</div>";
+          if ($user->get_rank() <= 1) {
+            echo '<div class="centered"><a href="' . WEB_URL . '/admin/?do=settings&type=groups&delete=' . $result['id'] . '" class=" link-danger"><i class="fa fa-trash"></i></a></div>';
+          }
+        } ?>
+      </div>
     </div>
 </section>
 
@@ -123,33 +106,25 @@ if (isset($message)) {
   </div>
   <div>
     <div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col"><?php echo _("ID"); ?></th>
-            <th scope="col"><?php echo _("Username"); ?></th>
-            <th scope="col"><?php echo _("Name"); ?></th>
-            <th scope="col"><?php echo _("Surname"); ?></th>
-            <th scope="col"><?php echo _("Email"); ?></th>
-            <th scope="col"><?php echo _("Role"); ?></th>
-            <th scope="col" class="text-center">Active</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          $query = $mysqli->query("SELECT *  FROM users");
-          while ($result = $query->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $result['id'] . "</td>";
-            echo "<td><a href='" . WEB_URL . "/admin/?do=user&id=" . $result['id'] . "'>" . $result['username'] . "</a></td>";
-            echo "<td>" . $result['name'] . "</td>";
-            echo "<td>" . $result['surname'] . "</td>";
-            echo "<td><a href=\"mailto:" . $result['email'] . "\">" . $result['email'] . "</a></td>";
-            echo "<td>" . $permissions[$result['permission']] . "</td>";
-            echo "<td class=\"text-center\"><i class='fa fa-" . ($result['active'] ? "check success" : "times danger") . "'></i></td>";
-            echo "</tr>";
-          } ?>
-        </tbody>
-      </table>
+      <div class="tables users">
+        <div><?php echo _("ID"); ?></div>
+        <div><?php echo _("Username"); ?></div>
+        <div><?php echo _("Name"); ?></div>
+        <div><?php echo _("Surname"); ?></div>
+        <div><?php echo _("Email"); ?></div>
+        <div><?php echo _("Role"); ?></div>
+        <div class="text-center">Active</div>
+        <?php
+        $query = $mysqli->query("SELECT *  FROM users");
+        while ($result = $query->fetch_assoc()) {
+          echo "<div>" . $result['id'] . "</div>";
+          echo "<div><a href='" . WEB_URL . "/admin/?do=user&id=" . $result['id'] . "'>" . $result['username'] . "</a></div>";
+          echo "<div>" . $result['name'] . "</div>";
+          echo "<div>" . $result['surname'] . "</div>";
+          echo "<div><a href=\"mailto:" . $result['email'] . "\">" . $result['email'] . "</a></div>";
+          echo "<div>" . $permissions[$result['permission']] . "</div>";
+          echo "<div class=\"text-center\"><i class='fa fa-" . ($result['active'] ? "check success" : "times danger") . "'></i></div>";
+        } ?>
+      </div>
     </div>
 </section>

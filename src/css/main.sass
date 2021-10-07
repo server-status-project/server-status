@@ -283,8 +283,28 @@ main.container
 
   &#settings
 
-    .input-group-text
-      width: 230px
+    div.tables
+      display: grid
+      grid-gap: 20px 5px
+      padding-bottom: 40px
+
+      &.services
+        grid-template-columns: 150px auto 150px 60px
+
+        & div:nth-child(-n+4)
+          border-bottom: 2px gray solid
+
+      &.servicesgroups
+        grid-template-columns: 150px 100px auto 150px 60px
+
+        & div:nth-child(-n+5)
+          border-bottom: 2px gray solid
+
+      &.users
+        grid-template-columns: 60px auto auto auto auto 200px 60px
+
+        & div:nth-child(-n+7)
+          border-bottom: 2px gray solid
 
   #options
 
