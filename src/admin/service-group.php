@@ -64,8 +64,8 @@ if (!$boolEdit) {
     </div>
 
     <div class="input-group mb-3">
-      <label class="input-group-text" for="group_id"><?php echo _("Service Group"); ?></label>
-      <select class="form-select" name="group_id" id="group_id">
+      <label class="input-group-text" for="visibility_id"><?php echo _("Visibility"); ?></label>
+      <select class="form-select" name="visibility_id" id="visibility_id">
         <?php
         if (!empty($visibility_id_value)) {
           $visibility_id = $visibility_id_value;
