@@ -19,14 +19,14 @@ class Incident implements JsonSerializable
   private $service_id;
   private $service_name;
 
-    /**
-     * Constructs service from its data.
-     *
-     * @param array $data incident data
-     */
+  /**
+   * Constructs service from its data.
+   *
+   * @param array $data incident data
+   */
   function __construct($data)
   {
-      //TODO: Maybe get data from id?
+    //TODO: Maybe get data from id?
     $this->id = $data['status_id'];
     $this->timestamp = $data['time'];
     $this->end_timestamp = $data['end_time'];
@@ -44,11 +44,11 @@ class Incident implements JsonSerializable
     $this->service_name = $data['service_name'];
   }
 
-    /**
-     * Deletes incident by ID.
-     *
-     * @param int ID
-     */
+  /**
+   * Deletes incident by ID.
+   *
+   * @param int ID
+   */
   public static function delete($id)
   {
     global $mysqli, $message, $user;
@@ -76,18 +76,18 @@ class Incident implements JsonSerializable
     header("Location: " . WEB_URL . "/admin");
   }
 
-    /**
-     * Processes submitted form and adds incident unless problem is encountered,
-     * calling this is possible only for admin or higher rank. Also checks requirements
-     * for char limits.
-     *
-     * @return void
-     */
+  /**
+   * Processes submitted form and adds incident unless problem is encountered,
+   * calling this is possible only for admin or higher rank. Also checks requirements
+   * for char limits.
+   *
+   * @return void
+   */
   public static function add()
   {
     global $mysqli, $message;
-      //Sould be a better way to get this array...
-    $statuses = array(_("Major outage"), _("Minor outage"), _("Planned maintenance"), _("Operational") );
+    //Sould be a better way to get this array...
+    $statuses = array(_("Major outage"), _("Minor outage"), _("Planned maintenance"), _("Operational"));
 
     $user_id = $_SESSION['user'];
     $type = $_POST['type'];
@@ -158,7 +158,7 @@ class Incident implements JsonSerializable
         $query = $stmt->get_result();
       }
 
-        // Perform notification to subscribers
+      // Perform notification to subscribers
       $notify = new Notification();
       $notify->populate_impacted_services($status_id);
 
@@ -174,47 +174,48 @@ class Incident implements JsonSerializable
     }
   }
 
-    /**
-     * Renders incident
-     *
-     * @param  Boolean $admin - decides whether admin controls should be rendered
-     * @return void
-     */
+  /**
+   * Renders incident
+   *
+   * @param  Boolean $admin - decides whether admin controls should be rendered
+   * @return void
+   */
   public function render($admin = 0)
   {
     global $icons;
     global $classes, $user;
     $admin = $admin && (($user->get_rank() <= 1) || ($user->get_username() == $this->username));
     $Parsedown = new Parsedown();
-    ?>
-     <article class="card card-<?php echo $classes[$this->type];?>">
-        <div class="card-header icon">
-          <i class="<?php echo $icons[$this->type];?>"></i>
+?>
+    <article class="card border-<?php echo $classes[$this->type]; ?> mb-3">
+      <div class="card-colore icon bg-<?php echo $classes[$this->type]; ?>"><i class="<?php echo $icons[$this->type]; ?>"></i></div>
+      <div class="card-header bg-<?php echo $classes[$this->type]; ?> border-<?php echo $classes[$this->type]; ?>">
+        <?php echo $this->title; ?>
+        <div class="float-end">
+          <?php if ($admin) {
+            echo '<a href="' . WEB_URL . '/admin/?delete=' . $this->id . '" class="delete"><i class="fa fa-trash"></i></a>';
+          } ?>
         </div>
-        <div class="card-header clearfix">
-    <?php echo $this->title; ?>
-    <?php if ($admin) {
-      echo '<a href="' . WEB_URL . '/admin/?delete=' . $this->id . '" class="float-end delete"><i class="fa fa-trash"></i></a>';
-    }?>
-          <time class="float-end timeago" datetime="<?php echo $this->date; ?>"><?php echo $this->date; ?></time>
-        </div>
-        <div class="card-body">
-    <?php echo $Parsedown->setBreaksEnabled(true)->text($this->text); ?>
-        </div>
-        <div class="card-footer clearfix">
-          <small>
-    <?php echo _("Impacted service(s): ");
-    foreach ($this->service_name as $value) {
-      echo '<span class="badge bg-secondary">' . $value . '</span>&nbsp;';
-    }
-
-    if (isset($this->end_date)) {?>
-            <span class="float-end"><?php echo strtotime($this->end_date) > time() ? _("Ending") : _("Ended");?>:&nbsp;<time class="float-end timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
-    <?php } ?>
-          </small>
-        </div>
-      </article>
-    <?php
+        <time class="float-end timeago" datetime="<?php echo $this->date; ?>"><?php echo $this->date; ?></time>
+      </div>
+      <div class="card-body">
+        <?php echo $Parsedown->setBreaksEnabled(true)->text($this->text); ?>
+      </div>
+      <div class="card-footer bg-transparent border-<?php echo $classes[$this->type]; ?>">
+        <p class="card-title">
+          <?php echo _("Impacted service(s): "); ?>
+          <?php if (isset($this->end_date)) { ?>
+            <span class="float-end"><?php echo strtotime($this->end_date) > time() ? _("Ending") : _("Ended"); ?>:&nbsp;<time class="timeago" datetime="<?php echo $this->end_date; ?>"><?php echo $this->end_date; ?></time></span>
+          <?php } ?>
+        </p>
+        <p class="card-badge">
+          <?php foreach ($this->service_name as $value) {
+            echo '<span class="badge bg-secondary">' . $value . '</span>&nbsp;';
+          } ?>
+        </p>
+      </div>
+    </article>
+<?php
   }
 
   public function jsonSerialize()
@@ -227,6 +228,6 @@ class Incident implements JsonSerializable
       "type" => $this->type,
       "title" => $this->title,
       "username" => $this->username
-      ];
+    ];
   }
 }
