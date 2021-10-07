@@ -61,7 +61,7 @@ class Template {
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="description" content="Current service status for <?php echo NAME; ?> can be found here as well as incident history.">
       <link rel="shortcut icon" href="<?php echo WEB_URL; ?>/favicon.ico" type="image/png">
-      <link rel="stylesheet" href="<?php echo WEB_URL; ?>/css/bootstrap.min.css">
+      <link rel="stylesheet" href="<?php echo WEB_URL; ?>/vendor/bootstrap/css/bootstrap.min.css">
       <link rel="stylesheet" href="<?php echo WEB_URL; ?>/css/main.css" media="screen">
       <link rel="stylesheet" href="<?php echo WEB_URL; ?>/css/print.css" media="print">
       <link rel="apple-touch-icon" sizes="57x57" href="<?php echo WEB_URL; ?>/favicon/apple-icon-57x57.png">
@@ -81,7 +81,7 @@ class Template {
       <meta name="msapplication-TileColor" content="#ffffff">
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
       <meta name="theme-color" content="#ffffff">
-      <link href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" rel="stylesheet">
+      <link href="<?php echo WEB_URL; ?>/vendor/fontawesome/css/all.min.css" rel="stylesheet">
       <?php
       if (!$admin) {
         $headpath = $_SERVER['DOCUMENT_ROOT'] . "/head.txt";
@@ -217,12 +217,13 @@ class Template {
         </div>
         <!--/container -->
       </footer>
-      <script src="<?php echo WEB_URL; ?>/js/vendor/jquery.min.js"></script>
-      <script src="<?php echo WEB_URL; ?>/js/vendor/jquery.timeago.js"></script>
-      <script src="<?php echo WEB_URL; ?>/js/vendor/bootstrap.min.js"></script>
+      <script src="<?php echo WEB_URL; ?>/vendor/jquerry/jquery-3.6.0.min.js"></script>
+      <script src="<?php echo WEB_URL; ?>/vendor/jquerry/jquery.timeago.js"></script>
+      <script src="<?php echo WEB_URL; ?>/vendor/bootstrap/js/bootstrap.min.js"></script>
       <script src="<?php echo WEB_URL; ?>/js/main.js"></script>
+      <script src="<?php echo WEB_URL; ?>/js/themeToggle.js"></script>
       <?php if ($admin) { ?>
-        <script src="<?php echo WEB_URL; ?>/js/vendor/flatpickr.min.js"></script>
+        <script src="<?php echo WEB_URL; ?>/vendor/flatpickr/flatpickr.min.js"></script>
         <script src="<?php echo WEB_URL; ?>/js/admin.js"></script>
       <?php } ?>
       <?php if (GOOGLE_RECAPTCHA) {
