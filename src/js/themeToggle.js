@@ -10,10 +10,8 @@ function themeToggle() {
     if (document.body.className.includes("dark")) {
         document.body.classList.remove("dark");
         sessionStorage.setItem("pref-theme", "light");
-        _paq.push(["trackEvent", "pref-theme", "light"]);
     } else {
         document.body.classList.add("dark");
         sessionStorage.setItem("pref-theme", "dark");
-        _paq.push(["trackEvent", "pref-theme", "dark"]);
     }
 }
