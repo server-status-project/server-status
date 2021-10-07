@@ -130,31 +130,31 @@ Template::render_header(_('Options'), 'options', true);
             <?php Template::render_toggle("Use Secure SMTP with PHPMailer", "php_mailer_secure_toggle", $php_mailer_secure_status); ?>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">PHPMailer Path</span>
+                    <span class="input-group-text" id="basic-addon1">Path</span>
                 </div>
                 <input type="text" class="form-control" placeholder="" aria-label="phpmailer_path" aria-describedby="basic-addon1" name="php_mailer_path" value="<?php echo $php_mailer_path; ?>">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">PHPMailer SMTP Host</span>
+                    <span class="input-group-text" id="basic-addon1">SMTP Host</span>
                 </div>
                 <input type="text" class="form-control" placeholder="" aria-label="php_mailer_host" aria-describedby="basic-addon1" name="php_mailer_host" value="<?php echo $php_mailer_host; ?>">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">PHPMailer SMTP Port</span>
+                    <span class="input-group-text" id="basic-addon1">SMTP Port</span>
                 </div>
                 <input type="text" class="form-control" placeholder="" aria-label="php_mailer_port" aria-describedby="basic-addon1" name="php_mailer_port" value="<?php echo $php_mailer_port; ?>">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">PHPMailer Username</span>
+                    <span class="input-group-text" id="basic-addon1">Username</span>
                 </div>
                 <input type="text" class="form-control" placeholder="" aria-label="php_mailer_username" aria-describedby="basic-addon1" name="php_mailer_user" value="<?php echo $php_mailer_user; ?>">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">PHPMailer Password</span>
+                    <span class="input-group-text" id="basic-addon1">Password</span>
                 </div>
                 <input type="password" class="form-control" placeholder="" aria-label="php_mailer_password" aria-describedby="basic-addon1" name="php_mailer_pass" value="<?php echo $php_mailer_pass; ?>">
             </div>
@@ -174,13 +174,13 @@ Template::render_header(_('Options'), 'options', true);
         <div class="card-body">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Telegram BOT API Token</span>
+                    <span class="input-group-text" id="basic-addon1">API Token</span>
                 </div>
                 <input type="text" class="form-control" placeholder="" aria-label="telegram_bot_api_token" aria-describedby="basic-addon1" name="tg_bot_api_token" value="<?php echo $tg_bot_api_token; ?>">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Telegram BOT Username</span>
+                    <span class="input-group-text" id="basic-addon1">Username</span>
                 </div>
                 <input type="text" class="form-control" placeholder="" aria-label="telegram_bot_username" aria-describedby="basic-addon1" name="tg_bot_username" value="<?php echo $tg_bot_username; ?>">
             </div>
@@ -194,13 +194,13 @@ Template::render_header(_('Options'), 'options', true);
         <div class="card-body">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Google reChaptcha Sitekey</span>
+                    <span class="input-group-text" id="basic-addon1">Sitekey</span>
                 </div>
                 <input type="text" class="form-control" placeholder="" aria-label="google_sitekey" aria-describedby="basic-addon1" name="google_recaptcha_sitekey" value="<?php echo $google_recaptcha_sitekey; ?>">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Google reChaptcha Secret</span>
+                    <span class="input-group-text" id="basic-addon1">Secret</span>
                 </div>
                 <input type="text" class="form-control" placeholder="" aria-label="google_secret" aria-describedby="basic-addon1" name="google_recaptcha_secret" value="<?php echo $google_recaptcha_secret; ?>">
             </div>
