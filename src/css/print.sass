@@ -1,0 +1,115 @@
+body
+  background: #ffffff
+  margin: 0
+  height: 100%
+  line-height: 24px
+  font-family: 'Open Sans', sans-serif
+
+#status-container
+  border-radius: 0
+  border-top: 1px solid #e0e0e0
+  border-bottom: 1px solid #e0e0e0
+
+  .item
+    border-bottom: 1px solid #e0e0e0
+
+    &:last-child
+      border: none
+
+  .status
+
+    &.success
+      color: #2fcc66!important
+      font-weight: bolder
+
+    &.warning
+      color: #edaa16!important
+      font-weight: bolder
+
+    &.danger
+      color: #e74c3c!important
+      font-weight: bolder
+
+    &.primary
+      color: #3A72BD!important
+      font-weight: bolder
+
+#status-big
+  float: none
+  width: 100%
+  text-align: center
+  font-family: 'Fira Sans', sans-serif
+
+  font-size: 1.5em
+.wrapper
+  padding-left: 20%
+  padding-right: 20%
+
+.service
+  float: left
+  box-sizing: border-box
+  width: 60%
+  min-width: 200px
+  padding: 15px 35px
+  font-weight: bold
+  font-size: 1em
+  font-family: 'Fira Sans', sans-serif
+
+.status
+  float: left
+  box-sizing: border-box
+  width: 40%
+  min-width: 150px
+  padding: 15px 35px
+  text-align: right
+  font-size: 0.8em
+  font-family: 'Fira Sans', sans-serif
+
+.panel-success
+  border-color: #2fcc66
+
+#footerwrap
+  display: none
+
+.btn
+  display: none
+
+h2
+  &.panel-title
+    float: left
+
+h3
+  text-align: center
+
+.panel-heading
+  &.icon
+    width: 50px
+    float: left
+    border: none
+
+.panel,.panel-heading,.panel-footer
+  border-width: 3px
+
+body .panel-danger,
+.panel-danger > .panel-body,
+.panel-danger > .panel-heading,
+.panel-danger > .panel-footer
+  border-color: #a94442
+
+body .panel-success,
+.panel-success > .panel-body,
+.panel-success > .panel-heading,
+.panel-success > .panel-footer
+  border-color: #2fcc66
+
+body .panel-warning,
+.panel-warning > .panel-body,
+.panel-warning > .panel-heading,
+.panel-warning > .panel-footer
+  border-color: #edaa16
+
+body .panel-primary,
+.panel-primary > .panel-body,
+.panel-primary > .panel-heading,
+.panel-primary > .panel-footer
+  border-color: #337ab7
