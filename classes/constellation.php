@@ -73,7 +73,7 @@ class Constellation
     global $mysqli;
 
     //$query = $mysqli->query("SELECT id, name, description FROM services");
-    $query = $mysqli->query("SELECT services.id, services.name, services.description, services_groups.name as group_name FROM services LEFT JOIN services_groups ON services.group_id=services_groups.id ORDER BY services_groups.name ");
+    $query = $mysqli->query("SELECT services.id, services.name, services.description, services_groups.name as group_name FROM services LEFT JOIN services_groups ON services.group_id=services_groups.id ORDER BY services_groups.name ASC, services.name;");
     $array = array();
     if ($query->num_rows){
       $timestamp = time();
