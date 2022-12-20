@@ -13,7 +13,7 @@ It means the beta that is heavily unstable that is meant for contributors to mak
 #### Public Beta
 ##### This beta has some bugs that are not really noticeable and mostly exist as bugs. Best for trying the new features before updating!
 -->
-Very simple server status page written in PHP that can run on **PHP 5.4+** - even on **shared webhosting** even without shell access. Because why waste your money on another server (or host on a server that you might want to do maintenance on), when you can use cheap webhosting? And as a cherry on top - it works even without javascript!
+Very simple server status page written in PHP that can run on **PHP 5.5+** - even on **shared webhosting** even without shell access. Because why waste your money on another server (or host on a server that you might want to do maintenance on), when you can use cheap webhosting? And as a cherry on top - it works even without javascript!
 
 ## How do I install this thing?
 Simply put the files on your server and access it from your browser. There will be a simple install dialog waiting for you.
