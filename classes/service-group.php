@@ -153,7 +153,7 @@ class ServiceGroup
    * Get list of services groups.
    * @return array $groups
    */
-  public function get_groups() {
+  public static function get_groups() {
     global $mysqli;
     $stmt = $mysqli->query("SELECT id, name FROM services_groups ORDER by name ASC");
 

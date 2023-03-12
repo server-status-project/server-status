@@ -60,6 +60,11 @@ class Notification
         $sql = "SELECT DISTINCT subscriberIDFK FROM services_subscriber WHERE serviceIDFK IN (" . $this->serviceids . ")";
         $query = $mysqli->query($sql);
 
+        if (0 === $query->num_rows) {
+          // skip processing if no one needs to be notified
+          return;
+        }
+
         // Create the queue tasks for email/telegram notifications
         $queue = new Queue();
         $queue->status  = $queue->all_status['populating'];

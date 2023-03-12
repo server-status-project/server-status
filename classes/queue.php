@@ -114,7 +114,7 @@ class Queue
     }
 
     // TODO: Fix max attempts for notifications
-    public function process_queue(){
+    public static function process_queue(){
       global $mysqli;
       $stmt = $mysqli->query("SELECT qn.id, qn.task_id, qn.status, qn.subscriber_id, qn.retries, sub.firstname, sub.userID, sub.token FROM queue_notify AS qn INNER JOIN subscribers AS sub ON qn.subscriber_id = sub.subscriberID WHERE qn.status NOT LIKE 2 AND sub.active=1");
       while ( $result = $stmt->fetch_assoc() ) {
