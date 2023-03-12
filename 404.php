@@ -1,4 +1,7 @@
 <?php 
+define("NAME", "");
+define("TITLE", "");
+define("WEB_URL", "");
 require_once("template.php");
 if (!file_exists("config.php"))
 {
