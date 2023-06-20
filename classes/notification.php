@@ -130,7 +130,7 @@ class Notification
      * @param string $msg Body of message
      * @return boolean true = Sent / False = failed
      */
-    public function submit_queue_telegram($userID, $firstname, $msg)
+    public static function submit_queue_telegram($userID, $firstname, $msg)
     {
         // TODO Handle limitations (Max 30 different subscribers per second)
         // TODO Error handling
@@ -155,7 +155,7 @@ class Notification
      * @param String $uthkey Users token for managing subscription
      * @return void
      */
-    public function submit_queue_email($subscriber, $subject, $msg)
+    public static function submit_queue_email($subscriber, $subject, $msg): bool
     {
         // TODO Error handling
         $mailer = new Mailer();

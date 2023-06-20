@@ -150,7 +150,6 @@ class LocaleNegotiator
 		'nl_BE' => 'Nederlands',
 		'nl_NL' => 'Nederlands',
 		'nn_NO' => 'Nynorsk',
-		'nb_NO' => 'Norsk Bokmål',
 		'nso_ZA' => 'Northern sotho',
 		'oc_FR' => 'Occitan',
 		'or_IN' => 'ଓଡ଼ିଆ',

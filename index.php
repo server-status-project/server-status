@@ -100,7 +100,7 @@ Template::render_header("Status");
     <?php $constellation->render_status();?>
     </div>
 
-<?php if ($mysqli->query("SELECT count(*) FROM status")->num_rows)
+<?php if ($mysqli->query("SELECT count(*) FROM status"))
 {
   ?>
       <div id="timeline">

@@ -49,7 +49,7 @@ class Queue
      * Remove task from the queue
      * @return void
      */
-    public function delete_task($task_id){
+    public static function delete_task($task_id){
         global $mysqli;
         $stmt = $mysqli->prepare("DELETE FROM queue_task WHERE id = ?");
         $stmt->bind_param("i", $task_id);
@@ -98,14 +98,14 @@ class Queue
         $this->set_task_status($this->all_status['ready']); // Make task available for release
     }
 
-    public function update_notification_retries($task_id, $subscriber_id) {
+    public static function update_notification_retries($task_id, $subscriber_id) {
         global $mysqli;
         $stmt = $mysqli->prepare("UPDATE queue_notify SET retries = retries+1 WHERE task_id = ? AND subscriber_id = ?");
         $stmt->bind_param("ii", $task_id, $subscriber_id);
         $stmt->execute();
     }
 
-    public function delete_notification($task_id, $subscriber_id) {
+    public static function delete_notification($task_id, $subscriber_id) {
         global $mysqli;
         $stmt = $mysqli->prepare("DELETE FROM queue_notify WHERE task_id = ? AND subscriber_id = ?");
         $stmt->bind_param("ii", $task_id, $subscriber_id);
