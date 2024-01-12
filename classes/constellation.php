@@ -69,7 +69,7 @@ class Constellation
    * @param boolean $admin
    * @return array of services
    */
-  public function render_status($admin = false, $heading = true){
+  public function render_status($admin = false, $heading = true): array{
     global $mysqli;
 
     //$query = $mysqli->query("SELECT id, name, description FROM services");

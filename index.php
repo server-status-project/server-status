@@ -40,14 +40,13 @@ define("TITLE", $db->getSetting($mysqli,"title"));
 define("WEB_URL", $db->getSetting($mysqli,"url"));
 define("MAILER_NAME", $db->getSetting($mysqli,"mailer"));
 define("MAILER_ADDRESS", $db->getSetting($mysqli,"mailer_email"));
-
-define("SUBSCRIBE_EMAIL", $db->getBooleanSetting($mysqli,"subscribe_email"));
-define("SUBSCRIBE_TELEGRAM", $db->getBooleanSetting($mysqli,"subscribe_telegram"));
-define("TG_BOT_USERNAME", $db->getSetting($mysqli,"tg_bot_username"));
-define("TG_BOT_API_TOKEN", $db->getSetting($mysqli,"tg_bot_api_token"));
-define("GOOGLE_RECAPTCHA", $db->getBooleanSetting($mysqli,"google_recaptcha"));
-define("GOOGLE_RECAPTCHA_SITEKEY", $db->getSetting($mysqli,"google_recaptcha_sitekey"));
-define("GOOGLE_RECAPTCHA_SECRET", $db->getSetting($mysqli,"google_recaptcha_secret"));
+define("SUBSCRIBE_EMAIL", $db->getBooleanSetting($mysqli,"subscribe_email") ?: "");
+define("SUBSCRIBE_TELEGRAM", $db->getBooleanSetting($mysqli,"subscribe_telegram") ?: "");
+define("TG_BOT_USERNAME", $db->getSetting($mysqli,"tg_bot_username") ?: "");
+define("TG_BOT_API_TOKEN", $db->getSetting($mysqli,"tg_bot_api_token") ?: "");
+define("GOOGLE_RECAPTCHA", $db->getBooleanSetting($mysqli,"google_recaptcha") ?: "");
+define("GOOGLE_RECAPTCHA_SITEKEY", $db->getSetting($mysqli,"google_recaptcha_sitekey") ?: "");
+define("GOOGLE_RECAPTCHA_SECRET", $db->getSetting($mysqli,"google_recaptcha_secret") ?: "");
 $offset = 0;
 
 if (isset($_GET['ajax']))
@@ -101,7 +100,7 @@ Template::render_header("Status");
     <?php $constellation->render_status();?>
     </div>
 
-<?php if ($mysqli->query("SELECT count(*) FROM status")->num_rows)
+<?php if ($mysqli->query("SELECT count(*) FROM status"))
 {
   ?>
       <div id="timeline">

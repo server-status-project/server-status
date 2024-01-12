@@ -180,7 +180,7 @@ class Service implements JsonSerializable
    * @param Service[] $array array of services
    * @return void
    */
-  public static function current_status($array){
+  public static function current_status($array): void{
     global $all, $some, $classes;
     $statuses = array(0,0,0,0);
     $worst = 5;
@@ -258,7 +258,7 @@ class Service implements JsonSerializable
     }
   }
 
-  public function jsonSerialize() {
+  public function jsonSerialize(): mixed {
     global $statuses;
     return [
       "id" => $this->id,

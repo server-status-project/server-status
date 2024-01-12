@@ -49,7 +49,7 @@ class Queue
      * Remove task from the queue
      * @return void
      */
-    public function delete_task($task_id){
+    public static function delete_task($task_id){
         global $mysqli;
         $stmt = $mysqli->prepare("DELETE FROM queue_task WHERE id = ?");
         $stmt->bind_param("i", $task_id);
@@ -98,14 +98,14 @@ class Queue
         $this->set_task_status($this->all_status['ready']); // Make task available for release
     }
 
-    public function update_notification_retries($task_id, $subscriber_id) {
+    public static function update_notification_retries($task_id, $subscriber_id) {
         global $mysqli;
         $stmt = $mysqli->prepare("UPDATE queue_notify SET retries = retries+1 WHERE task_id = ? AND subscriber_id = ?");
         $stmt->bind_param("ii", $task_id, $subscriber_id);
         $stmt->execute();
     }
 
-    public function delete_notification($task_id, $subscriber_id) {
+    public static function delete_notification($task_id, $subscriber_id) {
         global $mysqli;
         $stmt = $mysqli->prepare("DELETE FROM queue_notify WHERE task_id = ? AND subscriber_id = ?");
         $stmt->bind_param("ii", $task_id, $subscriber_id);
@@ -114,7 +114,7 @@ class Queue
     }
 
     // TODO: Fix max attempts for notifications
-    public function process_queue(){
+    public static function process_queue(){
       global $mysqli;
       $stmt = $mysqli->query("SELECT qn.id, qn.task_id, qn.status, qn.subscriber_id, qn.retries, sub.firstname, sub.userID, sub.token FROM queue_notify AS qn INNER JOIN subscribers AS sub ON qn.subscriber_id = sub.subscriberID WHERE qn.status NOT LIKE 2 AND sub.active=1");
       while ( $result = $stmt->fetch_assoc() ) {
