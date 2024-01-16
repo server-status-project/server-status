@@ -57,7 +57,7 @@ And many more!
 6. Restart apache 'sudo service apache2 restart'
 7. Enjoy!
 ### Do you have a demo page?
-Yes we have! Head over to https://demo.status.sajdl.com/admin and try the admin interface for yourself.
+Yes we have! Head over to [https://server-status.oppersitios.com/admin](https://server-status.oppersitios.com/admin) and try the admin interface for yourself.
 Login details:
 ```
 email: sysadmin@example.com
